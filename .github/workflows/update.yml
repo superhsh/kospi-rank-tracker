@@ -1,0 +1,58 @@
+name: 📈 Update Stock Rankings
+
+on:
+  # 매 평일 KST 18:30 (= UTC 09:30) 자동 실행
+  schedule:
+    - cron: '30 9 * * 1-5'
+
+  # 언제든 수동 실행 가능 (GitHub Actions 탭 → Run workflow)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '수집 날짜 (YYYYMMDD, 비워두면 오늘)'
+        required: false
+        default: ''
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # 데이터·HTML 커밋에 필요
+
+    steps:
+      # ① 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ② Python 환경 설정
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ③ 의존성 설치
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ④ 데이터 수집 + HTML 생성
+      - name: Fetch data and generate report
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            python run_daily.py --date "${{ github.event.inputs.date }}"
+          else
+            python run_daily.py
+          fi
+
+      # ⑤ 변경사항 커밋 & 푸시
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "github-actions[bot]"
+          git add data/ index.html
+          # 변경사항이 없으면 커밋 안 함 (휴장일 등)
+          git diff --staged --quiet && echo "변경사항 없음 — 커밋 스킵" || \
+            git commit -m "📊 Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git push
