@@ -1,7 +1,9 @@
 """
 reporter.py
 분석 결과 딕셔너리를 받아 self-contained index.html을 생성합니다.
-탭 구성: 장중 | 일별 | 주별 | 월별 | 히스토리(Chart.js 라인 차트)
+
+탭 구성: 장중 | 일별 | 주별 | 월별
+각 탭 하단에 해당 기간 Top5 종목의 순위 변동 히스토리 차트 포함
 """
 
 import json
@@ -53,8 +55,6 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .period-tabs .tab-btn.active          { background: #2e7d32; color: #fff; border-color: #2e7d32; }
     .period-tabs .tab-btn.intraday.active { background: #e65100; color: #fff; border-color: #e65100; }
     .period-tabs .tab-btn.intraday        { color: #e65100; border-color: #ffe0cc; }
-    .period-tabs .tab-btn.history.active  { background: #6a1b9a; color: #fff; border-color: #6a1b9a; }
-    .period-tabs .tab-btn.history         { color: #6a1b9a; border-color: #e1bee7; }
 
     /* ── 장중 배너 ── */
     .intraday-banner {
@@ -121,50 +121,48 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .rank-path   { font-size: 12px; color: #777; margin-top: 3px; }
     .rank-path strong { color: #333; }
 
-    /* ── 히스토리 차트 영역 ── */
-    .history-section { background: #fff; border-radius: 14px; padding: 20px;
-                       box-shadow: 0 1px 5px rgba(0,0,0,.07); }
-
-    .history-controls {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      align-items: center; margin-bottom: 16px;
+    /* ── 히스토리 차트 박스 ── */
+    .hist-box {
+      background: #fff; border-radius: 14px; padding: 18px 20px 14px;
+      margin-top: 18px;
+      box-shadow: 0 1px 5px rgba(0,0,0,.07);
+      border-top: 3px solid #e3f2fd;
     }
-    .history-controls label { font-size: 12px; color: #555; font-weight: 600; }
+    .hist-box.intraday { border-top-color: #ffe0b2; }
+    .hist-box.daily    { border-top-color: #c8e6c9; }
+    .hist-box.weekly   { border-top-color: #bbdefb; }
+    .hist-box.monthly  { border-top-color: #e1bee7; }
 
-    .filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
-    .filter-btn {
-      padding: 4px 12px; border: 1.5px solid #ddd; border-radius: 12px;
-      background: #fff; font-size: 12px; font-weight: 600; color: #666;
-      cursor: pointer; transition: all .15s;
+    .hist-title {
+      font-size: 13px; font-weight: 700; color: #555;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
     }
-    .filter-btn.active { background: #6a1b9a; color: #fff; border-color: #6a1b9a; }
-    .filter-btn:hover:not(.active) { border-color: #ba68c8; color: #6a1b9a; }
+    .hist-title .hist-badge {
+      font-size: 11px; font-weight: 700; padding: 2px 9px;
+      border-radius: 8px; color: #fff;
+    }
+    .hist-badge.intraday { background: #e65100; }
+    .hist-badge.daily    { background: #2e7d32; }
+    .hist-badge.weekly   { background: #1565c0; }
+    .hist-badge.monthly  { background: #6a1b9a; }
 
-    .top-n-select {
-      padding: 4px 10px; border: 1.5px solid #ddd; border-radius: 12px;
-      font-size: 12px; font-weight: 600; color: #555; cursor: pointer;
-      background: #fff;
+    .hist-chart-wrap {
+      position: relative; width: 100%; height: 280px;
     }
+    .hist-chart-wrap canvas { width: 100% !important; height: 100% !important; }
 
-    .chart-wrapper {
-      position: relative; width: 100%; height: 420px;
+    .hist-legend {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 12px; padding-top: 10px;
+      border-top: 1px solid #f5f5f5;
     }
-    .chart-wrapper canvas { width: 100% !important; height: 100% !important; }
-
-    .history-legend {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-top: 16px; padding-top: 14px;
-      border-top: 1px solid #f0f0f0;
-    }
-    .legend-item {
+    .hist-legend-item {
       display: flex; align-items: center; gap: 5px;
-      padding: 3px 10px; border-radius: 10px; cursor: pointer;
-      font-size: 12px; font-weight: 600; border: 1.5px solid transparent;
-      background: #fafafa; color: #555; transition: all .15s;
+      font-size: 12px; font-weight: 600; color: #444;
     }
-    .legend-item:hover { background: #f3e5f5; border-color: #ce93d8; }
-    .legend-item.hidden-stock { opacity: .38; text-decoration: line-through; }
-    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .hist-legend-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
 
     /* ── 데이터 없음 ── */
     .no-data {
@@ -185,7 +183,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
       header { padding: 18px 14px 14px; }
       header h1 { font-size: 17px; }
       .change-num { font-size: 22px; }
-      .chart-wrapper { height: 300px; }
+      .hist-chart-wrap { height: 220px; }
     }
   </style>
 </head>
@@ -210,21 +208,24 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
   <!-- 기간 탭 -->
   <div class="tab-bar period-tabs" id="period-tabs"></div>
 
-  <!-- 장중 배너 (장중 탭일 때만 표시) -->
+  <!-- 장중 배너 -->
   <div class="intraday-banner" id="intraday-banner" style="display:none">
     <span>⚡ 장중</span>
     <span class="time-badge" id="intraday-time-badge">-</span>
     <span id="intraday-comp-label">기준</span>
   </div>
 
-  <!-- 섹션 헤더 (히스토리 탭에서는 숨김) -->
-  <div class="section-header" id="section-header">
+  <!-- 섹션 헤더 -->
+  <div class="section-header">
     <h2 id="section-title">-</h2>
     <span class="compare-label" id="compare-label"></span>
   </div>
 
-  <!-- 카드 / 차트 영역 -->
+  <!-- Top5 카드 영역 -->
   <div id="cards"></div>
+
+  <!-- 히스토리 차트 영역 -->
+  <div id="hist-section"></div>
 
 </div>
 
@@ -233,40 +234,29 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
   장중 09:20·11:00·13:00·15:00 KST / 일별 16:00 KST 자동 업데이트
 </footer>
 
-<!-- Chart.js (히스토리 탭 사용) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 const DATA = /*__DATA__*/null/*__DATA__*/;
 
 let currentMarket = 'kospi';
 let currentPeriod = 'intraday';
+let activeChart   = null;   // 현재 Chart.js 인스턴스
+
+// Top5 배지 색상 (1위~5위)
+const TOP5_COLORS = ['#e53935','#1e88e5','#43a047','#fb8c00','#8e24aa'];
 
 const PERIOD_META = {
-  intraday: { label: '장중',   title: '장중 순위 상승 Top 5',         intraday: true },
-  daily:    { label: '일별',   title: '전일 대비 시총 순위 상승 Top 5' },
-  weekly:   { label: '주별',   title: '전주 대비 시총 순위 상승 Top 5' },
-  monthly:  { label: '월별',   title: '전월 대비 시총 순위 상승 Top 5' },
-  history:  { label: '히스토리', title: '시총 순위 변동 히스토리',       history: true },
+  intraday: { label:'장중',  title:'장중 순위 상승 Top 5',         cls:'intraday',
+              histTitle:'최근 3일 장중 순위 변동 이력' },
+  daily:    { label:'일별',  title:'전일 대비 시총 순위 상승 Top 5', cls:'daily',
+              histTitle:'최근 1개월 일별 순위 변동 이력' },
+  weekly:   { label:'주별',  title:'전주 대비 시총 순위 상승 Top 5', cls:'weekly',
+              histTitle:'최근 3개월 주별 순위 변동 이력' },
+  monthly:  { label:'월별',  title:'전월 대비 시총 순위 상승 Top 5', cls:'monthly',
+              histTitle:'전체 기간 월별 순위 변동 이력' },
 };
 const MEDAL_CLASS = ['m1','m2','m3','',''];
 const INTRA_MEDAL = ['m1 intra','intra','intra','intra','intra'];
-
-// ── 히스토리 상태 ──
-let historyCache  = {};         // market → history JSON
-let historyChart  = null;       // Chart.js 인스턴스
-let historyFilter = 'all';      // 'all' | 'daily' | 'intraday'
-let historyTopN   = 15;         // 기본 표시 종목 수
-let hiddenTickers = new Set();  // 사용자가 숨긴 종목
-
-// 30색 팔레트
-const PALETTE = [
-  '#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00',
-  '#a65628','#f781bf','#4e79a7','#59a14f','#f28e2b',
-  '#76b7b2','#edc948','#b07aa1','#ff9da7','#9c755f',
-  '#bab0ac','#1b9e77','#d95f02','#7570b3','#e7298a',
-  '#66a61e','#e6ab02','#a6761d','#666666','#8dd3c7',
-  '#bebada','#fb8072','#80b1d3','#fdb462','#b3de69',
-];
 
 function fmtDate(d) {
   if (!d || d.length < 8) return d || '-';
@@ -283,9 +273,8 @@ function init() {
   document.getElementById('last-updated').textContent = DATA.updated_at || '-';
   document.getElementById('current-date').textContent = fmtDate(DATA.current_date);
 
-  const hasIntraday = DATA.intraday && (
-    DATA.intraday.kospi?.available || DATA.intraday.kosdaq?.available
-  );
+  const hasIntraday = DATA.intraday &&
+    (DATA.intraday.kospi?.available || DATA.intraday.kosdaq?.available);
   currentPeriod = hasIntraday ? 'intraday' : 'daily';
 
   buildPeriodTabs(hasIntraday);
@@ -295,11 +284,11 @@ function init() {
 function buildPeriodTabs(hasIntraday) {
   const container = document.getElementById('period-tabs');
   const periods   = hasIntraday
-    ? ['intraday','daily','weekly','monthly','history']
-    : ['daily','weekly','monthly','history'];
+    ? ['intraday','daily','weekly','monthly']
+    : ['daily','weekly','monthly'];
 
   container.innerHTML = periods.map(p => {
-    const cls = `tab-btn${p==='intraday' ? ' intraday' : p==='history' ? ' history' : ''}`;
+    const cls = `tab-btn${p === 'intraday' ? ' intraday' : ''}`;
     return `<button class="${cls}" onclick="switchPeriod('${p}')">${PERIOD_META[p].label}</button>`;
   }).join('');
 }
@@ -310,12 +299,7 @@ function switchMarket(m) {
   document.querySelectorAll('.market-tabs .tab-btn').forEach((btn, i) => {
     btn.classList.toggle('active', (i===0 && m==='kospi') || (i===1 && m==='kosdaq'));
   });
-  if (currentPeriod === 'history') {
-    hiddenTickers.clear();
-    renderHistory();
-  } else {
-    render();
-  }
+  render();
 }
 
 function switchPeriod(p) {
@@ -323,52 +307,48 @@ function switchPeriod(p) {
   document.querySelectorAll('.period-tabs .tab-btn').forEach(btn => {
     btn.classList.toggle('active', btn.textContent === PERIOD_META[p].label);
   });
-  if (p === 'history') {
-    hiddenTickers.clear();
-    renderHistory();
-  } else {
-    render();
-  }
+  render();
 }
 
-/* ── 일반 탭 렌더링 ──────────────────────────────────────────────────────── */
+/* ── 메인 렌더링 ────────────────────────────────────────────────────────── */
 function render() {
-  const container = document.getElementById('cards');
-  const titleEl   = document.getElementById('section-title');
-  const labelEl   = document.getElementById('compare-label');
-  const banner    = document.getElementById('intraday-banner');
-  const header    = document.getElementById('section-header');
+  // 기존 차트 파기
+  if (activeChart) { activeChart.destroy(); activeChart = null; }
 
-  header.style.display = 'flex';
+  const titleEl  = document.getElementById('section-title');
+  const labelEl  = document.getElementById('compare-label');
+  const banner   = document.getElementById('intraday-banner');
   titleEl.textContent  = PERIOD_META[currentPeriod].title;
   banner.style.display = 'none';
   labelEl.className    = 'compare-label';
 
-  // 히스토리 차트 인스턴스 파기
-  if (historyChart) { historyChart.destroy(); historyChart = null; }
-
   if (currentPeriod === 'intraday') {
-    renderIntraday(container, titleEl, labelEl, banner);
+    renderIntraday(titleEl, labelEl, banner);
   } else {
-    renderPeriod(container, labelEl);
+    renderPeriod(labelEl);
   }
 }
 
-function renderIntraday(container, titleEl, labelEl, banner) {
+/* ── 장중 탭 ─────────────────────────────────────────────────────────────── */
+function renderIntraday(titleEl, labelEl, banner) {
+  const cards = document.getElementById('cards');
   const idata = DATA.intraday?.[currentMarket];
+
   if (!idata || !idata.available || !idata.top5?.length) {
     labelEl.textContent = '';
-    container.innerHTML = noDataHTML(idata?.comparison || '장중 데이터 없음');
+    cards.innerHTML     = noDataHTML(idata?.comparison || '장중 데이터 없음');
+    document.getElementById('hist-section').innerHTML = '';
     return;
   }
+
   banner.style.display = 'flex';
   document.getElementById('intraday-time-badge').textContent = idata.label_display || '-';
   document.getElementById('intraday-comp-label').textContent = idata.comparison || '';
-  labelEl.className   = 'compare-label orange';
-  labelEl.textContent = idata.comparison || '';
-  titleEl.textContent = `${idata.label_display} 장중 순위 상승 Top 5`;
+  labelEl.className    = 'compare-label orange';
+  labelEl.textContent  = idata.comparison || '';
+  titleEl.textContent  = `${idata.label_display} 장중 순위 상승 Top 5`;
 
-  container.innerHTML = idata.top5.map((s, i) => `
+  cards.innerHTML = idata.top5.map((s, i) => `
     <div class="card intraday-card">
       <div class="medal ${INTRA_MEDAL[i]}">${i+1}</div>
       <div class="stock-info">
@@ -384,19 +364,26 @@ function renderIntraday(container, titleEl, labelEl, banner) {
         <div class="rank-path"><strong>${s.prev_rank}위</strong> → <strong>${s.rank}위</strong></div>
       </div>
     </div>`).join('');
+
+  renderHistoryChart(idata.history, 'intraday');
 }
 
-function renderPeriod(container, labelEl) {
-  const pd = DATA[currentMarket]?.[currentPeriod];
+/* ── 일별/주별/월별 탭 ──────────────────────────────────────────────────── */
+function renderPeriod(labelEl) {
+  const cards = document.getElementById('cards');
+  const pd    = DATA[currentMarket]?.[currentPeriod];
+
   if (!pd || !pd.available || !pd.top5?.length) {
     labelEl.textContent = '';
-    container.innerHTML = noDataHTML(pd?.prev_date ? '기준: ' + fmtDate(pd.prev_date) : '데이터 부족');
+    cards.innerHTML     = noDataHTML(pd?.prev_date ? '기준: ' + fmtDate(pd.prev_date) : '데이터 부족');
+    document.getElementById('hist-section').innerHTML = '';
     return;
   }
+
   labelEl.className   = 'compare-label';
   labelEl.textContent = '기준: ' + fmtDate(pd.prev_date);
 
-  container.innerHTML = pd.top5.map((s, i) => `
+  cards.innerHTML = pd.top5.map((s, i) => `
     <div class="card">
       <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
       <div class="stock-info">
@@ -412,110 +399,51 @@ function renderPeriod(container, labelEl) {
         <div class="rank-path"><strong>${s.prev_rank}위</strong> → <strong>${s.rank}위</strong></div>
       </div>
     </div>`).join('');
+
+  renderHistoryChart(pd.history, currentPeriod);
 }
 
-/* ── 히스토리 탭 렌더링 ──────────────────────────────────────────────────── */
-async function renderHistory() {
-  const container = document.getElementById('cards');
-  const header    = document.getElementById('section-header');
-  const banner    = document.getElementById('intraday-banner');
+/* ── 히스토리 차트 렌더링 ───────────────────────────────────────────────── */
+function renderHistoryChart(hdata, period) {
+  const section = document.getElementById('hist-section');
+  section.innerHTML = '';
 
-  header.style.display = 'none';
-  banner.style.display = 'none';
+  if (!hdata || !hdata.timeline?.length) return;
 
-  // 기존 차트 파기
-  if (historyChart) { historyChart.destroy(); historyChart = null; }
+  const meta = PERIOD_META[period];
 
-  container.innerHTML = `<div class="no-data"><div class="icon">📊</div><p>히스토리 로딩 중...</p></div>`;
-
-  // JSON fetch (캐싱)
-  if (!historyCache[currentMarket]) {
-    try {
-      const resp = await fetch(`data/history_${currentMarket}.json`);
-      if (!resp.ok) throw new Error('not found');
-      historyCache[currentMarket] = await resp.json();
-    } catch(e) {
-      container.innerHTML = noDataHTML('히스토리 데이터를 아직 불러올 수 없습니다.\n(run_daily.py 또는 run_hourly.py를 실행 후 업데이트됩니다.)');
-      return;
-    }
-  }
-
-  const hdata = historyCache[currentMarket];
-  if (!hdata.timeline?.length) {
-    container.innerHTML = noDataHTML('히스토리 데이터가 없습니다.');
-    return;
-  }
-
-  drawHistoryChart(hdata);
-}
-
-function drawHistoryChart(hdata) {
-  const container = document.getElementById('cards');
-
-  // ── 컨트롤 UI ──
-  container.innerHTML = `
-    <div class="history-section">
-      <div class="history-controls">
-        <div>
-          <label>표시 범위 &nbsp;</label>
-          <div class="filter-group" id="filter-group">
-            <button class="filter-btn${historyFilter==='all'?' active':''}"      onclick="setHistoryFilter('all')">전체</button>
-            <button class="filter-btn${historyFilter==='daily'?' active':''}"    onclick="setHistoryFilter('daily')">일별만</button>
-            <button class="filter-btn${historyFilter==='intraday'?' active':''}" onclick="setHistoryFilter('intraday')">장중만</button>
-          </div>
-        </div>
-        <div>
-          <label>종목 수 &nbsp;</label>
-          <select class="top-n-select" id="top-n-select" onchange="setTopN(this.value)">
-            <option value="5"  ${historyTopN===5 ?'selected':''}>상위 5개</option>
-            <option value="10" ${historyTopN===10?'selected':''}>상위 10개</option>
-            <option value="15" ${historyTopN===15?'selected':''}>상위 15개</option>
-            <option value="20" ${historyTopN===20?'selected':''}>상위 20개</option>
-            <option value="30" ${historyTopN===30?'selected':''}>상위 30개</option>
-          </select>
-        </div>
+  section.innerHTML = `
+    <div class="hist-box ${period}">
+      <div class="hist-title">
+        <span class="hist-badge ${period}">${meta.label}</span>
+        ${esc(meta.histTitle)}
       </div>
-      <div class="chart-wrapper">
-        <canvas id="historyChart"></canvas>
+      <div class="hist-chart-wrap">
+        <canvas id="histCanvas"></canvas>
       </div>
-      <div class="history-legend" id="history-legend"></div>
+      <div class="hist-legend" id="hist-legend"></div>
     </div>`;
 
-  buildChart(hdata);
-}
+  const labels   = hdata.timeline.map(t => t.label);
+  const tickers  = hdata.tickers;
 
-function buildChart(hdata) {
-  // ── 타임라인 필터 ──
-  let timeline = hdata.timeline;
-  if (historyFilter === 'daily')    timeline = timeline.filter(t => t.type === 'daily');
-  if (historyFilter === 'intraday') timeline = timeline.filter(t => t.type === 'intraday');
-
-  const labels    = timeline.map(t => t.label);
-  const tickers   = hdata.tickers.slice(0, historyTopN);
-
-  // ── 데이터셋 생성 ──
   const datasets = tickers.map((ticker, idx) => {
-    const color   = PALETTE[idx % PALETTE.length];
-    const isHidden = hiddenTickers.has(ticker);
+    const color = TOP5_COLORS[idx];
     return {
       label:           hdata.names[ticker] || ticker,
-      ticker:          ticker,
-      data:            timeline.map(t => t.ranks[ticker] ?? null),
+      data:            hdata.timeline.map(t => t.ranks[ticker] ?? null),
       borderColor:     color,
-      backgroundColor: color + '22',
-      borderWidth:     2,
-      pointRadius:     timeline.map(t => t.type === 'intraday' ? 3 : 4),
-      pointStyle:      timeline.map(t => t.type === 'intraday' ? 'triangle' : 'circle'),
+      backgroundColor: color + '18',
+      borderWidth:     2.5,
+      pointRadius:     4,
+      pointHoverRadius: 6,
       spanGaps:        true,
-      tension:         0.25,
-      hidden:          isHidden,
+      tension:         0.3,
     };
   });
 
-  const ctx = document.getElementById('historyChart').getContext('2d');
-  if (historyChart) historyChart.destroy();
-
-  historyChart = new Chart(ctx, {
+  const ctx = document.getElementById('histCanvas').getContext('2d');
+  activeChart = new Chart(ctx, {
     type: 'line',
     data: { labels, datasets },
     options: {
@@ -523,101 +451,47 @@ function buildChart(hdata) {
       maintainAspectRatio: false,
       interaction:         { mode: 'index', intersect: false },
       plugins: {
-        legend: { display: false },   // 커스텀 범례 사용
+        legend: { display: false },
         tooltip: {
           callbacks: {
-            title: (items) => items[0]?.label || '',
-            label: (item) => {
-              const val = item.raw;
-              return val != null ? ` ${item.dataset.label}: ${val}위` : null;
-            },
+            title:  items => items[0]?.label || '',
+            label:  item  => item.raw != null
+              ? ` ${item.dataset.label}: ${item.raw}위` : null,
           },
-          filter: (item) => item.raw != null,
+          filter: item => item.raw != null,
         },
       },
       scales: {
         x: {
           ticks: {
-            maxRotation: 45, minRotation: 30,
-            font: { size: 10 },
-            callback: function(val, idx) {
-              // 장중 라벨은 장중 필터일 때만 전부 표시, 아니면 일별만 표시
-              const entry = timeline[idx];
-              if (!entry) return null;
-              if (historyFilter !== 'intraday' && entry.type === 'intraday') return null;
-              return entry.label;
-            },
+            maxRotation: 45, minRotation: 20,
+            font: { size: 10 }, color: '#999',
+            maxTicksLimit: 20,
           },
-          grid: { color: '#f0f0f0' },
+          grid: { color: '#f5f5f5' },
         },
         y: {
-          reverse:    true,    // 1위가 위로
-          min:        1,
-          suggestedMax: Math.min(historyTopN + 5, 100),
+          reverse:      true,
+          min:          1,
+          suggestedMax: 50,
           ticks: {
-            stepSize: 5,
-            font: { size: 11 },
-            callback: (v) => `${v}위`,
+            stepSize: 10,
+            font: { size: 11 }, color: '#999',
+            callback: v => `${v}위`,
           },
-          grid: { color: '#f0f0f0' },
-          title: { display: true, text: '순위', font: { size: 11 }, color: '#999' },
+          grid:  { color: '#f0f0f0' },
+          title: { display: true, text: '순위 (낮을수록 상위)', font: { size: 10 }, color: '#bbb' },
         },
       },
     },
   });
 
-  // ── 커스텀 범례 ──
-  const legendEl = document.getElementById('history-legend');
-  if (legendEl) {
-    legendEl.innerHTML = tickers.map((ticker, idx) => {
-      const color = PALETTE[idx % PALETTE.length];
-      const name  = esc(hdata.names[ticker] || ticker);
-      const cls   = hiddenTickers.has(ticker) ? 'legend-item hidden-stock' : 'legend-item';
-      return `<div class="${cls}" onclick="toggleTicker('${ticker}')" data-ticker="${ticker}">
-        <span class="legend-dot" style="background:${color}"></span>${name}
-      </div>`;
-    }).join('');
-  }
-}
-
-/* ── 히스토리 컨트롤 콜백 ─────────────────────────────────────────────────── */
-function setHistoryFilter(f) {
-  historyFilter = f;
-  document.querySelectorAll('#filter-group .filter-btn').forEach(btn => {
-    btn.classList.toggle('active',
-      (f==='all' && btn.textContent==='전체') ||
-      (f==='daily' && btn.textContent==='일별만') ||
-      (f==='intraday' && btn.textContent==='장중만')
-    );
-  });
-  const hdata = historyCache[currentMarket];
-  if (hdata) buildChart(hdata);
-}
-
-function setTopN(n) {
-  historyTopN = parseInt(n, 10);
-  hiddenTickers.clear();
-  const hdata = historyCache[currentMarket];
-  if (hdata) buildChart(hdata);
-}
-
-function toggleTicker(ticker) {
-  if (hiddenTickers.has(ticker)) {
-    hiddenTickers.delete(ticker);
-  } else {
-    hiddenTickers.add(ticker);
-  }
-  // 차트 데이터셋 토글
-  const ds = historyChart?.data.datasets.find(d => d.ticker === ticker);
-  if (ds && historyChart) {
-    const meta = historyChart.getDatasetMeta(historyChart.data.datasets.indexOf(ds));
-    meta.hidden = hiddenTickers.has(ticker);
-    historyChart.update();
-  }
-  // 범례 토글
-  document.querySelectorAll(`[data-ticker="${ticker}"]`).forEach(el => {
-    el.classList.toggle('hidden-stock', hiddenTickers.has(ticker));
-  });
+  // 커스텀 범례
+  document.getElementById('hist-legend').innerHTML = tickers.map((t, i) => `
+    <div class="hist-legend-item">
+      <span class="hist-legend-dot" style="background:${TOP5_COLORS[i]}"></span>
+      ${esc(hdata.names[t] || t)}
+    </div>`).join('');
 }
 
 /* ── 공통 ────────────────────────────────────────────────────────────────── */
@@ -628,7 +502,6 @@ function noDataHTML(msg) {
     <p style="margin-top:8px;font-size:12px;color:#bbb">${esc(msg)}</p>
   </div>`;
 }
-
 function showError(msg) {
   document.getElementById('cards').innerHTML = noDataHTML(msg);
 }

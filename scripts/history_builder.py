@@ -1,166 +1,183 @@
 """
 history_builder.py
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-일별 + 장중 스냅샷을 병합하여 종목별 순위 시계열 JSON을 생성합니다.
+각 주기(장중/일별/주별/월별) Top5 종목의 순위 변동 이력을 계산하여
+report_data 딕셔너리에 직접 첨부합니다.
 
-저장 경로:
-  data/history_kospi.json
-  data/history_kosdaq.json
-
-JSON 구조:
-  {
-    "market":     "KOSPI",
-    "updated_at": "2026-04-30 18:30",
-    "tickers":    ["005930", ...],          # TOP_N 종목 (최신 일별 기준)
-    "names":      {"005930": "삼성전자"},
-    "timeline": [
-      {"ts":"20260401",       "type":"daily",    "label":"04.01",       "ranks":{"005930":1,...}},
-      {"ts":"20260430_0920",  "type":"intraday", "label":"04.30 09:20", "ranks":{...}},
-      ...
-    ]
-  }
+첨부 위치:
+  report_data["kospi"]["daily"]["history"]   = { tickers, names, timeline }
+  report_data["kospi"]["weekly"]["history"]  = { ... }
+  report_data["kospi"]["monthly"]["history"] = { ... }
+  report_data["intraday"]["kospi"]["history"]= { ... }  ← run_hourly 에서만
 """
 
-import json
 import os
-from datetime import datetime
+from collections import defaultdict
+from datetime import datetime, timedelta
+
+import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(BASE_DIR, "data")
-INTR_DIR = os.path.join(DATA_DIR, "intraday")
-
-TOP_N = 30   # 추적할 종목 수 (최신 일별 순위 기준 상위 N)
+INTRA_LABELS = ["0920", "1100", "1300", "1500"]
 
 
 # ── 내부 유틸 ─────────────────────────────────────────────────────────────────
-def _load_daily_snaps(market: str) -> tuple[dict, dict]:
-    """
-    일별 JSON을 모두 읽어 {date: {ticker: rank}} 와 {ticker: name} 반환.
-    """
-    daily_dir = os.path.join(DATA_DIR, market.lower())
-    snaps: dict[str, dict] = {}
-    names: dict[str, str]  = {}
-
-    if not os.path.exists(daily_dir):
-        return snaps, names
-
-    for fname in sorted(os.listdir(daily_dir)):
-        if not fname.endswith(".json"):
-            continue
-        date = fname[:-5]  # YYYYMMDD
-        path = os.path.join(daily_dir, fname)
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            snap: dict[str, int] = {}
-            for s in data.get("stocks", []):
-                snap[s["ticker"]] = int(s["rank"])
-                names[s["ticker"]] = s.get("name", s["ticker"])
-            snaps[date] = snap
-        except Exception:
-            pass
-
-    return snaps, names
+def _ticker_ranks(df: pd.DataFrame, tickers: list) -> dict:
+    """DataFrame → {ticker: rank} 매핑 (없으면 제외)."""
+    if df is None or df.empty:
+        return {}
+    out = {}
+    for t in tickers:
+        rows = df[df["ticker"] == t]
+        if not rows.empty:
+            out[t] = int(rows.iloc[0]["rank"])
+    return out
 
 
-def _load_intra_snaps(market: str, names: dict) -> dict:
-    """
-    장중 JSON을 모두 읽어 {"YYYYMMDD_HHMM": {ticker: rank}} 반환.
-    names dict 를 in-place 로 업데이트합니다.
-    """
-    intra_dir = os.path.join(INTR_DIR, market.lower())
-    snaps: dict[str, dict] = {}
+def _fmt_date(d: str) -> str:
+    """YYYYMMDD → MM.DD"""
+    return f"{d[4:6]}.{d[6:8]}"
 
-    if not os.path.exists(intra_dir):
-        return snaps
 
-    for fname in sorted(os.listdir(intra_dir)):
-        if not fname.endswith(".json"):
-            continue
-        key  = fname[:-5]  # YYYYMMDD_HHMM
-        path = os.path.join(intra_dir, fname)
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            snap: dict[str, int] = {}
-            for s in data.get("stocks", []):
-                snap[s["ticker"]] = int(s["rank"])
-                names.setdefault(s["ticker"], s.get("name", s["ticker"]))
-            snaps[key] = snap
-        except Exception:
-            pass
+def _fmt_month(d: str) -> str:
+    """YYYYMMDD → YY.MM"""
+    return f"{d[2:4]}.{d[4:6]}"
 
-    return snaps
+
+# ── 장중 이력: 최근 3일 × 4 시간대 ──────────────────────────────────────────
+def build_intraday_history(market: str, today: str, tickers: list) -> list:
+    from scripts.fetcher import get_available_dates
+    from scripts.intraday import get_saved_labels, load_intraday
+
+    all_dates = sorted(get_available_dates(market))
+    recent = sorted([d for d in all_dates if d <= today], reverse=True)[:3]
+    recent = sorted(recent)
+
+    timeline = []
+    for date in recent:
+        saved = get_saved_labels(market, date)
+        for label in INTRA_LABELS:
+            if label not in saved:
+                continue
+            df    = load_intraday(market, date, label)
+            ranks = _ticker_ranks(df, tickers)
+            if not ranks:
+                continue
+            h, m = label[:2], label[2:]
+            timeline.append({
+                "label": f"{_fmt_date(date)} {h}:{m}",
+                "ranks": ranks,
+            })
+    return timeline
+
+
+# ── 일별 이력: 최근 30일 ────────────────────────────────────────────────────
+def build_daily_history(market: str, today: str, tickers: list) -> list:
+    from scripts.fetcher import get_available_dates, load_market_data
+
+    cutoff = (datetime.strptime(today, "%Y%m%d") - timedelta(days=30)).strftime("%Y%m%d")
+    dates  = [d for d in get_available_dates(market) if cutoff <= d <= today]
+
+    timeline = []
+    for date in dates:
+        df    = load_market_data(date, market)
+        ranks = _ticker_ranks(df, tickers)
+        if ranks:
+            timeline.append({"label": _fmt_date(date), "ranks": ranks})
+    return timeline
+
+
+# ── 주별 이력: 최근 13주 ────────────────────────────────────────────────────
+def build_weekly_history(market: str, today: str, tickers: list) -> list:
+    from scripts.fetcher import get_available_dates, load_market_data
+
+    cutoff = (datetime.strptime(today, "%Y%m%d") - timedelta(days=91)).strftime("%Y%m%d")
+    dates  = [d for d in get_available_dates(market) if cutoff <= d <= today]
+
+    week_map: dict = defaultdict(list)
+    for d in dates:
+        dt  = datetime.strptime(d, "%Y%m%d")
+        iso = dt.isocalendar()
+        week_map[(iso[0], iso[1])].append(d)
+
+    timeline = []
+    for wk in sorted(week_map.keys()):
+        last = max(week_map[wk])
+        df   = load_market_data(last, market)
+        ranks = _ticker_ranks(df, tickers)
+        if ranks:
+            timeline.append({"label": _fmt_date(last), "ranks": ranks})
+    return timeline
+
+
+# ── 월별 이력: 전체 가용 기간 ───────────────────────────────────────────────
+def build_monthly_history(market: str, today: str, tickers: list) -> list:
+    from scripts.fetcher import get_available_dates, load_market_data
+
+    dates = [d for d in get_available_dates(market) if d <= today]
+
+    month_map: dict = defaultdict(list)
+    for d in dates:
+        month_map[d[:6]].append(d)   # YYYYMM
+
+    timeline = []
+    for ym in sorted(month_map.keys()):
+        last  = max(month_map[ym])
+        df    = load_market_data(last, market)
+        ranks = _ticker_ranks(df, tickers)
+        if ranks:
+            timeline.append({"label": _fmt_month(last), "ranks": ranks})
+    return timeline
 
 
 # ── 공개 API ──────────────────────────────────────────────────────────────────
-def build_history(market: str) -> dict:
+def attach_histories(report_data: dict, markets: list, today: str) -> dict:
     """
-    일별 + 장중 스냅샷을 병합한 히스토리 dict를 반환합니다.
+    report_data 의 daily / weekly / monthly 각 섹션에
+    해당 Top5 종목의 순위 이력을 history 필드로 추가합니다.
     """
-    daily_snaps, names = _load_daily_snaps(market)
-    intra_snaps        = _load_intra_snaps(market, names)
-
-    if not daily_snaps:
-        return {
-            "market": market, "updated_at": "",
-            "tickers": [], "names": {}, "timeline": [],
-        }
-
-    # ── 추적 종목: 최신 일별 스냅샷 기준 상위 TOP_N ────────────────────────────
-    latest_date = max(daily_snaps.keys())
-    latest_snap = daily_snaps[latest_date]
-    tracked = sorted(
-        latest_snap.keys(),
-        key=lambda t: latest_snap.get(t, 9999)
-    )[:TOP_N]
-
-    # ── 타임라인 조립 ─────────────────────────────────────────────────────────
-    timeline = []
-
-    for date in sorted(daily_snaps.keys()):
-        snap = daily_snaps[date]
-        mo, d = date[4:6], date[6:8]
-
-        # 일별 엔트리
-        timeline.append({
-            "ts":    date,
-            "type":  "daily",
-            "label": f"{mo}.{d}",
-            "ranks": {t: snap[t] for t in tracked if t in snap},
-        })
-
-        # 해당 날짜의 장중 스냅샷 (시간 순)
-        for key in sorted(intra_snaps.keys()):
-            if not key.startswith(date + "_"):
-                continue
-            hhmm  = key[9:]   # HHMM
-            h, m  = hhmm[:2], hhmm[2:]
-            snap2 = intra_snaps[key]
-            timeline.append({
-                "ts":    key,
-                "type":  "intraday",
-                "label": f"{mo}.{d} {h}:{m}",
-                "ranks": {t: snap2[t] for t in tracked if t in snap2},
-            })
-
-    return {
-        "market":     market,
-        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "tickers":    tracked,
-        "names":      {t: names.get(t, t) for t in tracked},
-        "timeline":   timeline,
+    builders = {
+        "daily":   build_daily_history,
+        "weekly":  build_weekly_history,
+        "monthly": build_monthly_history,
     }
 
+    for market in markets:
+        mk = market.lower()
+        for period, builder in builders.items():
+            top5 = report_data.get(mk, {}).get(period, {}).get("top5", [])
+            if not top5:
+                continue
+            tickers  = [s["ticker"] for s in top5]
+            names    = {s["ticker"]: s["name"] for s in top5}
+            timeline = builder(market, today, tickers)
+            report_data[mk][period]["history"] = {
+                "tickers":  tickers,
+                "names":    names,
+                "timeline": timeline,
+            }
 
-def save_history(market: str) -> str:
-    """히스토리 JSON을 생성하고 저장합니다."""
-    data = build_history(market)
-    path = os.path.join(DATA_DIR, f"history_{market.lower()}.json")
-    os.makedirs(DATA_DIR, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
-    print(f"  [{market}] 히스토리 저장 완료 → {os.path.basename(path)} "
-          f"(종목 {len(data['tickers'])}개, "
-          f"타임스탬프 {len(data['timeline'])}개)")
-    return path
+    return report_data
+
+
+def attach_intraday_history(report_data: dict, markets: list, today: str) -> dict:
+    """
+    report_data["intraday"][market]["history"] 에
+    해당 Top5 종목의 최근 3일 장중 이력을 추가합니다.
+    """
+    for market in markets:
+        mk    = market.lower()
+        idata = report_data.get("intraday", {}).get(mk, {})
+        if not idata.get("available") or not idata.get("top5"):
+            continue
+        top5     = idata["top5"]
+        tickers  = [s["ticker"] for s in top5]
+        names    = {s["ticker"]: s["name"] for s in top5}
+        timeline = build_intraday_history(market, today, tickers)
+        report_data["intraday"][mk]["history"] = {
+            "tickers":  tickers,
+            "names":    names,
+            "timeline": timeline,
+        }
+
+    return report_data

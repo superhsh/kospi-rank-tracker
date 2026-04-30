@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-from scripts.history_builder import save_history
+from scripts.history_builder import attach_histories, attach_intraday_history
 from scripts.fetcher import (
     fetch_market_cap_krx,
     get_available_dates,
@@ -154,11 +154,11 @@ def main():
     report_data["intraday"]   = intraday_out
     report_data["updated_at"] = datetime.now(KST).strftime("%Y-%m-%d %H:%M")
 
-    generate_html(report_data)
+    print("  히스토리 데이터 계산 중...")
+    report_data = attach_histories(report_data, MARKETS, today)
+    report_data = attach_intraday_history(report_data, MARKETS, today)
 
-    print("\n  히스토리 JSON 업데이트 중...")
-    for m in MARKETS:
-        save_history(m)
+    generate_html(report_data)
 
     print(f"\n{'='*54}")
     print(f"  완료!  KOSPI  Top5: "
