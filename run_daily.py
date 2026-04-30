@@ -28,6 +28,7 @@ from scripts.fetcher import (
     save_market_data,
     save_name_cache,
 )
+from scripts.history_builder import save_history
 from scripts.processor import build_report_data
 from scripts.reporter import generate_html
 
@@ -89,6 +90,10 @@ def main():
 
     print("  HTML 리포트 생성 중...")
     html_path = generate_html(report_data)
+
+    print("  히스토리 JSON 생성 중...")
+    for market in MARKETS:
+        save_history(market)
 
     print(f"\n{'='*50}")
     print(f"  완료! → {html_path}")
