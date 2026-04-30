@@ -1,0 +1,59 @@
+name: ⚡ Intraday Rank Update
+
+on:
+  # KST = UTC+9
+  # 09:20 KST = 00:20 UTC
+  # 11:00 KST = 02:00 UTC
+  # 13:00 KST = 04:00 UTC
+  # 15:00 KST = 06:00 UTC
+  schedule:
+    - cron: '20 0 * * 1-5'   # 09:20 KST — 전날 종가 대비
+    - cron: '0  2 * * 1-5'   # 11:00 KST — 09:20 대비
+    - cron: '0  4 * * 1-5'   # 13:00 KST — 11:00 대비
+    - cron: '0  6 * * 1-5'   # 15:00 KST — 13:00 대비
+
+  # 수동 실행 (테스트용)
+  workflow_dispatch:
+    inputs:
+      label:
+        description: '실행 라벨 (0920 / 1100 / 1300 / 1500)'
+        required: false
+        default: '0920'
+
+jobs:
+  intraday-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run intraday update
+        run: |
+          if [ -n "${{ github.event.inputs.label }}" ]; then
+            python run_hourly.py --label "${{ github.event.inputs.label }}"
+          else
+            python run_hourly.py
+          fi
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "github-actions[bot]"
+          git add data/intraday/ index.html
+          git diff --staged --quiet && echo "변경사항 없음" || \
+            git commit -m "⚡ Intraday: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git push
