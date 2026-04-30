@@ -56,13 +56,22 @@ LABEL_DISPLAY = {
 
 
 def detect_label() -> str | None:
-    """현재 KST 시각에 해당하는 실행 라벨을 반환합니다."""
-    now = datetime.now(KST)
-    h, m = now.hour, now.minute
-    if h == 9  and m >= 20: return "0920"
-    if h == 11 and m <=  5: return "1100"
-    if h == 13 and m <=  5: return "1300"
-    if h == 15 and m <=  5: return "1500"
+    """현재 KST 시각에 해당하는 실행 라벨을 반환합니다.
+
+    GitHub Actions cron 은 수십 분 지연될 수 있으므로,
+    각 라벨의 유효 시간대를 넓게 잡습니다.
+      0920 : 09:20 ~ 10:59
+      1100 : 11:00 ~ 12:59
+      1300 : 13:00 ~ 14:59
+      1500 : 15:00 ~ 15:45
+    """
+    now   = datetime.now(KST)
+    total = now.hour * 60 + now.minute   # 분 단위
+
+    if 9 * 60 + 20 <= total < 11 * 60:  return "0920"
+    if 11 * 60     <= total < 13 * 60:  return "1100"
+    if 13 * 60     <= total < 15 * 60:  return "1300"
+    if 15 * 60     <= total < 15 * 60 + 46: return "1500"
     return None
 
 

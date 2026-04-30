@@ -16,9 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       label:
-        description: '실행 라벨 (0920 / 1100 / 1300 / 1500)'
+        description: '실행 라벨 (0920 / 1100 / 1300 / 1500) — 비워두면 현재 KST 시각 자동 판단'
         required: false
-        default: '0920'
+        default: ''
 
 jobs:
   intraday-update:
