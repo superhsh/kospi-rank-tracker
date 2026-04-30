@@ -242,18 +242,34 @@ let currentMarket = 'kospi';
 let currentPeriod = 'intraday';
 let activeChart   = null;   // 현재 Chart.js 인스턴스
 
-// ── Top5 스타일 (색상 + 대시패턴 + 포인트 모양) ──────────────────────────
-const TOP5_STYLES = [
-  { color:'#e53935', dash:[],        point:'circle',    width:3   },  // 1위: 빨강 실선
-  { color:'#1565c0', dash:[8,4],     point:'triangle',  width:2.5 },  // 2위: 파랑 긴점선
-  { color:'#2e7d32', dash:[3,3],     point:'rect',      width:2.5 },  // 3위: 초록 점선
-  { color:'#e65100', dash:[10,3,2,3],point:'rectRot',   width:2.5 },  // 4위: 주황 혼합선
-  { color:'#6a1b9a', dash:[5,5],     point:'star',      width:2.5 },  // 5위: 보라 파선
+// ── 색각 이상자(적녹색약) 안전 팔레트 ────────────────────────────────────
+// IBM Carbon Colorblind-safe 5색 기반
+// 파랑·주황·자홍·황금·보라 → 적녹색약(Deuteranopia/Protanopia) 모두 구분 가능
+// 색상 + 선 패턴 + 포인트 모양 3중 식별 체계
+const CB_PALETTE = [
+  { color:'#648FFF', dash:[],         point:'circle',   width:3   }, // 파랑  실선   ●
+  { color:'#FE6100', dash:[8,4],      point:'triangle', width:2.8 }, // 주황  장대시  ▲
+  { color:'#DC267F', dash:[3,3],      point:'rect',     width:2.8 }, // 자홍  점선   ■
+  { color:'#FFB000', dash:[10,3,2,3], point:'rectRot',  width:2.8 }, // 황금  혼합선  ◆
+  { color:'#785EF0', dash:[6,4],      point:'star',     width:2.8 }, // 보라  파선   ★
+  // secondary (장중 차트용 - 추가 종목)
+  { color:'#648FFF', dash:[3,3],      point:'crossRot', width:2   },
+  { color:'#FE6100', dash:[],         point:'star',     width:2   },
+  { color:'#DC267F', dash:[8,4],      point:'circle',   width:2   },
+  { color:'#FFB000', dash:[5,5],      point:'triangle', width:2   },
+  { color:'#785EF0', dash:[10,3,2,3], point:'rect',     width:2   },
+  { color:'#648FFF', dash:[5,5],      point:'rectRot',  width:1.8 },
+  { color:'#FE6100', dash:[3,3],      point:'crossRot', width:1.8 },
+  { color:'#DC267F', dash:[6,4],      point:'star',     width:1.8 },
+  { color:'#FFB000', dash:[],         point:'circle',   width:1.8 },
+  { color:'#785EF0', dash:[8,4],      point:'triangle', width:1.8 },
 ];
+// Top5 전용 별칭 (하위 호환)
+const TOP5_STYLES = CB_PALETTE;
 
 const PERIOD_META = {
   intraday: { label:'장중',  title:'장중 순위 상승 Top 5',         cls:'intraday',
-              histTitle:'최근 3일 장중 순위 변동 이력' },
+              histTitle:'장중 Top5 진입 종목 — 최근 30일 일별 순위 변동' },
   daily:    { label:'일별',  title:'전일 대비 시총 순위 상승 Top 5', cls:'daily',
               histTitle:'최근 1개월 일별 순위 변동 이력' },
   weekly:   { label:'주별',  title:'전주 대비 시총 순위 상승 Top 5', cls:'weekly',

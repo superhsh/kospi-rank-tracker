@@ -160,23 +160,76 @@ def attach_histories(report_data: dict, markets: list, today: str) -> dict:
     return report_data
 
 
+def get_all_intraday_top5_tickers(market: str, today: str) -> dict:
+    """
+    오늘 모든 장중 시간대(0920/1100/1300/1500)에서
+    Top5에 한 번이라도 진입한 고유 종목 {ticker: name}을 반환합니다.
+    """
+    from scripts.fetcher import get_available_dates, load_market_data
+    from scripts.intraday import get_saved_labels, load_intraday, compute_top5
+
+    saved_today = set(get_saved_labels(market, today))
+    if not saved_today:
+        return {}
+
+    all_dates = sorted(get_available_dates(market))
+    tickers: dict[str, str] = {}   # ticker → name
+    prev_df: pd.DataFrame   = pd.DataFrame()
+
+    for label in INTRA_LABELS:
+        if label not in saved_today:
+            continue
+
+        current_df = load_intraday(market, today, label)
+        if current_df.empty:
+            prev_df = current_df
+            continue
+
+        if label == "0920":
+            prev_candidates = [d for d in all_dates if d < today]
+            ref_df = (load_market_data(max(prev_candidates), market)
+                      if prev_candidates else pd.DataFrame())
+        else:
+            ref_df = prev_df
+
+        top5 = compute_top5(current_df, ref_df)
+        for s in top5:
+            tickers[s["ticker"]] = s["name"]
+
+        prev_df = current_df
+
+    return tickers
+
+
 def attach_intraday_history(report_data: dict, markets: list, today: str) -> dict:
     """
-    report_data["intraday"][market]["history"] 에
-    해당 Top5 종목의 최근 3일 장중 이력을 추가합니다.
+    장중 탭 히스토리:
+      - 오늘 모든 시간대(0920/1100/1300/1500) Top5에 진입한 전체 종목 수집
+      - 해당 종목들의 최근 30일 일별 순위 변동을 history 필드로 추가
     """
     for market in markets:
         mk    = market.lower()
         idata = report_data.get("intraday", {}).get(mk, {})
-        if not idata.get("available") or not idata.get("top5"):
+        if not idata.get("available"):
             continue
-        top5     = idata["top5"]
-        tickers  = [s["ticker"] for s in top5]
-        names    = {s["ticker"]: s["name"] for s in top5}
-        timeline = build_intraday_history(market, today, tickers)
+
+        # 모든 시간대 Top5 종목 수집
+        all_tickers = get_all_intraday_top5_tickers(market, today)
+
+        # 장중 데이터가 있는데 수집 결과가 없으면 현재 시간대 top5로 fallback
+        if not all_tickers:
+            for s in idata.get("top5", []):
+                all_tickers[s["ticker"]] = s["name"]
+
+        if not all_tickers:
+            continue
+
+        tickers  = list(all_tickers.keys())
+        timeline = build_daily_history(market, today, tickers)
+
         report_data["intraday"][mk]["history"] = {
             "tickers":  tickers,
-            "names":    names,
+            "names":    all_tickers,
             "timeline": timeline,
         }
 
