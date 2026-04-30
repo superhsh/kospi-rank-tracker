@@ -242,8 +242,14 @@ let currentMarket = 'kospi';
 let currentPeriod = 'intraday';
 let activeChart   = null;   // 현재 Chart.js 인스턴스
 
-// Top5 배지 색상 (1위~5위)
-const TOP5_COLORS = ['#e53935','#1e88e5','#43a047','#fb8c00','#8e24aa'];
+// ── Top5 스타일 (색상 + 대시패턴 + 포인트 모양) ──────────────────────────
+const TOP5_STYLES = [
+  { color:'#e53935', dash:[],        point:'circle',    width:3   },  // 1위: 빨강 실선
+  { color:'#1565c0', dash:[8,4],     point:'triangle',  width:2.5 },  // 2위: 파랑 긴점선
+  { color:'#2e7d32', dash:[3,3],     point:'rect',      width:2.5 },  // 3위: 초록 점선
+  { color:'#e65100', dash:[10,3,2,3],point:'rectRot',   width:2.5 },  // 4위: 주황 혼합선
+  { color:'#6a1b9a', dash:[5,5],     point:'star',      width:2.5 },  // 5위: 보라 파선
+];
 
 const PERIOD_META = {
   intraday: { label:'장중',  title:'장중 순위 상승 Top 5',         cls:'intraday',
@@ -273,20 +279,15 @@ function init() {
   document.getElementById('last-updated').textContent = DATA.updated_at || '-';
   document.getElementById('current-date').textContent = fmtDate(DATA.current_date);
 
-  const hasIntraday = DATA.intraday &&
-    (DATA.intraday.kospi?.available || DATA.intraday.kosdaq?.available);
-  currentPeriod = hasIntraday ? 'intraday' : 'daily';
-
-  buildPeriodTabs(hasIntraday);
+  // 항상 4개 탭 표시 (장중 데이터가 없어도 탭은 유지)
+  currentPeriod = 'intraday';
+  buildPeriodTabs();
   render();
 }
 
-function buildPeriodTabs(hasIntraday) {
+function buildPeriodTabs() {
   const container = document.getElementById('period-tabs');
-  const periods   = hasIntraday
-    ? ['intraday','daily','weekly','monthly']
-    : ['daily','weekly','monthly'];
-
+  const periods   = ['intraday','daily','weekly','monthly'];
   container.innerHTML = periods.map(p => {
     const cls = `tab-btn${p === 'intraday' ? ' intraday' : ''}`;
     return `<button class="${cls}" onclick="switchPeriod('${p}')">${PERIOD_META[p].label}</button>`;
@@ -428,17 +429,22 @@ function renderHistoryChart(hdata, period) {
   const tickers  = hdata.tickers;
 
   const datasets = tickers.map((ticker, idx) => {
-    const color = TOP5_COLORS[idx];
+    const st = TOP5_STYLES[idx] || TOP5_STYLES[4];
     return {
-      label:           hdata.names[ticker] || ticker,
-      data:            hdata.timeline.map(t => t.ranks[ticker] ?? null),
-      borderColor:     color,
-      backgroundColor: color + '18',
-      borderWidth:     2.5,
-      pointRadius:     4,
-      pointHoverRadius: 6,
-      spanGaps:        true,
-      tension:         0.3,
+      label:            hdata.names[ticker] || ticker,
+      data:             hdata.timeline.map(t => t.ranks[ticker] ?? null),
+      borderColor:      st.color,
+      backgroundColor:  st.color + '15',
+      borderWidth:      st.width,
+      borderDash:       st.dash,
+      pointStyle:       st.point,
+      pointRadius:      5,
+      pointHoverRadius: 8,
+      pointBackgroundColor: st.color,
+      pointBorderColor:     '#fff',
+      pointBorderWidth:     1.5,
+      spanGaps:         true,
+      tension:          0.25,
     };
   });
 
@@ -486,12 +492,18 @@ function renderHistoryChart(hdata, period) {
     },
   });
 
-  // 커스텀 범례
-  document.getElementById('hist-legend').innerHTML = tickers.map((t, i) => `
-    <div class="hist-legend-item">
-      <span class="hist-legend-dot" style="background:${TOP5_COLORS[i]}"></span>
-      ${esc(hdata.names[t] || t)}
-    </div>`).join('');
+  // 커스텀 범례 (색상 + 선 패턴 시각화)
+  document.getElementById('hist-legend').innerHTML = tickers.map((t, i) => {
+    const st   = TOP5_STYLES[i] || TOP5_STYLES[4];
+    const dash = st.dash.length
+      ? `stroke-dasharray="${st.dash.join(' ')}"`
+      : '';
+    const svg  = `<svg width="28" height="10" style="vertical-align:middle;margin-right:5px">
+      <line x1="0" y1="5" x2="28" y2="5" stroke="${st.color}"
+            stroke-width="${st.width}" ${dash}/>
+    </svg>`;
+    return `<div class="hist-legend-item">${svg}${esc(hdata.names[t] || t)}</div>`;
+  }).join('');
 }
 
 /* ── 공통 ────────────────────────────────────────────────────────────────── */
