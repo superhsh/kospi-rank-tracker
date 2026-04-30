@@ -471,7 +471,7 @@ function renderHistoryChart(hdata, period) {
     options: {
       responsive:          true,
       maintainAspectRatio: false,
-      interaction:         { mode: 'index', intersect: false },
+      interaction:         { mode: 'nearest', intersect: false, axis: 'xy' },
       plugins: {
         legend: { display: false },
         tooltip: {
