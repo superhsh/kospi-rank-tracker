@@ -230,7 +230,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 
 <footer>
   데이터 출처: 네이버 금융 &nbsp;|&nbsp;
-  장중 09:20·11:00·13:00·15:00 KST / 일별 18:30 KST 자동 업데이트
+  장중 09:20·11:00·13:00·15:00 KST / 일별 16:00 KST 자동 업데이트
 </footer>
 
 <!-- Chart.js (히스토리 탭 사용) -->
