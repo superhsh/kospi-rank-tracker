@@ -68,23 +68,36 @@ def is_weekday(date_str: str) -> bool:
 
 def load_todays_intraday(today: str) -> dict:
     """
-    오늘 저장된 장중 스냅샷 중 최신 라벨을 기준으로
-    intraday_out 딕셔너리를 구성합니다.
-    run_daily.py 실행 시 장중 탭에 데이터를 포함하기 위해 사용합니다.
+    오늘 저장된 장중 스냅샷 중 최신 라벨을 기준으로 intraday_out을 구성합니다.
+    오늘 스냅샷이 없으면(장 마감 전·휴장일 등) 가장 최근 날짜의 스냅샷으로 fallback합니다.
     """
     intraday_out = {}
 
     for market in MARKETS:
-        saved = get_saved_labels(market, today)
+        saved    = get_saved_labels(market, today)
+        ref_date = today
+
+        # ── 오늘 데이터 없으면 가장 최근 날짜로 fallback ──────────────────
+        if not saved:
+            all_dates = sorted(get_available_dates(market), reverse=True)
+            for d in all_dates:
+                if d >= today:
+                    continue          # 미래 날짜 건너뜀
+                labels = get_saved_labels(market, d)
+                if labels:
+                    saved    = labels
+                    ref_date = d
+                    break
+
         if not saved:
             intraday_out[market.lower()] = {
                 "available": False, "top5": [],
-                "label_display": "-", "comparison": "오늘 장중 데이터 없음",
+                "label_display": "-", "comparison": "장중 데이터 없음",
             }
             continue
 
         latest_label = saved[-1]
-        current_df   = load_intraday(market, today, latest_label)
+        current_df   = load_intraday(market, ref_date, latest_label)
 
         if current_df.empty:
             intraday_out[market.lower()] = {
@@ -97,7 +110,7 @@ def load_todays_intraday(today: str) -> dict:
         # 비교 기준 결정 (run_hourly.py와 동일한 로직)
         daily_dates = get_available_dates(market)
         source, prev_date, prev_label, comp_desc = resolve_comparison(
-            market, today, latest_label, daily_dates
+            market, ref_date, latest_label, daily_dates
         )
 
         if source == "daily":
@@ -109,15 +122,23 @@ def load_todays_intraday(today: str) -> dict:
 
         top5 = compute_top5(current_df, prev_df)
 
+        # ref_date가 오늘과 다르면 날짜를 함께 표시
+        time_str = LABEL_DISPLAY.get(latest_label, latest_label)
+        if ref_date != today:
+            display = f"{ref_date[4:6]}/{ref_date[6:8]} {time_str}"
+            comp_desc = f"[직전] {comp_desc}"
+        else:
+            display = time_str
+
         intraday_out[market.lower()] = {
             "available":     True,
             "label":         latest_label,
-            "label_display": LABEL_DISPLAY.get(latest_label, latest_label),
+            "label_display": display,
             "comparison":    comp_desc,
             "top5":          top5,
         }
 
-        print(f"  [{market}] 장중 스냅샷 로드 — {LABEL_DISPLAY.get(latest_label)} "
+        print(f"  [{market}] 장중 스냅샷 로드 — {display} "
               f"({comp_desc}) Top5 {len(top5)}개")
 
     return intraday_out

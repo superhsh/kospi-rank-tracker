@@ -79,8 +79,12 @@ def compute_top5(current_date: str, market: str, period: str) -> dict:
 
     result_base = {"available": False, "prev_date": None, "top5": []}
 
+    # 오늘 데이터가 없으면(휴장일·수집 전 등) 가장 최근 날짜로 fallback
     if current_date not in available_dates:
-        return result_base
+        candidates = [d for d in available_dates if d <= current_date]
+        if not candidates:
+            return result_base
+        current_date = max(candidates)
 
     current_df = load_market_data(current_date, market)
     if current_df.empty:
