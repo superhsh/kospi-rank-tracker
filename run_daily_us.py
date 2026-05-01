@@ -27,6 +27,7 @@ from scripts.fetcher_us import (
     get_sp500_tickers,
     load_name_cache_us,
     load_us_data,
+    refresh_names,
     save_name_cache_us,
     save_us_data,
 )
@@ -156,7 +157,13 @@ def main():
     print(f"{'='*54}")
 
     name_cache = load_name_cache_us()
-    report     = build_us_report(today, name_cache)
+
+    # 이름이 티커로 잘못 저장된 항목(backfill 오류) 재조회
+    fixed = refresh_names(name_cache)
+    if fixed:
+        save_name_cache_us(name_cache)
+
+    report = build_us_report(today, name_cache)
     save_name_cache_us(name_cache)
 
     os.makedirs(os.path.dirname(REPORT_PATH), exist_ok=True)

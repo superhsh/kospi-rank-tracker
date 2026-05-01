@@ -144,6 +144,26 @@ def load_todays_intraday(today: str) -> dict:
     return intraday_out
 
 
+def _is_holiday_data(df: pd.DataFrame, market: str, today: str) -> bool:
+    """
+    오늘 수집 데이터가 직전 거래일 데이터와 거의 동일하면 True를 반환합니다.
+    KRX 휴장일에 Naver Finance는 직전 거래일 데이터를 그대로 반환하므로
+    상위 20개 종목 티커가 90% 이상 일치하면 휴장일로 간주합니다.
+    """
+    available = get_available_dates(market)
+    prev_candidates = [d for d in available if d < today]
+    if not prev_candidates:
+        return False
+    prev_df = load_market_data(max(prev_candidates), market)
+    if prev_df.empty or len(prev_df) < 10:
+        return False
+    n = min(20, len(df), len(prev_df))
+    today_top = list(df.head(n)["ticker"])
+    prev_top  = list(prev_df.head(n)["ticker"])
+    match_ratio = sum(a == b for a, b in zip(today_top, prev_top)) / n
+    return match_ratio >= 0.9
+
+
 def main():
     args  = parse_args()
     today = args.date or datetime.today().strftime("%Y%m%d")
@@ -158,6 +178,7 @@ def main():
 
     name_cache    = load_name_cache()
     fetched_count = 0
+    holiday_skip  = False
 
     for market in MARKETS:
         print(f"  [{market}] 데이터 수집 중...")
@@ -165,6 +186,9 @@ def main():
 
         if df.empty:
             print(f"  [{market}] ⚠ 데이터 없음 — 휴장일이거나 API 오류일 수 있습니다.")
+        elif _is_holiday_data(df, market, today):
+            print(f"  [{market}] ⚠ 직전 거래일과 동일한 데이터 — KRX 휴장일로 판단, 저장 생략")
+            holiday_skip = True
         else:
             filepath = save_market_data(today, market, df)
             print(f"  [{market}] ✓ {len(df)}개 종목 저장 → {os.path.basename(filepath)}")
@@ -173,9 +197,13 @@ def main():
 
     save_name_cache(name_cache)
 
-    if fetched_count == 0:
+    # API 오류(진짜 데이터 없음)일 때만 종료. 휴장일은 직전 데이터로 HTML 재생성
+    if fetched_count == 0 and not holiday_skip:
         print("\n  ⚠ 수집된 데이터가 없어 리포트를 생성하지 않습니다.")
         sys.exit(0)
+
+    if holiday_skip:
+        print("\n  ℹ KRX 휴장일 — 직전 거래일 데이터로 리포트를 재생성합니다.")
 
     # ── 일/주/월 순위 변동 계산 ────────────────────────────────────────────────
     print("\n  순위 변동 분석 중...")

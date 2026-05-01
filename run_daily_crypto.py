@@ -75,6 +75,13 @@ def build_crypto_report(today: str) -> dict:
             continue
 
         prev_df = load_crypto_data(prev_date)
+
+        # 이전 데이터가 너무 적으면(429 오류로 부분 저장) 비교 생략
+        if len(prev_df) < 20:
+            print(f"    [{period}] ⚠ 이전 데이터 부족 ({len(prev_df)}개) — backfill_crypto.py 재실행 필요")
+            coin_data[period] = {"available": False, "prev_date": prev_date, "top5": []}
+            continue
+
         result  = compute_top5_generic(current_df, prev_df, currency="USD")
         result["prev_date"] = prev_date
 

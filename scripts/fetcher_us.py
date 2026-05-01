@@ -205,3 +205,34 @@ def save_name_cache_us(cache: dict):
     os.makedirs(os.path.dirname(_NAME_CACHE_PATH), exist_ok=True)
     with open(_NAME_CACHE_PATH, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
+
+
+def refresh_names(name_cache: dict) -> int:
+    """
+    name_cache에서 이름이 티커 심볼과 동일한 항목(잘못 저장된 항목)을
+    yfinance info로 재조회해 업데이트합니다.
+
+    backfill_us.py가 fast_info(이름 속성 없음)로 저장한 항목을 복구하는 용도.
+    Returns: 업데이트된 항목 수
+    """
+    to_fix = [t for t, n in name_cache.items() if n == t]
+    if not to_fix:
+        return 0
+
+    print(f"  이름 재조회: {len(to_fix)}개 티커 (이름=티커로 잘못 저장된 항목)...")
+    fixed = 0
+    for i, ticker in enumerate(to_fix):
+        try:
+            info = yf.Ticker(ticker).info
+            name = info.get("shortName") or info.get("longName") or ticker
+            if name and name != ticker:
+                name_cache[ticker] = name
+                fixed += 1
+        except Exception:
+            pass
+        time.sleep(0.15)
+        if (i + 1) % 50 == 0:
+            print(f"    ... {i+1}/{len(to_fix)}")
+
+    print(f"  이름 업데이트 완료: {fixed}/{len(to_fix)}개")
+    return fixed
