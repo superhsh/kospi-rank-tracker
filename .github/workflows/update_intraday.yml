@@ -53,7 +53,8 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
-          git add data/ index.html
+          git pull --rebase origin main
+          git add data/kospi/ data/kosdaq/ data/intraday/ data/name_cache.json index.html || true
           git diff --staged --quiet && echo "변경사항 없음" || \
             git commit -m "⚡ Intraday: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
           git push

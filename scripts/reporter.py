@@ -1,8 +1,22 @@
 """
 reporter.py
-분석 결과 딕셔너리를 받아 self-contained index.html을 생성합니다.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+분석 결과 딕셔너리를 받아 self-contained index.html 을 생성합니다.
 
-탭 구성: 장중 | 일별 | 주별 | 월별
+그룹 탭 구성: 🇰🇷 한국 | 🇺🇸 미국 | 🪙 코인
+
+• 한국: KR 데이터를 HTML에 임베드 (DATA_KR)
+  - 마켓 탭: KOSPI / KOSDAQ
+  - 기간 탭: 장중 / 일별 / 주별 / 월별
+
+• 미국: data/report_us.json 을 fetch() 로 동적 로딩 (DATA_US)
+  - 마켓 탭: S&P 500 / 나스닥 100
+  - 기간 탭: 일별 / 주별 / 월별
+
+• 코인: data/report_crypto.json 을 fetch() 로 동적 로딩 (DATA_CRYPTO)
+  - 마켓 탭: 없음 (단일 시장)
+  - 기간 탭: 일별 / 주별 / 월별
+
 각 탭 하단에 해당 기간 Top5 종목의 순위 변동 히스토리 차트 포함
 """
 
@@ -17,7 +31,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📈 KOSPI/KOSDAQ 시총 순위 상승 트래커</title>
+  <title>📈 글로벌 시총 순위 상승 트래커</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -48,6 +62,10 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
     .tab-btn:hover { border-color: #90caf9; }
 
+    /* 그룹 탭 */
+    .group-tabs { margin-bottom: 16px; }
+    .group-tabs .tab-btn.active { background: #1a237e; color: #fff; border-color: #1a237e; }
+
     /* 마켓 탭 */
     .market-tabs .tab-btn.active { background: #0d47a1; color: #fff; border-color: #0d47a1; }
 
@@ -67,6 +85,22 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
       background: #e65100; color: #fff; padding: 2px 10px;
       border-radius: 10px; font-weight: 800; font-size: 13px;
     }
+
+    /* ── 로딩 스피너 ── */
+    .loading-wrap {
+      text-align: center; padding: 60px 20px;
+      background: #fff; border-radius: 14px;
+      box-shadow: 0 1px 5px rgba(0,0,0,.07);
+    }
+    .spinner {
+      width: 40px; height: 40px; margin: 0 auto 16px;
+      border: 4px solid #e3f2fd;
+      border-top-color: #1976d2;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-wrap p { color: #999; font-size: 14px; }
 
     /* ── 섹션 헤더 ── */
     .section-header {
@@ -160,9 +194,6 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
       display: flex; align-items: center; gap: 5px;
       font-size: 12px; font-weight: 600; color: #444;
     }
-    .hist-legend-dot {
-      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
-    }
 
     /* ── 데이터 없음 ── */
     .no-data {
@@ -190,20 +221,24 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 <body>
 
 <header>
-  <h1>📈 KOSPI / KOSDAQ 시총 순위 상승 트래커</h1>
+  <h1 id="page-title">📈 글로벌 시총 순위 상승 트래커</h1>
   <div class="meta">
-    <span>🕐 마지막 업데이트: <b id="last-updated">-</b></span>
+    <span>🕐 업데이트: <b id="last-updated">-</b></span>
     <span>📅 기준일: <b id="current-date">-</b></span>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- 마켓 탭 -->
-  <div class="tab-bar market-tabs">
-    <button class="tab-btn active" onclick="switchMarket('kospi')">KOSPI</button>
-    <button class="tab-btn"        onclick="switchMarket('kosdaq')">KOSDAQ</button>
+  <!-- 그룹 탭 -->
+  <div class="tab-bar group-tabs">
+    <button class="tab-btn active" onclick="switchGroup('korea')">🇰🇷 한국</button>
+    <button class="tab-btn"        onclick="switchGroup('us')">🇺🇸 미국</button>
+    <button class="tab-btn"        onclick="switchGroup('coin')">🪙 코인</button>
   </div>
+
+  <!-- 마켓 탭 (코인 그룹에선 숨김) -->
+  <div class="tab-bar market-tabs" id="market-tabs"></div>
 
   <!-- 기간 탭 -->
   <div class="tab-bar period-tabs" id="period-tabs"></div>
@@ -229,30 +264,83 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 
 </div>
 
-<footer>
-  데이터 출처: 네이버 금융 &nbsp;|&nbsp;
-  장중 09:20·11:00·13:00·15:00 KST / 일별 16:00 KST 자동 업데이트
+<footer id="footer-text">
+  데이터: 네이버금융(한국) · Yahoo Finance(미국) · CoinGecko(코인) &nbsp;|&nbsp; 자동 업데이트
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-const DATA = /*__DATA__*/null/*__DATA__*/;
+// ── 임베드된 한국 데이터 ──────────────────────────────────────────────────────
+const DATA_KR = /*__DATA_KR__*/null/*__DATA_KR__*/;
 
+// ── 동적 로딩 데이터 (US/Crypto) ──────────────────────────────────────────────
+let DATA_US     = null;
+let DATA_CRYPTO = null;
+let loadingUS     = false;
+let loadingCrypto = false;
+
+// ── 상태 ──────────────────────────────────────────────────────────────────────
+let currentGroup  = 'korea';
 let currentMarket = 'kospi';
 let currentPeriod = 'intraday';
-let activeChart   = null;   // 현재 Chart.js 인스턴스
+let activeChart   = null;
 
-// ── 색각 이상자(적녹색약) 안전 팔레트 ────────────────────────────────────
-// IBM Carbon Colorblind-safe 5색 기반
-// 파랑·주황·자홍·황금·보라 → 적녹색약(Deuteranopia/Protanopia) 모두 구분 가능
-// 색상 + 선 패턴 + 포인트 모양 3중 식별 체계
+// ── 그룹별 마켓/기간 정의 ─────────────────────────────────────────────────────
+const GROUP_MARKETS = {
+  korea: ['kospi', 'kosdaq'],
+  us:    ['sp500', 'nasdaq100'],
+  coin:  ['coin'],
+};
+const GROUP_PERIODS = {
+  korea: ['intraday','daily','weekly','monthly'],
+  us:    ['daily','weekly','monthly'],
+  coin:  ['daily','weekly','monthly'],
+};
+const MARKET_LABEL = {
+  kospi:     'KOSPI',
+  kosdaq:    'KOSDAQ',
+  sp500:     'S&P 500',
+  nasdaq100: '나스닥 100',
+  coin:      '코인',
+};
+const GROUP_TITLE = {
+  korea: '📈 KOSPI / KOSDAQ 시총 순위 상승 트래커',
+  us:    '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
+  coin:  '📈 암호화폐 시총 순위 상승 트래커',
+};
+
+const PERIOD_META = {
+  intraday: {
+    label:'장중', cls:'intraday',
+    title:'장중 순위 상승 Top 5',
+    histTitle:'장중 Top5 진입 종목 — 최근 30일 일별 순위 변동',
+  },
+  daily: {
+    label:'일별', cls:'daily',
+    title:'전일 대비 시총 순위 상승 Top 5',
+    histTitle:'최근 1개월 일별 순위 변동 이력',
+  },
+  weekly: {
+    label:'주별', cls:'weekly',
+    title:'전주 대비 시총 순위 상승 Top 5',
+    histTitle:'최근 3개월 주별 순위 변동 이력',
+  },
+  monthly: {
+    label:'월별', cls:'monthly',
+    title:'전월 대비 시총 순위 상승 Top 5',
+    histTitle:'전체 기간 월별 순위 변동 이력',
+  },
+};
+const MEDAL_CLASS = ['m1','m2','m3','',''];
+const INTRA_MEDAL = ['m1 intra','intra','intra','intra','intra'];
+
+// ── 색각 이상자(적녹색약) 안전 팔레트 IBM Carbon 기반 ─────────────────────────
 const CB_PALETTE = [
-  { color:'#648FFF', dash:[],         point:'circle',   width:3   }, // 파랑  실선   ●
-  { color:'#FE6100', dash:[8,4],      point:'triangle', width:2.8 }, // 주황  장대시  ▲
-  { color:'#DC267F', dash:[3,3],      point:'rect',     width:2.8 }, // 자홍  점선   ■
-  { color:'#FFB000', dash:[10,3,2,3], point:'rectRot',  width:2.8 }, // 황금  혼합선  ◆
-  { color:'#785EF0', dash:[6,4],      point:'star',     width:2.8 }, // 보라  파선   ★
-  // secondary (장중 차트용 - 추가 종목)
+  { color:'#648FFF', dash:[],         point:'circle',   width:3   },
+  { color:'#FE6100', dash:[8,4],      point:'triangle', width:2.8 },
+  { color:'#DC267F', dash:[3,3],      point:'rect',     width:2.8 },
+  { color:'#FFB000', dash:[10,3,2,3], point:'rectRot',  width:2.8 },
+  { color:'#785EF0', dash:[6,4],      point:'star',     width:2.8 },
   { color:'#648FFF', dash:[3,3],      point:'crossRot', width:2   },
   { color:'#FE6100', dash:[],         point:'star',     width:2   },
   { color:'#DC267F', dash:[8,4],      point:'circle',   width:2   },
@@ -264,96 +352,189 @@ const CB_PALETTE = [
   { color:'#FFB000', dash:[],         point:'circle',   width:1.8 },
   { color:'#785EF0', dash:[8,4],      point:'triangle', width:1.8 },
 ];
-// Top5 전용 별칭 (하위 호환)
-const TOP5_STYLES = CB_PALETTE;
 
-const PERIOD_META = {
-  intraday: { label:'장중',  title:'장중 순위 상승 Top 5',         cls:'intraday',
-              histTitle:'장중 Top5 진입 종목 — 최근 30일 일별 순위 변동' },
-  daily:    { label:'일별',  title:'전일 대비 시총 순위 상승 Top 5', cls:'daily',
-              histTitle:'최근 1개월 일별 순위 변동 이력' },
-  weekly:   { label:'주별',  title:'전주 대비 시총 순위 상승 Top 5', cls:'weekly',
-              histTitle:'최근 3개월 주별 순위 변동 이력' },
-  monthly:  { label:'월별',  title:'전월 대비 시총 순위 상승 Top 5', cls:'monthly',
-              histTitle:'전체 기간 월별 순위 변동 이력' },
-};
-const MEDAL_CLASS = ['m1','m2','m3','',''];
-const INTRA_MEDAL = ['m1 intra','intra','intra','intra','intra'];
-
+/* ── 유틸 ────────────────────────────────────────────────────────────────── */
 function fmtDate(d) {
   if (!d || d.length < 8) return d || '-';
   return `${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6,8)}`;
 }
 function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
-                  .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ── 현재 그룹의 데이터 반환 ────────────────────────────────────────────── */
+function getGroupData() {
+  if (currentGroup === 'korea') return DATA_KR;
+  if (currentGroup === 'us')    return DATA_US;
+  return DATA_CRYPTO;
 }
 
 /* ── 초기화 ─────────────────────────────────────────────────────────────── */
 function init() {
-  if (!DATA) { showError('데이터를 불러올 수 없습니다.'); return; }
-  document.getElementById('last-updated').textContent = DATA.updated_at || '-';
-  document.getElementById('current-date').textContent = fmtDate(DATA.current_date);
-
-  // 항상 4개 탭 표시 (장중 데이터가 없어도 탭은 유지)
+  if (!DATA_KR) { showError('한국 데이터를 불러올 수 없습니다.'); return; }
+  currentGroup  = 'korea';
+  currentMarket = 'kospi';
   currentPeriod = 'intraday';
+  buildGroupTabs();
+  buildMarketTabs();
   buildPeriodTabs();
+  updateHeader();
   render();
 }
 
+/* ── 그룹 탭 구성 ────────────────────────────────────────────────────────── */
+function buildGroupTabs() {
+  document.querySelectorAll('.group-tabs .tab-btn').forEach((btn, i) => {
+    const groups = ['korea','us','coin'];
+    btn.classList.toggle('active', groups[i] === currentGroup);
+  });
+}
+
+/* ── 마켓 탭 구성 ────────────────────────────────────────────────────────── */
+function buildMarketTabs() {
+  const container = document.getElementById('market-tabs');
+  const markets   = GROUP_MARKETS[currentGroup];
+
+  // 코인은 단일 시장이므로 탭 숨김
+  if (markets.length <= 1) {
+    container.style.display = 'none';
+    return;
+  }
+  container.style.display = 'flex';
+  container.innerHTML = markets.map(m =>
+    `<button class="tab-btn${m===currentMarket?' active':''}"
+             onclick="switchMarket('${m}')">${esc(MARKET_LABEL[m])}</button>`
+  ).join('');
+}
+
+/* ── 기간 탭 구성 ────────────────────────────────────────────────────────── */
 function buildPeriodTabs() {
   const container = document.getElementById('period-tabs');
-  const periods   = ['intraday','daily','weekly','monthly'];
+  const periods   = GROUP_PERIODS[currentGroup];
   container.innerHTML = periods.map(p => {
-    const cls = `tab-btn${p === 'intraday' ? ' intraday' : ''}`;
+    const cls = `tab-btn${p==='intraday'?' intraday':''}${p===currentPeriod?' active':''}`;
     return `<button class="${cls}" onclick="switchPeriod('${p}')">${PERIOD_META[p].label}</button>`;
   }).join('');
 }
 
-/* ── 탭 전환 ────────────────────────────────────────────────────────────── */
+/* ── 헤더 업데이트 ───────────────────────────────────────────────────────── */
+function updateHeader() {
+  const data = getGroupData();
+  document.getElementById('page-title').textContent    = GROUP_TITLE[currentGroup];
+  document.getElementById('last-updated').textContent  = data?.updated_at  || '-';
+  document.getElementById('current-date').textContent  = fmtDate(data?.current_date);
+}
+
+/* ── 그룹 전환 ───────────────────────────────────────────────────────────── */
+function switchGroup(g) {
+  currentGroup  = g;
+  currentMarket = GROUP_MARKETS[g][0];
+  currentPeriod = GROUP_PERIODS[g][0];
+
+  buildGroupTabs();
+  buildMarketTabs();
+  buildPeriodTabs();
+
+  if (g === 'us' && !DATA_US) {
+    loadUSData();
+    return;
+  }
+  if (g === 'coin' && !DATA_CRYPTO) {
+    loadCryptoData();
+    return;
+  }
+
+  updateHeader();
+  render();
+}
+
+/* ── 마켓 전환 ───────────────────────────────────────────────────────────── */
 function switchMarket(m) {
   currentMarket = m;
-  document.querySelectorAll('.market-tabs .tab-btn').forEach((btn, i) => {
-    btn.classList.toggle('active', (i===0 && m==='kospi') || (i===1 && m==='kosdaq'));
-  });
+  buildMarketTabs();
   render();
 }
 
+/* ── 기간 전환 ───────────────────────────────────────────────────────────── */
 function switchPeriod(p) {
   currentPeriod = p;
-  document.querySelectorAll('.period-tabs .tab-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent === PERIOD_META[p].label);
-  });
+  buildPeriodTabs();
   render();
 }
 
-/* ── 메인 렌더링 ────────────────────────────────────────────────────────── */
+/* ── 동적 데이터 로딩: 미국 ─────────────────────────────────────────────── */
+function loadUSData() {
+  if (loadingUS) return;
+  loadingUS = true;
+  showLoadingSpinner('🇺🇸 미국 데이터 로딩 중...');
+
+  fetch('data/report_us.json')
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
+    .then(data => {
+      DATA_US   = data;
+      loadingUS = false;
+      updateHeader();
+      render();
+    })
+    .catch(err => {
+      loadingUS = false;
+      showError(`미국 데이터를 불러올 수 없습니다.<br><small>${esc(err.message)}</small>`);
+    });
+}
+
+/* ── 동적 데이터 로딩: 코인 ─────────────────────────────────────────────── */
+function loadCryptoData() {
+  if (loadingCrypto) return;
+  loadingCrypto = true;
+  showLoadingSpinner('🪙 코인 데이터 로딩 중...');
+
+  fetch('data/report_crypto.json')
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
+    .then(data => {
+      DATA_CRYPTO   = data;
+      loadingCrypto = false;
+      updateHeader();
+      render();
+    })
+    .catch(err => {
+      loadingCrypto = false;
+      showError(`코인 데이터를 불러올 수 없습니다.<br><small>${esc(err.message)}</small>`);
+    });
+}
+
+/* ── 메인 렌더링 ─────────────────────────────────────────────────────────── */
 function render() {
-  // 기존 차트 파기
   if (activeChart) { activeChart.destroy(); activeChart = null; }
 
-  const titleEl  = document.getElementById('section-title');
-  const labelEl  = document.getElementById('compare-label');
-  const banner   = document.getElementById('intraday-banner');
-  titleEl.textContent  = PERIOD_META[currentPeriod].title;
-  banner.style.display = 'none';
-  labelEl.className    = 'compare-label';
+  document.getElementById('section-title').textContent = PERIOD_META[currentPeriod].title;
+  document.getElementById('intraday-banner').style.display = 'none';
+  document.getElementById('compare-label').className = 'compare-label';
 
-  if (currentPeriod === 'intraday') {
-    renderIntraday(titleEl, labelEl, banner);
+  if (currentGroup === 'korea' && currentPeriod === 'intraday') {
+    renderIntraday();
   } else {
-    renderPeriod(labelEl);
+    renderPeriod();
   }
 }
 
-/* ── 장중 탭 ─────────────────────────────────────────────────────────────── */
-function renderIntraday(titleEl, labelEl, banner) {
-  const cards = document.getElementById('cards');
-  const idata = DATA.intraday?.[currentMarket];
+/* ── 장중 탭 렌더링 (한국 전용) ─────────────────────────────────────────── */
+function renderIntraday() {
+  const cards  = document.getElementById('cards');
+  const idata  = DATA_KR?.intraday?.[currentMarket];
+  const label  = document.getElementById('compare-label');
+  const banner = document.getElementById('intraday-banner');
 
   if (!idata || !idata.available || !idata.top5?.length) {
-    labelEl.textContent = '';
-    cards.innerHTML     = noDataHTML(idata?.comparison || '장중 데이터 없음');
+    label.textContent = '';
+    cards.innerHTML   = noDataHTML(idata?.comparison || '장중 데이터 없음');
     document.getElementById('hist-section').innerHTML = '';
     return;
   }
@@ -361,9 +542,10 @@ function renderIntraday(titleEl, labelEl, banner) {
   banner.style.display = 'flex';
   document.getElementById('intraday-time-badge').textContent = idata.label_display || '-';
   document.getElementById('intraday-comp-label').textContent = idata.comparison || '';
-  labelEl.className    = 'compare-label orange';
-  labelEl.textContent  = idata.comparison || '';
-  titleEl.textContent  = `${idata.label_display} 장중 순위 상승 Top 5`;
+  label.className   = 'compare-label orange';
+  label.textContent = idata.comparison || '';
+  document.getElementById('section-title').textContent =
+    `${idata.label_display} 장중 순위 상승 Top 5`;
 
   cards.innerHTML = idata.top5.map((s, i) => `
     <div class="card intraday-card">
@@ -385,20 +567,24 @@ function renderIntraday(titleEl, labelEl, banner) {
   renderHistoryChart(idata.history, 'intraday');
 }
 
-/* ── 일별/주별/월별 탭 ──────────────────────────────────────────────────── */
-function renderPeriod(labelEl) {
+/* ── 일별/주별/월별 탭 렌더링 (모든 그룹) ──────────────────────────────── */
+function renderPeriod() {
   const cards = document.getElementById('cards');
-  const pd    = DATA[currentMarket]?.[currentPeriod];
+  const label = document.getElementById('compare-label');
+  const data  = getGroupData();
+  const pd    = data?.[currentMarket]?.[currentPeriod];
 
   if (!pd || !pd.available || !pd.top5?.length) {
-    labelEl.textContent = '';
-    cards.innerHTML     = noDataHTML(pd?.prev_date ? '기준: ' + fmtDate(pd.prev_date) : '데이터 부족');
+    label.textContent = '';
+    cards.innerHTML   = noDataHTML(
+      pd?.prev_date ? '기준: ' + fmtDate(pd.prev_date) : '데이터 부족'
+    );
     document.getElementById('hist-section').innerHTML = '';
     return;
   }
 
-  labelEl.className   = 'compare-label';
-  labelEl.textContent = '기준: ' + fmtDate(pd.prev_date);
+  label.className   = 'compare-label';
+  label.textContent = '기준: ' + fmtDate(pd.prev_date);
 
   cards.innerHTML = pd.top5.map((s, i) => `
     <div class="card">
@@ -420,47 +606,42 @@ function renderPeriod(labelEl) {
   renderHistoryChart(pd.history, currentPeriod);
 }
 
-/* ── 히스토리 차트 렌더링 ───────────────────────────────────────────────── */
+/* ── 히스토리 차트 렌더링 ────────────────────────────────────────────────── */
 function renderHistoryChart(hdata, period) {
   const section = document.getElementById('hist-section');
   section.innerHTML = '';
-
   if (!hdata || !hdata.timeline?.length) return;
 
   const meta = PERIOD_META[period];
-
   section.innerHTML = `
     <div class="hist-box ${period}">
       <div class="hist-title">
         <span class="hist-badge ${period}">${meta.label}</span>
         ${esc(meta.histTitle)}
       </div>
-      <div class="hist-chart-wrap">
-        <canvas id="histCanvas"></canvas>
-      </div>
+      <div class="hist-chart-wrap"><canvas id="histCanvas"></canvas></div>
       <div class="hist-legend" id="hist-legend"></div>
     </div>`;
 
   const labels   = hdata.timeline.map(t => t.label);
   const tickers  = hdata.tickers;
-
   const datasets = tickers.map((ticker, idx) => {
-    const st = TOP5_STYLES[idx] || TOP5_STYLES[4];
+    const st = CB_PALETTE[idx] || CB_PALETTE[4];
     return {
-      label:            hdata.names[ticker] || ticker,
-      data:             hdata.timeline.map(t => t.ranks[ticker] ?? null),
-      borderColor:      st.color,
-      backgroundColor:  st.color + '15',
-      borderWidth:      st.width,
-      borderDash:       st.dash,
-      pointStyle:       st.point,
-      pointRadius:      5,
-      pointHoverRadius: 8,
+      label:               hdata.names[ticker] || ticker,
+      data:                hdata.timeline.map(t => t.ranks[ticker] ?? null),
+      borderColor:         st.color,
+      backgroundColor:     st.color + '15',
+      borderWidth:         st.width,
+      borderDash:          st.dash,
+      pointStyle:          st.point,
+      pointRadius:         5,
+      pointHoverRadius:    8,
       pointBackgroundColor: st.color,
-      pointBorderColor:     '#fff',
-      pointBorderWidth:     1.5,
-      spanGaps:         true,
-      tension:          0.25,
+      pointBorderColor:    '#fff',
+      pointBorderWidth:    1.5,
+      spanGaps:            true,
+      tension:             0.25,
     };
   });
 
@@ -476,8 +657,8 @@ function renderHistoryChart(hdata, period) {
         legend: { display: false },
         tooltip: {
           callbacks: {
-            title:  items => items[0]?.label || '',
-            label:  item  => item.raw != null
+            title: items => items[0]?.label || '',
+            label: item  => item.raw != null
               ? ` ${item.dataset.label}: ${item.raw}위` : null,
           },
           filter: item => item.raw != null,
@@ -502,27 +683,36 @@ function renderHistoryChart(hdata, period) {
             callback: v => `${v}위`,
           },
           grid:  { color: '#f0f0f0' },
-          title: { display: true, text: '순위 (낮을수록 상위)', font: { size: 10 }, color: '#bbb' },
+          title: { display: true, text: '순위 (낮을수록 상위)',
+                   font: { size: 10 }, color: '#bbb' },
         },
       },
     },
   });
 
-  // 커스텀 범례 (색상 + 선 패턴 시각화)
+  // 커스텀 범례
   document.getElementById('hist-legend').innerHTML = tickers.map((t, i) => {
-    const st   = TOP5_STYLES[i] || TOP5_STYLES[4];
-    const dash = st.dash.length
-      ? `stroke-dasharray="${st.dash.join(' ')}"`
-      : '';
+    const st   = CB_PALETTE[i] || CB_PALETTE[4];
+    const dash = st.dash.length ? `stroke-dasharray="${st.dash.join(' ')}"` : '';
     const svg  = `<svg width="28" height="10" style="vertical-align:middle;margin-right:5px">
-      <line x1="0" y1="5" x2="28" y2="5" stroke="${st.color}"
-            stroke-width="${st.width}" ${dash}/>
+      <line x1="0" y1="5" x2="28" y2="5"
+            stroke="${st.color}" stroke-width="${st.width}" ${dash}/>
     </svg>`;
     return `<div class="hist-legend-item">${svg}${esc(hdata.names[t] || t)}</div>`;
   }).join('');
 }
 
-/* ── 공통 ────────────────────────────────────────────────────────────────── */
+/* ── 공통 UI ─────────────────────────────────────────────────────────────── */
+function showLoadingSpinner(msg) {
+  document.getElementById('cards').innerHTML = `
+    <div class="loading-wrap">
+      <div class="spinner"></div>
+      <p>${esc(msg)}</p>
+    </div>`;
+  document.getElementById('hist-section').innerHTML = '';
+  document.getElementById('compare-label').textContent = '';
+  document.getElementById('intraday-banner').style.display = 'none';
+}
 function noDataHTML(msg) {
   return `<div class="no-data">
     <div class="icon">📊</div>
@@ -531,7 +721,11 @@ function noDataHTML(msg) {
   </div>`;
 }
 function showError(msg) {
-  document.getElementById('cards').innerHTML = noDataHTML(msg);
+  document.getElementById('cards').innerHTML = `<div class="no-data">
+    <div class="icon">⚠️</div>
+    <p style="color:#e53935">${msg}</p>
+  </div>`;
+  document.getElementById('hist-section').innerHTML = '';
 }
 
 init();
@@ -542,8 +736,14 @@ init();
 
 
 def generate_html(report_data: dict, output_path: str = OUTPUT_HTML) -> str:
+    """
+    KR report_data 를 받아 DATA_KR 로 임베드한 index.html 을 생성합니다.
+    US/Crypto 데이터는 JS에서 fetch()로 동적 로딩합니다.
+    """
     data_json = json.dumps(report_data, ensure_ascii=False)
-    html = _HTML_TEMPLATE.replace("/*__DATA__*/null/*__DATA__*/", data_json)
+    html = _HTML_TEMPLATE.replace(
+        "/*__DATA_KR__*/null/*__DATA_KR__*/", data_json
+    )
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)

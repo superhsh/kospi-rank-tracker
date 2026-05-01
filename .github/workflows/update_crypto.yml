@@ -1,0 +1,58 @@
+name: 🪙 Update Crypto Rankings
+
+on:
+  # 매일 UTC 01:00 (KST 10:00) — 코인 시장은 24/7 운영
+  schedule:
+    - cron: '0 1 * * *'
+
+  # 수동 실행 가능
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '수집 날짜 (YYYYMMDD, 비워두면 오늘)'
+        required: false
+        default: ''
+
+jobs:
+  update-crypto:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # ① 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ② Python 환경 설정
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ③ 의존성 설치
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ④ 코인 데이터 수집 + 리포트 생성
+      - name: Fetch crypto data and generate report
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            python run_daily_crypto.py --date "${{ github.event.inputs.date }}"
+          else
+            python run_daily_crypto.py
+          fi
+
+      # ⑤ 변경사항 커밋 & 푸시 (충돌 방지를 위해 pull --rebase 먼저)
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "github-actions[bot]"
+          git pull --rebase origin main
+          git add data/coin/ data/report_crypto.json || true
+          git diff --staged --quiet && echo "변경사항 없음 — 커밋 스킵" || \
+            git commit -m "🪙 Crypto Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git push

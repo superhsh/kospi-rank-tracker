@@ -46,12 +46,14 @@ jobs:
             python run_daily.py
           fi
 
-      # ⑤ 변경사항 커밋 & 푸시
+      # ⑤ 변경사항 커밋 & 푸시 (충돌 방지를 위해 pull --rebase 먼저)
       - name: Commit and push changes
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
-          git add data/ index.html
+          git pull --rebase origin main
+          # KR 전용 경로만 add (US/Crypto 파일과 충돌 방지)
+          git add data/kospi/ data/kosdaq/ data/intraday/ data/name_cache.json index.html || true
           # 변경사항이 없으면 커밋 안 함 (휴장일 등)
           git diff --staged --quiet && echo "변경사항 없음 — 커밋 스킵" || \
             git commit -m "📊 Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
