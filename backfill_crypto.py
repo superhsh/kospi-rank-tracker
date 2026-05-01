@@ -31,21 +31,28 @@ from scripts.fetcher_crypto import (
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--top", type=int, default=100,
+                        help="수집할 코인 수 (기본 100, 빠른 테스트는 20)")
+    args = parser.parse_args()
+
     end_date   = datetime.now().strftime("%Y%m%d")
     start_date = (datetime.now() - timedelta(days=95)).strftime("%Y%m%d")
 
     print(f"\n{'='*54}")
-    print(f"  코인 백필 시작 — {start_date} ~ {end_date}")
+    print(f"  코인 백필 — 상위 {args.top}개 × {start_date}~{end_date}")
     print(f"{'='*54}\n")
 
-    # 현재 상위 100 코인 목록 가져오기
+    # 현재 상위 코인 목록 가져오기
     print("  현재 코인 순위 수집 중...")
     current_df = fetch_crypto_top100()
     if current_df.empty:
         print("  ⚠ 현재 코인 데이터를 가져올 수 없습니다.")
         return
 
-    print(f"  {len(current_df)}개 코인 역사 데이터 수집 시작...\n")
+    current_df = current_df.head(args.top)
+    print(f"  상위 {len(current_df)}개 코인 역사 데이터 수집 시작...\n")
 
     # {date_str: {coin_id: (symbol, name, market_cap)}}
     date_coin_map: dict = defaultdict(dict)
@@ -62,14 +69,17 @@ def main():
             if start_date <= date_str <= end_date:
                 date_coin_map[date_str][coin_id] = (symbol, name, mcap)
 
-        time.sleep(4.0)   # CoinGecko 무료 API rate limit 준수 (분당 ~15회)
+        from scripts.fetcher_crypto import COIN_DELAY
+        time.sleep(COIN_DELAY)
 
     # ── 날짜별 DataFrame 생성 및 저장 ──────────────────────────────────────
-    available = set(get_available_crypto_dates())
-    saved     = 0
+    from scripts.fetcher_crypto import load_crypto_data
+    saved = 0
 
     for date_str in sorted(date_coin_map.keys()):
-        if date_str in available:
+        # 기존 파일이 있어도 코인 수가 50개 미만이면 덮어씀
+        existing = load_crypto_data(date_str)
+        if len(existing) >= 50:
             continue
 
         coins_today = date_coin_map[date_str]

@@ -22,10 +22,30 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 COIN_DIR = os.path.join(DATA_DIR, "coin")
 
 COINGECKO_BASE = "https://api.coingecko.com/api/v3"
+
+# .env 파일 자동 로드 (없어도 무관)
+_env_path = os.path.join(BASE_DIR, ".env")
+if os.path.exists(_env_path):
+    with open(_env_path) as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if _line and not _line.startswith("#") and "=" in _line:
+                _k, _v = _line.split("=", 1)
+                os.environ.setdefault(_k.strip(), _v.strip())
+
+# 환경변수 COINGECKO_API_KEY가 있으면 Demo API 사용 (분당 30회)
+# 없으면 공개 API 사용 (분당 5~10회)
+_API_KEY = os.environ.get("COINGECKO_API_KEY", "")
 HEADERS = {
     "Accept":     "application/json",
     "User-Agent": "kospi-rank-tracker/1.0",
 }
+if _API_KEY:
+    HEADERS["x-cg-demo-api-key"] = _API_KEY
+    print(f"  CoinGecko Demo API 키 사용 중 (분당 30회 제한)")
+
+# API 키 유무에 따라 코인 간 대기 시간 자동 조정
+COIN_DELAY = 2.0 if _API_KEY else 6.0
 
 
 # ── 경로 유틸 ─────────────────────────────────────────────────────────────────
