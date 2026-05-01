@@ -16,6 +16,8 @@ import os
 import sys
 from datetime import datetime, timedelta
 
+import pandas as pd
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
@@ -60,6 +62,15 @@ def _period_load_fn(market_key: str):
     return load
 
 
+def _apply_name_cache(df: pd.DataFrame, name_cache: dict) -> pd.DataFrame:
+    """name 컬럼을 name_cache로 보정합니다 (name=ticker 항목 교정)."""
+    if df.empty or not name_cache:
+        return df
+    df = df.copy()
+    df["name"] = df["ticker"].apply(lambda t: name_cache.get(t, t))
+    return df
+
+
 def build_us_report(today: str, name_cache: dict) -> dict:
     report = {
         "updated_at":   datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -74,6 +85,9 @@ def build_us_report(today: str, name_cache: dict) -> dict:
         if today in available_dates:
             print(f"  [{market_name}] 오늘 데이터 이미 있음 — 로드")
             current_df = load_us_data(today, market_key)
+            # name=ticker로 잘못 저장된 항목을 캐시로 보정 후 재저장
+            current_df = _apply_name_cache(current_df, name_cache)
+            save_us_data(today, market_key, current_df)
         else:
             print(f"  [{market_name}] 티커 목록 수집 중...")
             tickers = _get_tickers(market_key)
@@ -110,6 +124,26 @@ def build_us_report(today: str, name_cache: dict) -> dict:
             prev_df = load_us_data(prev_date, market_key)
             result  = compute_top5_generic(current_df, prev_df, currency="USD")
             result["prev_date"] = prev_date
+
+            # ── 일별 폴백: 장 개장 전 수집으로 변동 없으면
+            #    직전 거래일 vs 그 전날로 비교 ───────────────────────────────
+            if period == "daily" and not result["available"]:
+                hist = [d for d in available_dates if d < today]
+                if len(hist) >= 2:
+                    fb_cur_date  = hist[-1]
+                    fb_candidates = [d for d in available_dates if d < fb_cur_date]
+                    fb_prev_date  = find_prev_date(fb_cur_date, "daily", fb_candidates)
+                    if fb_prev_date:
+                        fb_cur_df  = _apply_name_cache(
+                            load_us_data(fb_cur_date, market_key), name_cache)
+                        fb_prev_df = load_us_data(fb_prev_date, market_key)
+                        fb_result  = compute_top5_generic(
+                            fb_cur_df, fb_prev_df, currency="USD")
+                        if fb_result["available"]:
+                            result    = fb_result
+                            prev_date = fb_prev_date
+                            result["prev_date"] = fb_prev_date
+                            print(f"    [daily] 폴백 → {fb_cur_date} vs {fb_prev_date}")
 
             if result["available"] and result["top5"]:
                 tickers_top5 = [s["ticker"] for s in result["top5"]]
