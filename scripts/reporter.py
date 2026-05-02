@@ -148,6 +148,11 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .stock-ticker { font-size: 11px; background: #e3f2fd; color: #1565c0;
                     padding: 2px 8px; border-radius: 8px; font-weight: 600; }
     .stock-mktcap { font-size: 12px; color: #666; }
+    .stock-name-link { color: inherit; text-decoration: none; }
+    .stock-name-link:hover { color: #1565c0; text-decoration: underline; }
+    .stock-ticker-link { text-decoration: none; display: inline-flex; align-items: center; }
+    .stock-ticker-link .stock-ticker::after { content: ' ↗'; font-size: 9px; opacity: .55; }
+    .stock-ticker-link:hover .stock-ticker { background: #bbdefb; }
 
     .rank-change { text-align: right; flex-shrink: 0; }
     .change-num  { font-size: 28px; font-weight: 900; color: #e53935; line-height: 1; }
@@ -547,13 +552,15 @@ function renderIntraday() {
   document.getElementById('section-title').textContent =
     `${idata.label_display} 장중 순위 상승 Top 5`;
 
-  cards.innerHTML = idata.top5.map((s, i) => `
+  cards.innerHTML = idata.top5.map((s, i) => {
+    const invUrl = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    return `
     <div class="card intraday-card">
       <div class="medal ${INTRA_MEDAL[i]}">${i+1}</div>
       <div class="stock-info">
-        <div class="stock-name">${esc(s.name)}</div>
+        <div class="stock-name"><a class="stock-name-link" href="${invUrl}" target="_blank" rel="noopener">${esc(s.name)}</a></div>
         <div class="stock-sub">
-          <span class="stock-ticker">${esc(s.ticker)}</span>
+          <a class="stock-ticker-link" href="${invUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
@@ -562,7 +569,8 @@ function renderIntraday() {
         <div class="change-num">+${s.rank_change}</div>
         <div class="rank-path"><strong>${s.prev_rank}위</strong> → <strong>${s.rank}위</strong></div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   renderHistoryChart(idata.history, 'intraday');
 }
@@ -586,13 +594,15 @@ function renderPeriod() {
   label.className   = 'compare-label';
   label.textContent = '기준: ' + fmtDate(pd.prev_date);
 
-  cards.innerHTML = pd.top5.map((s, i) => `
+  cards.innerHTML = pd.top5.map((s, i) => {
+    const invUrl = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    return `
     <div class="card">
       <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
       <div class="stock-info">
-        <div class="stock-name">${esc(s.name)}</div>
+        <div class="stock-name"><a class="stock-name-link" href="${invUrl}" target="_blank" rel="noopener">${esc(s.name)}</a></div>
         <div class="stock-sub">
-          <span class="stock-ticker">${esc(s.ticker)}</span>
+          <a class="stock-ticker-link" href="${invUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
@@ -601,7 +611,8 @@ function renderPeriod() {
         <div class="change-num">+${s.rank_change}</div>
         <div class="rank-path"><strong>${s.prev_rank}위</strong> → <strong>${s.rank}위</strong></div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   renderHistoryChart(pd.history, currentPeriod);
 }
