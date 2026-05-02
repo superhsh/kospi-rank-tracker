@@ -368,6 +368,13 @@ function esc(s) {
     .replace(/&/g,'&amp;').replace(/</g,'&lt;')
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
+function naverUrl(ticker) {
+  // 6자리 숫자 = 한국 종목 코드 → 종목 직접 페이지
+  // 그 외 (미국/코인 영문 티커) → 검색 결과 페이지
+  return /^\d{6}$/.test(ticker)
+    ? `https://finance.naver.com/item/main.naver?code=${ticker}`
+    : `https://finance.naver.com/search/search.naver?query=${encodeURIComponent(ticker)}&endUrl=&encoding=UTF-8`;
+}
 
 /* ── 현재 그룹의 데이터 반환 ────────────────────────────────────────────── */
 function getGroupData() {
@@ -554,14 +561,14 @@ function renderIntraday() {
 
   cards.innerHTML = idata.top5.map((s, i) => {
     const invUrl   = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
-    const naverUrl = `https://finance.naver.com/search/searchList.naver?query=${encodeURIComponent(s.ticker)}`;
+    const nvrUrl = naverUrl(s.ticker);
     return `
     <div class="card intraday-card">
       <div class="medal ${INTRA_MEDAL[i]}">${i+1}</div>
       <div class="stock-info">
         <div class="stock-name"><a class="stock-name-link" href="${invUrl}" target="_blank" rel="noopener">${esc(s.name)}</a></div>
         <div class="stock-sub">
-          <a class="stock-ticker-link" href="${naverUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
+          <a class="stock-ticker-link" href="${nvrUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
@@ -597,14 +604,14 @@ function renderPeriod() {
 
   cards.innerHTML = pd.top5.map((s, i) => {
     const invUrl   = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
-    const naverUrl = `https://finance.naver.com/search/searchList.naver?query=${encodeURIComponent(s.ticker)}`;
+    const nvrUrl = naverUrl(s.ticker);
     return `
     <div class="card">
       <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
       <div class="stock-info">
         <div class="stock-name"><a class="stock-name-link" href="${invUrl}" target="_blank" rel="noopener">${esc(s.name)}</a></div>
         <div class="stock-sub">
-          <a class="stock-ticker-link" href="${naverUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
+          <a class="stock-ticker-link" href="${nvrUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
