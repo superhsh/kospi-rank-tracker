@@ -190,6 +190,12 @@ def main():
     print(f"  미국 시장 업데이트 시작 — {today}")
     print(f"{'='*54}")
 
+    # 주말에는 NYSE 휴장 → 실행 스킵 (GitHub Actions는 weekday only이지만 수동 실행 대비)
+    dt = datetime.strptime(today, "%Y%m%d")
+    if dt.weekday() >= 5:
+        print(f"  ⚠ {today}은 주말입니다. 미국 시장 업데이트 스킵.")
+        sys.exit(0)
+
     name_cache = load_name_cache_us()
 
     # 이름이 티커로 잘못 저장된 항목(backfill 오류) 재조회
