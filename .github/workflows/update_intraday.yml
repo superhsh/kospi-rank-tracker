@@ -53,8 +53,11 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
-          git pull --rebase origin main
           git add data/kospi/ data/kosdaq/ data/intraday/ data/name_cache.json index.html || true
-          git diff --staged --quiet && echo "변경사항 없음" || \
-            git commit -m "⚡ Intraday: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
-          git push
+          git diff --staged --quiet && echo "변경사항 없음" && exit 0
+          git commit -m "⚡ Intraday: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            echo "⚠ Push 실패 (시도 $i/3) — 5초 후 재시도..."
+            sleep 5
+          done
