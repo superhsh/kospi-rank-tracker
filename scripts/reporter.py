@@ -553,14 +553,15 @@ function renderIntraday() {
     `${idata.label_display} 장중 순위 상승 Top 5`;
 
   cards.innerHTML = idata.top5.map((s, i) => {
-    const invUrl = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    const invUrl   = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    const naverUrl = `https://finance.naver.com/search/searchList.naver?query=${encodeURIComponent(s.ticker)}`;
     return `
     <div class="card intraday-card">
       <div class="medal ${INTRA_MEDAL[i]}">${i+1}</div>
       <div class="stock-info">
         <div class="stock-name"><a class="stock-name-link" href="${invUrl}" target="_blank" rel="noopener">${esc(s.name)}</a></div>
         <div class="stock-sub">
-          <a class="stock-ticker-link" href="${invUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
+          <a class="stock-ticker-link" href="${naverUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
@@ -595,14 +596,15 @@ function renderPeriod() {
   label.textContent = '기준: ' + fmtDate(pd.prev_date);
 
   cards.innerHTML = pd.top5.map((s, i) => {
-    const invUrl = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    const invUrl   = `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    const naverUrl = `https://finance.naver.com/search/searchList.naver?query=${encodeURIComponent(s.ticker)}`;
     return `
     <div class="card">
       <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
       <div class="stock-info">
         <div class="stock-name"><a class="stock-name-link" href="${invUrl}" target="_blank" rel="noopener">${esc(s.name)}</a></div>
         <div class="stock-sub">
-          <a class="stock-ticker-link" href="${invUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
+          <a class="stock-ticker-link" href="${naverUrl}" target="_blank" rel="noopener"><span class="stock-ticker">${esc(s.ticker)}</span></a>
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
