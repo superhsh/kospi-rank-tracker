@@ -200,16 +200,19 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
       font-size: 12px; font-weight: 600; color: #444;
     }
 
-    /* ── Claude 분석 버튼 ── */
-    .claude-btn {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 5px 13px; border-radius: 20px; border: none;
-      background: linear-gradient(135deg, #c96442 0%, #a0522d 100%);
-      color: #fff; font-size: 12px; font-weight: 700; cursor: pointer;
+    /* ── AI 분석 버튼 ── */
+    .ai-btn-group { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+    .ai-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 5px 11px; border-radius: 20px; border: none;
+      color: #fff; font-size: 11px; font-weight: 700; cursor: pointer;
       box-shadow: 0 2px 6px rgba(0,0,0,.15); transition: all .18s;
       white-space: nowrap; flex-shrink: 0;
     }
-    .claude-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.22); }
+    .ai-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.22); }
+    .ai-btn.claude  { background: linear-gradient(135deg, #c96442 0%, #a0522d 100%); }
+    .ai-btn.gemini  { background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%); }
+    .ai-btn.chatgpt { background: linear-gradient(135deg, #10a37f 0%, #0d8a6c 100%); }
 
     /* ── 토스트 알림 ── */
     .claude-toast {
@@ -302,9 +305,13 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
   <!-- 섹션 헤더 -->
   <div class="section-header">
     <h2 id="section-title">-</h2>
-    <div style="display:flex;align-items:center;gap:8px">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <span class="compare-label" id="compare-label"></span>
-      <button class="claude-btn" onclick="openClaudeAnalysis()">✦ Claude 분석</button>
+      <div class="ai-btn-group">
+        <button class="ai-btn claude"  onclick="openAnalysis('https://claude.ai/new','Claude')">✦ Claude</button>
+        <button class="ai-btn gemini"  onclick="openAnalysis('https://gemini.google.com/','Gemini')">✦ Gemini</button>
+        <button class="ai-btn chatgpt" onclick="openAnalysis('https://chatgpt.com/','ChatGPT')">✦ ChatGPT</button>
+      </div>
     </div>
   </div>
 
@@ -834,16 +841,16 @@ ${stockLines}
 전문적이고 객관적인 시각으로 작성하되, 일반 투자자도 이해할 수 있도록 명확하게 설명해주세요.`;
 }
 
-function openClaudeAnalysis() {
+function openAnalysis(serviceUrl, serviceName) {
   const prompt = buildClaudePrompt();
   if (!prompt) { showToast('현재 표시된 종목이 없습니다.', 'warn'); return; }
 
   navigator.clipboard.writeText(prompt)
     .then(() => {
-      window.open('https://claude.ai/new', '_blank', 'noopener');
-      showToast('✅ 프롬프트 복사 완료 — Claude 새 창에서 붙여넣기(Ctrl+V) 하세요', 'ok');
+      window.open(serviceUrl, '_blank', 'noopener');
+      showToast(`✅ 프롬프트 복사 완료 — ${serviceName} 새 창에서 붙여넣기(Ctrl+V) 하세요`, 'ok');
     })
-    .catch(() => showPromptModal(prompt));
+    .catch(() => showPromptModal(prompt, serviceUrl, serviceName));
 }
 
 function showToast(msg, type) {
@@ -858,7 +865,7 @@ function showToast(msg, type) {
   setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4500);
 }
 
-function showPromptModal(prompt) {
+function showPromptModal(prompt, serviceUrl, serviceName) {
   const old = document.getElementById('claude-modal');
   if (old) old.remove();
   const m = document.createElement('div');
@@ -867,17 +874,17 @@ function showPromptModal(prompt) {
     <div class="modal-backdrop" onclick="document.getElementById('claude-modal').remove()"></div>
     <div class="modal-box">
       <div class="modal-hd">
-        <span>✦ Claude 분석 프롬프트</span>
+        <span>✦ ${esc(serviceName)} 분석 프롬프트</span>
         <button onclick="document.getElementById('claude-modal').remove()">✕</button>
       </div>
       <textarea class="modal-body" readonly>${esc(prompt)}</textarea>
       <div class="modal-ft">
         <button class="modal-copy-btn" onclick="
           navigator.clipboard.writeText(document.querySelector('#claude-modal textarea').value);
-          window.open('https://claude.ai/new','_blank','noopener');
+          window.open('${serviceUrl}','_blank','noopener');
           document.getElementById('claude-modal').remove();
-          showToast('✅ 복사 완료 — Claude 새 창에서 Ctrl+V 하세요','ok');
-        ">📋 복사 + Claude 열기</button>
+          showToast('✅ 복사 완료 — ${serviceName} 새 창에서 Ctrl+V 하세요','ok');
+        ">📋 복사 + ${esc(serviceName)} 열기</button>
       </div>
     </div>`;
   document.body.appendChild(m);
