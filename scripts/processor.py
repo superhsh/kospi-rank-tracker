@@ -31,12 +31,14 @@ def find_prev_date(current_date: str, period: str,
                    available_dates: list[str]) -> str | None:
     """
     현재 날짜에서 period만큼 이전 시점과 가장 가까운 저장 날짜를 반환합니다.
-    정확히 일치하는 날짜가 없으면(휴장일 등) 그 이전에서 가장 최근 날짜를 사용합니다.
+    monthly: 전월 마지막 날 기준 (차트 월별 막대와 일치)
     """
-    days_back = PERIOD_CONFIG[period]["days"]
     current_dt = datetime.strptime(current_date, "%Y%m%d")
-    target_dt = current_dt - timedelta(days=days_back)
-    target_str = target_dt.strftime("%Y%m%d")
+    if period == "monthly":
+        target_str = (current_dt.replace(day=1) - timedelta(days=1)).strftime("%Y%m%d")
+    else:
+        days_back = PERIOD_CONFIG[period]["days"]
+        target_str = (current_dt - timedelta(days=days_back)).strftime("%Y%m%d")
 
     candidates = [d for d in available_dates if d <= target_str]
     return max(candidates) if candidates else None
