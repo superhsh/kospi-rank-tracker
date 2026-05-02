@@ -172,6 +172,50 @@
       font-size: 12px; font-weight: 600; color: #444;
     }
 
+    /* ── Claude 분석 버튼 ── */
+    .claude-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 13px; border-radius: 20px; border: none;
+      background: linear-gradient(135deg, #c96442 0%, #a0522d 100%);
+      color: #fff; font-size: 12px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,.15); transition: all .18s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .claude-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.22); }
+
+    /* ── 토스트 알림 ── */
+    .claude-toast {
+      position: fixed; bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: #1a1a2e; color: #fff; padding: 11px 22px;
+      border-radius: 24px; font-size: 13px; font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3); opacity: 0;
+      transition: all .35s; z-index: 9999; white-space: nowrap; max-width: 90vw;
+    }
+    .claude-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .claude-toast.warn { background: #e65100; }
+
+    /* ── 프롬프트 모달 (클립보드 실패 시) ── */
+    #claude-modal { position: fixed; inset: 0; z-index: 9998;
+                    display: flex; align-items: center; justify-content: center; }
+    .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.45); }
+    .modal-box { position: relative; background: #fff; border-radius: 16px;
+                 width: 90%; max-width: 560px; overflow: hidden;
+                 box-shadow: 0 8px 32px rgba(0,0,0,.25); }
+    .modal-hd { display: flex; justify-content: space-between; align-items: center;
+                padding: 14px 18px; font-weight: 700; font-size: 14px;
+                border-bottom: 1px solid #eee; }
+    .modal-hd button { background: none; border: none; font-size: 18px;
+                        cursor: pointer; color: #999; }
+    .modal-body { width: 100%; height: 300px; padding: 14px 18px;
+                  font-size: 13px; line-height: 1.65; border: none;
+                  resize: none; outline: none; color: #333; }
+    .modal-ft { padding: 12px 18px; border-top: 1px solid #eee; text-align: right; }
+    .modal-copy-btn { padding: 8px 20px; background: #c96442; color: #fff;
+                      border: none; border-radius: 12px; font-weight: 700;
+                      font-size: 13px; cursor: pointer; }
+    .modal-copy-btn:hover { background: #a0522d; }
+
     /* ── 데이터 없음 ── */
     .no-data {
       text-align: center; padding: 44px 20px;
@@ -230,7 +274,10 @@
   <!-- 섹션 헤더 -->
   <div class="section-header">
     <h2 id="section-title">-</h2>
-    <span class="compare-label" id="compare-label"></span>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="compare-label" id="compare-label"></span>
+      <button class="claude-btn" onclick="openClaudeAnalysis()">✦ Claude 분석</button>
+    </div>
   </div>
 
   <!-- Top5 카드 영역 -->
@@ -716,6 +763,93 @@ function showError(msg) {
     <p style="color:#e53935">${msg}</p>
   </div>`;
   document.getElementById('hist-section').innerHTML = '';
+}
+
+/* ── Claude 분석 기능 ────────────────────────────────────────────────────── */
+function buildClaudePrompt() {
+  const data = getGroupData();
+  let pd;
+  if (currentGroup === 'korea' && currentPeriod === 'intraday') {
+    pd = data?.intraday?.[currentMarket];
+  } else {
+    pd = data?.[currentMarket]?.[currentPeriod];
+  }
+  if (!pd || !pd.top5?.length) return null;
+
+  const groupLabel  = { korea:'한국', us:'미국', coin:'암호화폐' }[currentGroup];
+  const marketLabel = MARKET_LABEL[currentMarket];
+  const periodLabel = PERIOD_META[currentPeriod].label;
+
+  const stockLines = pd.top5.map((s, i) =>
+    `${i+1}. ${s.name} (${s.ticker})\n` +
+    `   · 현재 순위: ${s.rank}위  /  이전 순위: ${s.prev_rank}위  (▲${s.rank_change}위 상승)\n` +
+    `   · 시가총액: ${s.market_cap_str}`
+  ).join('\n\n');
+
+  return `아래는 ${groupLabel} ${marketLabel} 시장에서 [${periodLabel}] 기준 시가총액 순위 상승폭이 가장 큰 종목들입니다.
+
+${stockLines}
+
+위 종목 각각에 대해 슈퍼애널리스트 관점의 종합 투자 보고서를 작성해주세요.
+각 종목마다 다음 항목을 포함해주세요:
+
+① 기업 개요 및 핵심 사업
+② 최근 실적 및 재무 현황 (매출, 영업이익, 부채비율 등)
+③ 시총 순위 급등 원인 분석 (최근 뉴스·이슈·이벤트)
+④ 성장 동력 및 중장기 전망
+⑤ 주요 리스크 요인
+⑥ 투자 의견 (매수 / 중립 / 매도) 및 목표 시총·주가 근거
+
+전문적이고 객관적인 시각으로 작성하되, 일반 투자자도 이해할 수 있도록 명확하게 설명해주세요.`;
+}
+
+function openClaudeAnalysis() {
+  const prompt = buildClaudePrompt();
+  if (!prompt) { showToast('현재 표시된 종목이 없습니다.', 'warn'); return; }
+
+  navigator.clipboard.writeText(prompt)
+    .then(() => {
+      window.open('https://claude.ai/new', '_blank', 'noopener');
+      showToast('✅ 프롬프트 복사 완료 — Claude 새 창에서 붙여넣기(Ctrl+V) 하세요', 'ok');
+    })
+    .catch(() => showPromptModal(prompt));
+}
+
+function showToast(msg, type) {
+  const old = document.getElementById('_claude_toast');
+  if (old) old.remove();
+  const t = document.createElement('div');
+  t.id = '_claude_toast';
+  t.className = 'claude-toast' + (type === 'warn' ? ' warn' : '');
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 4500);
+}
+
+function showPromptModal(prompt) {
+  const old = document.getElementById('claude-modal');
+  if (old) old.remove();
+  const m = document.createElement('div');
+  m.id = 'claude-modal';
+  m.innerHTML = `
+    <div class="modal-backdrop" onclick="document.getElementById('claude-modal').remove()"></div>
+    <div class="modal-box">
+      <div class="modal-hd">
+        <span>✦ Claude 분석 프롬프트</span>
+        <button onclick="document.getElementById('claude-modal').remove()">✕</button>
+      </div>
+      <textarea class="modal-body" readonly>${esc(prompt)}</textarea>
+      <div class="modal-ft">
+        <button class="modal-copy-btn" onclick="
+          navigator.clipboard.writeText(document.querySelector('#claude-modal textarea').value);
+          window.open('https://claude.ai/new','_blank','noopener');
+          document.getElementById('claude-modal').remove();
+          showToast('✅ 복사 완료 — Claude 새 창에서 Ctrl+V 하세요','ok');
+        ">📋 복사 + Claude 열기</button>
+      </div>
+    </div>`;
+  document.body.appendChild(m);
 }
 
 init();
