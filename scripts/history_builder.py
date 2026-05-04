@@ -49,7 +49,9 @@ def build_intraday_history(market: str, today: str, tickers: list) -> list:
     from scripts.fetcher import get_available_dates
     from scripts.intraday import get_saved_labels, load_intraday
 
-    all_dates = sorted(get_available_dates(market))
+    # 일별 데이터 날짜 + today 합산 (오늘 일별 데이터가 없어도 장중 스냅샷은 존재)
+    daily_dates = set(get_available_dates(market))
+    all_dates   = sorted(daily_dates | {today})
     recent = sorted([d for d in all_dates if d <= today], reverse=True)[:3]
     recent = sorted(recent)
 
@@ -205,7 +207,8 @@ def attach_intraday_history(report_data: dict, markets: list, today: str) -> dic
     """
     장중 탭 히스토리:
       - 오늘 모든 시간대(0920/1100/1300/1500) Top5에 진입한 전체 종목 수집
-      - 해당 종목들의 최근 30일 일별 순위 변동을 history 필드로 추가
+      - 해당 종목들의 최근 3일 × 시간대별 장중 순위 변동을 history 필드로 추가
+      (일별 데이터 대신 장중 스냅샷 사용 → 오늘 데이터 누락 방지)
     """
     for market in markets:
         mk    = market.lower()
@@ -216,7 +219,7 @@ def attach_intraday_history(report_data: dict, markets: list, today: str) -> dic
         # 모든 시간대 Top5 종목 수집
         all_tickers = get_all_intraday_top5_tickers(market, today)
 
-        # 장중 데이터가 있는데 수집 결과가 없으면 현재 시간대 top5로 fallback
+        # fallback: 현재 시간대 top5
         if not all_tickers:
             for s in idata.get("top5", []):
                 all_tickers[s["ticker"]] = s["name"]
@@ -225,7 +228,8 @@ def attach_intraday_history(report_data: dict, markets: list, today: str) -> dic
             continue
 
         tickers  = list(all_tickers.keys())
-        timeline = build_daily_history(market, today, tickers)
+        # 일별 히스토리 → 장중 스냅샷 기반 히스토리로 변경
+        timeline = build_intraday_history(market, today, tickers)
 
         report_data["intraday"][mk]["history"] = {
             "tickers":  tickers,

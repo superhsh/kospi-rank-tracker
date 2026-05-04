@@ -344,7 +344,7 @@ const PERIOD_META = {
   intraday: {
     label:'장중', cls:'intraday',
     title:'장중 순위 상승 Top 5',
-    histTitle:'장중 Top5 진입 종목 — 최근 30일 일별 순위 변동',
+    histTitle:'장중 Top5 진입 종목 — 최근 3일 시간대별 순위 변동',
   },
   daily: {
     label:'일별', cls:'daily',
@@ -727,7 +727,7 @@ function renderHistoryChart(hdata, period) {
         y: {
           reverse:      true,
           min:          1,
-          suggestedMax: 50,
+          suggestedMax: currentPeriod === 'intraday' ? 100 : 50,
           ticks: {
             stepSize: 10,
             font: { size: 11 }, color: '#999',
