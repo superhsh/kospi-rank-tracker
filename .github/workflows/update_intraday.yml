@@ -76,7 +76,8 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
-          git add data/kospi/ data/kosdaq/ data/intraday/ data/name_cache.json index.html || true
+          git add data/kospi/ data/kosdaq/ data/intraday/ index.html || true
+          [ -f data/name_cache.json ] && git add data/name_cache.json || true
           git diff --staged --quiet && echo "변경사항 없음" && exit 0
           git commit -m "⚡ Intraday: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
           for i in 1 2 3; do
