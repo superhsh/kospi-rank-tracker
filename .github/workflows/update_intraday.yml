@@ -41,11 +41,34 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # ── cron schedule → label 매핑 ─────────────────────────────────────────
+      # github.event.schedule 은 실제로 트리거한 cron 문자열을 반환합니다.
+      # 이를 통해 GitHub Actions 실행 지연 여부와 무관하게 올바른 라벨을 지정합니다.
+      - name: Resolve label
+        id: resolve
+        run: |
+          MANUAL="${{ github.event.inputs.label }}"
+          if [ -n "$MANUAL" ]; then
+            echo "label=$MANUAL" >> $GITHUB_OUTPUT
+          else
+            case "${{ github.event.schedule }}" in
+              "20 0 * * 1-5")  echo "label=0920" >> $GITHUB_OUTPUT ;;
+              "0  2 * * 1-5")  echo "label=1100" >> $GITHUB_OUTPUT ;;
+              "0  4 * * 1-5")  echo "label=1300" >> $GITHUB_OUTPUT ;;
+              "0  6 * * 1-5")  echo "label=1500" >> $GITHUB_OUTPUT ;;
+              *)               echo "label="     >> $GITHUB_OUTPUT ;;
+            esac
+          fi
+          echo "✅ 결정된 라벨: $(grep label $GITHUB_OUTPUT | cut -d= -f2)"
+
       - name: Run intraday update
         run: |
-          if [ -n "${{ github.event.inputs.label }}" ]; then
-            python run_hourly.py --label "${{ github.event.inputs.label }}"
+          LABEL="${{ steps.resolve.outputs.label }}"
+          if [ -n "$LABEL" ]; then
+            echo "▶ python run_hourly.py --label $LABEL"
+            python run_hourly.py --label "$LABEL"
           else
+            echo "▶ python run_hourly.py (시각 자동 판단)"
             python run_hourly.py
           fi
 
@@ -58,6 +81,6 @@ jobs:
           git commit -m "⚡ Intraday: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
           for i in 1 2 3; do
             git pull --rebase origin main && git push && break
-            echo "⚠ Push 실패 (시도 $i/3) — 5초 후 재시도..."
-            sleep 5
+            echo "⚠ Push 실패 (시도 $i/3) — 10초 후 재시도..."
+            sleep 10
           done
