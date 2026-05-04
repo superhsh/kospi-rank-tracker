@@ -73,27 +73,17 @@ def resolve_comparison(market: str, today: str, current_label: str,
     """
     현재 라벨에 따라 비교할 데이터의 (source, date, label, desc)를 반환합니다.
 
-    source: 'daily' | 'intraday' | None
+    source: 'daily' | None
     desc  : 화면에 표시할 비교 기준 문자열
+
+    모든 시간대(0920/1100/1300/1500)에서 전날 종가 기준으로 순위 변동을 계산합니다.
     """
-    if current_label == "0920":
-        # 전날 종가 데이터와 비교
-        candidates = [d for d in daily_dates if d < today]
-        if not candidates:
-            return None, None, None, "전날 데이터 없음"
-        prev_date = max(candidates)
-        desc = f"전날 종가 ({prev_date[:4]}.{prev_date[4:6]}.{prev_date[6:]})"
-        return "daily", prev_date, None, desc
-    else:
-        # 직전 intraday 스냅샷과 비교
-        saved = get_saved_labels(market, today)
-        prev_candidates = [l for l in saved if l < current_label]
-        if not prev_candidates:
-            return None, None, None, "직전 스냅샷 없음"
-        prev_label = max(prev_candidates)
-        h, m = prev_label[:2], prev_label[2:]
-        desc = f"{h}:{m} 대비"
-        return "intraday", today, prev_label, desc
+    candidates = [d for d in daily_dates if d < today]
+    if not candidates:
+        return None, None, None, "전날 데이터 없음"
+    prev_date = max(candidates)
+    desc = f"전날 종가 ({prev_date[:4]}.{prev_date[4:6]}.{prev_date[6:]})"
+    return "daily", prev_date, None, desc
 
 
 # ── Top 5 계산 ────────────────────────────────────────────────────────────────

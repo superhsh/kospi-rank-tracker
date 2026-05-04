@@ -176,7 +176,11 @@ def get_all_intraday_top5_tickers(market: str, today: str) -> dict:
 
     all_dates = sorted(get_available_dates(market))
     tickers: dict[str, str] = {}   # ticker → name
-    prev_df: pd.DataFrame   = pd.DataFrame()
+
+    # 전날 종가 데이터 한 번만 로드 (모든 시간대의 공통 비교 기준)
+    prev_candidates = [d for d in all_dates if d < today]
+    prev_daily_df = (load_market_data(max(prev_candidates), market)
+                     if prev_candidates else pd.DataFrame())
 
     for label in INTRA_LABELS:
         if label not in saved_today:
@@ -184,21 +188,11 @@ def get_all_intraday_top5_tickers(market: str, today: str) -> dict:
 
         current_df = load_intraday(market, today, label)
         if current_df.empty:
-            prev_df = current_df
             continue
 
-        if label == "0920":
-            prev_candidates = [d for d in all_dates if d < today]
-            ref_df = (load_market_data(max(prev_candidates), market)
-                      if prev_candidates else pd.DataFrame())
-        else:
-            ref_df = prev_df
-
-        top5 = compute_top5(current_df, ref_df)
+        top5 = compute_top5(current_df, prev_daily_df)
         for s in top5:
             tickers[s["ticker"]] = s["name"]
-
-        prev_df = current_df
 
     return tickers
 
