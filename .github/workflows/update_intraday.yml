@@ -77,9 +77,10 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
           git add data/kospi/ data/kosdaq/ data/intraday/ index.html || true
-          [ -f data/name_cache.json ] && git add data/name_cache.json || true
+          [ -f data/name_cache.json ] && git add data/name_cache.json 2>/dev/null || true
           git diff --staged --quiet && echo "변경사항 없음" && exit 0
           git commit -m "⚡ Intraday: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git stash 2>/dev/null || true   # 남은 unstaged 변경사항 제거 → pull --rebase 충돌 방지
           for i in 1 2 3; do
             git pull --rebase origin main && git push && break
             echo "⚠ Push 실패 (시도 $i/3) — 10초 후 재시도..."

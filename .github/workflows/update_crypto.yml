@@ -54,8 +54,9 @@ jobs:
           git add data/coin/ data/report_crypto.json || true
           git diff --staged --quiet && echo "변경사항 없음 — 커밋 스킵" && exit 0
           git commit -m "🪙 Crypto Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git stash 2>/dev/null || true
           for i in 1 2 3; do
             git pull --rebase origin main && git push && break
-            echo "⚠ Push 실패 (시도 $i/3) — 5초 후 재시도..."
-            sleep 5
+            echo "⚠ Push 실패 (시도 $i/3) — 10초 후 재시도..."
+            sleep 10
           done
