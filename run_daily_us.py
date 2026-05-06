@@ -122,7 +122,13 @@ def build_us_report(today: str, name_cache: dict) -> dict:
                 continue
 
             prev_df = load_us_data(prev_date, market_key)
-            result  = compute_top5_generic(current_df, prev_df, currency="USD")
+
+            # S&P 500: 현재 250위 이내 종목만 대상으로 순위 상승 계산
+            filtered_df = (
+                current_df[current_df["rank"] <= 250]
+                if market_key == "sp500" else current_df
+            )
+            result  = compute_top5_generic(filtered_df, prev_df, currency="USD")
             result["prev_date"] = prev_date
 
             # ── 일별 폴백: 장 개장 전 수집으로 변동 없으면
@@ -137,8 +143,12 @@ def build_us_report(today: str, name_cache: dict) -> dict:
                         fb_cur_df  = _apply_name_cache(
                             load_us_data(fb_cur_date, market_key), name_cache)
                         fb_prev_df = load_us_data(fb_prev_date, market_key)
+                        fb_cur_df_filtered = (
+                            fb_cur_df[fb_cur_df["rank"] <= 250]
+                            if market_key == "sp500" else fb_cur_df
+                        )
                         fb_result  = compute_top5_generic(
-                            fb_cur_df, fb_prev_df, currency="USD")
+                            fb_cur_df_filtered, fb_prev_df, currency="USD")
                         if fb_result["available"]:
                             result    = fb_result
                             prev_date = fb_prev_date
