@@ -17,7 +17,7 @@ import argparse
 import os
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pandas as pd
 
@@ -41,7 +41,7 @@ from scripts.intraday import (
     resolve_comparison,
 )
 from scripts.processor import build_report_data
-from scripts.processor_generic import compute_streak_top5_generic
+from scripts.processor_generic import build_history_generic, compute_streak_top5_generic
 from scripts.reporter import generate_html
 
 MARKETS = ["KOSPI", "KOSDAQ"]
@@ -220,6 +220,14 @@ def main():
         report_data[mk]["streak"] = streak
         if streak:
             print(f"  [{market}] 연속 상승 {len(streak)}개 종목")
+            tickers  = [s["ticker"] for s in streak]
+            names    = {s["ticker"]: s["name"] for s in streak}
+            cutoff   = (datetime.strptime(today, "%Y%m%d") - timedelta(days=30)).strftime("%Y%m%d")
+            hdates   = [d for d in available if cutoff <= d <= today]
+            timeline = build_history_generic(load_fn, hdates, tickers, "daily")
+            report_data[mk]["streak_history"] = {"tickers": tickers, "names": names, "timeline": timeline}
+        else:
+            report_data[mk]["streak_history"] = {}
 
     # ── 오늘 저장된 장중 스냅샷 포함 ──────────────────────────────────────────
     print("\n  오늘 장중 스냅샷 확인 중...")

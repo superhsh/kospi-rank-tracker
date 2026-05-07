@@ -193,6 +193,14 @@ def build_us_report(today: str, name_cache: dict) -> dict:
         market_data["streak"] = streak
         if streak:
             print(f"    [streak] 연속 상승 {len(streak)}개 종목")
+            tickers  = [s["ticker"] for s in streak]
+            names    = {s["ticker"]: s["name"] for s in streak}
+            cutoff   = (datetime.strptime(today, "%Y%m%d") - timedelta(days=30)).strftime("%Y%m%d")
+            hdates   = [d for d in available_dates if cutoff <= d <= today]
+            timeline = build_history_generic(load_fn, hdates, tickers, "daily")
+            market_data["streak_history"] = {"tickers": tickers, "names": names, "timeline": timeline}
+        else:
+            market_data["streak_history"] = {}
 
         report[market_key] = market_data
 

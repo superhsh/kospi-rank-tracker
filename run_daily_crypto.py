@@ -121,6 +121,14 @@ def build_crypto_report(today: str) -> dict:
     coin_data["streak"] = streak
     if streak:
         print(f"    [streak] 연속 상승 {len(streak)}개 종목")
+        tickers  = [s["ticker"] for s in streak]
+        names    = {s["ticker"]: s["name"] for s in streak}
+        cutoff   = (datetime.strptime(today, "%Y%m%d") - timedelta(days=30)).strftime("%Y%m%d")
+        hdates   = [d for d in available_dates if cutoff <= d <= today]
+        timeline = build_history_generic(load_crypto_data, hdates, tickers, "daily")
+        coin_data["streak_history"] = {"tickers": tickers, "names": names, "timeline": timeline}
+    else:
+        coin_data["streak_history"] = {}
 
     report["coin"] = coin_data
     return report

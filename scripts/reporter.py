@@ -73,6 +73,8 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .period-tabs .tab-btn.active          { background: #2e7d32; color: #fff; border-color: #2e7d32; }
     .period-tabs .tab-btn.intraday.active { background: #e65100; color: #fff; border-color: #e65100; }
     .period-tabs .tab-btn.intraday        { color: #e65100; border-color: #ffe0cc; }
+    .period-tabs .tab-btn.streak.active   { background: #f57f17; color: #fff; border-color: #f57f17; }
+    .period-tabs .tab-btn.streak          { color: #f57f17; border-color: #ffe0b2; }
 
     /* ── 장중 배너 ── */
     .intraday-banner {
@@ -104,8 +106,8 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ── 섹션 헤더 ── */
     .section-header {
-      display: flex; align-items: baseline;
-      justify-content: space-between; margin: 4px 0 12px;
+      display: flex; align-items: center; flex-wrap: wrap;
+      justify-content: space-between; gap: 8px; margin: 4px 0 12px;
     }
     .section-header h2 { font-size: 14px; font-weight: 700; color: #333; }
     .compare-label {
@@ -171,6 +173,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .hist-box.daily    { border-top-color: #c8e6c9; }
     .hist-box.weekly   { border-top-color: #bbdefb; }
     .hist-box.monthly  { border-top-color: #e1bee7; }
+    .hist-box.streak   { border-top-color: #ffd600; }
 
     .hist-title {
       font-size: 13px; font-weight: 700; color: #555;
@@ -184,6 +187,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .hist-badge.daily    { background: #2e7d32; }
     .hist-badge.weekly   { background: #1565c0; }
     .hist-badge.monthly  { background: #6a1b9a; }
+    .hist-badge.streak   { background: #f57f17; }
 
     .hist-chart-wrap {
       position: relative; width: 100%; height: 280px;
@@ -368,9 +372,6 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
   <!-- 히스토리 차트 영역 -->
   <div id="hist-section"></div>
 
-  <!-- 연속 순위 상승 종목 -->
-  <div id="streak-section"></div>
-
 </div>
 
 <footer id="footer-text">
@@ -401,9 +402,9 @@ const GROUP_MARKETS = {
   coin:  ['coin'],
 };
 const GROUP_PERIODS = {
-  korea: ['intraday','daily','weekly','monthly'],
-  us:    ['daily','weekly','monthly'],
-  coin:  ['daily','weekly','monthly'],
+  korea: ['intraday','daily','weekly','monthly','streak'],
+  us:    ['daily','weekly','monthly','streak'],
+  coin:  ['daily','weekly','monthly','streak'],
 };
 const MARKET_LABEL = {
   kospi:     'KOSPI',
@@ -438,6 +439,11 @@ const PERIOD_META = {
     label:'월별', cls:'monthly',
     title:'전월 대비 시총 순위 상승 Top 5',
     histTitle:'전체 기간 월별 순위 변동 이력',
+  },
+  streak: {
+    label:'🔥연속상승', cls:'streak',
+    title:'3일 이상 연속 시총 순위 상승 종목',
+    histTitle:'연속 상승 종목 — 최근 30일 일별 순위 변동',
   },
 };
 const MEDAL_CLASS = ['m1','m2','m3','',''];
@@ -530,7 +536,8 @@ function buildPeriodTabs() {
   const container = document.getElementById('period-tabs');
   const periods   = GROUP_PERIODS[currentGroup];
   container.innerHTML = periods.map(p => {
-    const cls = `tab-btn${p==='intraday'?' intraday':''}${p===currentPeriod?' active':''}`;
+    const extra = p === 'intraday' ? ' intraday' : p === 'streak' ? ' streak' : '';
+    const cls   = `tab-btn${extra}${p===currentPeriod?' active':''}`;
     return `<button class="${cls}" onclick="switchPeriod('${p}')">${PERIOD_META[p].label}</button>`;
   }).join('');
 }
@@ -633,14 +640,14 @@ function render() {
   document.getElementById('section-title').textContent = PERIOD_META[currentPeriod].title;
   document.getElementById('intraday-banner').style.display = 'none';
   document.getElementById('compare-label').className = 'compare-label';
-  document.getElementById('streak-section').innerHTML = '';
 
   if (currentGroup === 'korea' && currentPeriod === 'intraday') {
     renderIntraday();
+  } else if (currentPeriod === 'streak') {
+    renderStreakPeriod();
   } else {
     renderPeriod();
   }
-  renderStreak();
 }
 
 /* ── 장중 탭 렌더링 (한국 전용) ─────────────────────────────────────────── */
@@ -947,6 +954,57 @@ function showPromptModal(prompt, serviceUrl, serviceName) {
   document.body.appendChild(m);
 }
 
+/* ── 연속 순위 상승 탭 렌더링 ────────────────────────────────────────────── */
+function renderStreakPeriod() {
+  const cards = document.getElementById('cards');
+  const label = document.getElementById('compare-label');
+  const data  = getGroupData();
+
+  const streak        = (currentGroup === 'coin') ? data?.coin?.streak        : data?.[currentMarket]?.streak;
+  const streakHistory = (currentGroup === 'coin') ? data?.coin?.streak_history : data?.[currentMarket]?.streak_history;
+
+  label.textContent = '';
+
+  if (!streak || !streak.length) {
+    cards.innerHTML = noDataHTML('연속 상승 종목 없음 — 3일 이상 데이터 누적 후 표시됩니다');
+    document.getElementById('hist-section').innerHTML = '';
+    return;
+  }
+
+  const isCoin = currentGroup === 'coin';
+  cards.innerHTML = streak.map((s, i) => {
+    const nameUrl   = isCoin
+      ? `https://coinness.com/search?q=${encodeURIComponent(s.ticker)}`
+      : `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    const tickerUrl = isCoin
+      ? `https://coinmarketcap.com/ko/search/?q=${encodeURIComponent(s.ticker)}`
+      : naverUrl(s.ticker);
+    return `
+    <div class="card">
+      <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
+      <div class="stock-info">
+        <div class="stock-name">
+          <a class="stock-name-link" href="${nameUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
+        </div>
+        <div class="stock-sub">
+          <a class="stock-ticker-link" href="${tickerUrl}" target="_blank" rel="noopener">
+            <span class="stock-ticker">${esc(s.ticker)}</span>
+          </a>
+          <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
+        </div>
+        <div class="rank-path" style="margin-top:4px">현재 순위 <strong>${s.rank}위</strong></div>
+      </div>
+      <div class="rank-change">
+        <div class="change-arrow" style="color:#f57f17;font-size:20px">🔥</div>
+        <div class="change-num" style="color:#f57f17">${s.streak_days}일</div>
+        <div class="rank-path">연속 상승</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  renderHistoryChart(streakHistory, 'streak');
+}
+
 /* ── GitHub PAT 관리 ─────────────────────────────────────────────────────── */
 function getPAT()     { return localStorage.getItem('gh_pat') || ''; }
 function savePAT(v)   { if (v) localStorage.setItem('gh_pat', v.trim()); }
@@ -1023,57 +1081,6 @@ async function triggerUpdate() {
   } finally {
     if (btn) { btn.disabled = false; btn.textContent = '🔄 업데이트'; }
   }
-}
-
-/* ── 연속 순위 상승 종목 렌더링 ──────────────────────────────────────────── */
-function renderStreak() {
-  const section = document.getElementById('streak-section');
-  if (!section) return;
-
-  const data   = getGroupData();
-  const streak = (currentGroup === 'coin')
-    ? data?.coin?.streak
-    : data?.[currentMarket]?.streak;
-
-  if (!streak || !streak.length) return;
-
-  const isCoin = currentGroup === 'coin';
-  const cards  = streak.map(s => {
-    const nameUrl   = isCoin
-      ? `https://coinness.com/search?q=${encodeURIComponent(s.ticker)}`
-      : `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
-    const tickerUrl = isCoin
-      ? `https://coinmarketcap.com/ko/search/?q=${encodeURIComponent(s.ticker)}`
-      : naverUrl(s.ticker);
-    return `
-    <div class="streak-card">
-      <div class="streak-days">
-        <div class="days-num">${s.streak_days}</div>
-        <div class="days-label">일 연속</div>
-      </div>
-      <div class="stock-info">
-        <div class="stock-name">
-          <a class="stock-name-link" href="${nameUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
-        </div>
-        <div class="stock-sub">
-          <a class="stock-ticker-link" href="${tickerUrl}" target="_blank" rel="noopener">
-            <span class="stock-ticker">${esc(s.ticker)}</span>
-          </a>
-          <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
-        </div>
-        <div class="streak-rank">현재 순위 <strong>${s.rank}위</strong></div>
-      </div>
-    </div>`;
-  }).join('');
-
-  section.innerHTML = `
-    <div class="streak-box">
-      <div class="streak-title">
-        <span class="streak-badge">🔥 연속 상승</span>
-        3일 이상 연속 시총 순위 상승 종목 Top 5 (현재 순위 기준)
-      </div>
-      ${cards}
-    </div>`;
 }
 
 init();
