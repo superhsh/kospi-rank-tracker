@@ -247,6 +247,52 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
                       font-size: 13px; cursor: pointer; }
     .modal-copy-btn:hover { background: #a0522d; }
 
+    /* ── 업데이트 버튼 ── */
+    .update-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 5px 11px; border-radius: 20px; border: none;
+      background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+      color: #fff; font-size: 11px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,.15); transition: all .18s; white-space: nowrap;
+    }
+    .update-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.22); }
+    .update-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+
+    /* ── 연속 순위 상승 ── */
+    .streak-box {
+      background: #fff; border-radius: 14px; padding: 18px 20px 14px;
+      margin-top: 18px; box-shadow: 0 1px 5px rgba(0,0,0,.07);
+      border-top: 3px solid #ffd600;
+    }
+    .streak-title {
+      font-size: 13px; font-weight: 700; color: #555;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+    }
+    .streak-badge {
+      font-size: 11px; font-weight: 700; padding: 2px 9px;
+      border-radius: 8px; color: #fff; background: #f57f17;
+    }
+    .streak-card {
+      background: #fffde7; border-radius: 10px; padding: 12px 16px;
+      margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+      border-left: 4px solid #ffd600;
+    }
+    .streak-days { text-align: center; flex-shrink: 0; width: 52px; }
+    .streak-days .days-num { font-size: 22px; font-weight: 900; color: #f57f17; line-height: 1; }
+    .streak-days .days-label { font-size: 10px; color: #999; margin-top: 2px; }
+    .streak-rank { font-size: 11px; color: #666; margin-top: 3px; }
+
+    /* ── PAT 설정 모달 ── */
+    #pat-modal { position: fixed; inset: 0; z-index: 9999;
+                 display: flex; align-items: center; justify-content: center; }
+    .pat-input {
+      width: 100%; padding: 10px 14px; border: 1.5px solid #ddd;
+      border-radius: 10px; font-size: 13px; margin-top: 10px;
+      font-family: monospace; outline: none; box-sizing: border-box;
+    }
+    .pat-input:focus { border-color: #1565c0; }
+    .pat-hint { font-size: 12px; color: #999; margin-top: 8px; line-height: 1.55; }
+
     /* ── 데이터 없음 ── */
     .no-data {
       text-align: center; padding: 44px 20px;
@@ -308,6 +354,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <span class="compare-label" id="compare-label"></span>
       <div class="ai-btn-group">
+        <button class="update-btn" id="update-btn" onclick="triggerUpdate()">🔄 업데이트</button>
         <button class="ai-btn claude"  onclick="openAnalysis('https://claude.ai/new','Claude')">✦ Claude</button>
         <button class="ai-btn gemini"  onclick="openAnalysis('https://gemini.google.com/','Gemini')">✦ Gemini</button>
         <button class="ai-btn chatgpt" onclick="openAnalysis('https://chatgpt.com/','ChatGPT')">✦ ChatGPT</button>
@@ -320,6 +367,9 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   <!-- 히스토리 차트 영역 -->
   <div id="hist-section"></div>
+
+  <!-- 연속 순위 상승 종목 -->
+  <div id="streak-section"></div>
 
 </div>
 
@@ -583,12 +633,14 @@ function render() {
   document.getElementById('section-title').textContent = PERIOD_META[currentPeriod].title;
   document.getElementById('intraday-banner').style.display = 'none';
   document.getElementById('compare-label').className = 'compare-label';
+  document.getElementById('streak-section').innerHTML = '';
 
   if (currentGroup === 'korea' && currentPeriod === 'intraday') {
     renderIntraday();
   } else {
     renderPeriod();
   }
+  renderStreak();
 }
 
 /* ── 장중 탭 렌더링 (한국 전용) ─────────────────────────────────────────── */
@@ -893,6 +945,135 @@ function showPromptModal(prompt, serviceUrl, serviceName) {
       </div>
     </div>`;
   document.body.appendChild(m);
+}
+
+/* ── GitHub PAT 관리 ─────────────────────────────────────────────────────── */
+function getPAT()     { return localStorage.getItem('gh_pat') || ''; }
+function savePAT(v)   { if (v) localStorage.setItem('gh_pat', v.trim()); }
+
+function showPATModal() {
+  const old = document.getElementById('pat-modal');
+  if (old) old.remove();
+  const m = document.createElement('div');
+  m.id = 'pat-modal';
+  m.innerHTML = `
+    <div class="modal-backdrop" onclick="document.getElementById('pat-modal').remove()"></div>
+    <div class="modal-box">
+      <div class="modal-hd">
+        <span>🔑 GitHub PAT 설정</span>
+        <button onclick="document.getElementById('pat-modal').remove()">✕</button>
+      </div>
+      <div style="padding:18px">
+        <div style="font-size:13px;color:#333;line-height:1.65">
+          GitHub Actions를 원격 실행하려면 Personal Access Token이 필요합니다.<br>
+          토큰은 이 브라우저에만 저장되며 외부로 전송되지 않습니다.
+        </div>
+        <input class="pat-input" id="pat-inp" type="password"
+               placeholder="ghp_xxxxxxxxxxxx" value="${esc(getPAT())}"/>
+        <div class="pat-hint">
+          GitHub → Settings → Developer settings → Personal access tokens (classic)<br>
+          권한: <b>repo</b>, <b>workflow</b> 체크 후 발급
+        </div>
+      </div>
+      <div class="modal-ft">
+        <button class="modal-copy-btn" style="background:#1565c0" onclick="
+          const v=document.getElementById('pat-inp').value.trim();
+          if(!v)return;
+          savePAT(v);
+          document.getElementById('pat-modal').remove();
+          triggerUpdate();
+        ">저장 후 업데이트</button>
+      </div>
+    </div>`;
+  document.body.appendChild(m);
+}
+
+async function triggerUpdate() {
+  const pat = getPAT();
+  if (!pat) { showPATModal(); return; }
+
+  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml' };
+  const workflow = WORKFLOW[currentGroup];
+  const btn = document.getElementById('update-btn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ 요청 중...'; }
+
+  try {
+    const resp = await fetch(
+      `https://api.github.com/repos/superhsh/kospi-rank-tracker/actions/workflows/${workflow}/dispatches`,
+      {
+        method:  'POST',
+        headers: {
+          'Authorization': `Bearer ${pat}`,
+          'Accept':        'application/vnd.github+json',
+          'Content-Type':  'application/json',
+        },
+        body: JSON.stringify({ ref: 'main' }),
+      }
+    );
+    if (resp.status === 204) {
+      showToast('✅ 업데이트 요청 완료 — 1~2분 후 새로고침하세요', 'ok');
+    } else if (resp.status === 401) {
+      localStorage.removeItem('gh_pat');
+      showToast('❌ PAT 인증 실패 — 다시 설정해주세요', 'warn');
+    } else {
+      showToast(`❌ 오류 ${resp.status} — PAT 권한(repo·workflow) 확인`, 'warn');
+    }
+  } catch(e) {
+    showToast('❌ 네트워크 오류', 'warn');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '🔄 업데이트'; }
+  }
+}
+
+/* ── 연속 순위 상승 종목 렌더링 ──────────────────────────────────────────── */
+function renderStreak() {
+  const section = document.getElementById('streak-section');
+  if (!section) return;
+
+  const data   = getGroupData();
+  const streak = (currentGroup === 'coin')
+    ? data?.coin?.streak
+    : data?.[currentMarket]?.streak;
+
+  if (!streak || !streak.length) return;
+
+  const isCoin = currentGroup === 'coin';
+  const cards  = streak.map(s => {
+    const nameUrl   = isCoin
+      ? `https://coinness.com/search?q=${encodeURIComponent(s.ticker)}`
+      : `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    const tickerUrl = isCoin
+      ? `https://coinmarketcap.com/ko/search/?q=${encodeURIComponent(s.ticker)}`
+      : naverUrl(s.ticker);
+    return `
+    <div class="streak-card">
+      <div class="streak-days">
+        <div class="days-num">${s.streak_days}</div>
+        <div class="days-label">일 연속</div>
+      </div>
+      <div class="stock-info">
+        <div class="stock-name">
+          <a class="stock-name-link" href="${nameUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
+        </div>
+        <div class="stock-sub">
+          <a class="stock-ticker-link" href="${tickerUrl}" target="_blank" rel="noopener">
+            <span class="stock-ticker">${esc(s.ticker)}</span>
+          </a>
+          <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
+        </div>
+        <div class="streak-rank">현재 순위 <strong>${s.rank}위</strong></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  section.innerHTML = `
+    <div class="streak-box">
+      <div class="streak-title">
+        <span class="streak-badge">🔥 연속 상승</span>
+        3일 이상 연속 시총 순위 상승 종목 Top 5 (현재 순위 기준)
+      </div>
+      ${cards}
+    </div>`;
 }
 
 init();

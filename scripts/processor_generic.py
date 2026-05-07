@@ -173,6 +173,87 @@ def _build_monthly(load_fn, dates: list, tickers: list) -> list:
     return timeline
 
 
+def compute_streak_top5_generic(load_fn, available_dates: list, today: str,
+                                currency: str = "USD",
+                                rank_limit: int = None) -> list:
+    """
+    연속으로 시총 순위가 상승한(rank 숫자 감소) 종목 중
+    3일 이상 streak인 것을 현재 순위 기준으로 정렬해 Top5 반환.
+
+    load_fn(date_str) → pd.DataFrame (rank, ticker, name, market_cap)
+    rank_limit       : None이면 전체, 숫자면 현재 해당 순위 이내만 대상
+    """
+    sorted_dates = sorted([d for d in available_dates if d <= today])
+    if len(sorted_dates) < 2:
+        return []
+
+    recent = sorted_dates[-31:]   # 최근 31일치만 사용
+
+    rank_maps: dict = {}
+    for date in recent:
+        df = load_fn(date)
+        if not df.empty:
+            rank_maps[date] = {
+                str(r["ticker"]): int(r["rank"])
+                for _, r in df.iterrows()
+            }
+
+    valid_dates = sorted(rank_maps.keys())
+    if len(valid_dates) < 2:
+        return []
+
+    today_date = valid_dates[-1]
+    today_df   = load_fn(today_date)
+    if today_df.empty:
+        return []
+
+    if rank_limit:
+        today_df = today_df[today_df["rank"] <= rank_limit]
+
+    streaks: dict = {}
+    for ticker in today_df["ticker"].astype(str).tolist():
+        streak = 0
+        for i in range(len(valid_dates) - 1, 0, -1):
+            curr = rank_maps.get(valid_dates[i],   {}).get(ticker)
+            prev = rank_maps.get(valid_dates[i-1], {}).get(ticker)
+            if curr is None or prev is None:
+                break
+            if curr < prev:   # 순위 숫자 감소 = 순위 상승
+                streak += 1
+            else:
+                break
+        streaks[ticker] = streak
+
+    qualified = [(t, s) for t, s in streaks.items() if s >= 3]
+    qualified.sort(key=lambda x: rank_maps[today_date].get(x[0], 9999))
+
+    top5 = []
+    for ticker, streak in qualified[:5]:
+        rows = today_df[today_df["ticker"].astype(str) == ticker]
+        if rows.empty:
+            continue
+        row = rows.iloc[0]
+        v   = float(row["market_cap"])
+        if currency == "USD":
+            mcap_str = format_market_cap_usd(v)
+        else:
+            if v >= 1_000_000_000_000:
+                mcap_str = f"{v / 1_000_000_000_000:.2f}조"
+            elif v >= 100_000_000:
+                mcap_str = f"{v / 100_000_000:.0f}억"
+            else:
+                mcap_str = f"{v:,.0f}원"
+        top5.append({
+            "rank":           int(row["rank"]),
+            "ticker":         str(row["ticker"]),
+            "name":           str(row["name"]),
+            "market_cap":     v,
+            "market_cap_str": mcap_str,
+            "streak_days":    streak,
+        })
+    return top5
+
+
 def build_history_generic(load_fn, dates: list, tickers: list,
                           period: str) -> list:
     """

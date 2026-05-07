@@ -35,6 +35,7 @@ from scripts.fetcher_us import (
 )
 from scripts.processor_generic import (
     build_history_generic,
+    compute_streak_top5_generic,
     compute_top5_generic,
     find_prev_date,
 )
@@ -183,6 +184,15 @@ def build_us_report(today: str, name_cache: dict) -> dict:
             status = "✓" if result["available"] else "✗"
             n = len(result.get("top5", []))
             print(f"    [{period}] {status} Top{n}  기준일: {prev_date}")
+
+        # ── 연속 순위 상승 종목 ───────────────────────────────────────────────
+        streak = compute_streak_top5_generic(
+            load_fn, available_dates, today, currency="USD",
+            rank_limit=250 if market_key == "sp500" else None,
+        )
+        market_data["streak"] = streak
+        if streak:
+            print(f"    [streak] 연속 상승 {len(streak)}개 종목")
 
         report[market_key] = market_data
 

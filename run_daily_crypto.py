@@ -28,6 +28,7 @@ from scripts.fetcher_crypto import (
 )
 from scripts.processor_generic import (
     build_history_generic,
+    compute_streak_top5_generic,
     compute_top5_generic,
     find_prev_date,
 )
@@ -112,6 +113,14 @@ def build_crypto_report(today: str) -> dict:
         status = "✓" if result["available"] else "✗"
         n = len(result.get("top5", []))
         print(f"    [{period}] {status} Top{n}  기준일: {prev_date}")
+
+    # ── 연속 순위 상승 종목 ──────────────────────────────────────────────────
+    streak = compute_streak_top5_generic(
+        load_crypto_data, available_dates, today, currency="USD"
+    )
+    coin_data["streak"] = streak
+    if streak:
+        print(f"    [streak] 연속 상승 {len(streak)}개 종목")
 
     report["coin"] = coin_data
     return report

@@ -41,6 +41,7 @@ from scripts.intraday import (
     resolve_comparison,
 )
 from scripts.processor import build_report_data
+from scripts.processor_generic import compute_streak_top5_generic
 from scripts.reporter import generate_html
 
 MARKETS = ["KOSPI", "KOSDAQ"]
@@ -208,6 +209,17 @@ def main():
     # ── 일/주/월 순위 변동 계산 ────────────────────────────────────────────────
     print("\n  순위 변동 분석 중...")
     report_data = build_report_data(today)
+
+    # ── 연속 순위 상승 종목 계산 ──────────────────────────────────────────────
+    print("\n  연속 순위 상승 종목 계산 중...")
+    for market in MARKETS:
+        mk        = market.lower()
+        available = get_available_dates(market)
+        load_fn   = lambda d, m=market: load_market_data(d, m)
+        streak    = compute_streak_top5_generic(load_fn, available, today, currency="KRW")
+        report_data[mk]["streak"] = streak
+        if streak:
+            print(f"  [{market}] 연속 상승 {len(streak)}개 종목")
 
     # ── 오늘 저장된 장중 스냅샷 포함 ──────────────────────────────────────────
     print("\n  오늘 장중 스냅샷 확인 중...")
