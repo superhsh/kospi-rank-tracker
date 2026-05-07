@@ -45,6 +45,8 @@
     .period-tabs .tab-btn.active          { background: #2e7d32; color: #fff; border-color: #2e7d32; }
     .period-tabs .tab-btn.intraday.active { background: #e65100; color: #fff; border-color: #e65100; }
     .period-tabs .tab-btn.intraday        { color: #e65100; border-color: #ffe0cc; }
+    .period-tabs .tab-btn.streak.active   { background: #f57f17; color: #fff; border-color: #f57f17; }
+    .period-tabs .tab-btn.streak          { color: #f57f17; border-color: #ffe0b2; }
 
     /* ── 장중 배너 ── */
     .intraday-banner {
@@ -76,8 +78,8 @@
 
     /* ── 섹션 헤더 ── */
     .section-header {
-      display: flex; align-items: baseline;
-      justify-content: space-between; margin: 4px 0 12px;
+      display: flex; align-items: center; flex-wrap: wrap;
+      justify-content: space-between; gap: 8px; margin: 4px 0 12px;
     }
     .section-header h2 { font-size: 14px; font-weight: 700; color: #333; }
     .compare-label {
@@ -143,6 +145,7 @@
     .hist-box.daily    { border-top-color: #c8e6c9; }
     .hist-box.weekly   { border-top-color: #bbdefb; }
     .hist-box.monthly  { border-top-color: #e1bee7; }
+    .hist-box.streak   { border-top-color: #ffd600; }
 
     .hist-title {
       font-size: 13px; font-weight: 700; color: #555;
@@ -156,6 +159,7 @@
     .hist-badge.daily    { background: #2e7d32; }
     .hist-badge.weekly   { background: #1565c0; }
     .hist-badge.monthly  { background: #6a1b9a; }
+    .hist-badge.streak   { background: #f57f17; }
 
     .hist-chart-wrap {
       position: relative; width: 100%; height: 280px;
@@ -219,6 +223,28 @@
                       font-size: 13px; cursor: pointer; }
     .modal-copy-btn:hover { background: #a0522d; }
 
+    /* ── 업데이트 버튼 ── */
+    .update-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 5px 11px; border-radius: 20px; border: none;
+      background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+      color: #fff; font-size: 11px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,.15); transition: all .18s; white-space: nowrap;
+    }
+    .update-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.22); }
+    .update-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+
+    /* ── PAT 설정 모달 ── */
+    #pat-modal { position: fixed; inset: 0; z-index: 9999;
+                 display: flex; align-items: center; justify-content: center; }
+    .pat-input {
+      width: 100%; padding: 10px 14px; border: 1.5px solid #ddd;
+      border-radius: 10px; font-size: 13px; margin-top: 10px;
+      font-family: monospace; outline: none; box-sizing: border-box;
+    }
+    .pat-input:focus { border-color: #1565c0; }
+    .pat-hint { font-size: 12px; color: #999; margin-top: 8px; line-height: 1.55; }
+
     /* ── 데이터 없음 ── */
     .no-data {
       text-align: center; padding: 44px 20px;
@@ -280,6 +306,7 @@
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <span class="compare-label" id="compare-label"></span>
       <div class="ai-btn-group">
+        <button class="update-btn" id="update-btn" onclick="triggerUpdate()">🔄 업데이트</button>
         <button class="ai-btn claude"  onclick="openAnalysis('https://claude.ai/new','Claude')">✦ Claude</button>
         <button class="ai-btn gemini"  onclick="openAnalysis('https://gemini.google.com/','Gemini')">✦ Gemini</button>
         <button class="ai-btn chatgpt" onclick="openAnalysis('https://chatgpt.com/','ChatGPT')">✦ ChatGPT</button>
@@ -323,9 +350,9 @@ const GROUP_MARKETS = {
   coin:  ['coin'],
 };
 const GROUP_PERIODS = {
-  korea: ['intraday','daily','weekly','monthly'],
-  us:    ['daily','weekly','monthly'],
-  coin:  ['daily','weekly','monthly'],
+  korea: ['intraday','daily','weekly','monthly','streak'],
+  us:    ['daily','weekly','monthly','streak'],
+  coin:  ['daily','weekly','monthly','streak'],
 };
 const MARKET_LABEL = {
   kospi:     'KOSPI',
@@ -360,6 +387,11 @@ const PERIOD_META = {
     label:'월별', cls:'monthly',
     title:'전월 대비 시총 순위 상승 Top 5',
     histTitle:'전체 기간 월별 순위 변동 이력',
+  },
+  streak: {
+    label:'🔥연속상승', cls:'streak',
+    title:'3일 이상 연속 시총 순위 상승 종목',
+    histTitle:'연속 상승 종목 — 최근 30일 일별 순위 변동',
   },
 };
 const MEDAL_CLASS = ['m1','m2','m3','',''];
@@ -452,7 +484,8 @@ function buildPeriodTabs() {
   const container = document.getElementById('period-tabs');
   const periods   = GROUP_PERIODS[currentGroup];
   container.innerHTML = periods.map(p => {
-    const cls = `tab-btn${p==='intraday'?' intraday':''}${p===currentPeriod?' active':''}`;
+    const extra = p === 'intraday' ? ' intraday' : p === 'streak' ? ' streak' : '';
+    const cls   = `tab-btn${extra}${p===currentPeriod?' active':''}`;
     return `<button class="${cls}" onclick="switchPeriod('${p}')">${PERIOD_META[p].label}</button>`;
   }).join('');
 }
@@ -558,6 +591,8 @@ function render() {
 
   if (currentGroup === 'korea' && currentPeriod === 'intraday') {
     renderIntraday();
+  } else if (currentPeriod === 'streak') {
+    renderStreakPeriod();
   } else {
     renderPeriod();
   }
@@ -865,6 +900,135 @@ function showPromptModal(prompt, serviceUrl, serviceName) {
       </div>
     </div>`;
   document.body.appendChild(m);
+}
+
+/* ── 연속 순위 상승 탭 렌더링 ────────────────────────────────────────────── */
+function renderStreakPeriod() {
+  const cards = document.getElementById('cards');
+  const label = document.getElementById('compare-label');
+  const data  = getGroupData();
+
+  const streak        = (currentGroup === 'coin') ? data?.coin?.streak        : data?.[currentMarket]?.streak;
+  const streakHistory = (currentGroup === 'coin') ? data?.coin?.streak_history : data?.[currentMarket]?.streak_history;
+
+  label.textContent = '';
+
+  if (!streak || !streak.length) {
+    cards.innerHTML = noDataHTML('연속 상승 종목 없음 — 3일 이상 데이터 누적 후 표시됩니다');
+    document.getElementById('hist-section').innerHTML = '';
+    return;
+  }
+
+  const isCoin = currentGroup === 'coin';
+  cards.innerHTML = streak.map((s, i) => {
+    const nameUrl   = isCoin
+      ? `https://coinness.com/search?q=${encodeURIComponent(s.ticker)}`
+      : `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
+    const tickerUrl = isCoin
+      ? `https://coinmarketcap.com/ko/search/?q=${encodeURIComponent(s.ticker)}`
+      : naverUrl(s.ticker);
+    return `
+    <div class="card">
+      <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
+      <div class="stock-info">
+        <div class="stock-name">
+          <a class="stock-name-link" href="${nameUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
+        </div>
+        <div class="stock-sub">
+          <a class="stock-ticker-link" href="${tickerUrl}" target="_blank" rel="noopener">
+            <span class="stock-ticker">${esc(s.ticker)}</span>
+          </a>
+          <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
+        </div>
+        <div class="rank-path" style="margin-top:4px">현재 순위 <strong>${s.rank}위</strong></div>
+      </div>
+      <div class="rank-change">
+        <div class="change-arrow" style="color:#f57f17;font-size:20px">🔥</div>
+        <div class="change-num" style="color:#f57f17">${s.streak_days}일</div>
+        <div class="rank-path">연속 상승</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  renderHistoryChart(streakHistory, 'streak');
+}
+
+/* ── GitHub PAT 관리 ─────────────────────────────────────────────────────── */
+function getPAT()   { return localStorage.getItem('gh_pat') || ''; }
+function savePAT(v) { if (v) localStorage.setItem('gh_pat', v.trim()); }
+
+function showPATModal() {
+  const old = document.getElementById('pat-modal');
+  if (old) old.remove();
+  const m = document.createElement('div');
+  m.id = 'pat-modal';
+  m.innerHTML = `
+    <div class="modal-backdrop" onclick="document.getElementById('pat-modal').remove()"></div>
+    <div class="modal-box">
+      <div class="modal-hd">
+        <span>🔑 GitHub PAT 설정</span>
+        <button onclick="document.getElementById('pat-modal').remove()">✕</button>
+      </div>
+      <div style="padding:18px">
+        <div style="font-size:13px;color:#333;line-height:1.65">
+          GitHub Actions를 원격 실행하려면 Personal Access Token이 필요합니다.<br>
+          토큰은 이 브라우저에만 저장되며 외부로 전송되지 않습니다.
+        </div>
+        <input class="pat-input" id="pat-inp" type="password"
+               placeholder="ghp_xxxxxxxxxxxx" value="${esc(getPAT())}"/>
+        <div class="pat-hint">
+          GitHub → Settings → Developer settings → Personal access tokens (classic)<br>
+          권한: <b>repo</b>, <b>workflow</b> 체크 후 발급
+        </div>
+      </div>
+      <div class="modal-ft">
+        <button class="modal-copy-btn" style="background:#1565c0" onclick="
+          const v=document.getElementById('pat-inp').value.trim();
+          if(!v)return;
+          savePAT(v);
+          document.getElementById('pat-modal').remove();
+          triggerUpdate();
+        ">저장 후 업데이트</button>
+      </div>
+    </div>`;
+  document.body.appendChild(m);
+}
+
+async function triggerUpdate() {
+  const pat = getPAT();
+  if (!pat) { showPATModal(); return; }
+
+  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml' };
+  const workflow = WORKFLOW[currentGroup];
+  const btn = document.getElementById('update-btn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ 요청 중...'; }
+
+  try {
+    const resp = await fetch(
+      `https://api.github.com/repos/superhsh/kospi-rank-tracker/actions/workflows/${workflow}/dispatches`,
+      {
+        method:  'POST',
+        headers: {
+          'Authorization': `Bearer ${pat}`,
+          'Accept':        'application/vnd.github+json',
+          'Content-Type':  'application/json',
+        },
+        body: JSON.stringify({ ref: 'main' }),
+      }
+    );
+    if (resp.status === 204) {
+      showToast('✅ 업데이트 요청 완료 — 1~2분 후 새로고침하세요', 'ok');
+    } else if (resp.status === 401) {
+      localStorage.removeItem('gh_pat');
+      showToast('❌ PAT 인증 실패 — 다시 설정해주세요', 'warn');
+    } else {
+      showToast(`❌ 오류 ${resp.status} — PAT 권한(repo·workflow) 확인`, 'warn');
+    }
+  } catch(e) {
+    showToast('❌ 네트워크 오류', 'warn');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '🔄 업데이트'; }
+  }
 }
 
 init();
