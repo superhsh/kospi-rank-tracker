@@ -114,9 +114,12 @@ def compute_top5_generic(current_df: pd.DataFrame,
 def _ticker_ranks(df: pd.DataFrame, tickers: list) -> dict:
     if df is None or df.empty:
         return {}
+    # ticker 컬럼을 문자열로 통일 후 비교 (int/str 혼용 방지)
+    df2 = df.copy()
+    df2["ticker"] = df2["ticker"].astype(str)
     out = {}
     for t in tickers:
-        rows = df[df["ticker"] == t]
+        rows = df2[df2["ticker"] == str(t)]
         if not rows.empty:
             out[t] = int(rows.iloc[0]["rank"])
     return out
@@ -175,19 +178,30 @@ def _build_monthly(load_fn, dates: list, tickers: list) -> list:
 
 def compute_streak_top5_generic(load_fn, available_dates: list, today: str,
                                 currency: str = "USD",
-                                rank_limit: int = None) -> list:
+                                rank_limit: int = None,
+                                min_streak: int = 3) -> list:
     """
-    연속으로 시총 순위가 상승한(rank 숫자 감소) 종목 중
-    3일 이상 streak인 것을 현재 순위 기준으로 정렬해 Top5 반환.
+    종가 기준으로 연속 시총 순위 상승(rank 숫자 감소) 종목 중
+    min_streak일 이상 streak인 것을 직전 거래일 순위 기준으로 정렬해 Top5 반환.
+
+    비교 방식 (min_streak=3 기본):
+      T-4 종가순위 > T-3 종가순위  (순위 상승)
+      T-3 종가순위 > T-2 종가순위  (순위 상승)
+      T-2 종가순위 > T-1 종가순위  (순위 상승)
+      → T-1(어제) 기준 3거래일 연속 상승
+
+    오늘(today) 데이터는 종가 미확정일 수 있으므로 비교에서 제외.
+    카드 표시는 T-1(가장 최근 종가 확정일) 기준.
 
     load_fn(date_str) → pd.DataFrame (rank, ticker, name, market_cap)
     rank_limit       : None이면 전체, 숫자면 현재 해당 순위 이내만 대상
+    min_streak       : 최소 연속 상승 거래일 수 (기본 3)
     """
     sorted_dates = sorted([d for d in available_dates if d <= today])
     if len(sorted_dates) < 2:
         return []
 
-    recent = sorted_dates[-31:]   # 최근 31일치만 사용
+    recent = sorted_dates[-32:]   # 최근 32일치 로드 (여유분 포함)
 
     rank_maps: dict = {}
     for date in recent:
@@ -198,10 +212,17 @@ def compute_streak_top5_generic(load_fn, available_dates: list, today: str,
                 for _, r in df.iterrows()
             }
 
-    valid_dates = sorted(rank_maps.keys())
+    # ── 오늘 데이터 제외: 종가 확정된 과거 날짜만 사용 ──────────────────────────
+    # T-1(어제)이 가장 최근 기준점, T-4까지 총 4일치로 3일 연속 상승 확인
+    valid_dates = sorted([d for d in rank_maps.keys() if d < today])
+    if not valid_dates:
+        # today 데이터가 아직 없는 경우 — 전체 rank_maps 사용 (모두 과거)
+        valid_dates = sorted(rank_maps.keys())
+
     if len(valid_dates) < 2:
         return []
 
+    # T-1 = 가장 최근 종가 확정일
     today_date = valid_dates[-1]
     today_df   = load_fn(today_date)
     if today_df.empty:
@@ -224,7 +245,7 @@ def compute_streak_top5_generic(load_fn, available_dates: list, today: str,
                 break
         streaks[ticker] = streak
 
-    qualified = [(t, s) for t, s in streaks.items() if s >= 3]
+    qualified = [(t, s) for t, s in streaks.items() if s >= min_streak]
     qualified.sort(key=lambda x: rank_maps[today_date].get(x[0], 9999))
 
     top5 = []

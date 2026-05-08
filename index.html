@@ -414,7 +414,7 @@ const PERIOD_META = {
   },
   streak: {
     label:'🔥연속상승', cls:'streak',
-    title:'3일 이상 연속 시총 순위 상승 종목',
+    title:'3거래일 연속 시총 순위 상승 종목 (종가 기준)',
     histTitle:'연속 상승 종목 — 최근 30일 일별 순위 변동',
   },
 };
@@ -938,7 +938,7 @@ function renderStreakPeriod() {
   label.textContent = '';
 
   if (!streak || !streak.length) {
-    cards.innerHTML = noDataHTML('연속 상승 종목 없음 — 3일 이상 데이터 누적 후 표시됩니다');
+    cards.innerHTML = noDataHTML('연속 상승 종목 없음 — 직전 3거래일 연속으로 종가 순위가 상승한 종목이 없습니다');
     document.getElementById('hist-section').innerHTML = '';
     return;
   }
