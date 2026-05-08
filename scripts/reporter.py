@@ -869,6 +869,48 @@ function showError(msg) {
 /* ── Claude 분석 기능 ────────────────────────────────────────────────────── */
 function buildClaudePrompt() {
   const data = getGroupData();
+  const groupLabel  = { korea:'한국', us:'미국', coin:'암호화폐' }[currentGroup];
+  const marketLabel = MARKET_LABEL[currentMarket];
+  const currency    = currentGroup === 'korea' ? 'KRW' : 'USD';
+
+  // ── 연속상승 탭 전용 프롬프트 ──────────────────────────────────────────────
+  if (currentPeriod === 'streak') {
+    const isC       = currentGroup === 'coin';
+    const streak    = isC ? data?.coin?.streak     : data?.[currentMarket]?.streak;
+    const sMode     = isC ? data?.coin?.streak_mode : data?.[currentMarket]?.streak_mode;
+    if (!streak || !streak.length) return null;
+
+    const modeLabel = sMode === 'frequent'
+      ? '최근 5거래일 중 3회 이상 순위 상승'
+      : '3거래일 연속 종가 기준 순위 상승';
+
+    const stockLines = streak.map((s, i) => {
+      const suffix = sMode === 'frequent'
+        ? `5일 중 ${s.streak_days}회 순위 상승`
+        : `${s.streak_days}거래일 연속 순위 상승`;
+      return `${i+1}. ${s.name} (${s.ticker})\n` +
+             `   · 현재 순위: ${s.rank}위  /  ${suffix}\n` +
+             `   · 시가총액: ${s.market_cap_str}`;
+    }).join('\n\n');
+
+    return `아래는 ${groupLabel} ${marketLabel} 시장에서 [${modeLabel}] 기준 시가총액 순위가 꾸준히 상승 중인 종목들입니다.
+
+${stockLines}
+
+위 종목 각각에 대해 슈퍼애널리스트 관점의 종합 투자 보고서를 작성해주세요.
+각 종목마다 다음 항목을 포함해주세요:
+
+① 기업 개요 및 핵심 사업
+② 최근 실적 및 재무 현황 (매출, 영업이익, 부채비율 등)
+③ 시총 순위 연속 상승 원인 분석 (최근 뉴스·이슈·이벤트·수급 동향)
+④ 성장 동력 및 중장기 전망
+⑤ 주요 리스크 요인
+⑥ 투자 의견 (매수 / 중립 / 매도) 및 목표 시총·주가 근거
+
+전문적이고 객관적인 시각으로 작성하되, 일반 투자자도 이해할 수 있도록 명확하게 설명해주세요.`;
+  }
+
+  // ── 일반 기간 탭 프롬프트 ─────────────────────────────────────────────────
   let pd;
   if (currentGroup === 'korea' && currentPeriod === 'intraday') {
     pd = data?.intraday?.[currentMarket];
@@ -877,10 +919,7 @@ function buildClaudePrompt() {
   }
   if (!pd || !pd.top5?.length) return null;
 
-  const groupLabel  = { korea:'한국', us:'미국', coin:'암호화폐' }[currentGroup];
-  const marketLabel = MARKET_LABEL[currentMarket];
   const periodLabel = PERIOD_META[currentPeriod].label;
-  const currency    = currentGroup === 'korea' ? 'KRW' : 'USD';
 
   const stockLines = pd.top5.map((s, i) =>
     `${i+1}. ${s.name} (${s.ticker})\n` +
@@ -960,13 +999,24 @@ function renderStreakPeriod() {
   const label = document.getElementById('compare-label');
   const data  = getGroupData();
 
-  const streak        = (currentGroup === 'coin') ? data?.coin?.streak        : data?.[currentMarket]?.streak;
-  const streakHistory = (currentGroup === 'coin') ? data?.coin?.streak_history : data?.[currentMarket]?.streak_history;
+  const isC = currentGroup === 'coin';
+  const streak        = isC ? data?.coin?.streak        : data?.[currentMarket]?.streak;
+  const streakHistory = isC ? data?.coin?.streak_history : data?.[currentMarket]?.streak_history;
+  const streakMode    = isC ? data?.coin?.streak_mode    : data?.[currentMarket]?.streak_mode;
 
-  label.textContent = '';
+  // 모드별 섹션 제목 갱신
+  const titleEl = document.getElementById('section-title');
+  if (streakMode === 'frequent') {
+    titleEl.textContent = '최근 5거래일 중 3회 이상 시총 순위 상승 종목';
+    label.className   = 'compare-label';
+    label.textContent = '3일 연속 상승 종목 없음 — 빈도 상승 기준으로 표시';
+  } else {
+    titleEl.textContent = PERIOD_META.streak.title;
+    label.textContent   = '';
+  }
 
   if (!streak || !streak.length) {
-    cards.innerHTML = noDataHTML('연속 상승 종목 없음 — 직전 3거래일 연속으로 종가 순위가 상승한 종목이 없습니다');
+    cards.innerHTML = noDataHTML('순위 상승 종목 없음 — 최근 5거래일 중 3회 이상 순위가 상승한 종목이 없습니다');
     document.getElementById('hist-section').innerHTML = '';
     return;
   }
@@ -979,6 +1029,13 @@ function renderStreakPeriod() {
     const tickerUrl = isCoin
       ? `https://coinmarketcap.com/ko/search/?q=${encodeURIComponent(s.ticker)}`
       : naverUrl(s.ticker);
+
+    const isFrequent = streakMode === 'frequent';
+    const iconEl  = isFrequent ? '📈' : '🔥';
+    const numEl   = isFrequent ? `${s.streak_days}/5` : `${s.streak_days}일`;
+    const pathEl  = isFrequent ? '5일 중 상승' : '연속 상승';
+    const numColor = isFrequent ? '#1565c0' : '#f57f17';
+
     return `
     <div class="card">
       <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
@@ -995,9 +1052,9 @@ function renderStreakPeriod() {
         <div class="rank-path" style="margin-top:4px">현재 순위 <strong>${s.rank}위</strong></div>
       </div>
       <div class="rank-change">
-        <div class="change-arrow" style="color:#f57f17;font-size:20px">🔥</div>
-        <div class="change-num" style="color:#f57f17">${s.streak_days}일</div>
-        <div class="rank-path">연속 상승</div>
+        <div class="change-arrow" style="color:${numColor};font-size:20px">${iconEl}</div>
+        <div class="change-num" style="color:${numColor}">${numEl}</div>
+        <div class="rank-path">${pathEl}</div>
       </div>
     </div>`;
   }).join('');

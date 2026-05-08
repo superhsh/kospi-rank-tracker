@@ -186,13 +186,15 @@ def build_us_report(today: str, name_cache: dict) -> dict:
             print(f"    [{period}] {status} Top{n}  기준일: {prev_date}")
 
         # ── 연속 순위 상승 종목 ───────────────────────────────────────────────
-        streak = compute_streak_top5_generic(
+        streak, streak_mode = compute_streak_top5_generic(
             load_fn, available_dates, today, currency="USD",
             rank_limit=250 if market_key == "sp500" else None,
         )
-        market_data["streak"] = streak
+        market_data["streak"]      = streak
+        market_data["streak_mode"] = streak_mode
         if streak:
-            print(f"    [streak] 연속 상승 {len(streak)}개 종목")
+            mode_label = "연속 상승" if streak_mode == "streak" else "5일 중 3회↑"
+            print(f"    [streak] {mode_label} {len(streak)}개 종목")
             tickers  = [s["ticker"] for s in streak]
             names    = {s["ticker"]: s["name"] for s in streak}
             cutoff   = (datetime.strptime(today, "%Y%m%d") - timedelta(days=30)).strftime("%Y%m%d")

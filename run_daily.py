@@ -216,10 +216,12 @@ def main():
         mk        = market.lower()
         available = get_available_dates(market)
         load_fn   = lambda d, m=market: load_market_data(d, m)
-        streak    = compute_streak_top5_generic(load_fn, available, today, currency="KRW")
-        report_data[mk]["streak"] = streak
+        streak, streak_mode = compute_streak_top5_generic(load_fn, available, today, currency="KRW")
+        report_data[mk]["streak"]      = streak
+        report_data[mk]["streak_mode"] = streak_mode
         if streak:
-            print(f"  [{market}] 연속 상승 {len(streak)}개 종목")
+            mode_label = "연속 상승" if streak_mode == "streak" else "5일 중 3회↑"
+            print(f"  [{market}] {mode_label} {len(streak)}개 종목")
             tickers  = [s["ticker"] for s in streak]
             names    = {s["ticker"]: s["name"] for s in streak}
             cutoff   = (datetime.strptime(today, "%Y%m%d") - timedelta(days=30)).strftime("%Y%m%d")

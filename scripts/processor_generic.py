@@ -248,13 +248,8 @@ def compute_streak_top5_generic(load_fn, available_dates: list, today: str,
     qualified = [(t, s) for t, s in streaks.items() if s >= min_streak]
     qualified.sort(key=lambda x: rank_maps[today_date].get(x[0], 9999))
 
-    top5 = []
-    for ticker, streak in qualified[:5]:
-        rows = today_df[today_df["ticker"].astype(str) == ticker]
-        if rows.empty:
-            continue
-        row = rows.iloc[0]
-        v   = float(row["market_cap"])
+    def _make_item(row, streak_val):
+        v = float(row["market_cap"])
         if currency == "USD":
             mcap_str = format_market_cap_usd(v)
         else:
@@ -264,15 +259,56 @@ def compute_streak_top5_generic(load_fn, available_dates: list, today: str,
                 mcap_str = f"{v / 100_000_000:.0f}억"
             else:
                 mcap_str = f"{v:,.0f}원"
-        top5.append({
+        return {
             "rank":           int(row["rank"]),
             "ticker":         str(row["ticker"]),
             "name":           str(row["name"]),
             "market_cap":     v,
             "market_cap_str": mcap_str,
-            "streak_days":    streak,
-        })
-    return top5
+            "streak_days":    streak_val,
+        }
+
+    top5 = []
+    for ticker, streak_val in qualified[:5]:
+        rows = today_df[today_df["ticker"].astype(str) == ticker]
+        if rows.empty:
+            continue
+        top5.append(_make_item(rows.iloc[0], streak_val))
+
+    if top5:
+        return top5, "streak"
+
+    # ── Fallback: 최근 5거래일 중 3회 이상 순위 상승 종목 ────────────────────────
+    # valid_dates[-6:]으로 최대 5쌍 비교 (T-6 ~ T-1)
+    window = valid_dates[-6:] if len(valid_dates) >= 6 else valid_dates
+    freq_counts: dict = {}
+    for ticker in today_df["ticker"].astype(str).tolist():
+        count = 0
+        for i in range(len(window) - 1, 0, -1):
+            curr = rank_maps.get(window[i],   {}).get(ticker)
+            prev = rank_maps.get(window[i-1], {}).get(ticker)
+            if curr is not None and prev is not None and curr < prev:
+                count += 1
+        if count >= 3:
+            freq_counts[ticker] = count
+
+    # 상승 횟수 내림차순 → 현재 순위 오름차순 정렬
+    freq_qualified = sorted(
+        freq_counts.items(),
+        key=lambda x: (-x[1], rank_maps[today_date].get(x[0], 9999))
+    )
+
+    fallback5 = []
+    for ticker, count in freq_qualified[:5]:
+        rows = today_df[today_df["ticker"].astype(str) == ticker]
+        if rows.empty:
+            continue
+        fallback5.append(_make_item(rows.iloc[0], count))
+
+    if fallback5:
+        return fallback5, "frequent"
+
+    return [], ""
 
 
 def build_history_generic(load_fn, dates: list, tickers: list,
