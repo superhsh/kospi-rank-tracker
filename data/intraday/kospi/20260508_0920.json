@@ -2,73 +2,73 @@
   "date": "20260508",
   "label": "0920",
   "market": "KOSPI",
-  "saved_at": "2026-05-08T00:20:31",
+  "saved_at": "2026-05-08T02:00:33",
   "stocks": [
     {
       "rank": 1,
       "ticker": "005930",
       "name": "삼성전자",
-      "market_cap": 1531725000000000.0
+      "market_cap": 1539032800000000.0
     },
     {
       "rank": 2,
       "ticker": "000660",
       "name": "SK하이닉스",
-      "market_cap": 1146738100000000.0
+      "market_cap": 1161704900000000.0
     },
     {
       "rank": 3,
       "ticker": "005935",
       "name": "삼성전자우",
-      "market_cap": 142180200000000.0
+      "market_cap": 143223300000000.0
     },
     {
       "rank": 4,
       "ticker": "402340",
       "name": "SK스퀘어",
-      "market_cap": 141195500000000.0
+      "market_cap": 142119200000000.0
     },
     {
       "rank": 5,
       "ticker": "005380",
       "name": "현대차",
-      "market_cap": 119169000000000.0
+      "market_cap": 128587900000000.0
     },
     {
       "rank": 6,
       "ticker": "373220",
       "name": "LG에너지솔루션",
-      "market_cap": 111033000000000.0
+      "market_cap": 111384000000000.0
     },
     {
       "rank": 7,
       "ticker": "034020",
       "name": "두산에너빌리티",
-      "market_cap": 83272900000000.0
+      "market_cap": 82632400000000.0
     },
     {
       "rank": 8,
       "ticker": "329180",
       "name": "HD현대중공업",
-      "market_cap": 69589300000000.0
+      "market_cap": 68749600000000.0
     },
     {
       "rank": 9,
-      "ticker": "009150",
-      "name": "삼성전기",
-      "market_cap": 67971300000000.0
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "market_cap": 67723700000000.0
     },
     {
       "rank": 10,
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "market_cap": 67538500000000.0
+      "ticker": "009150",
+      "name": "삼성전기",
+      "market_cap": 67373700000000.0
     },
     {
       "rank": 11,
       "ticker": "012450",
       "name": "한화에어로스페이스",
-      "market_cap": 66826200000000.0
+      "market_cap": 66310500000000.0
     },
     {
       "rank": 12,
@@ -80,37 +80,37 @@
       "rank": 13,
       "ticker": "000270",
       "name": "기아",
-      "market_cap": 61060600000000.0
+      "market_cap": 64847600000000.0
     },
     {
       "rank": 14,
       "ticker": "105560",
       "name": "KB금융",
-      "market_cap": 59917100000000.0
+      "market_cap": 60513600000000.0
     },
     {
       "rank": 15,
       "ticker": "032830",
       "name": "삼성생명",
-      "market_cap": 57400000000000.0
+      "market_cap": 58300000000000.0
     },
     {
       "rank": 16,
       "ticker": "006400",
       "name": "삼성SDI",
-      "market_cap": 55120500000000.0
+      "market_cap": 54556400000000.0
     },
     {
       "rank": 17,
       "ticker": "267260",
       "name": "HD현대일렉트릭",
-      "market_cap": 50303800000000.0
+      "market_cap": 50177600000000.0
     },
     {
       "rank": 18,
-      "ticker": "010120",
-      "name": "LS ELECTRIC",
-      "market_cap": 46912500000000.0
+      "ticker": "012330",
+      "name": "현대모비스",
+      "market_cap": 48904900000000.0
     },
     {
       "rank": 19,
@@ -120,423 +120,423 @@
     },
     {
       "rank": 20,
-      "ticker": "006800",
-      "name": "미래에셋증권",
-      "market_cap": 44429600000000.0
+      "ticker": "010120",
+      "name": "LS ELECTRIC",
+      "market_cap": 46575000000000.0
     },
     {
       "rank": 21,
-      "ticker": "068270",
-      "name": "셀트리온",
-      "market_cap": 44232300000000.0
+      "ticker": "006800",
+      "name": "미래에셋증권",
+      "market_cap": 44765400000000.0
     },
     {
       "rank": 22,
-      "ticker": "298040",
-      "name": "효성중공업",
-      "market_cap": 41559500000000.0
+      "ticker": "068270",
+      "name": "셀트리온",
+      "market_cap": 44099100000000.0
     },
     {
       "rank": 23,
       "ticker": "005490",
       "name": "POSCO홀딩스",
-      "market_cap": 40730100000000.0
+      "market_cap": 41126400000000.0
     },
     {
       "rank": 24,
-      "ticker": "012330",
-      "name": "현대모비스",
-      "market_cap": 40602800000000.0
+      "ticker": "298040",
+      "name": "효성중공업",
+      "market_cap": 41121300000000.0
     },
     {
       "rank": 25,
       "ticker": "042660",
       "name": "한화오션",
-      "market_cap": 38853200000000.0
+      "market_cap": 38638700000000.0
     },
     {
       "rank": 26,
       "ticker": "034730",
       "name": "SK",
-      "market_cap": 37773900000000.0
+      "market_cap": 38136400000000.0
     },
     {
       "rank": 27,
       "ticker": "042700",
       "name": "한미반도체",
-      "market_cap": 36313900000000.0
+      "market_cap": 36504600000000.0
     },
     {
       "rank": 28,
       "ticker": "086790",
       "name": "하나금융지주",
-      "market_cap": 34680100000000.0
+      "market_cap": 34817300000000.0
     },
     {
       "rank": 29,
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "market_cap": 32838700000000.0
+      "ticker": "035420",
+      "name": "NAVER",
+      "market_cap": 33884700000000.0
     },
     {
       "rank": 30,
-      "ticker": "035420",
-      "name": "NAVER",
-      "market_cap": 32825800000000.0
+      "ticker": "009540",
+      "name": "HD한국조선해양",
+      "market_cap": 33015700000000.0
     },
     {
       "rank": 31,
       "ticker": "010130",
       "name": "고려아연",
-      "market_cap": 32321800000000.0
+      "market_cap": 32415700000000.0
     },
     {
       "rank": 32,
       "ticker": "051910",
       "name": "LG화학",
-      "market_cap": 29437000000000.0
+      "market_cap": 30248800000000.0
     },
     {
       "rank": 33,
-      "ticker": "000150",
-      "name": "두산",
-      "market_cap": 28906000000000.0
+      "ticker": "010140",
+      "name": "삼성중공업",
+      "market_cap": 28160000000000.0
     },
     {
       "rank": 34,
-      "ticker": "010140",
-      "name": "삼성중공업",
-      "market_cap": 28446000000000.0
-    },
-    {
-      "rank": 35,
       "ticker": "015760",
       "name": "한국전력",
       "market_cap": 28085900000000.0
     },
     {
+      "rank": 35,
+      "ticker": "000150",
+      "name": "두산",
+      "market_cap": 28080100000000.0
+    },
+    {
       "rank": 36,
-      "ticker": "003670",
-      "name": "포스코퓨처엠",
-      "market_cap": 25394100000000.0
+      "ticker": "066570",
+      "name": "LG전자",
+      "market_cap": 25622000000000.0
     },
     {
       "rank": 37,
-      "ticker": "064350",
-      "name": "현대로템",
-      "market_cap": 25048200000000.0
+      "ticker": "003670",
+      "name": "포스코퓨처엠",
+      "market_cap": 25216300000000.0
     },
     {
       "rank": 38,
       "ticker": "069500",
       "name": "KODEX 200",
-      "market_cap": 24324700000000.0
+      "market_cap": 24570700000000.0
     },
     {
       "rank": 39,
-      "ticker": "316140",
-      "name": "우리금융지주",
-      "market_cap": 23949200000000.0
+      "ticker": "064350",
+      "name": "현대로템",
+      "market_cap": 24229600000000.0
     },
     {
       "rank": 40,
-      "ticker": "066570",
-      "name": "LG전자",
-      "market_cap": 23830300000000.0
+      "ticker": "316140",
+      "name": "우리금융지주",
+      "market_cap": 24004300000000.0
     },
     {
       "rank": 41,
       "ticker": "096770",
       "name": "SK이노베이션",
-      "market_cap": 22805200000000.0
+      "market_cap": 22754500000000.0
     },
     {
       "rank": 42,
       "ticker": "267250",
       "name": "HD현대",
-      "market_cap": 22197100000000.0
+      "market_cap": 22473500000000.0
     },
     {
       "rank": 43,
-      "ticker": "272210",
-      "name": "한화시스템",
-      "market_cap": 21763500000000.0
+      "ticker": "000810",
+      "name": "삼성화재",
+      "market_cap": 22189800000000.0
     },
     {
       "rank": 44,
-      "ticker": "000810",
-      "name": "삼성화재",
-      "market_cap": 21151700000000.0
+      "ticker": "272210",
+      "name": "한화시스템",
+      "market_cap": 21593500000000.0
     },
     {
       "rank": 45,
       "ticker": "033780",
       "name": "KT&G",
-      "market_cap": 20848200000000.0
+      "market_cap": 20905600000000.0
     },
     {
       "rank": 46,
-      "ticker": "017670",
-      "name": "SK텔레콤",
-      "market_cap": 20426500000000.0
+      "ticker": "035720",
+      "name": "카카오",
+      "market_cap": 20582500000000.0
     },
     {
       "rank": 47,
-      "ticker": "035720",
-      "name": "카카오",
-      "market_cap": 20250200000000.0
+      "ticker": "086280",
+      "name": "현대글로비스",
+      "market_cap": 20137500000000.0
     },
     {
       "rank": 48,
-      "ticker": "011200",
-      "name": "HMM",
-      "market_cap": 19525000000000.0
+      "ticker": "017670",
+      "name": "SK텔레콤",
+      "market_cap": 20061400000000.0
     },
     {
       "rank": 49,
-      "ticker": "138040",
-      "name": "메리츠금융지주",
-      "market_cap": 18575500000000.0
+      "ticker": "011200",
+      "name": "HMM",
+      "market_cap": 19477900000000.0
     },
     {
       "rank": 50,
-      "ticker": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
-      "market_cap": 18568000000000.0
+      "ticker": "138040",
+      "name": "메리츠금융지주",
+      "market_cap": 18642500000000.0
     },
     {
       "rank": 51,
-      "ticker": "000720",
-      "name": "현대건설",
-      "market_cap": 17961700000000.0
+      "ticker": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
+      "market_cap": 18216000000000.0
     },
     {
       "rank": 52,
-      "ticker": "086280",
-      "name": "현대글로비스",
-      "market_cap": 17400000000000.0
+      "ticker": "000720",
+      "name": "현대건설",
+      "market_cap": 17950500000000.0
     },
     {
       "rank": 53,
       "ticker": "024110",
       "name": "기업은행",
-      "market_cap": 17144700000000.0
+      "market_cap": 17224400000000.0
     },
     {
       "rank": 54,
       "ticker": "360750",
       "name": "TIGER 미국S&P500",
-      "market_cap": 17005400000000.0
+      "market_cap": 17034100000000.0
     },
     {
       "rank": 55,
-      "ticker": "006260",
-      "name": "LS",
-      "market_cap": 16660800000000.0
+      "ticker": "003550",
+      "name": "LG",
+      "market_cap": 16563400000000.0
     },
     {
       "rank": 56,
-      "ticker": "047810",
-      "name": "한국항공우주",
-      "market_cap": 16463500000000.0
+      "ticker": "006260",
+      "name": "LS",
+      "market_cap": 16348800000000.0
     },
     {
       "rank": 57,
-      "ticker": "278470",
-      "name": "에이피알",
-      "market_cap": 15630400000000.0
+      "ticker": "307950",
+      "name": "현대오토에버",
+      "market_cap": 16235000000000.0
     },
     {
       "rank": 58,
-      "ticker": "003550",
-      "name": "LG",
-      "market_cap": 15622600000000.0
+      "ticker": "047810",
+      "name": "한국항공우주",
+      "market_cap": 16229600000000.0
     },
     {
       "rank": 59,
-      "ticker": "071050",
-      "name": "한국금융지주",
-      "market_cap": 15073900000000.0
+      "ticker": "278470",
+      "name": "에이피알",
+      "market_cap": 15855100000000.0
     },
     {
       "rank": 60,
-      "ticker": "030200",
-      "name": "KT",
-      "market_cap": 14970100000000.0
+      "ticker": "071050",
+      "name": "한국금융지주",
+      "market_cap": 15046000000000.0
     },
     {
       "rank": 61,
-      "ticker": "011070",
-      "name": "LG이노텍",
-      "market_cap": 14460600000000.0
+      "ticker": "030200",
+      "name": "KT",
+      "market_cap": 14869300000000.0
     },
     {
       "rank": 62,
-      "ticker": "047050",
-      "name": "포스코인터내셔널",
-      "market_cap": 13985900000000.0
+      "ticker": "011070",
+      "name": "LG이노텍",
+      "market_cap": 14839300000000.0
     },
     {
       "rank": 63,
       "ticker": "018260",
       "name": "삼성에스디에스",
-      "market_cap": 13363100000000.0
+      "market_cap": 13688100000000.0
     },
     {
       "rank": 64,
-      "ticker": "001440",
-      "name": "대한전선",
-      "market_cap": 13293700000000.0
+      "ticker": "047050",
+      "name": "포스코인터내셔널",
+      "market_cap": 13528500000000.0
     },
     {
       "rank": 65,
-      "ticker": "307950",
-      "name": "현대오토에버",
-      "market_cap": 13218400000000.0
+      "ticker": "010950",
+      "name": "S-Oil",
+      "market_cap": 13194700000000.0
     },
     {
       "rank": 66,
       "ticker": "005940",
       "name": "NH투자증권",
-      "market_cap": 13184700000000.0
+      "market_cap": 13149100000000.0
     },
     {
       "rank": 67,
-      "ticker": "010950",
-      "name": "S-Oil",
-      "market_cap": 13172200000000.0
-    },
-    {
-      "rank": 68,
       "ticker": "0126Z0",
       "name": "삼성에피스홀딩스",
       "market_cap": 13063600000000.0
     },
     {
-      "rank": 69,
+      "rank": 68,
       "ticker": "047040",
       "name": "대우건설",
-      "market_cap": 12902500000000.0
+      "market_cap": 13025800000000.0
     },
     {
-      "rank": 70,
+      "rank": 69,
       "ticker": "259960",
       "name": "크래프톤",
       "market_cap": 12823900000000.0
     },
     {
+      "rank": 70,
+      "ticker": "001440",
+      "name": "대한전선",
+      "market_cap": 12790300000000.0
+    },
+    {
       "rank": 71,
       "ticker": "016360",
       "name": "삼성증권",
-      "market_cap": 12636000000000.0
+      "market_cap": 12399300000000.0
     },
     {
       "rank": 72,
-      "ticker": "039490",
-      "name": "키움증권",
-      "market_cap": 11986300000000.0
+      "ticker": "396500",
+      "name": "TIGER 반도체TOP10",
+      "market_cap": 11919000000000.0
     },
     {
       "rank": 73,
-      "ticker": "396500",
-      "name": "TIGER 반도체TOP10",
-      "market_cap": 11872700000000.0
+      "ticker": "039490",
+      "name": "키움증권",
+      "market_cap": 11842100000000.0
     },
     {
       "rank": 74,
-      "ticker": "443060",
-      "name": "HD현대마린솔루션",
-      "market_cap": 11768800000000.0
+      "ticker": "028050",
+      "name": "삼성E&A",
+      "market_cap": 11720800000000.0
     },
     {
       "rank": 75,
-      "ticker": "028050",
-      "name": "삼성E&A",
-      "market_cap": 11583600000000.0
-    },
-    {
-      "rank": 76,
       "ticker": "323410",
       "name": "카카오뱅크",
       "market_cap": 11260000000000.0
     },
     {
+      "rank": 76,
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "market_cap": 10939400000000.0
+    },
+    {
       "rank": 77,
-      "ticker": "007660",
-      "name": "이수페타시스",
-      "market_cap": 10761800000000.0
+      "ticker": "352820",
+      "name": "하이브",
+      "market_cap": 10624700000000.0
     },
     {
       "rank": 78,
-      "ticker": "352820",
-      "name": "하이브",
-      "market_cap": 10667800000000.0
+      "ticker": "005830",
+      "name": "DB손해보험",
+      "market_cap": 10591400000000.0
     },
     {
       "rank": 79,
-      "ticker": "005830",
-      "name": "DB손해보험",
-      "market_cap": 10584900000000.0
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "market_cap": 10336000000000.0
     },
     {
       "rank": 80,
-      "ticker": "062040",
-      "name": "산일전기",
-      "market_cap": 9965500000000.0
+      "ticker": "102110",
+      "name": "TIGER 200",
+      "market_cap": 9952700000000.0
     },
     {
       "rank": 81,
-      "ticker": "102110",
-      "name": "TIGER 200",
-      "market_cap": 9855700000000.0
+      "ticker": "062040",
+      "name": "산일전기",
+      "market_cap": 9934800000000.0
     },
     {
       "rank": 82,
-      "ticker": "003490",
-      "name": "대한항공",
-      "market_cap": 9776300000000.0
+      "ticker": "003230",
+      "name": "삼양식품",
+      "market_cap": 9905900000000.0
     },
     {
       "rank": 83,
-      "ticker": "003230",
-      "name": "삼양식품",
-      "market_cap": 9747700000000.0
+      "ticker": "003490",
+      "name": "대한항공",
+      "market_cap": 9794700000000.0
     },
     {
       "rank": 84,
       "ticker": "133690",
       "name": "TIGER 미국나스닥100",
-      "market_cap": 9638600000000.0
+      "market_cap": 9663900000000.0
     },
     {
       "rank": 85,
       "ticker": "000880",
       "name": "한화",
-      "market_cap": 9631400000000.0
+      "market_cap": 9546800000000.0
     },
     {
       "rank": 86,
-      "ticker": "267270",
-      "name": "HD건설기계",
-      "market_cap": 9043100000000.0
+      "ticker": "005387",
+      "name": "현대차2우B",
+      "market_cap": 9527700000000.0
     },
     {
       "rank": 87,
-      "ticker": "005387",
-      "name": "현대차2우B",
-      "market_cap": 8968200000000.0
+      "ticker": "379800",
+      "name": "KODEX 미국S&P500",
+      "market_cap": 8918700000000.0
     },
     {
       "rank": 88,
-      "ticker": "379800",
-      "name": "KODEX 미국S&P500",
-      "market_cap": 8902200000000.0
+      "ticker": "267270",
+      "name": "HD건설기계",
+      "market_cap": 8899200000000.0
     },
     {
       "rank": 89,
-      "ticker": "066970",
-      "name": "엘앤에프",
-      "market_cap": 8174100000000.0
+      "ticker": "122630",
+      "name": "KODEX 레버리지",
+      "market_cap": 8150700000000.0
     },
     {
       "rank": 90,
@@ -546,63 +546,63 @@
     },
     {
       "rank": 91,
-      "ticker": "009830",
-      "name": "한화솔루션",
-      "market_cap": 8104700000000.0
+      "ticker": "066970",
+      "name": "엘앤에프",
+      "market_cap": 8000500000000.0
     },
     {
       "rank": 92,
-      "ticker": "161390",
-      "name": "한국타이어앤테크놀로지",
-      "market_cap": 8002300000000.0
+      "ticker": "009830",
+      "name": "한화솔루션",
+      "market_cap": 7993000000000.0
     },
     {
       "rank": 93,
-      "ticker": "122630",
-      "name": "KODEX 레버리지",
-      "market_cap": 7985500000000.0
+      "ticker": "161390",
+      "name": "한국타이어앤테크놀로지",
+      "market_cap": 7965200000000.0
     },
     {
       "rank": 94,
       "ticker": "278530",
       "name": "KODEX 200TR",
-      "market_cap": 7868700000000.0
+      "market_cap": 7945900000000.0
     },
     {
       "rank": 95,
       "ticker": "326030",
       "name": "SK바이오팜",
-      "market_cap": 7800000000000.0
+      "market_cap": 7753000000000.0
     },
     {
       "rank": 96,
       "ticker": "377300",
       "name": "카카오페이",
-      "market_cap": 7763100000000.0
+      "market_cap": 7709000000000.0
     },
     {
       "rank": 97,
       "ticker": "488770",
       "name": "KODEX 머니마켓액티브",
-      "market_cap": 7598500000000.0
+      "market_cap": 7598600000000.0
     },
     {
       "rank": 98,
-      "ticker": "000500",
-      "name": "가온전선",
-      "market_cap": 7593300000000.0
+      "ticker": "180640",
+      "name": "한진칼",
+      "market_cap": 7557500000000.0
     },
     {
       "rank": 99,
       "ticker": "090430",
       "name": "아모레퍼시픽",
-      "market_cap": 7580700000000.0
+      "market_cap": 7504600000000.0
     },
     {
       "rank": 100,
-      "ticker": "180640",
-      "name": "한진칼",
-      "market_cap": 7484100000000.0
+      "ticker": "379810",
+      "name": "KODEX 미국나스닥100",
+      "market_cap": 7267100000000.0
     }
   ]
 }
