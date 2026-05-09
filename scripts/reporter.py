@@ -3,19 +3,23 @@ reporter.py
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 분석 결과 딕셔너리를 받아 self-contained index.html 을 생성합니다.
 
-그룹 탭 구성: 🇰🇷 한국 | 🇺🇸 미국 | 🪙 코인
+그룹 탭 구성: 🇰🇷 한국 | 🇺🇸 미국 | 🪙 코인 | 📈 중형주
 
 • 한국: KR 데이터를 HTML에 임베드 (DATA_KR)
   - 마켓 탭: KOSPI / KOSDAQ
-  - 기간 탭: 장중 / 일별 / 주별 / 월별
+  - 기간 탭: 장중 / 일별 / 주별 / 월별 / 연속상승 / 종합
 
 • 미국: data/report_us.json 을 fetch() 로 동적 로딩 (DATA_US)
   - 마켓 탭: S&P 500 / 나스닥 100
-  - 기간 탭: 일별 / 주별 / 월별
+  - 기간 탭: 일별 / 주별 / 월별 / 연속상승 / 종합
 
 • 코인: data/report_crypto.json 을 fetch() 로 동적 로딩 (DATA_CRYPTO)
   - 마켓 탭: 없음 (단일 시장)
-  - 기간 탭: 일별 / 주별 / 월별
+  - 기간 탭: 일별 / 주별 / 월별 / 연속상승 / 종합
+
+• 중형주: data/report_midcap.json 을 fetch() 로 동적 로딩 (DATA_MIDCAP)
+  - 마켓 탭: 없음 (단일 시장, Russell 1000 하위 500)
+  - 기간 탭: 일별 / 주별 / 월별 / 연속상승 / 종합
 
 각 탭 하단에 해당 기간 Top5 종목의 순위 변동 히스토리 차트 포함
 """
@@ -386,6 +390,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     <button class="tab-btn active" onclick="switchGroup('korea')">🇰🇷 한국</button>
     <button class="tab-btn"        onclick="switchGroup('us')">🇺🇸 미국</button>
     <button class="tab-btn"        onclick="switchGroup('coin')">🪙 코인</button>
+    <button class="tab-btn"        onclick="switchGroup('midcap')">📈 중형주</button>
   </div>
 
   <!-- 마켓 탭 (코인 그룹에선 숨김) -->
@@ -424,7 +429,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 </div>
 
 <footer id="footer-text">
-  데이터: 네이버금융(한국) · Yahoo Finance(미국) · CoinGecko(코인) &nbsp;|&nbsp; 자동 업데이트
+  데이터: 네이버금융(한국) · Yahoo Finance(미국·중형주) · CoinGecko(코인) &nbsp;|&nbsp; 자동 업데이트
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -432,11 +437,13 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 // ── 임베드된 한국 데이터 ──────────────────────────────────────────────────────
 const DATA_KR = /*__DATA_KR__*/null/*__DATA_KR__*/;
 
-// ── 동적 로딩 데이터 (US/Crypto) ──────────────────────────────────────────────
-let DATA_US     = null;
-let DATA_CRYPTO = null;
+// ── 동적 로딩 데이터 (US/Crypto/MidCap) ─────────────────────────────────────
+let DATA_US      = null;
+let DATA_CRYPTO  = null;
+let DATA_MIDCAP  = null;
 let loadingUS     = false;
 let loadingCrypto = false;
+let loadingMidcap = false;
 
 // ── 상태 ──────────────────────────────────────────────────────────────────────
 let currentGroup  = 'korea';
@@ -446,14 +453,16 @@ let activeChart   = null;
 
 // ── 그룹별 마켓/기간 정의 ─────────────────────────────────────────────────────
 const GROUP_MARKETS = {
-  korea: ['kospi', 'kosdaq'],
-  us:    ['sp500', 'nasdaq100'],
-  coin:  ['coin'],
+  korea:  ['kospi', 'kosdaq'],
+  us:     ['sp500', 'nasdaq100'],
+  coin:   ['coin'],
+  midcap: ['midcap'],
 };
 const GROUP_PERIODS = {
-  korea: ['intraday','daily','weekly','monthly','streak','summary'],
-  us:    ['daily','weekly','monthly','streak','summary'],
-  coin:  ['daily','weekly','monthly','streak','summary'],
+  korea:  ['intraday','daily','weekly','monthly','streak','summary'],
+  us:     ['daily','weekly','monthly','streak','summary'],
+  coin:   ['daily','weekly','monthly','streak','summary'],
+  midcap: ['daily','weekly','monthly','streak','summary'],
 };
 const MARKET_LABEL = {
   kospi:     'KOSPI',
@@ -461,11 +470,13 @@ const MARKET_LABEL = {
   sp500:     'S&P 500',
   nasdaq100: '나스닥 100',
   coin:      '코인',
+  midcap:    '중형주 (Russell 1000 하위 500)',
 };
 const GROUP_TITLE = {
-  korea: '📈 KOSPI / KOSDAQ 시총 순위 상승 트래커',
-  us:    '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
-  coin:  '📈 암호화폐 시총 순위 상승 트래커',
+  korea:  '📈 KOSPI / KOSDAQ 시총 순위 상승 트래커',
+  us:     '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
+  coin:   '📈 암호화폐 시총 순위 상승 트래커',
+  midcap: '📈 Russell 1000 중형주 시총 순위 상승 트래커',
 };
 
 const PERIOD_META = {
@@ -542,8 +553,9 @@ function naverUrl(ticker) {
 
 /* ── 현재 그룹의 데이터 반환 ────────────────────────────────────────────── */
 function getGroupData() {
-  if (currentGroup === 'korea') return DATA_KR;
-  if (currentGroup === 'us')    return DATA_US;
+  if (currentGroup === 'korea')  return DATA_KR;
+  if (currentGroup === 'us')     return DATA_US;
+  if (currentGroup === 'midcap') return DATA_MIDCAP;
   return DATA_CRYPTO;
 }
 
@@ -563,7 +575,7 @@ function init() {
 /* ── 그룹 탭 구성 ────────────────────────────────────────────────────────── */
 function buildGroupTabs() {
   document.querySelectorAll('.group-tabs .tab-btn').forEach((btn, i) => {
-    const groups = ['korea','us','coin'];
+    const groups = ['korea','us','coin','midcap'];
     btn.classList.toggle('active', groups[i] === currentGroup);
   });
 }
@@ -676,6 +688,10 @@ function computeSummaryData() {
     ['daily','weekly','monthly'].forEach(p =>
       (DATA_CRYPTO?.coin?.[p]?.top5 || []).forEach(s => add('coin', p, PERIOD_META[p].label, s)));
     (DATA_CRYPTO?.coin?.streak || []).forEach(s => add('coin', 'streak', '연속상승', s));
+  } else if (currentGroup === 'midcap' && DATA_MIDCAP) {
+    ['daily','weekly','monthly'].forEach(p =>
+      (DATA_MIDCAP?.midcap?.[p]?.top5 || []).forEach(s => add('midcap', p, PERIOD_META[p].label, s)));
+    (DATA_MIDCAP?.midcap?.streak || []).forEach(s => add('midcap', 'streak', '연속상승', s));
   }
 
   return Object.values(all).sort((a, b) => b.count - a.count || a.rank - b.rank);
@@ -699,6 +715,14 @@ function renderSummaryOrWait() {
       .catch(e => showError(`데이터 로딩 실패: ${e}`));
     return;
   }
+  if (currentGroup === 'midcap' && !DATA_MIDCAP) {
+    showLoadingSpinner('📈 중형주 데이터 로딩 중...');
+    fetch('data/report_midcap.json')
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(d => { DATA_MIDCAP = d; renderSummary(); })
+      .catch(e => showError(`데이터 로딩 실패: ${e}`));
+    return;
+  }
   renderSummary();
 }
 
@@ -709,9 +733,10 @@ function renderSummary() {
   document.getElementById('intraday-banner').style.display = 'none';
 
   const grpLabel = {
-    korea: '🇰🇷 한국 (KOSPI + KOSDAQ)',
-    us:    '🇺🇸 미국 (S&P 500 + NASDAQ 100)',
-    coin:  '🪙 암호화폐',
+    korea:  '🇰🇷 한국 (KOSPI + KOSDAQ)',
+    us:     '🇺🇸 미국 (S&P 500 + NASDAQ 100)',
+    coin:   '🪙 암호화폐',
+    midcap: '📈 중형주 (Russell 1000 하위 500)',
   }[currentGroup];
   document.getElementById('section-title').textContent = `${grpLabel} 전 기간 종합 분석`;
   label.textContent = '';
@@ -817,6 +842,10 @@ function switchGroup(g) {
     loadCryptoData();
     return;
   }
+  if (g === 'midcap' && !DATA_MIDCAP) {
+    loadMidcapData();
+    return;
+  }
 
   updateHeader();
   render();
@@ -879,6 +908,29 @@ function loadCryptoData() {
     .catch(err => {
       loadingCrypto = false;
       showError(`코인 데이터를 불러올 수 없습니다.<br><small>${esc(err.message)}</small>`);
+    });
+}
+
+/* ── 동적 데이터 로딩: 중형주 ─────────────────────────────────────────────── */
+function loadMidcapData() {
+  if (loadingMidcap) return;
+  loadingMidcap = true;
+  showLoadingSpinner('📈 중형주 데이터 로딩 중...');
+
+  fetch('data/report_midcap.json')
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
+    .then(data => {
+      DATA_MIDCAP   = data;
+      loadingMidcap = false;
+      updateHeader();
+      render();
+    })
+    .catch(err => {
+      loadingMidcap = false;
+      showError(`중형주 데이터를 불러올 수 없습니다.<br><small>${esc(err.message)}</small>`);
     });
 }
 
@@ -968,13 +1020,16 @@ function renderPeriod() {
 
   const periodCross = computeGroupCrossTab(currentGroup, currentMarket);
   cards.innerHTML = pd.top5.map((s, i) => {
-    const isCoin = currentGroup === 'coin';
+    const isCoin  = currentGroup === 'coin';
+    const isKorea = currentGroup === 'korea';
     const nameUrl   = isCoin
       ? `https://coinness.com/search?q=${encodeURIComponent(s.ticker)}`
       : `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
     const tickerUrl = isCoin
       ? `https://coinmarketcap.com/ko/search/?q=${encodeURIComponent(s.ticker)}`
-      : naverUrl(s.ticker);
+      : isKorea
+        ? naverUrl(s.ticker)
+        : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
     return `
     <div class="card">
       <div class="medal ${MEDAL_CLASS[i]}">${i+1}</div>
@@ -1121,7 +1176,7 @@ function showError(msg) {
 /* ── Claude 분석 기능 ────────────────────────────────────────────────────── */
 function buildClaudePrompt() {
   const data = getGroupData();
-  const groupLabel  = { korea:'한국', us:'미국', coin:'암호화폐' }[currentGroup];
+  const groupLabel  = { korea:'한국', us:'미국', coin:'암호화폐', midcap:'미국 중형주' }[currentGroup];
   const marketLabel = MARKET_LABEL[currentMarket];
   const currency    = currentGroup === 'korea' ? 'KRW' : 'USD';
 
@@ -1129,7 +1184,7 @@ function buildClaudePrompt() {
   if (currentPeriod === 'summary') {
     const all = computeSummaryData().filter(s => s.count >= 2).slice(0, 10);
     if (!all.length) return null;
-    const grpLabel = { korea:'한국 (KOSPI/KOSDAQ)', us:'미국 (S&P500/NASDAQ100)', coin:'암호화폐' }[currentGroup];
+    const grpLabel = { korea:'한국 (KOSPI/KOSDAQ)', us:'미국 (S&P500/NASDAQ100)', coin:'암호화폐', midcap:'중형주 (Russell 1000 하위 500)' }[currentGroup];
     const stockLines = all.map((s, i) => {
       const tabs = [...new Set(s.appearances.map(a=>a.periodLabel))].join('·');
       const mkt  = [...s.markets].map(m=>MARKET_LABEL[m]||m).join('·');
@@ -1303,7 +1358,8 @@ function renderStreakPeriod() {
     return;
   }
 
-  const isCoin = currentGroup === 'coin';
+  const isCoin  = currentGroup === 'coin';
+  const isKorea = currentGroup === 'korea';
   const streakCross = computeGroupCrossTab(currentGroup, currentMarket);
   cards.innerHTML = streak.map((s, i) => {
     const nameUrl   = isCoin
@@ -1311,7 +1367,9 @@ function renderStreakPeriod() {
       : `https://kr.investing.com/search/?q=${encodeURIComponent(s.ticker)}`;
     const tickerUrl = isCoin
       ? `https://coinmarketcap.com/ko/search/?q=${encodeURIComponent(s.ticker)}`
-      : naverUrl(s.ticker);
+      : isKorea
+        ? naverUrl(s.ticker)
+        : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
 
     const isFrequent = streakMode === 'frequent';
     const iconEl  = isFrequent ? '📈' : '🔥';
@@ -1390,7 +1448,7 @@ async function triggerUpdate() {
   const pat = getPAT();
   if (!pat) { showPATModal(); return; }
 
-  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml' };
+  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml', midcap:'update_midcap.yml' };
   const workflow = WORKFLOW[currentGroup];
   const btn = document.getElementById('update-btn');
   if (btn) { btn.disabled = true; btn.textContent = '⏳ 요청 중...'; }

@@ -1,0 +1,72 @@
+name: 📈 Update Mid-Cap Rankings
+
+on:
+  # 평일 UTC 22:00 (미국 동부 17:00, KST 익일 07:00)
+  # US 워크플로우(21:30) 완료 후 30분 뒤 실행
+  schedule:
+    - cron: '0 22 * * 1-5'
+
+  # 수동 실행 가능
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '수집 날짜 (YYYYMMDD, 비워두면 오늘)'
+        required: false
+        default: ''
+      refresh_universe:
+        description: '유니버스 강제 갱신 (yes/no)'
+        required: false
+        default: 'no'
+
+jobs:
+  update-midcap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # ① 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ② Python 환경 설정
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ③ 의존성 설치
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ④ 중형주 데이터 수집 + 리포트 생성
+      - name: Fetch mid-cap data and generate report
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            ARGS="--date ${{ github.event.inputs.date }}"
+          fi
+          if [ "${{ github.event.inputs.refresh_universe }}" = "yes" ]; then
+            ARGS="$ARGS --refresh-universe"
+          fi
+          python run_daily_midcap.py $ARGS
+
+      # ⑤ 변경사항 커밋 & 푸시
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "github-actions[bot]"
+          git add data/midcap/ data/report_midcap.json || true
+          [ -f data/midcap_universe.json ] && git add data/midcap_universe.json 2>/dev/null || true
+          [ -f data/name_cache_midcap.json ] && git add data/name_cache_midcap.json 2>/dev/null || true
+          git diff --staged --quiet && echo "변경사항 없음 — 커밋 스킵" && exit 0
+          git commit -m "📈 MidCap Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git stash 2>/dev/null || true
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            echo "⚠ Push 실패 (시도 $i/3) — 10초 후 재시도..."
+            sleep 10
+          done
