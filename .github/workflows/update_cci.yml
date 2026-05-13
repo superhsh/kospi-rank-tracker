@@ -1,0 +1,59 @@
+name: 📊 CCI Signal Monitor
+
+on:
+  # 평일 KST 08:30 (UTC 23:30) — 미국 장 마감 후 모든 데이터 업데이트 완료 뒤 실행
+  schedule:
+    - cron: '30 23 * * 1-5'
+
+  # 수동 실행
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry-run (Telegram 발송 없이 신호만 출력): yes/no'
+        required: false
+        default: 'no'
+      summary:
+        description: '일별 현황 요약도 발송: yes/no'
+        required: false
+        default: 'yes'
+
+jobs:
+  cci-monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      # ① 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ② Python 환경 설정
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ③ 의존성 설치
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ④ CCI 모니터링 실행
+      - name: Run CCI monitor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "yes" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "${{ github.event.inputs.summary }}" = "yes" ]; then
+            ARGS="$ARGS --summary"
+          fi
+          # 스케줄 실행 시 기본으로 summary 포함
+          if [ -z "${{ github.event.inputs.summary }}" ]; then
+            ARGS="$ARGS --summary"
+          fi
+          python run_cci_monitor.py $ARGS
