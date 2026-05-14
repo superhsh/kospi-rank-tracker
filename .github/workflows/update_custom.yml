@@ -1,0 +1,55 @@
+name: ⭐ Custom Watchlist Tracker
+
+on:
+  # 평일 KST 08:00 (UTC 23:00) — 미국 장 마감 후 한국 장 시작 전
+  schedule:
+    - cron: '0 23 * * 1-5'
+
+  # 수동 실행
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '날짜 (YYYYMMDD, 기본: 오늘)'
+        required: false
+        default: ''
+
+jobs:
+  update-custom:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # ① 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ② Python 환경 설정
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ③ 의존성 설치
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ④ 관심종목 시총 변동률 계산
+      - name: Run custom watchlist tracker
+        run: |
+          DATE_ARG=""
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            DATE_ARG="--date ${{ github.event.inputs.date }}"
+          fi
+          python run_daily_custom.py $DATE_ARG
+
+      # ⑤ 결과 커밋 및 푸시
+      - name: Commit and push data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/custom/ data/report_custom.json
+          git diff --cached --quiet && echo "변경 없음" || \
+            git commit -m "⭐ Update custom watchlist data $(date -u +%Y-%m-%d)"
+          git push
