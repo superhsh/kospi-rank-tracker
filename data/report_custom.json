@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-05-15 01:14",
+  "current_date": "20260515",
+  "daily": {
+    "available": false,
+    "prev_date": null,
+    "items": []
+  },
+  "weekly": {
+    "available": false,
+    "prev_date": null,
+    "items": []
+  },
+  "monthly": {
+    "available": false,
+    "prev_date": null,
+    "items": []
+  }
+}
