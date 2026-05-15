@@ -49,8 +49,6 @@
     .period-tabs .tab-btn.streak          { color: #f57f17; border-color: #ffe0b2; }
     .period-tabs .tab-btn.summary-period.active { background: #1565c0; color: #fff; border-color: #1565c0; }
     .period-tabs .tab-btn.summary-period  { color: #1565c0; border-color: #bbdefb; }
-    .period-tabs .tab-btn.manage-period.active  { background: #6a1b9a; color: #fff; border-color: #6a1b9a; }
-    .period-tabs .tab-btn.manage-period   { color: #6a1b9a; border-color: #e1bee7; }
 
     /* ── 장중 배너 ── */
     .intraday-banner {
@@ -328,130 +326,6 @@
     }
     .no-data .icon { font-size: 38px; margin-bottom: 10px; }
 
-    /* ── 관심종목 관리 폼 ── */
-    .custom-manage {
-      background: #fff; border-radius: 14px; padding: 20px 22px;
-      box-shadow: 0 1px 5px rgba(0,0,0,.07);
-    }
-    .custom-manage h3 { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 14px; }
-    .custom-add-row {
-      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
-    }
-    .custom-add-row input {
-      flex: 1; min-width: 80px; padding: 8px 12px;
-      border: 1.5px solid #ddd; border-radius: 10px;
-      font-size: 13px; outline: none;
-    }
-    .custom-add-row input:focus { border-color: #1565c0; }
-    .custom-add-row select {
-      padding: 8px 10px; border: 1.5px solid #ddd; border-radius: 10px;
-      font-size: 13px; outline: none; background: #fff;
-    }
-    .custom-add-row select:focus { border-color: #1565c0; }
-    .custom-add-btn {
-      padding: 8px 18px; background: #1565c0; color: #fff;
-      border: none; border-radius: 10px; font-size: 13px; font-weight: 700;
-      cursor: pointer; white-space: nowrap;
-    }
-    .custom-add-btn:hover { background: #0d47a1; }
-    .custom-stock-list { margin-top: 4px; }
-    .custom-stock-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 9px 0; border-bottom: 1px solid #f5f5f5;
-    }
-    .custom-stock-item:last-child { border-bottom: none; }
-    .custom-stock-item .csi-info { flex: 1; min-width: 0; }
-    .custom-stock-item .csi-name { font-size: 13px; font-weight: 700; color: #222; }
-    .custom-stock-item .csi-meta { font-size: 11px; color: #999; margin-top: 2px; }
-    .custom-stock-item .csi-rm {
-      background: none; border: none; cursor: pointer;
-      color: #ccc; font-size: 16px; padding: 2px 6px; border-radius: 4px;
-    }
-    .custom-stock-item .csi-rm:hover { color: #e53935; }
-    .custom-empty { color: #bbb; font-size: 13px; text-align: center; padding: 20px 0; }
-    .custom-sync-row {
-      display: flex; gap: 8px; margin-top: 16px; padding-top: 14px;
-      border-top: 1px solid #eee; flex-wrap: wrap; align-items: center;
-    }
-    .custom-sync-btn {
-      padding: 7px 18px; border-radius: 14px; border: none;
-      font-size: 12px; font-weight: 700; cursor: pointer;
-    }
-    .custom-sync-btn.save { background: #2e7d32; color: #fff; }
-    .custom-sync-btn.save:hover { background: #1b5e20; }
-    .custom-sync-hint {
-      font-size: 11px; color: #aaa;
-    }
-
-    /* ── 관심종목 시총 변동률 카드 ── */
-    .custom-card {
-      background: #fff; border-radius: 14px; padding: 16px 20px;
-      margin-bottom: 10px; display: flex; align-items: center; gap: 14px;
-      box-shadow: 0 1px 5px rgba(0,0,0,.07);
-      transition: transform .15s, box-shadow .15s;
-      border-left: 4px solid #e3f2fd;
-    }
-    .custom-card:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.11); }
-    .custom-card:nth-child(1) { border-left-color: #ffd600; }
-    .custom-card:nth-child(2) { border-left-color: #bdbdbd; }
-    .custom-card:nth-child(3) { border-left-color: #ff8f00; }
-    .chg-num { font-size: 24px; font-weight: 900; line-height: 1; }
-    .chg-num.up   { color: #e53935; }
-    .chg-num.down { color: #1565c0; }
-    .chg-num.flat { color: #888; }
-    .mkt-tag.kospi  { background: #e8f5e9; color: #2e7d32; }
-    .mkt-tag.kosdaq { background: #e0f2f1; color: #00695c; }
-
-    /* ── 관심종목 ☆ 버튼 ── */
-    .watch-btn {
-      background: none; border: none; cursor: pointer;
-      font-size: 18px; padding: 2px 6px; border-radius: 6px;
-      color: #ccc; transition: color .15s, transform .12s;
-      flex-shrink: 0; line-height: 1;
-    }
-    .watch-btn:hover { color: #f9a825; transform: scale(1.2); }
-    .watch-btn.active { color: #f9a825; }
-
-    /* ── 관심종목 패널 ── */
-    .watchlist-panel {
-      background: #fff; border-radius: 14px;
-      box-shadow: 0 1px 5px rgba(0,0,0,.07);
-      padding: 18px 20px; margin-bottom: 14px;
-    }
-    .watchlist-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 14px;
-    }
-    .watchlist-header h3 { font-size: 14px; font-weight: 700; color: #333; }
-    .watchlist-sync-btn {
-      font-size: 12px; padding: 5px 14px; border-radius: 14px;
-      border: 1px solid #90caf9; background: #e3f2fd;
-      color: #1565c0; cursor: pointer; font-weight: 600;
-      transition: background .15s;
-    }
-    .watchlist-sync-btn:hover { background: #bbdefb; }
-    .watchlist-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 9px 0; border-bottom: 1px solid #f5f5f5;
-    }
-    .watchlist-item:last-child { border-bottom: none; }
-    .watchlist-item .wi-info { flex: 1; min-width: 0; }
-    .watchlist-item .wi-name { font-size: 13px; font-weight: 700; color: #222; }
-    .watchlist-item .wi-meta { font-size: 11px; color: #999; margin-top: 2px; }
-    .watchlist-item .wi-cci  {
-      font-size: 12px; font-weight: 700; padding: 3px 9px;
-      border-radius: 10px; background: #f5f5f5; color: #555; white-space: nowrap;
-    }
-    .watchlist-item .wi-cci.up   { background: #e8f5e9; color: #2e7d32; }
-    .watchlist-item .wi-cci.down { background: #fce4ec; color: #c62828; }
-    .watchlist-item .wi-remove {
-      background: none; border: none; cursor: pointer;
-      color: #ccc; font-size: 16px; padding: 2px 4px; border-radius: 4px;
-      transition: color .12s;
-    }
-    .watchlist-item .wi-remove:hover { color: #e53935; }
-    .watchlist-empty { color: #bbb; font-size: 13px; text-align: center; padding: 16px 0; }
-
     /* ── 푸터 ── */
     footer {
       text-align: center; padding: 20px 16px;
@@ -485,7 +359,6 @@
     <button class="tab-btn"        onclick="switchGroup('us')">🇺🇸 미국</button>
     <button class="tab-btn"        onclick="switchGroup('coin')">🪙 코인</button>
     <button class="tab-btn"        onclick="switchGroup('midcap')">📈 중형주</button>
-    <button class="tab-btn"        onclick="switchGroup('custom')">⭐ 관심종목</button>
   </div>
 
   <!-- 마켓 탭 (코인 그룹에선 숨김) -->
@@ -508,23 +381,11 @@
       <span class="compare-label" id="compare-label"></span>
       <div class="ai-btn-group">
         <button class="update-btn" id="update-btn" onclick="triggerUpdate()">🔄 업데이트</button>
-        <button class="update-btn" id="watchlist-toggle-btn"
-                onclick="toggleWatchlistPanel()"
-                style="background:#fff8e1;border-color:#ffd54f;color:#f57f17">⭐ 관심종목</button>
         <button class="ai-btn claude"  onclick="openAnalysis('https://claude.ai/new','Claude')">✦ Claude</button>
         <button class="ai-btn gemini"  onclick="openAnalysis('https://gemini.google.com/','Gemini')">✦ Gemini</button>
         <button class="ai-btn chatgpt" onclick="openAnalysis('https://chatgpt.com/','ChatGPT')">✦ ChatGPT</button>
       </div>
     </div>
-  </div>
-
-  <!-- 관심종목 패널 (평소 숨김, 관심종목 버튼 클릭 시 표시) -->
-  <div id="watchlist-panel" class="watchlist-panel" style="display:none">
-    <div class="watchlist-header">
-      <h3>⭐ 관심종목</h3>
-      <button class="watchlist-sync-btn" onclick="syncWatchlist()">☁ GitHub 동기화</button>
-    </div>
-    <div id="watchlist-items"></div>
   </div>
 
   <!-- Top5 카드 영역 -->
@@ -542,17 +403,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 // ── 임베드된 한국 데이터 ──────────────────────────────────────────────────────
-const DATA_KR = {"updated_at": "2026-05-13 09:46", "current_date": "20260513", "kospi": {"daily": {"available": true, "prev_date": "20260512", "top5": [{"rank": 92, "prev_rank": 100, "rank_change": 8, "ticker": "000990", "name": "DB하이텍", "market_cap": 8074500000000.0, "market_cap_str": "8.07조"}, {"rank": 49, "prev_rank": 56, "rank_change": 7, "ticker": "307950", "name": "현대오토에버", "market_cap": 19169400000000.0, "market_cap_str": "19.17조"}, {"rank": 64, "prev_rank": 69, "rank_change": 5, "ticker": "396500", "name": "TIGER 반도체TOP10", "market_cap": 13488200000000.0, "market_cap_str": "13.49조"}, {"rank": 74, "prev_rank": 78, "rank_change": 4, "ticker": "102110", "name": "TIGER 200", "market_cap": 10532900000000.0, "market_cap_str": "10.53조"}, {"rank": 82, "prev_rank": 86, "rank_change": 4, "ticker": "005387", "name": "현대차2우B", "market_cap": 9877300000000.0, "market_cap_str": "9.88조"}], "history": {"tickers": ["000990", "307950", "396500", "102110", "005387"], "names": {"000990": "DB하이텍", "307950": "현대오토에버", "396500": "TIGER 반도체TOP10", "102110": "TIGER 200", "005387": "현대차2우B"}, "timeline": [{"label": "04.13", "ranks": {"307950": 70, "396500": 78, "102110": 89, "005387": 84}}, {"label": "04.14", "ranks": {"307950": 69, "396500": 78, "102110": 87, "005387": 83}}, {"label": "04.15", "ranks": {"307950": 69, "396500": 76, "102110": 86, "005387": 83}}, {"label": "04.16", "ranks": {"307950": 68, "396500": 77, "102110": 85, "005387": 82}}, {"label": "04.17", "ranks": {"307950": 67, "396500": 78, "102110": 86, "005387": 82}}, {"label": "04.20", "ranks": {"307950": 68, "396500": 78, "102110": 85, "005387": 83}}, {"label": "04.21", "ranks": {"307950": 66, "396500": 79, "102110": 85, "005387": 83}}, {"label": "04.22", "ranks": {"307950": 67, "396500": 79, "102110": 86, "005387": 83}}, {"label": "04.23", "ranks": {"307950": 67, "396500": 79, "102110": 86, "005387": 84}}, {"label": "04.24", "ranks": {"307950": 71, "396500": 79, "102110": 85, "005387": 86}}, {"label": "04.27", "ranks": {"307950": 70, "396500": 77, "102110": 85, "005387": 86}}, {"label": "04.28", "ranks": {"307950": 67, "396500": 77, "102110": 85, "005387": 83}}, {"label": "04.29", "ranks": {"307950": 68, "396500": 77, "102110": 86, "005387": 85}}, {"label": "04.30", "ranks": {"307950": 68, "396500": 78, "102110": 85, "005387": 88}}, {"label": "05.04", "ranks": {"307950": 70, "396500": 78, "102110": 84, "005387": 87}}, {"label": "05.06", "ranks": {"307950": 72, "396500": 73, "102110": 80, "005387": 87}}, {"label": "05.07", "ranks": {"307950": 71, "396500": 72, "102110": 80, "005387": 88}}, {"label": "05.08", "ranks": {"307950": 59, "396500": 71, "102110": 82, "005387": 86}}, {"label": "05.11", "ranks": {"000990": 91, "307950": 53, "396500": 70, "102110": 78, "005387": 85}}, {"label": "05.12", "ranks": {"000990": 100, "307950": 56, "396500": 69, "102110": 78, "005387": 86}}, {"label": "05.13", "ranks": {"000990": 92, "307950": 49, "396500": 64, "102110": 74, "005387": 82}}]}}, "weekly": {"available": true, "prev_date": "20260506", "top5": [{"rank": 49, "prev_rank": 72, "rank_change": 23, "ticker": "307950", "name": "현대오토에버", "market_cap": 19169400000000.0, "market_cap_str": "19.17조"}, {"rank": 45, "prev_rank": 56, "rank_change": 11, "ticker": "086280", "name": "현대글로비스", "market_cap": 21300000000000.0, "market_cap_str": "21.30조"}, {"rank": 15, "prev_rank": 25, "rank_change": 10, "ticker": "012330", "name": "현대모비스", "market_cap": 58885400000000.0, "market_cap_str": "58.89조"}, {"rank": 64, "prev_rank": 73, "rank_change": 9, "ticker": "396500", "name": "TIGER 반도체TOP10", "market_cap": 13488200000000.0, "market_cap_str": "13.49조"}, {"rank": 32, "prev_rank": 38, "rank_change": 6, "ticker": "066570", "name": "LG전자", "market_cap": 31176500000000.0, "market_cap_str": "31.18조"}], "history": {"tickers": ["307950", "086280", "012330", "396500", "066570"], "names": {"307950": "현대오토에버", "086280": "현대글로비스", "012330": "현대모비스", "396500": "TIGER 반도체TOP10", "066570": "LG전자"}, "timeline": [{"label": "02.13", "ranks": {"307950": 64, "086280": 47, "012330": 19, "396500": 89, "066570": 48}}, {"label": "02.20", "ranks": {"307950": 68, "086280": 46, "012330": 19, "396500": 89, "066570": 47}}, {"label": "02.27", "ranks": {"307950": 61, "086280": 42, "012330": 15, "396500": 78, "066570": 37}}, {"label": "03.06", "ranks": {"307950": 69, "086280": 49, "012330": 17, "396500": 75, "066570": 43}}, {"label": "03.13", "ranks": {"307950": 68, "086280": 52, "012330": 19, "396500": 77, "066570": 44}}, {"label": "03.20", "ranks": {"307950": 69, "086280": 52, "012330": 19, "396500": 77, "066570": 45}}, {"label": "03.27", "ranks": {"307950": 70, "086280": 51, "012330": 19, "396500": 80, "066570": 47}}, {"label": "04.03", "ranks": {"307950": 70, "086280": 54, "012330": 20, "396500": 82, "066570": 49}}, {"label": "04.10", "ranks": {"307950": 70, "086280": 54, "012330": 21, "396500": 79, "066570": 51}}, {"label": "04.17", "ranks": {"307950": 67, "086280": 54, "012330": 22, "396500": 78, "066570": 46}}, {"label": "04.24", "ranks": {"307950": 71, "086280": 55, "012330": 21, "396500": 79, "066570": 46}}, {"label": "04.30", "ranks": {"307950": 68, "086280": 53, "012330": 22, "396500": 78, "066570": 40}}, {"label": "05.08", "ranks": {"307950": 59, "086280": 49, "012330": 20, "396500": 71, "066570": 37}}, {"label": "05.13", "ranks": {"307950": 49, "086280": 45, "012330": 15, "396500": 64, "066570": 32}}]}}, "monthly": {"available": true, "prev_date": "20260430", "top5": [{"rank": 49, "prev_rank": 68, "rank_change": 19, "ticker": "307950", "name": "현대오토에버", "market_cap": 19169400000000.0, "market_cap_str": "19.17조"}, {"rank": 64, "prev_rank": 78, "rank_change": 14, "ticker": "396500", "name": "TIGER 반도체TOP10", "market_cap": 13488200000000.0, "market_cap_str": "13.49조"}, {"rank": 74, "prev_rank": 85, "rank_change": 11, "ticker": "102110", "name": "TIGER 200", "market_cap": 10532900000000.0, "market_cap_str": "10.53조"}, {"rank": 54, "prev_rank": 63, "rank_change": 9, "ticker": "011070", "name": "LG이노텍", "market_cap": 17821300000000.0, "market_cap_str": "17.82조"}, {"rank": 23, "prev_rank": 31, "rank_change": 8, "ticker": "034730", "name": "SK", "market_cap": 39876500000000.0, "market_cap_str": "39.88조"}], "history": {"tickers": ["307950", "396500", "102110", "011070", "034730"], "names": {"307950": "현대오토에버", "396500": "TIGER 반도체TOP10", "102110": "TIGER 200", "011070": "LG이노텍", "034730": "SK"}, "timeline": [{"label": "26.01", "ranks": {"307950": 59, "396500": 87, "102110": 90, "011070": 93, "034730": 31}}, {"label": "26.02", "ranks": {"307950": 61, "396500": 78, "102110": 87, "011070": 92, "034730": 31}}, {"label": "26.03", "ranks": {"307950": 70, "396500": 85, "102110": 91, "011070": 89, "034730": 32}}, {"label": "26.04", "ranks": {"307950": 68, "396500": 78, "102110": 85, "011070": 63, "034730": 31}}, {"label": "26.05", "ranks": {"307950": 49, "396500": 64, "102110": 74, "011070": 54, "034730": 23}}]}}, "streak": [{"rank": 69, "ticker": "396500", "name": "TIGER 반도체TOP10", "market_cap": 12429700000000.0, "market_cap_str": "12.43조", "streak_days": 5}], "streak_mode": "streak", "streak_history": {"tickers": ["396500"], "names": {"396500": "TIGER 반도체TOP10"}, "timeline": [{"label": "04.13", "ranks": {"396500": 78}}, {"label": "04.14", "ranks": {"396500": 78}}, {"label": "04.15", "ranks": {"396500": 76}}, {"label": "04.16", "ranks": {"396500": 77}}, {"label": "04.17", "ranks": {"396500": 78}}, {"label": "04.20", "ranks": {"396500": 78}}, {"label": "04.21", "ranks": {"396500": 79}}, {"label": "04.22", "ranks": {"396500": 79}}, {"label": "04.23", "ranks": {"396500": 79}}, {"label": "04.24", "ranks": {"396500": 79}}, {"label": "04.27", "ranks": {"396500": 77}}, {"label": "04.28", "ranks": {"396500": 77}}, {"label": "04.29", "ranks": {"396500": 77}}, {"label": "04.30", "ranks": {"396500": 78}}, {"label": "05.04", "ranks": {"396500": 78}}, {"label": "05.06", "ranks": {"396500": 73}}, {"label": "05.07", "ranks": {"396500": 72}}, {"label": "05.08", "ranks": {"396500": 71}}, {"label": "05.11", "ranks": {"396500": 70}}, {"label": "05.12", "ranks": {"396500": 69}}, {"label": "05.13", "ranks": {"396500": 64}}]}}, "kosdaq": {"daily": {"available": true, "prev_date": "20260512", "top5": [{"rank": 27, "prev_rank": 44, "rank_change": 17, "ticker": "131970", "name": "두산테스나", "market_cap": 3517600000000.0, "market_cap_str": "3.52조"}, {"rank": 64, "prev_rank": 81, "rank_change": 17, "ticker": "183300", "name": "코미코", "market_cap": 1956100000000.0, "market_cap_str": "1.96조"}, {"rank": 72, "prev_rank": 82, "rank_change": 10, "ticker": "038500", "name": "삼표시멘트", "market_cap": 1679200000000.0, "market_cap_str": "1.68조"}, {"rank": 76, "prev_rank": 86, "rank_change": 10, "ticker": "420770", "name": "기가비스", "market_cap": 1611100000000.0, "market_cap_str": "1.61조"}, {"rank": 51, "prev_rank": 58, "rank_change": 7, "ticker": "095610", "name": "테스", "market_cap": 2371600000000.0, "market_cap_str": "2.37조"}], "history": {"tickers": ["131970", "183300", "038500", "420770", "095610"], "names": {"131970": "두산테스나", "183300": "코미코", "038500": "삼표시멘트", "420770": "기가비스", "095610": "테스"}, "timeline": [{"label": "04.13", "ranks": {"131970": 65, "183300": 79, "038500": 62, "420770": 95, "095610": 68}}, {"label": "04.14", "ranks": {"131970": 59, "183300": 81, "038500": 62, "420770": 97, "095610": 69}}, {"label": "04.15", "ranks": {"131970": 63, "183300": 88, "038500": 65, "420770": 97, "095610": 66}}, {"label": "04.16", "ranks": {"131970": 60, "183300": 76, "038500": 66, "420770": 99, "095610": 67}}, {"label": "04.17", "ranks": {"131970": 57, "183300": 75, "038500": 68, "420770": 99, "095610": 69}}, {"label": "04.20", "ranks": {"131970": 56, "183300": 75, "038500": 69, "420770": 99, "095610": 66}}, {"label": "04.21", "ranks": {"131970": 59, "183300": 77, "038500": 66, "420770": 99, "095610": 69}}, {"label": "04.22", "ranks": {"131970": 50, "183300": 79, "038500": 69, "420770": 99, "095610": 65}}, {"label": "04.23", "ranks": {"131970": 48, "183300": 80, "038500": 73, "420770": 99, "095610": 71}}, {"label": "04.24", "ranks": {"131970": 53, "183300": 81, "038500": 72, "420770": 99, "095610": 74}}, {"label": "04.27", "ranks": {"131970": 55, "183300": 82, "038500": 74, "420770": 100, "095610": 75}}, {"label": "04.28", "ranks": {"131970": 52, "183300": 82, "038500": 73, "420770": 99, "095610": 76}}, {"label": "04.29", "ranks": {"131970": 51, "183300": 88, "038500": 72, "420770": 98, "095610": 77}}, {"label": "04.30", "ranks": {"131970": 49, "183300": 85, "038500": 67, "420770": 99, "095610": 76}}, {"label": "05.04", "ranks": {"131970": 52, "183300": 85, "038500": 72, "420770": 96, "095610": 76}}, {"label": "05.06", "ranks": {"131970": 46, "183300": 83, "038500": 73, "095610": 71}}, {"label": "05.07", "ranks": {"131970": 50, "183300": 79, "038500": 75, "420770": 100, "095610": 71}}, {"label": "05.08", "ranks": {"131970": 44, "183300": 78, "038500": 74, "420770": 99, "095610": 69}}, {"label": "05.11", "ranks": {"131970": 41, "183300": 79, "038500": 81, "420770": 94, "095610": 63}}, {"label": "05.12", "ranks": {"131970": 44, "183300": 81, "038500": 82, "420770": 86, "095610": 58}}, {"label": "05.13", "ranks": {"131970": 27, "183300": 64, "038500": 72, "420770": 76, "095610": 51}}]}}, "weekly": {"available": true, "prev_date": "20260506", "top5": [{"rank": 51, "prev_rank": 71, "rank_change": 20, "ticker": "095610", "name": "테스", "market_cap": 2371600000000.0, "market_cap_str": "2.37조"}, {"rank": 24, "prev_rank": 43, "rank_change": 19, "ticker": "010170", "name": "대한광통신", "market_cap": 3848300000000.0, "market_cap_str": "3.85조"}, {"rank": 27, "prev_rank": 46, "rank_change": 19, "ticker": "131970", "name": "두산테스나", "market_cap": 3517600000000.0, "market_cap_str": "3.52조"}, {"rank": 64, "prev_rank": 83, "rank_change": 19, "ticker": "183300", "name": "코미코", "market_cap": 1956100000000.0, "market_cap_str": "1.96조"}, {"rank": 81, "prev_rank": 96, "rank_change": 15, "ticker": "397030", "name": "에이프릴바이오", "market_cap": 1514900000000.0, "market_cap_str": "1.51조"}], "history": {"tickers": ["095610", "010170", "131970", "183300", "397030"], "names": {"095610": "테스", "010170": "대한광통신", "131970": "두산테스나", "183300": "코미코", "397030": "에이프릴바이오"}, "timeline": [{"label": "02.13", "ranks": {"095610": 82, "010170": 100, "131970": 85, "183300": 89, "397030": 74}}, {"label": "02.20", "ranks": {"095610": 80, "010170": 98, "131970": 86, "183300": 90, "397030": 75}}, {"label": "02.27", "ranks": {"095610": 81, "010170": 99, "131970": 83, "183300": 90, "397030": 74}}, {"label": "03.06", "ranks": {"095610": 77, "010170": 99, "131970": 86, "183300": 93, "397030": 74}}, {"label": "03.13", "ranks": {"095610": 86, "010170": 94, "131970": 83, "183300": 93, "397030": 73}}, {"label": "03.20", "ranks": {"095610": 88, "010170": 94, "131970": 61, "183300": 89, "397030": 78}}, {"label": "03.27", "ranks": {"095610": 92, "010170": 79, "131970": 52, "183300": 94, "397030": 77}}, {"label": "04.03", "ranks": {"095610": 88, "010170": 49, "131970": 57, "183300": 87, "397030": 86}}, {"label": "04.10", "ranks": {"095610": 70, "010170": 35, "131970": 64, "183300": 78, "397030": 86}}, {"label": "04.17", "ranks": {"095610": 69, "010170": 50, "131970": 57, "183300": 75, "397030": 89}}, {"label": "04.24", "ranks": {"095610": 74, "010170": 61, "131970": 53, "183300": 81, "397030": 88}}, {"label": "04.30", "ranks": {"095610": 76, "010170": 55, "131970": 49, "183300": 85, "397030": 93}}, {"label": "05.08", "ranks": {"095610": 69, "010170": 28, "131970": 44, "183300": 78, "397030": 80}}, {"label": "05.13", "ranks": {"095610": 51, "010170": 24, "131970": 27, "183300": 64, "397030": 81}}]}}, "monthly": {"available": true, "prev_date": "20260430", "top5": [{"rank": 24, "prev_rank": 55, "rank_change": 31, "ticker": "010170", "name": "대한광통신", "market_cap": 3848300000000.0, "market_cap_str": "3.85조"}, {"rank": 51, "prev_rank": 76, "rank_change": 25, "ticker": "095610", "name": "테스", "market_cap": 2371600000000.0, "market_cap_str": "2.37조"}, {"rank": 76, "prev_rank": 99, "rank_change": 23, "ticker": "420770", "name": "기가비스", "market_cap": 1611100000000.0, "market_cap_str": "1.61조"}, {"rank": 27, "prev_rank": 49, "rank_change": 22, "ticker": "131970", "name": "두산테스나", "market_cap": 3517600000000.0, "market_cap_str": "3.52조"}, {"rank": 64, "prev_rank": 85, "rank_change": 21, "ticker": "183300", "name": "코미코", "market_cap": 1956100000000.0, "market_cap_str": "1.96조"}], "history": {"tickers": ["010170", "095610", "420770", "131970", "183300"], "names": {"010170": "대한광통신", "095610": "테스", "420770": "기가비스", "131970": "두산테스나", "183300": "코미코"}, "timeline": [{"label": "26.01", "ranks": {"010170": 100, "095610": 71, "420770": 97, "131970": 76, "183300": 74}}, {"label": "26.02", "ranks": {"010170": 99, "095610": 81, "420770": 97, "131970": 83, "183300": 90}}, {"label": "26.03", "ranks": {"010170": 89, "095610": 94, "420770": 99, "131970": 51, "183300": 90}}, {"label": "26.04", "ranks": {"010170": 55, "095610": 76, "420770": 99, "131970": 49, "183300": 85}}, {"label": "26.05", "ranks": {"010170": 24, "095610": 51, "420770": 76, "131970": 27, "183300": 64}}]}}, "streak": [{"rank": 31, "ticker": "043260", "name": "성호전자", "market_cap": 3383000000000.0, "market_cap_str": "3.38조", "streak_days": 4}, {"rank": 52, "ticker": "476830", "name": "알지노믹스", "market_cap": 2393800000000.0, "market_cap_str": "2.39조", "streak_days": 3}, {"rank": 58, "ticker": "095610", "name": "테스", "market_cap": 2102500000000.0, "market_cap_str": "2.10조", "streak_days": 3}, {"rank": 71, "ticker": "397030", "name": "에이프릴바이오", "market_cap": 1716200000000.0, "market_cap_str": "1.72조", "streak_days": 5}, {"rank": 86, "ticker": "420770", "name": "기가비스", "market_cap": 1455200000000.0, "market_cap_str": "1.46조", "streak_days": 3}], "streak_mode": "streak", "streak_history": {"tickers": ["043260", "476830", "095610", "397030", "420770"], "names": {"043260": "성호전자", "476830": "알지노믹스", "095610": "테스", "397030": "에이프릴바이오", "420770": "기가비스"}, "timeline": [{"label": "04.13", "ranks": {"043260": 22, "476830": 38, "095610": 68, "397030": 90, "420770": 95}}, {"label": "04.14", "ranks": {"043260": 17, "476830": 40, "095610": 69, "397030": 88, "420770": 97}}, {"label": "04.15", "ranks": {"043260": 20, "476830": 40, "095610": 66, "397030": 86, "420770": 97}}, {"label": "04.16", "ranks": {"043260": 24, "476830": 39, "095610": 67, "397030": 88, "420770": 99}}, {"label": "04.17", "ranks": {"043260": 20, "476830": 41, "095610": 69, "397030": 89, "420770": 99}}, {"label": "04.20", "ranks": {"043260": 22, "476830": 40, "095610": 66, "397030": 83, "420770": 99}}, {"label": "04.21", "ranks": {"043260": 21, "476830": 43, "095610": 69, "397030": 91, "420770": 99}}, {"label": "04.22", "ranks": {"043260": 23, "476830": 46, "095610": 65, "397030": 90, "420770": 99}}, {"label": "04.23", "ranks": {"043260": 27, "476830": 43, "095610": 71, "397030": 90, "420770": 99}}, {"label": "04.24", "ranks": {"043260": 35, "476830": 50, "095610": 74, "397030": 88, "420770": 99}}, {"label": "04.27", "ranks": {"043260": 38, "476830": 44, "095610": 75, "397030": 90, "420770": 100}}, {"label": "04.28", "ranks": {"043260": 40, "476830": 48, "095610": 76, "397030": 87, "420770": 99}}, {"label": "04.29", "ranks": {"043260": 36, "476830": 52, "095610": 77, "397030": 87, "420770": 98}}, {"label": "04.30", "ranks": {"043260": 38, "476830": 53, "095610": 76, "397030": 93, "420770": 99}}, {"label": "05.04", "ranks": {"043260": 34, "476830": 55, "095610": 76, "397030": 99, "420770": 96}}, {"label": "05.06", "ranks": {"043260": 40, "476830": 56, "095610": 71, "397030": 96}}, {"label": "05.07", "ranks": {"043260": 39, "476830": 56, "095610": 71, "397030": 94, "420770": 100}}, {"label": "05.08", "ranks": {"043260": 35, "476830": 54, "095610": 69, "397030": 80, "420770": 99}}, {"label": "05.11", "ranks": {"043260": 32, "476830": 53, "095610": 63, "397030": 78, "420770": 94}}, {"label": "05.12", "ranks": {"043260": 31, "476830": 52, "095610": 58, "397030": 71, "420770": 86}}, {"label": "05.13", "ranks": {"043260": 34, "476830": 56, "095610": 51, "397030": 81, "420770": 76}}]}}, "intraday": {"kospi": {"available": true, "label": "1500", "label_display": "15:00", "comparison": "전날 종가 (2026.05.12)", "top5": [{"rank": 92, "prev_rank": 100, "rank_change": 8, "ticker": "000990", "name": "DB하이텍", "market_cap": 8074500000000.0, "market_cap_str": "8.07조"}, {"rank": 49, "prev_rank": 56, "rank_change": 7, "ticker": "307950", "name": "현대오토에버", "market_cap": 19169400000000.0, "market_cap_str": "19.17조"}, {"rank": 64, "prev_rank": 69, "rank_change": 5, "ticker": "396500", "name": "TIGER 반도체TOP10", "market_cap": 13488200000000.0, "market_cap_str": "13.49조"}, {"rank": 74, "prev_rank": 78, "rank_change": 4, "ticker": "102110", "name": "TIGER 200", "market_cap": 10532900000000.0, "market_cap_str": "10.53조"}, {"rank": 82, "prev_rank": 86, "rank_change": 4, "ticker": "005387", "name": "현대차2우B", "market_cap": 9877300000000.0, "market_cap_str": "9.88조"}], "history": {"tickers": ["307950", "000990", "011070", "396500", "005387", "102110"], "names": {"307950": "현대오토에버", "000990": "DB하이텍", "011070": "LG이노텍", "396500": "TIGER 반도체TOP10", "005387": "현대차2우B", "102110": "TIGER 200"}, "timeline": [{"label": "05.11 09:20", "ranks": {"307950": 53, "000990": 92, "011070": 59, "396500": 70, "005387": 85, "102110": 78}}, {"label": "05.11 11:00", "ranks": {"307950": 54, "000990": 94, "011070": 58, "396500": 70, "005387": 85, "102110": 78}}, {"label": "05.11 13:00", "ranks": {"307950": 53, "000990": 91, "011070": 59, "396500": 70, "005387": 85, "102110": 78}}, {"label": "05.11 15:00", "ranks": {"307950": 53, "000990": 91, "011070": 59, "396500": 70, "005387": 85, "102110": 78}}, {"label": "05.12 09:20", "ranks": {"307950": 56, "000990": 100, "011070": 57, "396500": 69, "005387": 85, "102110": 78}}, {"label": "05.12 11:00", "ranks": {"307950": 56, "000990": 99, "011070": 57, "396500": 69, "005387": 85, "102110": 78}}, {"label": "05.12 13:00", "ranks": {"307950": 56, "000990": 100, "011070": 57, "396500": 69, "005387": 86, "102110": 78}}, {"label": "05.12 15:00", "ranks": {"307950": 56, "000990": 100, "011070": 57, "396500": 69, "005387": 86, "102110": 78}}, {"label": "05.13 09:20", "ranks": {"307950": 48, "000990": 93, "011070": 52, "396500": 64, "005387": 81, "102110": 75}}, {"label": "05.13 11:00", "ranks": {"307950": 48, "000990": 93, "011070": 53, "396500": 64, "005387": 81, "102110": 75}}, {"label": "05.13 13:00", "ranks": {"307950": 49, "000990": 92, "011070": 54, "396500": 64, "005387": 82, "102110": 74}}, {"label": "05.13 15:00", "ranks": {"307950": 49, "000990": 92, "011070": 54, "396500": 64, "005387": 82, "102110": 74}}]}}, "kosdaq": {"available": true, "label": "1500", "label_display": "15:00", "comparison": "전날 종가 (2026.05.12)", "top5": [{"rank": 27, "prev_rank": 44, "rank_change": 17, "ticker": "131970", "name": "두산테스나", "market_cap": 3517600000000.0, "market_cap_str": "3.52조"}, {"rank": 64, "prev_rank": 81, "rank_change": 17, "ticker": "183300", "name": "코미코", "market_cap": 1956100000000.0, "market_cap_str": "1.96조"}, {"rank": 72, "prev_rank": 82, "rank_change": 10, "ticker": "038500", "name": "삼표시멘트", "market_cap": 1679200000000.0, "market_cap_str": "1.68조"}, {"rank": 76, "prev_rank": 86, "rank_change": 10, "ticker": "420770", "name": "기가비스", "market_cap": 1611100000000.0, "market_cap_str": "1.61조"}, {"rank": 51, "prev_rank": 58, "rank_change": 7, "ticker": "095610", "name": "테스", "market_cap": 2371600000000.0, "market_cap_str": "2.37조"}], "history": {"tickers": ["183300", "131970", "038500", "420770", "095610"], "names": {"183300": "코미코", "131970": "두산테스나", "038500": "삼표시멘트", "420770": "기가비스", "095610": "테스"}, "timeline": [{"label": "05.11 09:20", "ranks": {"183300": 79, "131970": 41, "038500": 80, "420770": 94, "095610": 63}}, {"label": "05.11 11:00", "ranks": {"183300": 79, "131970": 41, "038500": 81, "420770": 93, "095610": 63}}, {"label": "05.11 13:00", "ranks": {"183300": 79, "131970": 41, "038500": 81, "420770": 94, "095610": 63}}, {"label": "05.11 15:00", "ranks": {"183300": 79, "131970": 41, "038500": 81, "420770": 94, "095610": 63}}, {"label": "05.12 09:20", "ranks": {"183300": 80, "131970": 42, "038500": 82, "420770": 88, "095610": 59}}, {"label": "05.12 11:00", "ranks": {"183300": 77, "131970": 44, "038500": 83, "420770": 88, "095610": 58}}, {"label": "05.12 13:00", "ranks": {"183300": 81, "131970": 44, "038500": 82, "420770": 86, "095610": 58}}, {"label": "05.12 15:00", "ranks": {"183300": 81, "131970": 44, "038500": 82, "420770": 86, "095610": 58}}, {"label": "05.13 09:20", "ranks": {"183300": 64, "131970": 28, "038500": 70, "420770": 75, "095610": 50}}, {"label": "05.13 11:00", "ranks": {"183300": 64, "131970": 27, "038500": 70, "420770": 75, "095610": 51}}, {"label": "05.13 13:00", "ranks": {"183300": 64, "131970": 27, "038500": 72, "420770": 76, "095610": 51}}, {"label": "05.13 15:00", "ranks": {"183300": 64, "131970": 27, "038500": 72, "420770": 76, "095610": 51}}]}}}};
+const DATA_KR = {"updated_at": "2026-05-15 00:57", "current_date": "20260515", "kospi": {"daily": {"available": true, "prev_date": "20260514", "top5": [{"rank": 45, "prev_rank": 54, "rank_change": 9, "ticker": "003550", "name": "LG", "market_cap": 21190000000000.0, "market_cap_str": "21.19조"}, {"rank": 21, "prev_rank": 28, "rank_change": 7, "ticker": "066570", "name": "LG전자", "market_cap": 41209800000000.0, "market_cap_str": "41.21조"}, {"rank": 74, "prev_rank": 81, "rank_change": 7, "ticker": "000880", "name": "한화", "market_cap": 11013300000000.0, "market_cap_str": "11.01조"}, {"rank": 49, "prev_rank": 55, "rank_change": 6, "ticker": "011070", "name": "LG이노텍", "market_cap": 19265000000000.0, "market_cap_str": "19.27조"}, {"rank": 59, "prev_rank": 63, "rank_change": 4, "ticker": "018260", "name": "삼성에스디에스", "market_cap": 15901100000000.0, "market_cap_str": "15.90조"}], "history": {"tickers": ["003550", "066570", "000880", "011070", "018260"], "names": {"003550": "LG", "066570": "LG전자", "000880": "한화", "011070": "LG이노텍", "018260": "삼성에스디에스"}, "timeline": [{"label": "04.15", "ranks": {"003550": 59, "066570": 46, "000880": 80, "011070": 78, "018260": 61}}, {"label": "04.16", "ranks": {"003550": 60, "066570": 44, "000880": 76, "011070": 80, "018260": 59}}, {"label": "04.17", "ranks": {"003550": 59, "066570": 46, "000880": 77, "011070": 76, "018260": 61}}, {"label": "04.20", "ranks": {"003550": 59, "066570": 45, "000880": 80, "011070": 76, "018260": 61}}, {"label": "04.21", "ranks": {"003550": 58, "066570": 45, "000880": 81, "011070": 76, "018260": 61}}, {"label": "04.22", "ranks": {"003550": 58, "066570": 42, "000880": 82, "011070": 69, "018260": 62}}, {"label": "04.23", "ranks": {"003550": 58, "066570": 46, "000880": 82, "011070": 69, "018260": 62}}, {"label": "04.24", "ranks": {"003550": 58, "066570": 46, "000880": 81, "011070": 66, "018260": 64}}, {"label": "04.27", "ranks": {"003550": 58, "066570": 44, "000880": 81, "011070": 67, "018260": 64}}, {"label": "04.28", "ranks": {"003550": 59, "066570": 39, "000880": 82, "011070": 63, "018260": 66}}, {"label": "04.29", "ranks": {"003550": 59, "066570": 43, "000880": 82, "011070": 62, "018260": 65}}, {"label": "04.30", "ranks": {"003550": 59, "066570": 40, "000880": 81, "011070": 63, "018260": 66}}, {"label": "05.04", "ranks": {"003550": 58, "066570": 41, "000880": 82, "011070": 63, "018260": 68}}, {"label": "05.06", "ranks": {"003550": 58, "066570": 38, "000880": 81, "011070": 60, "018260": 68}}, {"label": "05.07", "ranks": {"003550": 56, "066570": 40, "000880": 82, "011070": 59, "018260": 63}}, {"label": "05.08", "ranks": {"003550": 56, "066570": 37, "000880": 83, "011070": 62, "018260": 64}}, {"label": "05.11", "ranks": {"003550": 60, "066570": 37, "000880": 84, "011070": 59, "018260": 64}}, {"label": "05.12", "ranks": {"003550": 54, "066570": 32, "000880": 81, "011070": 57, "018260": 63}}, {"label": "05.13", "ranks": {"003550": 56, "066570": 32, "000880": 81, "011070": 54, "018260": 63}}, {"label": "05.14", "ranks": {"003550": 54, "066570": 28, "000880": 81, "011070": 55, "018260": 63}}, {"label": "05.15", "ranks": {"003550": 45, "066570": 21, "000880": 74, "011070": 49, "018260": 59}}]}}, "weekly": {"available": true, "prev_date": "20260508", "top5": [{"rank": 21, "prev_rank": 37, "rank_change": 16, "ticker": "066570", "name": "LG전자", "market_cap": 41209800000000.0, "market_cap_str": "41.21조"}, {"rank": 49, "prev_rank": 62, "rank_change": 13, "ticker": "011070", "name": "LG이노텍", "market_cap": 19265000000000.0, "market_cap_str": "19.27조"}, {"rank": 45, "prev_rank": 56, "rank_change": 11, "ticker": "003550", "name": "LG", "market_cap": 21190000000000.0, "market_cap_str": "21.19조"}, {"rank": 50, "prev_rank": 59, "rank_change": 9, "ticker": "307950", "name": "현대오토에버", "market_cap": 19141900000000.0, "market_cap_str": "19.14조"}, {"rank": 74, "prev_rank": 83, "rank_change": 9, "ticker": "000880", "name": "한화", "market_cap": 11013300000000.0, "market_cap_str": "11.01조"}], "history": {"tickers": ["066570", "011070", "003550", "307950", "000880"], "names": {"066570": "LG전자", "011070": "LG이노텍", "003550": "LG", "307950": "현대오토에버", "000880": "한화"}, "timeline": [{"label": "02.13", "ranks": {"066570": 48, "011070": 96, "003550": 57, "307950": 64, "000880": 81}}, {"label": "02.20", "ranks": {"066570": 47, "011070": 97, "003550": 58, "307950": 68, "000880": 79}}, {"label": "02.27", "ranks": {"066570": 37, "011070": 92, "003550": 56, "307950": 61, "000880": 74}}, {"label": "03.06", "ranks": {"066570": 43, "011070": 93, "003550": 59, "307950": 69, "000880": 72}}, {"label": "03.13", "ranks": {"066570": 44, "011070": 96, "003550": 58, "307950": 68, "000880": 73}}, {"label": "03.20", "ranks": {"066570": 45, "011070": 93, "003550": 57, "307950": 69, "000880": 81}}, {"label": "03.27", "ranks": {"066570": 47, "011070": 88, "003550": 57, "307950": 70, "000880": 85}}, {"label": "04.03", "ranks": {"066570": 49, "011070": 85, "003550": 58, "307950": 70, "000880": 80}}, {"label": "04.10", "ranks": {"066570": 51, "011070": 77, "003550": 58, "307950": 70, "000880": 78}}, {"label": "04.17", "ranks": {"066570": 46, "011070": 76, "003550": 59, "307950": 67, "000880": 77}}, {"label": "04.24", "ranks": {"066570": 46, "011070": 66, "003550": 58, "307950": 71, "000880": 81}}, {"label": "04.30", "ranks": {"066570": 40, "011070": 63, "003550": 59, "307950": 68, "000880": 81}}, {"label": "05.08", "ranks": {"066570": 37, "011070": 62, "003550": 56, "307950": 59, "000880": 83}}, {"label": "05.15", "ranks": {"066570": 21, "011070": 49, "003550": 45, "307950": 50, "000880": 74}}]}}, "monthly": {"available": true, "prev_date": "20260430", "top5": [{"rank": 21, "prev_rank": 40, "rank_change": 19, "ticker": "066570", "name": "LG전자", "market_cap": 41209800000000.0, "market_cap_str": "41.21조"}, {"rank": 50, "prev_rank": 68, "rank_change": 18, "ticker": "307950", "name": "현대오토에버", "market_cap": 19141900000000.0, "market_cap_str": "19.14조"}, {"rank": 45, "prev_rank": 59, "rank_change": 14, "ticker": "003550", "name": "LG", "market_cap": 21190000000000.0, "market_cap_str": "21.19조"}, {"rank": 49, "prev_rank": 63, "rank_change": 14, "ticker": "011070", "name": "LG이노텍", "market_cap": 19265000000000.0, "market_cap_str": "19.27조"}, {"rank": 64, "prev_rank": 78, "rank_change": 14, "ticker": "396500", "name": "TIGER 반도체TOP10", "market_cap": 13835000000000.0, "market_cap_str": "13.84조"}], "history": {"tickers": ["066570", "307950", "003550", "011070", "396500"], "names": {"066570": "LG전자", "307950": "현대오토에버", "003550": "LG", "011070": "LG이노텍", "396500": "TIGER 반도체TOP10"}, "timeline": [{"label": "26.01", "ranks": {"066570": 50, "307950": 59, "003550": 56, "011070": 93, "396500": 87}}, {"label": "26.02", "ranks": {"066570": 37, "307950": 61, "003550": 56, "011070": 92, "396500": 78}}, {"label": "26.03", "ranks": {"066570": 46, "307950": 70, "003550": 58, "011070": 89, "396500": 85}}, {"label": "26.04", "ranks": {"066570": 40, "307950": 68, "003550": 59, "011070": 63, "396500": 78}}, {"label": "26.05", "ranks": {"066570": 21, "307950": 50, "003550": 45, "011070": 49, "396500": 64}}]}}, "streak": [{"rank": 65, "ticker": "396500", "name": "TIGER 반도체TOP10", "market_cap": 13630200000000.0, "market_cap_str": "13.63조", "streak_days": 4}, {"rank": 89, "ticker": "278530", "name": "KODEX 200TR", "market_cap": 8599200000000.0, "market_cap_str": "8.60조", "streak_days": 4}, {"rank": 9, "ticker": "028260", "name": "삼성물산", "market_cap": 71678700000000.0, "market_cap_str": "71.68조", "streak_days": 3}, {"rank": 15, "ticker": "012330", "name": "현대모비스", "market_cap": 58976200000000.0, "market_cap_str": "58.98조", "streak_days": 3}, {"rank": 28, "ticker": "066570", "name": "LG전자", "market_cap": 35346300000000.0, "market_cap_str": "35.35조", "streak_days": 3}], "streak_mode": "frequent", "streak_history": {"tickers": ["396500", "278530", "028260", "012330", "066570"], "names": {"396500": "TIGER 반도체TOP10", "278530": "KODEX 200TR", "028260": "삼성물산", "012330": "현대모비스", "066570": "LG전자"}, "timeline": [{"label": "04.15", "ranks": {"396500": 76, "028260": 13, "012330": 22, "066570": 46}}, {"label": "04.16", "ranks": {"396500": 77, "028260": 14, "012330": 21, "066570": 44}}, {"label": "04.17", "ranks": {"396500": 78, "028260": 15, "012330": 22, "066570": 46}}, {"label": "04.20", "ranks": {"396500": 78, "028260": 15, "012330": 22, "066570": 45}}, {"label": "04.21", "ranks": {"396500": 79, "028260": 16, "012330": 19, "066570": 45}}, {"label": "04.22", "ranks": {"396500": 79, "028260": 16, "012330": 19, "066570": 42}}, {"label": "04.23", "ranks": {"396500": 79, "028260": 14, "012330": 21, "066570": 46}}, {"label": "04.24", "ranks": {"396500": 79, "028260": 15, "012330": 21, "066570": 46}}, {"label": "04.27", "ranks": {"396500": 77, "028260": 15, "012330": 21, "066570": 44}}, {"label": "04.28", "ranks": {"396500": 77, "028260": 16, "012330": 21, "066570": 39}}, {"label": "04.29", "ranks": {"396500": 77, "028260": 16, "012330": 22, "066570": 43}}, {"label": "04.30", "ranks": {"396500": 78, "028260": 16, "012330": 22, "066570": 40}}, {"label": "05.04", "ranks": {"396500": 78, "028260": 16, "012330": 25, "066570": 41}}, {"label": "05.06", "ranks": {"396500": 73, "278530": 94, "028260": 12, "012330": 25, "066570": 38}}, {"label": "05.07", "ranks": {"396500": 72, "278530": 93, "028260": 12, "012330": 24, "066570": 40}}, {"label": "05.08", "ranks": {"396500": 71, "278530": 92, "028260": 9, "012330": 20, "066570": 37}}, {"label": "05.11", "ranks": {"396500": 70, "278530": 90, "028260": 8, "012330": 17, "066570": 37}}, {"label": "05.12", "ranks": {"396500": 69, "278530": 91, "028260": 10, "012330": 17, "066570": 32}}, {"label": "05.13", "ranks": {"396500": 64, "278530": 90, "028260": 11, "012330": 15, "066570": 32}}, {"label": "05.14", "ranks": {"396500": 65, "278530": 89, "028260": 9, "012330": 15, "066570": 28}}, {"label": "05.15", "ranks": {"396500": 64, "278530": 90, "028260": 11, "012330": 15, "066570": 21}}]}}, "kosdaq": {"daily": {"available": true, "prev_date": "20260514", "top5": [{"rank": 28, "prev_rank": 41, "rank_change": 13, "ticker": "067310", "name": "하나마이크론", "market_cap": 3489400000000.0, "market_cap_str": "3.49조"}, {"rank": 73, "prev_rank": 84, "rank_change": 11, "ticker": "090710", "name": "휴림로봇", "market_cap": 1709400000000.0, "market_cap_str": "1.71조"}, {"rank": 82, "prev_rank": 93, "rank_change": 11, "ticker": "036540", "name": "SFA반도체", "market_cap": 1527800000000.0, "market_cap_str": "1.53조"}, {"rank": 63, "prev_rank": 73, "rank_change": 10, "ticker": "439960", "name": "코스모로보틱스", "market_cap": 1974700000000.0, "market_cap_str": "1.97조"}, {"rank": 41, "prev_rank": 49, "rank_change": 8, "ticker": "080220", "name": "제주반도체", "market_cap": 2889800000000.0, "market_cap_str": "2.89조"}], "history": {"tickers": ["067310", "090710", "036540", "439960", "080220"], "names": {"067310": "하나마이크론", "090710": "휴림로봇", "036540": "SFA반도체", "439960": "코스모로보틱스", "080220": "제주반도체"}, "timeline": [{"label": "04.15", "ranks": {"067310": 51, "090710": 89, "036540": 96, "080220": 83}}, {"label": "04.16", "ranks": {"067310": 51, "090710": 89, "036540": 96, "080220": 82}}, {"label": "04.17", "ranks": {"067310": 51, "090710": 91, "036540": 95, "080220": 83}}, {"label": "04.20", "ranks": {"067310": 45, "090710": 91, "036540": 97, "080220": 82}}, {"label": "04.21", "ranks": {"067310": 46, "090710": 92, "036540": 98, "080220": 76}}, {"label": "04.22", "ranks": {"067310": 43, "090710": 93, "036540": 96, "080220": 77}}, {"label": "04.23", "ranks": {"067310": 44, "090710": 92, "036540": 95, "080220": 78}}, {"label": "04.24", "ranks": {"067310": 45, "090710": 80, "036540": 78, "080220": 69}}, {"label": "04.27", "ranks": {"067310": 47, "090710": 81, "036540": 79, "080220": 65}}, {"label": "04.28", "ranks": {"067310": 47, "090710": 84, "036540": 92, "080220": 68}}, {"label": "04.29", "ranks": {"067310": 46, "090710": 83, "036540": 93, "080220": 71}}, {"label": "04.30", "ranks": {"067310": 45, "090710": 81, "036540": 94, "080220": 71}}, {"label": "05.04", "ranks": {"067310": 42, "090710": 87, "036540": 92, "080220": 66}}, {"label": "05.06", "ranks": {"067310": 39, "090710": 86, "036540": 89, "080220": 63}}, {"label": "05.07", "ranks": {"067310": 42, "090710": 88, "036540": 95, "080220": 63}}, {"label": "05.08", "ranks": {"067310": 43, "090710": 83, "036540": 93, "080220": 66}}, {"label": "05.11", "ranks": {"067310": 43, "090710": 84, "036540": 91, "080220": 66}}, {"label": "05.12", "ranks": {"067310": 46, "090710": 78, "036540": 94, "080220": 65}}, {"label": "05.13", "ranks": {"067310": 43, "090710": 80, "036540": 93, "439960": 94, "080220": 62}}, {"label": "05.14", "ranks": {"067310": 41, "090710": 84, "036540": 93, "439960": 73, "080220": 49}}, {"label": "05.15", "ranks": {"067310": 28, "090710": 73, "036540": 82, "439960": 63, "080220": 41}}]}}, "weekly": {"available": true, "prev_date": "20260508", "top5": [{"rank": 41, "prev_rank": 66, "rank_change": 25, "ticker": "080220", "name": "제주반도체", "market_cap": 2889800000000.0, "market_cap_str": "2.89조"}, {"rank": 77, "prev_rank": 99, "rank_change": 22, "ticker": "420770", "name": "기가비스", "market_cap": 1663100000000.0, "market_cap_str": "1.66조"}, {"rank": 49, "prev_rank": 69, "rank_change": 20, "ticker": "095610", "name": "테스", "market_cap": 2514900000000.0, "market_cap_str": "2.51조"}, {"rank": 25, "prev_rank": 44, "rank_change": 19, "ticker": "131970", "name": "두산테스나", "market_cap": 3681800000000.0, "market_cap_str": "3.68조"}, {"rank": 28, "prev_rank": 43, "rank_change": 15, "ticker": "067310", "name": "하나마이크론", "market_cap": 3489400000000.0, "market_cap_str": "3.49조"}], "history": {"tickers": ["080220", "420770", "095610", "131970", "067310"], "names": {"080220": "제주반도체", "420770": "기가비스", "095610": "테스", "131970": "두산테스나", "067310": "하나마이크론"}, "timeline": [{"label": "02.13", "ranks": {"080220": 68, "420770": 97, "095610": 82, "131970": 85, "067310": 45}}, {"label": "02.20", "ranks": {"080220": 72, "420770": 97, "095610": 80, "131970": 86, "067310": 45}}, {"label": "02.27", "ranks": {"080220": 70, "420770": 97, "095610": 81, "131970": 83, "067310": 47}}, {"label": "03.06", "ranks": {"080220": 72, "420770": 97, "095610": 77, "131970": 86, "067310": 46}}, {"label": "03.13", "ranks": {"080220": 79, "420770": 99, "095610": 86, "131970": 83, "067310": 55}}, {"label": "03.20", "ranks": {"080220": 77, "420770": 97, "095610": 88, "131970": 61, "067310": 50}}, {"label": "03.27", "ranks": {"080220": 82, "420770": 99, "095610": 92, "131970": 52, "067310": 55}}, {"label": "04.03", "ranks": {"080220": 80, "420770": 96, "095610": 88, "131970": 57, "067310": 51}}, {"label": "04.10", "ranks": {"080220": 77, "420770": 97, "095610": 70, "131970": 64, "067310": 51}}, {"label": "04.17", "ranks": {"080220": 83, "420770": 99, "095610": 69, "131970": 57, "067310": 51}}, {"label": "04.24", "ranks": {"080220": 69, "420770": 99, "095610": 74, "131970": 53, "067310": 45}}, {"label": "04.30", "ranks": {"080220": 71, "420770": 99, "095610": 76, "131970": 49, "067310": 45}}, {"label": "05.08", "ranks": {"080220": 66, "420770": 99, "095610": 69, "131970": 44, "067310": 43}}, {"label": "05.15", "ranks": {"080220": 41, "420770": 77, "095610": 49, "131970": 25, "067310": 28}}]}}, "monthly": {"available": true, "prev_date": "20260430", "top5": [{"rank": 41, "prev_rank": 71, "rank_change": 30, "ticker": "080220", "name": "제주반도체", "market_cap": 2889800000000.0, "market_cap_str": "2.89조"}, {"rank": 26, "prev_rank": 55, "rank_change": 29, "ticker": "010170", "name": "대한광통신", "market_cap": 3615000000000.0, "market_cap_str": "3.62조"}, {"rank": 49, "prev_rank": 76, "rank_change": 27, "ticker": "095610", "name": "테스", "market_cap": 2514900000000.0, "market_cap_str": "2.51조"}, {"rank": 25, "prev_rank": 49, "rank_change": 24, "ticker": "131970", "name": "두산테스나", "market_cap": 3681800000000.0, "market_cap_str": "3.68조"}, {"rank": 77, "prev_rank": 99, "rank_change": 22, "ticker": "420770", "name": "기가비스", "market_cap": 1663100000000.0, "market_cap_str": "1.66조"}], "history": {"tickers": ["080220", "010170", "095610", "131970", "420770"], "names": {"080220": "제주반도체", "010170": "대한광통신", "095610": "테스", "131970": "두산테스나", "420770": "기가비스"}, "timeline": [{"label": "26.01", "ranks": {"080220": 70, "010170": 100, "095610": 71, "131970": 76, "420770": 97}}, {"label": "26.02", "ranks": {"080220": 70, "010170": 99, "095610": 81, "131970": 83, "420770": 97}}, {"label": "26.03", "ranks": {"080220": 82, "010170": 89, "095610": 94, "131970": 51, "420770": 99}}, {"label": "26.04", "ranks": {"080220": 71, "010170": 55, "095610": 76, "131970": 49, "420770": 99}}, {"label": "26.05", "ranks": {"080220": 41, "010170": 26, "095610": 49, "131970": 25, "420770": 77}}]}}, "streak": [{"rank": 24, "ticker": "064760", "name": "티씨케이", "market_cap": 3896000000000.0, "market_cap_str": "3.90조", "streak_days": 4}, {"rank": 49, "ticker": "080220", "name": "제주반도체", "market_cap": 2603900000000.0, "market_cap_str": "2.60조", "streak_days": 3}], "streak_mode": "streak", "streak_history": {"tickers": ["064760", "080220"], "names": {"064760": "티씨케이", "080220": "제주반도체"}, "timeline": [{"label": "04.15", "ranks": {"064760": 35, "080220": 83}}, {"label": "04.16", "ranks": {"064760": 26, "080220": 82}}, {"label": "04.17", "ranks": {"064760": 26, "080220": 83}}, {"label": "04.20", "ranks": {"064760": 31, "080220": 82}}, {"label": "04.21", "ranks": {"064760": 30, "080220": 76}}, {"label": "04.22", "ranks": {"064760": 31, "080220": 77}}, {"label": "04.23", "ranks": {"064760": 28, "080220": 78}}, {"label": "04.24", "ranks": {"064760": 26, "080220": 69}}, {"label": "04.27", "ranks": {"064760": 30, "080220": 65}}, {"label": "04.28", "ranks": {"064760": 26, "080220": 68}}, {"label": "04.29", "ranks": {"064760": 27, "080220": 71}}, {"label": "04.30", "ranks": {"064760": 28, "080220": 71}}, {"label": "05.04", "ranks": {"064760": 29, "080220": 66}}, {"label": "05.06", "ranks": {"064760": 30, "080220": 63}}, {"label": "05.07", "ranks": {"064760": 32, "080220": 63}}, {"label": "05.08", "ranks": {"064760": 33, "080220": 66}}, {"label": "05.11", "ranks": {"064760": 28, "080220": 66}}, {"label": "05.12", "ranks": {"064760": 27, "080220": 65}}, {"label": "05.13", "ranks": {"064760": 25, "080220": 62}}, {"label": "05.14", "ranks": {"064760": 24, "080220": 49}}, {"label": "05.15", "ranks": {"064760": 24, "080220": 41}}]}}, "intraday": {"kospi": {"available": true, "label": "0920", "label_display": "09:20", "comparison": "전날 종가 (2026.05.14)", "top5": [{"rank": 44, "prev_rank": 54, "rank_change": 10, "ticker": "003550", "name": "LG", "market_cap": 22254200000000.0, "market_cap_str": "22.25조"}, {"rank": 73, "prev_rank": 81, "rank_change": 8, "ticker": "000880", "name": "한화", "market_cap": 11401100000000.0, "market_cap_str": "11.40조"}, {"rank": 91, "prev_rank": 99, "rank_change": 8, "ticker": "034220", "name": "LG디스플레이", "market_cap": 8390000000000.0, "market_cap_str": "8.39조"}, {"rank": 22, "prev_rank": 28, "rank_change": 6, "ticker": "066570", "name": "LG전자", "market_cap": 40802600000000.0, "market_cap_str": "40.80조"}, {"rank": 93, "prev_rank": 97, "rank_change": 4, "ticker": "379810", "name": "KODEX 미국나스닥100", "market_cap": 7951700000000.0, "market_cap_str": "7.95조"}], "history": {"tickers": ["003550", "000880", "034220", "066570", "379810"], "names": {"003550": "LG", "000880": "한화", "034220": "LG디스플레이", "066570": "LG전자", "379810": "KODEX 미국나스닥100"}, "timeline": [{"label": "05.13 09:20", "ranks": {"003550": 56, "000880": 82, "066570": 32, "379810": 95}}, {"label": "05.13 11:00", "ranks": {"003550": 56, "000880": 82, "066570": 32, "379810": 95}}, {"label": "05.13 13:00", "ranks": {"003550": 56, "000880": 81, "066570": 32, "379810": 95}}, {"label": "05.13 15:00", "ranks": {"003550": 56, "000880": 81, "066570": 32, "379810": 95}}, {"label": "05.14 09:20", "ranks": {"003550": 56, "000880": 81, "034220": 98, "066570": 28, "379810": 97}}, {"label": "05.14 11:00", "ranks": {"003550": 55, "000880": 81, "034220": 98, "066570": 28, "379810": 97}}, {"label": "05.14 13:00", "ranks": {"003550": 54, "000880": 81, "034220": 99, "066570": 28, "379810": 97}}, {"label": "05.14 15:00", "ranks": {"003550": 54, "000880": 81, "034220": 99, "066570": 28, "379810": 97}}, {"label": "05.15 09:20", "ranks": {"003550": 44, "000880": 73, "034220": 91, "066570": 22, "379810": 93}}]}}, "kosdaq": {"available": true, "label": "0920", "label_display": "09:20", "comparison": "전날 종가 (2026.05.14)", "top5": [{"rank": 31, "prev_rank": 41, "rank_change": 10, "ticker": "067310", "name": "하나마이크론", "market_cap": 3403000000000.0, "market_cap_str": "3.40조"}, {"rank": 83, "prev_rank": 93, "rank_change": 10, "ticker": "036540", "name": "SFA반도체", "market_cap": 1539300000000.0, "market_cap_str": "1.54조"}, {"rank": 76, "prev_rank": 84, "rank_change": 8, "ticker": "090710", "name": "휴림로봇", "market_cap": 1643700000000.0, "market_cap_str": "1.64조"}, {"rank": 66, "prev_rank": 73, "rank_change": 7, "ticker": "439960", "name": "코스모로보틱스", "market_cap": 1852700000000.0, "market_cap_str": "1.85조"}, {"rank": 44, "prev_rank": 49, "rank_change": 5, "ticker": "080220", "name": "제주반도체", "market_cap": 2779500000000.0, "market_cap_str": "2.78조"}], "history": {"tickers": ["067310", "036540", "090710", "439960", "080220"], "names": {"067310": "하나마이크론", "036540": "SFA반도체", "090710": "휴림로봇", "439960": "코스모로보틱스", "080220": "제주반도체"}, "timeline": [{"label": "05.13 09:20", "ranks": {"067310": 44, "036540": 93, "090710": 80, "439960": 94, "080220": 63}}, {"label": "05.13 11:00", "ranks": {"067310": 43, "036540": 93, "090710": 81, "439960": 94, "080220": 63}}, {"label": "05.13 13:00", "ranks": {"067310": 43, "036540": 93, "090710": 80, "439960": 94, "080220": 62}}, {"label": "05.13 15:00", "ranks": {"067310": 43, "036540": 93, "090710": 80, "439960": 94, "080220": 62}}, {"label": "05.14 09:20", "ranks": {"067310": 41, "036540": 93, "090710": 84, "439960": 73, "080220": 49}}, {"label": "05.14 11:00", "ranks": {"067310": 42, "036540": 94, "090710": 85, "439960": 73, "080220": 52}}, {"label": "05.14 13:00", "ranks": {"067310": 41, "036540": 93, "090710": 84, "439960": 73, "080220": 49}}, {"label": "05.14 15:00", "ranks": {"067310": 41, "036540": 93, "090710": 84, "439960": 73, "080220": 49}}, {"label": "05.15 09:20", "ranks": {"067310": 31, "036540": 83, "090710": 76, "439960": 66, "080220": 44}}]}}}};
 
 // ── 동적 로딩 데이터 (US/Crypto/MidCap) ─────────────────────────────────────
 let DATA_US      = null;
 let DATA_CRYPTO  = null;
 let DATA_MIDCAP  = null;
-let DATA_CUSTOM  = null;
 let loadingUS     = false;
 let loadingCrypto = false;
 let loadingMidcap = false;
-let loadingCustom = false;
 
 // ── 상태 ──────────────────────────────────────────────────────────────────────
 let currentGroup  = 'korea';
@@ -566,14 +425,12 @@ const GROUP_MARKETS = {
   us:     ['sp500', 'nasdaq100'],
   coin:   ['coin'],
   midcap: ['midcap'],
-  custom: ['custom'],
 };
 const GROUP_PERIODS = {
   korea:  ['intraday','daily','weekly','monthly','streak','summary'],
   us:     ['daily','weekly','monthly','streak','summary'],
   coin:   ['daily','weekly','monthly','streak','summary'],
   midcap: ['daily','weekly','monthly','streak','summary'],
-  custom: ['manage','daily','weekly','monthly'],
 };
 const MARKET_LABEL = {
   kospi:     'KOSPI',
@@ -582,14 +439,12 @@ const MARKET_LABEL = {
   nasdaq100: '나스닥 100',
   coin:      '코인',
   midcap:    '중형주 (Russell 1000 하위 500)',
-  custom:    '관심종목',
 };
 const GROUP_TITLE = {
   korea:  '📈 KOSPI / KOSDAQ 시총 순위 상승 트래커',
   us:     '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
   coin:   '📈 암호화폐 시총 순위 상승 트래커',
   midcap: '📈 Russell 1000 중형주 시총 순위 상승 트래커',
-  custom: '⭐ 관심종목 시총 변동률 트래커',
 };
 
 const PERIOD_META = {
@@ -621,11 +476,6 @@ const PERIOD_META = {
   summary: {
     label:'📊종합', cls:'summary-period',
     title:'전 기간 종합 분석',
-    histTitle:'',
-  },
-  manage: {
-    label:'⚙관리', cls:'manage-period',
-    title:'관심종목 관리',
     histTitle:'',
   },
 };
@@ -674,7 +524,6 @@ function getGroupData() {
   if (currentGroup === 'korea')  return DATA_KR;
   if (currentGroup === 'us')     return DATA_US;
   if (currentGroup === 'midcap') return DATA_MIDCAP;
-  if (currentGroup === 'custom') return DATA_CUSTOM;
   return DATA_CRYPTO;
 }
 
@@ -694,7 +543,7 @@ function init() {
 /* ── 그룹 탭 구성 ────────────────────────────────────────────────────────── */
 function buildGroupTabs() {
   document.querySelectorAll('.group-tabs .tab-btn').forEach((btn, i) => {
-    const groups = ['korea','us','coin','midcap','custom'];
+    const groups = ['korea','us','coin','midcap'];
     btn.classList.toggle('active', groups[i] === currentGroup);
   });
 }
@@ -724,7 +573,6 @@ function buildPeriodTabs() {
     const extra = p === 'intraday' ? ' intraday'
                 : p === 'streak'   ? ' streak'
                 : p === 'summary'  ? ' summary-period'
-                : p === 'manage'   ? ' manage-period'
                 : '';
     const cls   = `tab-btn${extra}${p===currentPeriod?' active':''}`;
     return `<button class="${cls}" onclick="switchPeriod('${p}')">${PERIOD_META[p].label}</button>`;
@@ -966,12 +814,6 @@ function switchGroup(g) {
     loadMidcapData();
     return;
   }
-  if (g === 'custom') {
-    // 관리 탭은 외부 데이터 불필요, 기간 탭은 renderCustomPeriod 내부에서 로드
-    updateHeader();
-    render();
-    return;
-  }
 
   updateHeader();
   render();
@@ -1037,30 +879,6 @@ function loadCryptoData() {
     });
 }
 
-/* ── 동적 데이터 로딩: 관심종목 ─────────────────────────────────────────── */
-function loadCustomData() {
-  if (loadingCustom) return;
-  loadingCustom = true;
-  showLoadingSpinner('⭐ 관심종목 데이터 로딩 중...');
-
-  fetch('data/report_custom.json')
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
-    .then(data => {
-      DATA_CUSTOM   = data;
-      loadingCustom = false;
-      updateHeader();
-      render();
-    })
-    .catch(err => {
-      loadingCustom = false;
-      showError(`관심종목 데이터를 불러올 수 없습니다.<br>
-        <small style="color:#999">종목을 추가하고 GitHub Actions(⭐ Custom Watchlist Tracker)를 실행하세요.</small>`);
-    });
-}
-
 /* ── 동적 데이터 로딩: 중형주 ─────────────────────────────────────────────── */
 function loadMidcapData() {
   if (loadingMidcap) return;
@@ -1087,21 +905,6 @@ function loadMidcapData() {
 /* ── 메인 렌더링 ─────────────────────────────────────────────────────────── */
 function render() {
   if (activeChart) { activeChart.destroy(); activeChart = null; }
-
-  // 관심종목 그룹 전용 렌더링
-  if (currentGroup === 'custom') {
-    document.getElementById('intraday-banner').style.display = 'none';
-    document.getElementById('compare-label').className = 'compare-label';
-    if (currentPeriod === 'manage') {
-      document.getElementById('section-title').textContent = '관심종목 관리';
-      renderCustomManage();
-    } else {
-      document.getElementById('section-title').textContent = PERIOD_META[currentPeriod]?.title || '';
-      renderCustomPeriod();
-    }
-    return;
-  }
-
   if (currentPeriod === 'summary') { renderSummaryOrWait(); return; }
 
   document.getElementById('section-title').textContent = PERIOD_META[currentPeriod].title;
@@ -1158,7 +961,6 @@ function renderIntraday() {
         <div class="change-num">+${s.rank_change}</div>
         <div class="rank-path"><strong>${s.prev_rank}위</strong> → <strong>${s.rank}위</strong></div>
       </div>
-      ${watchBtnHTML(s.ticker, s.name, currentMarket, currentGroup)}
     </div>`;
   }).join('');
 
@@ -1211,7 +1013,6 @@ function renderPeriod() {
         <div class="change-num">+${s.rank_change}</div>
         <div class="rank-path"><strong>${s.prev_rank}위</strong> → <strong>${s.rank}위</strong></div>
       </div>
-      ${watchBtnHTML(s.ticker, s.name, currentMarket, currentGroup)}
     </div>`;
   }).join('');
 
@@ -1564,120 +1365,10 @@ function renderStreakPeriod() {
         <div class="change-num" style="color:${numColor}">${numEl}</div>
         <div class="rank-path">${pathEl}</div>
       </div>
-      ${watchBtnHTML(s.ticker, s.name, currentMarket, currentGroup)}
     </div>`;
   }).join('');
 
   renderHistoryChart(streakHistory, 'streak');
-}
-
-/* ── 관심종목 관리 탭 렌더링 ─────────────────────────────────────────────── */
-function renderCustomManage() {
-  const cards = document.getElementById('cards');
-  document.getElementById('hist-section').innerHTML = '';
-  document.getElementById('compare-label').textContent = '';
-
-  const list    = cwlLoad();
-  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[m] || m);
-  const itemsHTML = list.length
-    ? list.map(s => `
-      <div class="custom-stock-item">
-        <div class="csi-info">
-          <div class="csi-name">${esc(s.name)}</div>
-          <div class="csi-meta">${esc(s.ticker)} &nbsp;·&nbsp; ${mktName(s.market)} &nbsp;·&nbsp; 추가: ${s.added_at}</div>
-        </div>
-        <button class="csi-rm" title="삭제"
-          onclick="cwlRemove('${esc(s.ticker)}','${s.market}')">✕</button>
-      </div>`).join('')
-    : `<div class="custom-empty">등록된 종목이 없습니다.<br>위 폼으로 종목을 추가하세요.</div>`;
-
-  cards.innerHTML = `
-  <div class="custom-manage">
-    <h3>⭐ 관심종목 추가</h3>
-    <div class="custom-add-row">
-      <input id="cwl-ticker" type="text" placeholder="티커 (예: 005930 / AAPL)" maxlength="20"
-             onkeydown="if(event.key==='Enter')cwlAdd()"/>
-      <input id="cwl-name"   type="text" placeholder="종목명 (선택)" maxlength="40"
-             onkeydown="if(event.key==='Enter')cwlAdd()"/>
-      <select id="cwl-market">
-        <option value="kospi">한국 KOSPI</option>
-        <option value="kosdaq">한국 KOSDAQ</option>
-        <option value="us">미국 (NYSE/NASDAQ)</option>
-      </select>
-      <button class="custom-add-btn" onclick="cwlAdd()">추가</button>
-    </div>
-    <div class="custom-stock-list" id="cwl-list">${itemsHTML}</div>
-    <div class="custom-sync-row">
-      <button class="custom-sync-btn save" onclick="syncCustomWatchlist()">☁ GitHub 저장</button>
-      <span class="custom-sync-hint">저장 후 Actions(⭐ Custom Watchlist Tracker)를 실행하면 시총 데이터가 수집됩니다</span>
-    </div>
-  </div>`;
-}
-
-/* ── 관심종목 기간별 변동률 렌더링 ───────────────────────────────────────── */
-function renderCustomPeriod() {
-  if (!DATA_CUSTOM) {
-    loadCustomData();
-    return;
-  }
-
-  const cards = document.getElementById('cards');
-  const label = document.getElementById('compare-label');
-  document.getElementById('hist-section').innerHTML = '';
-  document.getElementById('intraday-banner').style.display = 'none';
-
-  const pd = DATA_CUSTOM?.[currentPeriod];
-
-  if (!pd || !pd.available || !pd.items?.length) {
-    label.textContent = '';
-    cards.innerHTML   = noDataHTML(
-      pd?.prev_date
-        ? '기준: ' + fmtDate(pd.prev_date)
-        : '데이터 없음 — ⚙관리 탭에서 종목을 추가하고 GitHub Actions를 실행하세요'
-    );
-    return;
-  }
-
-  label.className   = 'compare-label';
-  label.textContent = '기준: ' + fmtDate(pd.prev_date);
-
-  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[m] || m);
-
-  cards.innerHTML = pd.items.map((s, i) => {
-    const isKorea   = s.market === 'kospi' || s.market === 'kosdaq';
-    const tickerUrl = isKorea
-      ? naverUrl(s.ticker)
-      : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
-    const nameUrl   = isKorea
-      ? naverUrl(s.ticker)
-      : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
-    const mktCls    = s.market;   // 'kospi', 'kosdaq', 'us'
-    const medalCls  = ['m1','m2','m3','',''][i] || '';
-    const chgCls    = s.change_pct > 0 ? 'up' : s.change_pct < 0 ? 'down' : 'flat';
-    const sign      = s.change_pct > 0 ? '+' : '';
-
-    return `
-    <div class="custom-card">
-      <div class="medal ${medalCls}">${i + 1}</div>
-      <div class="stock-info">
-        <div class="stock-name">
-          <a class="stock-name-link" href="${nameUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
-        </div>
-        <div class="stock-sub">
-          <span class="mkt-tag ${mktCls}">${mktName(s.market)}</span>
-          <a class="stock-ticker-link" href="${tickerUrl}" target="_blank" rel="noopener">
-            <span class="stock-ticker">${esc(s.ticker)}</span>
-          </a>
-          <span class="stock-mktcap">${esc(s.market_cap_str)}</span>
-        </div>
-        <div style="font-size:11px;color:#aaa;margin-top:3px">이전: ${esc(s.prev_market_cap_str)}</div>
-      </div>
-      <div class="rank-change" style="text-align:right;min-width:80px">
-        <div class="chg-num ${chgCls}">${sign}${s.change_pct}%</div>
-        <div class="rank-path" style="margin-top:4px">${s.currency}</div>
-      </div>
-    </div>`;
-  }).join('');
 }
 
 /* ── GitHub PAT 관리 ─────────────────────────────────────────────────────── */
@@ -1725,7 +1416,7 @@ async function triggerUpdate() {
   const pat = getPAT();
   if (!pat) { showPATModal(); return; }
 
-  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml', midcap:'update_midcap.yml', custom:'update_custom.yml' };
+  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml', midcap:'update_midcap.yml' };
   const workflow = WORKFLOW[currentGroup];
   const btn = document.getElementById('update-btn');
   if (btn) { btn.disabled = true; btn.textContent = '⏳ 요청 중...'; }
@@ -1759,289 +1450,6 @@ async function triggerUpdate() {
 }
 
 init();
-
-/* ════════════════════════════════════════════════════════════════════════════
-   관심종목 (Watchlist) 기능
-   ─ localStorage 기반 저장
-   ─ GitHub API를 통해 data/watchlist.json 동기화 (PAT 필요)
-   ─ 카드에 ☆/★ 버튼 노출
-════════════════════════════════════════════════════════════════════════════ */
-
-const WL_KEY = 'kospi_tracker_watchlist'; // localStorage 키
-
-/* ── 로드 / 저장 ──────────────────────────────────────────────────────────── */
-function wlLoad() {
-  try { return JSON.parse(localStorage.getItem(WL_KEY) || '[]'); }
-  catch { return []; }
-}
-function wlSave(list) {
-  localStorage.setItem(WL_KEY, JSON.stringify(list));
-}
-
-/* ── 추가 / 제거 ──────────────────────────────────────────────────────────── */
-function wlAdd(ticker, name, market, group) {
-  const list = wlLoad();
-  if (list.some(s => s.ticker === ticker && s.market === market)) return;
-  list.push({
-    ticker, name, market, group,
-    added_at: new Date().toISOString().slice(0, 10),
-  });
-  wlSave(list);
-  renderWatchlistPanel();
-  updateWatchBtns();
-}
-
-function wlRemove(ticker, market) {
-  const list = wlLoad().filter(s => !(s.ticker === ticker && s.market === market));
-  wlSave(list);
-  renderWatchlistPanel();
-  updateWatchBtns();
-}
-
-function wlHas(ticker, market) {
-  return wlLoad().some(s => s.ticker === ticker && s.market === market);
-}
-
-/* ── ☆ 버튼 HTML 생성 ────────────────────────────────────────────────────── */
-function watchBtnHTML(ticker, name, market, group) {
-  const active = wlHas(ticker, market) ? ' active' : '';
-  const title  = wlHas(ticker, market) ? '관심종목 해제' : '관심종목 추가';
-  return `<button class="watch-btn${active}" title="${title}"
-    onclick="toggleWatch('${esc(ticker)}','${esc(name)}','${market}','${group}');event.stopPropagation()">
-    ${wlHas(ticker, market) ? '★' : '☆'}
-  </button>`;
-}
-
-function toggleWatch(ticker, name, market, group) {
-  if (wlHas(ticker, market)) {
-    wlRemove(ticker, market);
-  } else {
-    wlAdd(ticker, name, market, group);
-  }
-}
-
-/* ── 페이지 내 모든 ☆ 버튼 상태 갱신 ───────────────────────────────────────── */
-function updateWatchBtns() {
-  document.querySelectorAll('.watch-btn').forEach(btn => {
-    const ticker = btn.dataset.ticker;
-    const market = btn.dataset.market;
-    if (!ticker) return;
-    const active = wlHas(ticker, market);
-    btn.classList.toggle('active', active);
-    btn.textContent = active ? '★' : '☆';
-    btn.title = active ? '관심종목 해제' : '관심종목 추가';
-  });
-}
-
-/* ── 관심종목 패널 토글 ──────────────────────────────────────────────────── */
-function toggleWatchlistPanel() {
-  const panel = document.getElementById('watchlist-panel');
-  const isVisible = panel.style.display !== 'none';
-  panel.style.display = isVisible ? 'none' : 'block';
-  if (!isVisible) renderWatchlistPanel();
-}
-
-/* ── 관심종목 패널 렌더링 ────────────────────────────────────────────────── */
-function renderWatchlistPanel() {
-  const container = document.getElementById('watchlist-items');
-  if (!container) return;
-  const list = wlLoad();
-  if (!list.length) {
-    container.innerHTML = `<div class="watchlist-empty">관심종목이 없습니다.<br>카드의 ☆ 버튼으로 추가하세요.</div>`;
-    return;
-  }
-  container.innerHTML = list.map(s => {
-    const mktLabel = MARKET_LABEL[s.market] || s.market;
-    return `
-    <div class="watchlist-item">
-      <div class="wi-info">
-        <div class="wi-name">${esc(s.name)}</div>
-        <div class="wi-meta">${esc(s.ticker)} &nbsp;·&nbsp; ${mktLabel} &nbsp;·&nbsp; 추가: ${s.added_at}</div>
-      </div>
-      <button class="wi-remove" title="제거"
-        onclick="wlRemove('${esc(s.ticker)}','${s.market}')">✕</button>
-    </div>`;
-  }).join('');
-}
-
-/* ── GitHub API로 watchlist.json 동기화 ─────────────────────────────────── */
-async function syncWatchlist() {
-  const pat = getPAT();
-  if (!pat) { showPATModal(); return; }
-
-  const list = wlLoad();
-  const payload = {
-    updated_at: new Date().toISOString().slice(0, 16).replace('T', ' '),
-    stocks: list,
-  };
-
-  // 레포 정보 추출 (현재 URL 기반)
-  const repoMatch = window.location.hostname.match(/^([^.]+)\.github\.io$/);
-  if (!repoMatch) {
-    alert('GitHub Pages 환경에서만 동기화가 가능합니다.');
-    return;
-  }
-  const owner = repoMatch[1];
-  const repo  = window.location.pathname.split('/')[1] || '';
-  const path  = 'data/watchlist.json';
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-
-  try {
-    // 현재 파일 SHA 가져오기
-    const getResp = await fetch(apiUrl, {
-      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json' },
-    });
-    let sha = '';
-    if (getResp.ok) {
-      const info = await getResp.json();
-      sha = info.sha || '';
-    }
-
-    // 업데이트 커밋
-    const content = btoa(unescape(encodeURIComponent(
-      JSON.stringify(payload, null, 2) + '\n'
-    )));
-    const body = {
-      message: `⭐ Update watchlist (${list.length}종목)`,
-      content,
-      ...(sha ? { sha } : {}),
-    };
-
-    const putResp = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: {
-        Authorization: `token ${pat}`,
-        Accept: 'application/vnd.github+json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-
-    if (putResp.ok) {
-      alert(`✅ 동기화 완료! ${list.length}종목이 GitHub에 저장되었습니다.\nCCI 모니터링이 다음 실행 시 이 목록을 사용합니다.`);
-    } else {
-      const err = await putResp.json();
-      alert(`❌ 동기화 실패: ${err.message}`);
-    }
-  } catch (e) {
-    alert(`❌ 오류: ${e.message}`);
-  }
-}
-
-/* ════════════════════════════════════════════════════════════════════════════
-   관심종목 커스텀 워치리스트 (Custom Watchlist) 기능
-   ─ localStorage 기반 저장 (키: kospi_custom_wl)
-   ─ GitHub API로 data/custom_watchlist.json 동기화 (PAT 필요)
-   ─ GitHub Actions 실행 후 data/report_custom.json이 생성됩니다
-════════════════════════════════════════════════════════════════════════════ */
-
-const CWL_KEY = 'kospi_custom_wl';
-
-/* ── 로드 / 저장 ──────────────────────────────────────────────────────────── */
-function cwlLoad() {
-  try { return JSON.parse(localStorage.getItem(CWL_KEY) || '[]'); }
-  catch { return []; }
-}
-function cwlSave(list) {
-  localStorage.setItem(CWL_KEY, JSON.stringify(list));
-}
-
-/* ── 종목 추가 ────────────────────────────────────────────────────────────── */
-function cwlAdd() {
-  const tickerRaw = (document.getElementById('cwl-ticker')?.value || '').trim();
-  const nameRaw   = (document.getElementById('cwl-name')?.value   || '').trim();
-  const market    = document.getElementById('cwl-market')?.value   || 'us';
-
-  if (!tickerRaw) { showToast('티커를 입력하세요.', 'warn'); return; }
-
-  // 한국 종목은 그대로, 미국은 대문자로
-  const ticker = market === 'us' ? tickerRaw.toUpperCase() : tickerRaw;
-  const name   = nameRaw || ticker;
-
-  const list = cwlLoad();
-  if (list.some(s => s.ticker === ticker && s.market === market)) {
-    showToast('이미 등록된 종목입니다.', 'warn');
-    return;
-  }
-  list.push({ ticker, name, market, added_at: new Date().toISOString().slice(0, 10) });
-  cwlSave(list);
-
-  // 입력 초기화
-  if (document.getElementById('cwl-ticker')) document.getElementById('cwl-ticker').value = '';
-  if (document.getElementById('cwl-name'))   document.getElementById('cwl-name').value   = '';
-
-  showToast(`✅ ${name} (${ticker}) 추가 완료`, 'ok');
-  renderCustomManage();   // 목록 새로고침
-}
-
-/* ── 종목 제거 ────────────────────────────────────────────────────────────── */
-function cwlRemove(ticker, market) {
-  const list = cwlLoad().filter(s => !(s.ticker === ticker && s.market === market));
-  cwlSave(list);
-  renderCustomManage();   // 목록 새로고침
-}
-
-/* ── GitHub API로 custom_watchlist.json 동기화 ──────────────────────────── */
-async function syncCustomWatchlist() {
-  const pat = getPAT();
-  if (!pat) { showPATModal(); return; }
-
-  const list = cwlLoad();
-  const payload = {
-    updated_at: new Date().toISOString().slice(0, 16).replace('T', ' '),
-    stocks: list,
-  };
-
-  const repoMatch = window.location.hostname.match(/^([^.]+)\.github\.io$/);
-  if (!repoMatch) {
-    alert('GitHub Pages 환경에서만 동기화가 가능합니다.');
-    return;
-  }
-  const owner  = repoMatch[1];
-  const repo   = window.location.pathname.split('/')[1] || '';
-  const path   = 'data/custom_watchlist.json';
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-
-  try {
-    // 현재 파일 SHA 가져오기
-    const getResp = await fetch(apiUrl, {
-      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json' },
-    });
-    let sha = '';
-    if (getResp.ok) {
-      const info = await getResp.json();
-      sha = info.sha || '';
-    }
-
-    // 업데이트 커밋
-    const content = btoa(unescape(encodeURIComponent(
-      JSON.stringify(payload, null, 2) + '\n'
-    )));
-    const putResp = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: {
-        Authorization: `token ${pat}`,
-        Accept: 'application/vnd.github+json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        message: `⭐ Update custom watchlist (${list.length}종목)`,
-        content,
-        ...(sha ? { sha } : {}),
-      }),
-    });
-
-    if (putResp.ok) {
-      showToast(`✅ GitHub 저장 완료 (${list.length}종목) — Actions를 수동 실행하세요`, 'ok');
-    } else {
-      const err = await putResp.json();
-      showToast(`❌ 저장 실패: ${err.message}`, 'warn');
-    }
-  } catch (e) {
-    showToast(`❌ 오류: ${e.message}`, 'warn');
-  }
-}
-
 </script>
 </body>
 </html>
