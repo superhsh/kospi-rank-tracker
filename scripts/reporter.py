@@ -81,6 +81,8 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .period-tabs .tab-btn.streak          { color: #f57f17; border-color: #ffe0b2; }
     .period-tabs .tab-btn.summary-period.active { background: #1565c0; color: #fff; border-color: #1565c0; }
     .period-tabs .tab-btn.summary-period  { color: #1565c0; border-color: #bbdefb; }
+    .period-tabs .tab-btn.manage-period.active  { background: #6a1b9a; color: #fff; border-color: #6a1b9a; }
+    .period-tabs .tab-btn.manage-period   { color: #6a1b9a; border-color: #e1bee7; }
 
     /* ── 장중 배너 ── */
     .intraday-banner {
@@ -358,6 +360,117 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
     .no-data .icon { font-size: 38px; margin-bottom: 10px; }
 
+    /* ── 관심종목 ☆ 버튼 ── */
+    .watch-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: 18px; padding: 2px 6px; border-radius: 6px;
+      color: #ccc; transition: color .15s, transform .12s;
+      flex-shrink: 0; line-height: 1;
+    }
+    .watch-btn:hover { color: #f9a825; transform: scale(1.2); }
+    .watch-btn.active { color: #f9a825; }
+
+    /* ── 관심종목 패널 ── */
+    .watchlist-panel {
+      background: #fff; border-radius: 14px;
+      box-shadow: 0 1px 5px rgba(0,0,0,.07);
+      padding: 18px 20px; margin-bottom: 14px;
+    }
+    .watchlist-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .watchlist-header h3 { font-size: 14px; font-weight: 700; color: #333; }
+    .watchlist-sync-btn {
+      font-size: 12px; padding: 5px 14px; border-radius: 14px;
+      border: 1px solid #90caf9; background: #e3f2fd;
+      color: #1565c0; cursor: pointer; font-weight: 600;
+    }
+    .watchlist-sync-btn:hover { background: #bbdefb; }
+    .watchlist-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0; border-bottom: 1px solid #f5f5f5;
+    }
+    .watchlist-item:last-child { border-bottom: none; }
+    .watchlist-item .wi-info { flex: 1; min-width: 0; }
+    .watchlist-item .wi-name { font-size: 13px; font-weight: 700; color: #222; }
+    .watchlist-item .wi-meta { font-size: 11px; color: #999; margin-top: 2px; }
+    .watchlist-item .wi-remove {
+      background: none; border: none; cursor: pointer;
+      color: #ccc; font-size: 16px; padding: 2px 4px; border-radius: 4px;
+    }
+    .watchlist-item .wi-remove:hover { color: #e53935; }
+    .watchlist-empty { color: #bbb; font-size: 13px; text-align: center; padding: 16px 0; }
+
+    /* ── 관심종목 관리 폼 ── */
+    .custom-manage {
+      background: #fff; border-radius: 14px; padding: 20px 22px;
+      box-shadow: 0 1px 5px rgba(0,0,0,.07);
+    }
+    .custom-manage h3 { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 14px; }
+    .custom-add-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .custom-add-row input {
+      flex: 1; min-width: 80px; padding: 8px 12px;
+      border: 1.5px solid #ddd; border-radius: 10px; font-size: 13px; outline: none;
+    }
+    .custom-add-row input:focus { border-color: #1565c0; }
+    .custom-add-row select {
+      padding: 8px 10px; border: 1.5px solid #ddd; border-radius: 10px;
+      font-size: 13px; outline: none; background: #fff;
+    }
+    .custom-add-row select:focus { border-color: #1565c0; }
+    .custom-add-btn {
+      padding: 8px 18px; background: #1565c0; color: #fff;
+      border: none; border-radius: 10px; font-size: 13px; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+    }
+    .custom-add-btn:hover { background: #0d47a1; }
+    .custom-stock-list { margin-top: 4px; }
+    .custom-stock-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0; border-bottom: 1px solid #f5f5f5;
+    }
+    .custom-stock-item:last-child { border-bottom: none; }
+    .custom-stock-item .csi-info { flex: 1; min-width: 0; }
+    .custom-stock-item .csi-name { font-size: 13px; font-weight: 700; color: #222; }
+    .custom-stock-item .csi-meta { font-size: 11px; color: #999; margin-top: 2px; }
+    .custom-stock-item .csi-rm {
+      background: none; border: none; cursor: pointer;
+      color: #ccc; font-size: 16px; padding: 2px 6px; border-radius: 4px;
+    }
+    .custom-stock-item .csi-rm:hover { color: #e53935; }
+    .custom-empty { color: #bbb; font-size: 13px; text-align: center; padding: 20px 0; }
+    .custom-sync-row {
+      display: flex; gap: 8px; margin-top: 16px; padding-top: 14px;
+      border-top: 1px solid #eee; flex-wrap: wrap; align-items: center;
+    }
+    .custom-sync-btn {
+      padding: 7px 18px; border-radius: 14px; border: none;
+      font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .custom-sync-btn.save { background: #2e7d32; color: #fff; }
+    .custom-sync-btn.save:hover { background: #1b5e20; }
+    .custom-sync-hint { font-size: 11px; color: #aaa; }
+
+    /* ── 관심종목 시총 변동률 카드 ── */
+    .custom-card {
+      background: #fff; border-radius: 14px; padding: 16px 20px;
+      margin-bottom: 10px; display: flex; align-items: center; gap: 14px;
+      box-shadow: 0 1px 5px rgba(0,0,0,.07);
+      transition: transform .15s, box-shadow .15s;
+      border-left: 4px solid #e3f2fd;
+    }
+    .custom-card:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.11); }
+    .custom-card:nth-child(1) { border-left-color: #ffd600; }
+    .custom-card:nth-child(2) { border-left-color: #bdbdbd; }
+    .custom-card:nth-child(3) { border-left-color: #ff8f00; }
+    .chg-num { font-size: 24px; font-weight: 900; line-height: 1; }
+    .chg-num.up   { color: #e53935; }
+    .chg-num.down { color: #1565c0; }
+    .chg-num.flat { color: #888; }
+    .mkt-tag.kospi  { background: #e8f5e9; color: #2e7d32; }
+    .mkt-tag.kosdaq { background: #e0f2f1; color: #00695c; }
+
     /* ── 푸터 ── */
     footer {
       text-align: center; padding: 20px 16px;
@@ -391,6 +504,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     <button class="tab-btn"        onclick="switchGroup('us')">🇺🇸 미국</button>
     <button class="tab-btn"        onclick="switchGroup('coin')">🪙 코인</button>
     <button class="tab-btn"        onclick="switchGroup('midcap')">📈 중형주</button>
+    <button class="tab-btn"        onclick="switchGroup('custom')">⭐ 관심종목</button>
   </div>
 
   <!-- 마켓 탭 (코인 그룹에선 숨김) -->
@@ -413,11 +527,23 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
       <span class="compare-label" id="compare-label"></span>
       <div class="ai-btn-group">
         <button class="update-btn" id="update-btn" onclick="triggerUpdate()">🔄 업데이트</button>
+        <button class="update-btn" id="watchlist-toggle-btn"
+                onclick="toggleWatchlistPanel()"
+                style="background:#fff8e1;border-color:#ffd54f;color:#f57f17">⭐ 관심종목</button>
         <button class="ai-btn claude"  onclick="openAnalysis('https://claude.ai/new','Claude')">✦ Claude</button>
         <button class="ai-btn gemini"  onclick="openAnalysis('https://gemini.google.com/','Gemini')">✦ Gemini</button>
         <button class="ai-btn chatgpt" onclick="openAnalysis('https://chatgpt.com/','ChatGPT')">✦ ChatGPT</button>
       </div>
     </div>
+  </div>
+
+  <!-- 관심종목 패널 (평소 숨김) -->
+  <div id="watchlist-panel" class="watchlist-panel" style="display:none">
+    <div class="watchlist-header">
+      <h3>⭐ 관심종목 (CCI 알림)</h3>
+      <button class="watchlist-sync-btn" onclick="syncWatchlist()">☁ GitHub 동기화</button>
+    </div>
+    <div id="watchlist-items"></div>
   </div>
 
   <!-- Top5 카드 영역 -->
@@ -441,9 +567,11 @@ const DATA_KR = /*__DATA_KR__*/null/*__DATA_KR__*/;
 let DATA_US      = null;
 let DATA_CRYPTO  = null;
 let DATA_MIDCAP  = null;
+let DATA_CUSTOM  = null;
 let loadingUS     = false;
 let loadingCrypto = false;
 let loadingMidcap = false;
+let loadingCustom = false;
 
 // ── 상태 ──────────────────────────────────────────────────────────────────────
 let currentGroup  = 'korea';
@@ -457,12 +585,14 @@ const GROUP_MARKETS = {
   us:     ['sp500', 'nasdaq100'],
   coin:   ['coin'],
   midcap: ['midcap'],
+  custom: ['custom'],
 };
 const GROUP_PERIODS = {
   korea:  ['intraday','daily','weekly','monthly','streak','summary'],
   us:     ['daily','weekly','monthly','streak','summary'],
   coin:   ['daily','weekly','monthly','streak','summary'],
   midcap: ['daily','weekly','monthly','streak','summary'],
+  custom: ['manage','daily','weekly','monthly'],
 };
 const MARKET_LABEL = {
   kospi:     'KOSPI',
@@ -471,12 +601,14 @@ const MARKET_LABEL = {
   nasdaq100: '나스닥 100',
   coin:      '코인',
   midcap:    '중형주 (Russell 1000 하위 500)',
+  custom:    '관심종목',
 };
 const GROUP_TITLE = {
   korea:  '📈 KOSPI / KOSDAQ 시총 순위 상승 트래커',
   us:     '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
   coin:   '📈 암호화폐 시총 순위 상승 트래커',
   midcap: '📈 Russell 1000 중형주 시총 순위 상승 트래커',
+  custom: '⭐ 관심종목 시총 변동률 트래커',
 };
 
 const PERIOD_META = {
@@ -508,6 +640,11 @@ const PERIOD_META = {
   summary: {
     label:'📊종합', cls:'summary-period',
     title:'전 기간 종합 분석',
+    histTitle:'',
+  },
+  manage: {
+    label:'⚙관리', cls:'manage-period',
+    title:'관심종목 관리',
     histTitle:'',
   },
 };
@@ -556,6 +693,7 @@ function getGroupData() {
   if (currentGroup === 'korea')  return DATA_KR;
   if (currentGroup === 'us')     return DATA_US;
   if (currentGroup === 'midcap') return DATA_MIDCAP;
+  if (currentGroup === 'custom') return DATA_CUSTOM;
   return DATA_CRYPTO;
 }
 
@@ -575,7 +713,7 @@ function init() {
 /* ── 그룹 탭 구성 ────────────────────────────────────────────────────────── */
 function buildGroupTabs() {
   document.querySelectorAll('.group-tabs .tab-btn').forEach((btn, i) => {
-    const groups = ['korea','us','coin','midcap'];
+    const groups = ['korea','us','coin','midcap','custom'];
     btn.classList.toggle('active', groups[i] === currentGroup);
   });
 }
@@ -605,6 +743,7 @@ function buildPeriodTabs() {
     const extra = p === 'intraday' ? ' intraday'
                 : p === 'streak'   ? ' streak'
                 : p === 'summary'  ? ' summary-period'
+                : p === 'manage'   ? ' manage-period'
                 : '';
     const cls   = `tab-btn${extra}${p===currentPeriod?' active':''}`;
     return `<button class="${cls}" onclick="switchPeriod('${p}')">${PERIOD_META[p].label}</button>`;
@@ -846,6 +985,11 @@ function switchGroup(g) {
     loadMidcapData();
     return;
   }
+  if (g === 'custom') {
+    updateHeader();
+    render();
+    return;
+  }
 
   updateHeader();
   render();
@@ -911,6 +1055,30 @@ function loadCryptoData() {
     });
 }
 
+/* ── 동적 데이터 로딩: 관심종목 ─────────────────────────────────────────── */
+function loadCustomData() {
+  if (loadingCustom) return;
+  loadingCustom = true;
+  showLoadingSpinner('⭐ 관심종목 데이터 로딩 중...');
+
+  fetch('data/report_custom.json')
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
+    .then(data => {
+      DATA_CUSTOM   = data;
+      loadingCustom = false;
+      updateHeader();
+      render();
+    })
+    .catch(err => {
+      loadingCustom = false;
+      showError(`관심종목 데이터를 불러올 수 없습니다.<br>
+        <small style="color:#999">종목을 추가하고 GitHub Actions(⭐ Custom Watchlist Tracker)를 실행하세요.</small>`);
+    });
+}
+
 /* ── 동적 데이터 로딩: 중형주 ─────────────────────────────────────────────── */
 function loadMidcapData() {
   if (loadingMidcap) return;
@@ -937,6 +1105,20 @@ function loadMidcapData() {
 /* ── 메인 렌더링 ─────────────────────────────────────────────────────────── */
 function render() {
   if (activeChart) { activeChart.destroy(); activeChart = null; }
+
+  if (currentGroup === 'custom') {
+    document.getElementById('intraday-banner').style.display = 'none';
+    document.getElementById('compare-label').className = 'compare-label';
+    if (currentPeriod === 'manage') {
+      document.getElementById('section-title').textContent = '관심종목 관리';
+      renderCustomManage();
+    } else {
+      document.getElementById('section-title').textContent = PERIOD_META[currentPeriod]?.title || '';
+      renderCustomPeriod();
+    }
+    return;
+  }
+
   if (currentPeriod === 'summary') { renderSummaryOrWait(); return; }
 
   document.getElementById('section-title').textContent = PERIOD_META[currentPeriod].title;
@@ -1448,7 +1630,7 @@ async function triggerUpdate() {
   const pat = getPAT();
   if (!pat) { showPATModal(); return; }
 
-  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml', midcap:'update_midcap.yml' };
+  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml', midcap:'update_midcap.yml', custom:'update_custom.yml' };
   const workflow = WORKFLOW[currentGroup];
   const btn = document.getElementById('update-btn');
   if (btn) { btn.disabled = true; btn.textContent = '⏳ 요청 중...'; }
@@ -1479,6 +1661,318 @@ async function triggerUpdate() {
   } finally {
     if (btn) { btn.disabled = false; btn.textContent = '🔄 업데이트'; }
   }
+}
+
+/* ── 관심종목 관리 탭 렌더링 ─────────────────────────────────────────────── */
+function renderCustomManage() {
+  const cards = document.getElementById('cards');
+  document.getElementById('hist-section').innerHTML = '';
+  document.getElementById('compare-label').textContent = '';
+
+  const list    = cwlLoad();
+  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[m] || m);
+  const itemsHTML = list.length
+    ? list.map(s => `
+      <div class="custom-stock-item">
+        <div class="csi-info">
+          <div class="csi-name">${esc(s.name)}</div>
+          <div class="csi-meta">${esc(s.ticker)} &nbsp;·&nbsp; ${mktName(s.market)} &nbsp;·&nbsp; 추가: ${s.added_at}</div>
+        </div>
+        <button class="csi-rm" title="삭제"
+          onclick="cwlRemove('${esc(s.ticker)}','${s.market}')">✕</button>
+      </div>`).join('')
+    : `<div class="custom-empty">등록된 종목이 없습니다.<br>위 폼으로 종목을 추가하세요.</div>`;
+
+  cards.innerHTML = `
+  <div class="custom-manage">
+    <h3>⭐ 관심종목 추가</h3>
+    <div class="custom-add-row">
+      <input id="cwl-ticker" type="text" placeholder="티커 (예: 005930 / AAPL)" maxlength="20"
+             onkeydown="if(event.key==='Enter')cwlAdd()"/>
+      <input id="cwl-name"   type="text" placeholder="종목명 (선택)" maxlength="40"
+             onkeydown="if(event.key==='Enter')cwlAdd()"/>
+      <select id="cwl-market">
+        <option value="kospi">한국 KOSPI</option>
+        <option value="kosdaq">한국 KOSDAQ</option>
+        <option value="us">미국 (NYSE/NASDAQ)</option>
+      </select>
+      <button class="custom-add-btn" onclick="cwlAdd()">추가</button>
+    </div>
+    <div class="custom-stock-list" id="cwl-list">${itemsHTML}</div>
+    <div class="custom-sync-row">
+      <button class="custom-sync-btn save" onclick="syncCustomWatchlist()">☁ GitHub 저장</button>
+      <span class="custom-sync-hint">저장 후 Actions(⭐ Custom Watchlist Tracker)를 실행하면 시총 데이터가 수집됩니다</span>
+    </div>
+  </div>`;
+}
+
+/* ── 관심종목 기간별 변동률 렌더링 ───────────────────────────────────────── */
+function renderCustomPeriod() {
+  if (!DATA_CUSTOM) {
+    loadCustomData();
+    return;
+  }
+
+  const cards = document.getElementById('cards');
+  const label = document.getElementById('compare-label');
+  document.getElementById('hist-section').innerHTML = '';
+  document.getElementById('intraday-banner').style.display = 'none';
+
+  const pd = DATA_CUSTOM?.[currentPeriod];
+
+  if (!pd || !pd.available || !pd.items?.length) {
+    label.textContent = '';
+    cards.innerHTML   = noDataHTML(
+      pd?.prev_date
+        ? '기준: ' + fmtDate(pd.prev_date)
+        : '데이터 없음 — ⚙관리 탭에서 종목을 추가하고 GitHub Actions를 실행하세요'
+    );
+    return;
+  }
+
+  label.className   = 'compare-label';
+  label.textContent = '기준: ' + fmtDate(pd.prev_date);
+
+  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[m] || m);
+
+  cards.innerHTML = pd.items.map((s, i) => {
+    const isKorea   = s.market === 'kospi' || s.market === 'kosdaq';
+    const tickerUrl = isKorea
+      ? naverUrl(s.ticker)
+      : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
+    const nameUrl   = isKorea
+      ? naverUrl(s.ticker)
+      : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
+    const mktCls    = s.market;
+    const medalCls  = ['m1','m2','m3','',''][i] || '';
+    const chgCls    = s.change_pct > 0 ? 'up' : s.change_pct < 0 ? 'down' : 'flat';
+    const sign      = s.change_pct > 0 ? '+' : '';
+
+    return `
+    <div class="custom-card">
+      <div class="medal ${medalCls}">${i + 1}</div>
+      <div class="stock-info">
+        <div class="stock-name">
+          <a class="stock-name-link" href="${nameUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
+        </div>
+        <div class="stock-sub">
+          <span class="mkt-tag ${mktCls}">${mktName(s.market)}</span>
+          <a class="stock-ticker-link" href="${tickerUrl}" target="_blank" rel="noopener">
+            <span class="stock-ticker">${esc(s.ticker)}</span>
+          </a>
+          <span class="stock-mktcap">${esc(s.market_cap_str)}</span>
+        </div>
+        <div style="font-size:11px;color:#aaa;margin-top:3px">이전: ${esc(s.prev_market_cap_str)}</div>
+      </div>
+      <div class="rank-change" style="text-align:right;min-width:80px">
+        <div class="chg-num ${chgCls}">${sign}${s.change_pct}%</div>
+        <div class="rank-path" style="margin-top:4px">${s.currency}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CCI 관심종목 Watchlist (☆ 버튼, 패널, GitHub 동기화)
+════════════════════════════════════════════════════════════════════════════ */
+
+const WL_KEY = 'kospi_tracker_watchlist';
+
+function wlLoad() {
+  try { return JSON.parse(localStorage.getItem(WL_KEY) || '[]'); }
+  catch { return []; }
+}
+function wlSave(list) { localStorage.setItem(WL_KEY, JSON.stringify(list)); }
+
+function wlAdd(ticker, name, market, group) {
+  const list = wlLoad();
+  if (list.some(s => s.ticker === ticker && s.market === market)) return;
+  list.push({ ticker, name, market, group, added_at: new Date().toISOString().slice(0,10) });
+  wlSave(list);
+  renderWatchlistPanel();
+  updateWatchBtns();
+}
+
+function wlRemove(ticker, market) {
+  wlSave(wlLoad().filter(s => !(s.ticker === ticker && s.market === market)));
+  renderWatchlistPanel();
+  updateWatchBtns();
+}
+
+function wlHas(ticker, market) {
+  return wlLoad().some(s => s.ticker === ticker && s.market === market);
+}
+
+function watchBtnHTML(ticker, name, market, group) {
+  const active = wlHas(ticker, market) ? ' active' : '';
+  const title  = wlHas(ticker, market) ? '관심종목 해제' : '관심종목 추가';
+  return `<button class="watch-btn${active}" title="${title}"
+    onclick="toggleWatch('${esc(ticker)}','${esc(name)}','${market}','${group}');event.stopPropagation()">
+    ${wlHas(ticker, market) ? '★' : '☆'}
+  </button>`;
+}
+
+function toggleWatch(ticker, name, market, group) {
+  if (wlHas(ticker, market)) wlRemove(ticker, market);
+  else wlAdd(ticker, name, market, group);
+}
+
+function updateWatchBtns() {
+  document.querySelectorAll('.watch-btn').forEach(btn => {
+    const ticker = btn.dataset.ticker;
+    const market = btn.dataset.market;
+    if (!ticker) return;
+    const active = wlHas(ticker, market);
+    btn.classList.toggle('active', active);
+    btn.textContent = active ? '★' : '☆';
+    btn.title = active ? '관심종목 해제' : '관심종목 추가';
+  });
+}
+
+function toggleWatchlistPanel() {
+  const panel = document.getElementById('watchlist-panel');
+  const isVisible = panel.style.display !== 'none';
+  panel.style.display = isVisible ? 'none' : 'block';
+  if (!isVisible) renderWatchlistPanel();
+}
+
+function renderWatchlistPanel() {
+  const container = document.getElementById('watchlist-items');
+  if (!container) return;
+  const list = wlLoad();
+  if (!list.length) {
+    container.innerHTML = `<div class="watchlist-empty">관심종목이 없습니다.<br>카드의 ☆ 버튼으로 추가하세요.</div>`;
+    return;
+  }
+  container.innerHTML = list.map(s => {
+    const mktLabel = MARKET_LABEL[s.market] || s.market;
+    return `
+    <div class="watchlist-item">
+      <div class="wi-info">
+        <div class="wi-name">${esc(s.name)}</div>
+        <div class="wi-meta">${esc(s.ticker)} &nbsp;·&nbsp; ${mktLabel} &nbsp;·&nbsp; 추가: ${s.added_at}</div>
+      </div>
+      <button class="wi-remove" title="제거"
+        onclick="wlRemove('${esc(s.ticker)}','${s.market}')">✕</button>
+    </div>`;
+  }).join('');
+}
+
+async function syncWatchlist() {
+  const pat = getPAT();
+  if (!pat) { showPATModal(); return; }
+
+  const list = wlLoad();
+  const payload = {
+    updated_at: new Date().toISOString().slice(0,16).replace('T',' '),
+    stocks: list,
+  };
+
+  const repoMatch = window.location.hostname.match(/^([^.]+)\.github\.io$/);
+  if (!repoMatch) { alert('GitHub Pages 환경에서만 동기화가 가능합니다.'); return; }
+  const owner  = repoMatch[1];
+  const repo   = window.location.pathname.split('/')[1] || '';
+  const path   = 'data/watchlist.json';
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+  try {
+    const getResp = await fetch(apiUrl, {
+      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json' },
+    });
+    let sha = '';
+    if (getResp.ok) { const info = await getResp.json(); sha = info.sha || ''; }
+
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2) + '\n')));
+    const putResp = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `⭐ Update watchlist (${list.length}종목)`, content, ...(sha ? { sha } : {}) }),
+    });
+
+    if (putResp.ok) {
+      alert(`✅ 동기화 완료! ${list.length}종목이 GitHub에 저장되었습니다.\nCCI 모니터링이 다음 실행 시 이 목록을 사용합니다.`);
+    } else {
+      const err = await putResp.json();
+      alert(`❌ 동기화 실패: ${err.message}`);
+    }
+  } catch (e) { alert(`❌ 오류: ${e.message}`); }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   관심종목 커스텀 워치리스트 (Custom Watchlist)
+════════════════════════════════════════════════════════════════════════════ */
+
+const CWL_KEY = 'kospi_custom_wl';
+
+function cwlLoad() {
+  try { return JSON.parse(localStorage.getItem(CWL_KEY) || '[]'); }
+  catch { return []; }
+}
+function cwlSave(list) { localStorage.setItem(CWL_KEY, JSON.stringify(list)); }
+
+function cwlAdd() {
+  const tickerRaw = (document.getElementById('cwl-ticker')?.value || '').trim();
+  const nameRaw   = (document.getElementById('cwl-name')?.value   || '').trim();
+  const market    = document.getElementById('cwl-market')?.value   || 'us';
+  if (!tickerRaw) { showToast('티커를 입력하세요.', 'warn'); return; }
+
+  const ticker = market === 'us' ? tickerRaw.toUpperCase() : tickerRaw;
+  const name   = nameRaw || ticker;
+  const list   = cwlLoad();
+  if (list.some(s => s.ticker === ticker && s.market === market)) {
+    showToast('이미 등록된 종목입니다.', 'warn'); return;
+  }
+  list.push({ ticker, name, market, added_at: new Date().toISOString().slice(0,10) });
+  cwlSave(list);
+  if (document.getElementById('cwl-ticker')) document.getElementById('cwl-ticker').value = '';
+  if (document.getElementById('cwl-name'))   document.getElementById('cwl-name').value   = '';
+  showToast(`✅ ${name} (${ticker}) 추가 완료`, 'ok');
+  renderCustomManage();
+}
+
+function cwlRemove(ticker, market) {
+  cwlSave(cwlLoad().filter(s => !(s.ticker === ticker && s.market === market)));
+  renderCustomManage();
+}
+
+async function syncCustomWatchlist() {
+  const pat = getPAT();
+  if (!pat) { showPATModal(); return; }
+
+  const list = cwlLoad();
+  const payload = {
+    updated_at: new Date().toISOString().slice(0,16).replace('T',' '),
+    stocks: list,
+  };
+
+  const repoMatch = window.location.hostname.match(/^([^.]+)\.github\.io$/);
+  if (!repoMatch) { alert('GitHub Pages 환경에서만 동기화가 가능합니다.'); return; }
+  const owner  = repoMatch[1];
+  const repo   = window.location.pathname.split('/')[1] || '';
+  const path   = 'data/custom_watchlist.json';
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+  try {
+    const getResp = await fetch(apiUrl, {
+      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json' },
+    });
+    let sha = '';
+    if (getResp.ok) { const info = await getResp.json(); sha = info.sha || ''; }
+
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2) + '\n')));
+    const putResp = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `⭐ Update custom watchlist (${list.length}종목)`, content, ...(sha ? { sha } : {}) }),
+    });
+
+    if (putResp.ok) {
+      showToast(`✅ GitHub 저장 완료 (${list.length}종목) — Actions를 수동 실행하세요`, 'ok');
+    } else {
+      const err = await putResp.json();
+      showToast(`❌ 저장 실패: ${err.message}`, 'warn');
+    }
+  } catch (e) { showToast(`❌ 오류: ${e.message}`, 'warn'); }
 }
 
 init();
