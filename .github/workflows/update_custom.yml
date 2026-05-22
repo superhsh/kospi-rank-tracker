@@ -35,7 +35,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # ④ 관심종목 시총 변동률 계산
+      # ④ 누락 종목 과거 데이터 백필 (새 종목 추가 시 자동 반영)
+      - name: Backfill missing historical data
+        run: python backfill_custom.py
+
+      # ⑤ 관심종목 시총 변동률 계산
       - name: Run custom watchlist tracker
         run: |
           DATE_ARG=""
@@ -44,7 +48,7 @@ jobs:
           fi
           python run_daily_custom.py $DATE_ARG
 
-      # ⑤ 결과 커밋 및 푸시
+      # ⑥ 결과 커밋 및 푸시
       - name: Commit and push data
         run: |
           git config user.name  "github-actions[bot]"

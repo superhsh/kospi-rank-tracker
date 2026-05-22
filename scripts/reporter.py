@@ -131,6 +131,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
       box-shadow: 0 1px 5px rgba(0,0,0,.07);
       transition: transform .15s, box-shadow .15s;
       border-left: 4px solid #e3f2fd;
+      position: relative;
     }
     .card:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.11); }
     .card:nth-child(1) { border-left-color: #ffd600; }
@@ -370,37 +371,9 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .watch-btn:hover { color: #f9a825; transform: scale(1.2); }
     .watch-btn.active { color: #f9a825; }
 
-    /* ── 관심종목 패널 ── */
-    .watchlist-panel {
-      background: #fff; border-radius: 14px;
-      box-shadow: 0 1px 5px rgba(0,0,0,.07);
-      padding: 18px 20px; margin-bottom: 14px;
-    }
-    .watchlist-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 14px;
-    }
-    .watchlist-header h3 { font-size: 14px; font-weight: 700; color: #333; }
-    .watchlist-sync-btn {
-      font-size: 12px; padding: 5px 14px; border-radius: 14px;
-      border: 1px solid #90caf9; background: #e3f2fd;
-      color: #1565c0; cursor: pointer; font-weight: 600;
-    }
-    .watchlist-sync-btn:hover { background: #bbdefb; }
-    .watchlist-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 9px 0; border-bottom: 1px solid #f5f5f5;
-    }
-    .watchlist-item:last-child { border-bottom: none; }
-    .watchlist-item .wi-info { flex: 1; min-width: 0; }
-    .watchlist-item .wi-name { font-size: 13px; font-weight: 700; color: #222; }
-    .watchlist-item .wi-meta { font-size: 11px; color: #999; margin-top: 2px; }
-    .watchlist-item .wi-remove {
-      background: none; border: none; cursor: pointer;
-      color: #ccc; font-size: 16px; padding: 2px 4px; border-radius: 4px;
-    }
-    .watchlist-item .wi-remove:hover { color: #e53935; }
-    .watchlist-empty { color: #bbb; font-size: 13px; text-align: center; padding: 16px 0; }
+    /* ── 관심종목 그룹 헤더 ── */
+    .cwl-group-header { font-size: 12px; font-weight: 700; color: #555; margin: 16px 0 6px; padding-left: 4px; border-bottom: 1px solid #eee; }
+    .cwl-group-count { background: #e8eaf6; color: #3949ab; border-radius: 10px; padding: 1px 7px; font-size: 11px; margin-left: 6px; }
 
     /* ── 관심종목 관리 폼 ── */
     .custom-manage {
@@ -527,23 +500,11 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
       <span class="compare-label" id="compare-label"></span>
       <div class="ai-btn-group">
         <button class="update-btn" id="update-btn" onclick="triggerUpdate()">🔄 업데이트</button>
-        <button class="update-btn" id="watchlist-toggle-btn"
-                onclick="toggleWatchlistPanel()"
-                style="background:#fff8e1;border-color:#ffd54f;color:#f57f17">⭐ 관심종목</button>
         <button class="ai-btn claude"  onclick="openAnalysis('https://claude.ai/new','Claude')">✦ Claude</button>
         <button class="ai-btn gemini"  onclick="openAnalysis('https://gemini.google.com/','Gemini')">✦ Gemini</button>
         <button class="ai-btn chatgpt" onclick="openAnalysis('https://chatgpt.com/','ChatGPT')">✦ ChatGPT</button>
       </div>
     </div>
-  </div>
-
-  <!-- 관심종목 패널 (평소 숨김) -->
-  <div id="watchlist-panel" class="watchlist-panel" style="display:none">
-    <div class="watchlist-header">
-      <h3>⭐ 관심종목 (CCI 알림)</h3>
-      <button class="watchlist-sync-btn" onclick="syncWatchlist()">☁ GitHub 동기화</button>
-    </div>
-    <div id="watchlist-items"></div>
   </div>
 
   <!-- Top5 카드 영역 -->
@@ -1170,6 +1131,7 @@ function renderIntraday() {
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
+      ${cwlBtnHTML(s.ticker, s.name, currentMarket, currentGroup)}
       <div class="rank-change">
         <div class="change-arrow">▲</div>
         <div class="change-num">+${s.rank_change}</div>
@@ -1222,6 +1184,7 @@ function renderPeriod() {
           <span class="stock-mktcap">시총 ${esc(s.market_cap_str)}</span>
         </div>
       </div>
+      ${cwlBtnHTML(s.ticker, s.name, currentMarket, currentGroup)}
       <div class="rank-change">
         <div class="change-arrow">▲</div>
         <div class="change-num">+${s.rank_change}</div>
@@ -1574,6 +1537,7 @@ function renderStreakPeriod() {
         </div>
         <div class="rank-path" style="margin-top:4px">현재 순위 <strong>${s.rank}위</strong></div>
       </div>
+      ${cwlBtnHTML(s.ticker, s.name, currentMarket, currentGroup)}
       <div class="rank-change">
         <div class="change-arrow" style="color:${numColor};font-size:20px">${iconEl}</div>
         <div class="change-num" style="color:${numColor}">${numEl}</div>
@@ -1670,17 +1634,33 @@ function renderCustomManage() {
   document.getElementById('compare-label').textContent = '';
 
   const list    = cwlLoad();
-  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[m] || m);
+  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국 (NYSE/NASDAQ)', coin:'코인' }[m] || m);
+
+  const MARKET_GROUPS = [
+    { key: 'us',    label: '🇺🇸 미국 (NYSE/NASDAQ)', markets: ['us'] },
+    { key: 'korea', label: '🇰🇷 한국',               markets: ['kospi','kosdaq'] },
+    { key: 'coin',  label: '🪙 코인',                markets: ['coin'] },
+  ];
+
+  function buildGroupedList(lst) {
+    return MARKET_GROUPS.map(grp => {
+      const items = lst.filter(s => grp.markets.includes(s.market));
+      if (!items.length) return '';
+      return `
+        <div class="cwl-group-header">${grp.label} <span class="cwl-group-count">${items.length}</span></div>
+        ${items.map(s => `
+          <div class="custom-stock-item">
+            <div class="csi-info">
+              <div class="csi-name">${esc(s.name)}</div>
+              <div class="csi-meta">${esc(s.ticker)} &nbsp;·&nbsp; ${mktName(s.market)} &nbsp;·&nbsp; 추가: ${s.added_at||''}</div>
+            </div>
+            <button class="csi-rm" title="삭제" onclick="cwlRemove('${esc(s.ticker)}','${s.market}')">✕</button>
+          </div>`).join('')}`;
+    }).join('');
+  }
+
   const itemsHTML = list.length
-    ? list.map(s => `
-      <div class="custom-stock-item">
-        <div class="csi-info">
-          <div class="csi-name">${esc(s.name)}</div>
-          <div class="csi-meta">${esc(s.ticker)} &nbsp;·&nbsp; ${mktName(s.market)} &nbsp;·&nbsp; 추가: ${s.added_at}</div>
-        </div>
-        <button class="csi-rm" title="삭제"
-          onclick="cwlRemove('${esc(s.ticker)}','${s.market}')">✕</button>
-      </div>`).join('')
+    ? buildGroupedList(list)
     : `<div class="custom-empty">등록된 종목이 없습니다.<br>위 폼으로 종목을 추가하세요.</div>`;
 
   cards.innerHTML = `
@@ -1773,132 +1753,6 @@ function renderCustomPeriod() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   CCI 관심종목 Watchlist (☆ 버튼, 패널, GitHub 동기화)
-════════════════════════════════════════════════════════════════════════════ */
-
-const WL_KEY = 'kospi_tracker_watchlist';
-
-function wlLoad() {
-  try { return JSON.parse(localStorage.getItem(WL_KEY) || '[]'); }
-  catch { return []; }
-}
-function wlSave(list) { localStorage.setItem(WL_KEY, JSON.stringify(list)); }
-
-function wlAdd(ticker, name, market, group) {
-  const list = wlLoad();
-  if (list.some(s => s.ticker === ticker && s.market === market)) return;
-  list.push({ ticker, name, market, group, added_at: new Date().toISOString().slice(0,10) });
-  wlSave(list);
-  renderWatchlistPanel();
-  updateWatchBtns();
-}
-
-function wlRemove(ticker, market) {
-  wlSave(wlLoad().filter(s => !(s.ticker === ticker && s.market === market)));
-  renderWatchlistPanel();
-  updateWatchBtns();
-}
-
-function wlHas(ticker, market) {
-  return wlLoad().some(s => s.ticker === ticker && s.market === market);
-}
-
-function watchBtnHTML(ticker, name, market, group) {
-  const active = wlHas(ticker, market) ? ' active' : '';
-  const title  = wlHas(ticker, market) ? '관심종목 해제' : '관심종목 추가';
-  return `<button class="watch-btn${active}" title="${title}"
-    onclick="toggleWatch('${esc(ticker)}','${esc(name)}','${market}','${group}');event.stopPropagation()">
-    ${wlHas(ticker, market) ? '★' : '☆'}
-  </button>`;
-}
-
-function toggleWatch(ticker, name, market, group) {
-  if (wlHas(ticker, market)) wlRemove(ticker, market);
-  else wlAdd(ticker, name, market, group);
-}
-
-function updateWatchBtns() {
-  document.querySelectorAll('.watch-btn').forEach(btn => {
-    const ticker = btn.dataset.ticker;
-    const market = btn.dataset.market;
-    if (!ticker) return;
-    const active = wlHas(ticker, market);
-    btn.classList.toggle('active', active);
-    btn.textContent = active ? '★' : '☆';
-    btn.title = active ? '관심종목 해제' : '관심종목 추가';
-  });
-}
-
-function toggleWatchlistPanel() {
-  const panel = document.getElementById('watchlist-panel');
-  const isVisible = panel.style.display !== 'none';
-  panel.style.display = isVisible ? 'none' : 'block';
-  if (!isVisible) renderWatchlistPanel();
-}
-
-function renderWatchlistPanel() {
-  const container = document.getElementById('watchlist-items');
-  if (!container) return;
-  const list = wlLoad();
-  if (!list.length) {
-    container.innerHTML = `<div class="watchlist-empty">관심종목이 없습니다.<br>카드의 ☆ 버튼으로 추가하세요.</div>`;
-    return;
-  }
-  container.innerHTML = list.map(s => {
-    const mktLabel = MARKET_LABEL[s.market] || s.market;
-    return `
-    <div class="watchlist-item">
-      <div class="wi-info">
-        <div class="wi-name">${esc(s.name)}</div>
-        <div class="wi-meta">${esc(s.ticker)} &nbsp;·&nbsp; ${mktLabel} &nbsp;·&nbsp; 추가: ${s.added_at}</div>
-      </div>
-      <button class="wi-remove" title="제거"
-        onclick="wlRemove('${esc(s.ticker)}','${s.market}')">✕</button>
-    </div>`;
-  }).join('');
-}
-
-async function syncWatchlist() {
-  const pat = getPAT();
-  if (!pat) { showPATModal(); return; }
-
-  const list = wlLoad();
-  const payload = {
-    updated_at: new Date().toISOString().slice(0,16).replace('T',' '),
-    stocks: list,
-  };
-
-  const repoMatch = window.location.hostname.match(/^([^.]+)\.github\.io$/);
-  if (!repoMatch) { alert('GitHub Pages 환경에서만 동기화가 가능합니다.'); return; }
-  const owner  = repoMatch[1];
-  const repo   = window.location.pathname.split('/')[1] || '';
-  const path   = 'data/watchlist.json';
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-
-  try {
-    const getResp = await fetch(apiUrl, {
-      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json' },
-    });
-    let sha = '';
-    if (getResp.ok) { const info = await getResp.json(); sha = info.sha || ''; }
-
-    const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2) + '\n')));
-    const putResp = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: `⭐ Update watchlist (${list.length}종목)`, content, ...(sha ? { sha } : {}) }),
-    });
-
-    if (putResp.ok) {
-      alert(`✅ 동기화 완료! ${list.length}종목이 GitHub에 저장되었습니다.\nCCI 모니터링이 다음 실행 시 이 목록을 사용합니다.`);
-    } else {
-      const err = await putResp.json();
-      alert(`❌ 동기화 실패: ${err.message}`);
-    }
-  } catch (e) { alert(`❌ 오류: ${e.message}`); }
-}
-
-/* ════════════════════════════════════════════════════════════════════════════
    관심종목 커스텀 워치리스트 (Custom Watchlist)
 ════════════════════════════════════════════════════════════════════════════ */
 
@@ -1909,6 +1763,45 @@ function cwlLoad() {
   catch { return []; }
 }
 function cwlSave(list) { localStorage.setItem(CWL_KEY, JSON.stringify(list)); }
+
+function cwlHas(ticker, market) {
+  return cwlLoad().some(s => s.ticker === ticker && s.market === market);
+}
+
+/* ── custom watchlist 버튼 헬퍼 ─────────────────────────────────────────── */
+function cwlMapMarket(market, group) {
+  const MAP = { kospi:'kospi', kosdaq:'kosdaq', sp500:'us', nasdaq100:'us', midcap:'us', coin:'coin', us:'us' };
+  return MAP[market] || MAP[group] || 'us';
+}
+
+function cwlBtnHTML(ticker, name, market, group) {
+  const cwlMkt = cwlMapMarket(market, group);
+  const has    = cwlHas(ticker, cwlMkt);
+  return `<button class="watch-btn${has?' active':''}" title="${has?'관심종목 해제':'관심종목 추가'}"
+    data-cwl-ticker="${esc(ticker)}" data-cwl-market="${cwlMkt}"
+    onclick="cwlToggle('${esc(ticker)}','${esc(name)}','${cwlMkt}');event.stopPropagation()">
+    ${has?'★':'☆'}
+  </button>`;
+}
+
+function cwlToggle(ticker, name, market) {
+  if (cwlHas(ticker, market)) cwlRemove(ticker, market);
+  else cwlAddDirect(ticker, name, market);
+  document.querySelectorAll('.watch-btn[data-cwl-ticker="'+ticker+'"][data-cwl-market="'+market+'"]').forEach(btn => {
+    const has = cwlHas(ticker, market);
+    btn.classList.toggle('active', has);
+    btn.title     = has ? '관심종목 해제' : '관심종목 추가';
+    btn.innerHTML = has ? '★' : '☆';
+  });
+}
+
+function cwlAddDirect(ticker, name, market) {
+  const list = cwlLoad();
+  if (list.some(s => s.ticker === ticker && s.market === market)) return;
+  list.push({ ticker, name, market, added_at: new Date().toISOString().slice(0,10) });
+  cwlSave(list);
+  showToast(`⭐ ${name}(${ticker}) 관심종목 추가됨`, 'ok');
+}
 
 function cwlAdd() {
   const tickerRaw = (document.getElementById('cwl-ticker')?.value || '').trim();
@@ -1967,7 +1860,25 @@ async function syncCustomWatchlist() {
     });
 
     if (putResp.ok) {
-      showToast(`✅ GitHub 저장 완료 (${list.length}종목) — Actions를 수동 실행하세요`, 'ok');
+      showToast(`✅ GitHub 저장 완료 (${list.length}종목)`, 'ok');
+      // 저장 성공 후 backfill+daily 워크플로우 자동 실행
+      const pat2 = getPAT();
+      if (pat2) {
+        fetch(
+          'https://api.github.com/repos/superhsh/kospi-rank-tracker/actions/workflows/update_custom.yml/dispatches',
+          {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${pat2}`,
+              'Accept': 'application/vnd.github+json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ref: 'main' }),
+          }
+        ).then(r => {
+          if (r.status === 204) showToast('🔄 시총 업데이트 워크플로우 실행 중...', 'ok');
+        }).catch(() => {});
+      }
     } else {
       const err = await putResp.json();
       showToast(`❌ 저장 실패: ${err.message}`, 'warn');
