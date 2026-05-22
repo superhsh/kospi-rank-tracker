@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-22 00:08",
+  "updated_at": "2026-05-22 05:31",
   "current_date": "20260522",
   "daily": {
     "available": true,
@@ -164,11 +164,11 @@
         "name": "NTAP",
         "market": "us",
         "currency": "USD",
-        "market_cap": 24548589772.41678,
+        "market_cap": 24549579530.167786,
         "market_cap_str": "$24.5B",
         "prev_market_cap": 23563239843.332886,
         "prev_market_cap_str": "$23.6B",
-        "change_pct": 4.18
+        "change_pct": 4.19
       },
       {
         "ticker": "MU",
@@ -577,7 +577,7 @@
         "name": "NTAP",
         "market": "us",
         "currency": "USD",
-        "market_cap": 24548589772.41678,
+        "market_cap": 24549579530.167786,
         "market_cap_str": "$24.5B",
         "prev_market_cap": 23753377596.08322,
         "prev_market_cap_str": "$23.8B",
@@ -1023,11 +1023,11 @@
         "name": "NTAP",
         "market": "us",
         "currency": "USD",
-        "market_cap": 24548589772.41678,
+        "market_cap": 24549579530.167786,
         "market_cap_str": "$24.5B",
         "prev_market_cap": 21469742025.416107,
         "prev_market_cap_str": "$21.5B",
-        "change_pct": 14.34
+        "change_pct": 14.35
       },
       {
         "ticker": "LITE",

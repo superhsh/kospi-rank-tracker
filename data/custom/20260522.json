@@ -180,7 +180,7 @@
     "name": "NTAP",
     "market": "us",
     "currency": "USD",
-    "market_cap": 24548589772.41678,
+    "market_cap": 24549579530.167786,
     "market_cap_str": "$24.5B"
   },
   {
@@ -294,5 +294,77 @@
     "currency": "USD",
     "market_cap": 26742993508.114624,
     "market_cap_str": "$26.7B"
+  },
+  {
+    "ticker": "443060",
+    "name": "HD현대마린솔루션",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 11163002415000.0,
+    "market_cap_str": "11.16조"
+  },
+  {
+    "ticker": "064400",
+    "name": "LG씨엔에스",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 8070599468400.0,
+    "market_cap_str": "8.07조"
+  },
+  {
+    "ticker": "011070",
+    "name": "LG이노텍",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 20233153485000.0,
+    "market_cap_str": "20.23조"
+  },
+  {
+    "ticker": "307950",
+    "name": "현대오토에버",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 17386255544000.0,
+    "market_cap_str": "17.39조"
+  },
+  {
+    "ticker": "080220",
+    "name": "제주반도체",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 4281122518400.0,
+    "market_cap_str": "4.28조"
+  },
+  {
+    "ticker": "036540",
+    "name": "SFA반도체",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 1705235989600.0,
+    "market_cap_str": "1.71조"
+  },
+  {
+    "ticker": "166090",
+    "name": "하나머티리얼즈",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 1583664009200.0,
+    "market_cap_str": "1.58조"
+  },
+  {
+    "ticker": "417200",
+    "name": "LS머트리얼즈",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 1596602752400.0,
+    "market_cap_str": "1.60조"
+  },
+  {
+    "ticker": "ATOM",
+    "name": "Cosmos Hub",
+    "market": "coin",
+    "currency": "USD",
+    "market_cap": 329473168.86138916,
+    "market_cap_str": "$0.3B"
   }
 ]
