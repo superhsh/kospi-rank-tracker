@@ -5,10 +5,14 @@ custom_signal_monitor.py
 Telegram으로 알림을 발송합니다.
 
 신호:
-  1. CCI 기준선(0선) 상향돌파  : 전일 CCI < 0  → 당일 CCI >= 0
-  2. CCI +100선 상향돌파       : 전일 CCI < 100 → 당일 CCI >= 100
-  3. 파라볼릭 SAR 매도 신호    : SAR이 가격 위로 전환 (하락추세 전환)
-  4. 파라볼릭 SAR 매수 신호    : SAR이 가격 아래로 전환 (상승추세 전환)
+  1. CCI 기준선(0선) 상향돌파       : 전일 CCI < 0   → 당일 CCI >= 0
+  2. CCI +100선 상향돌파            : 전일 CCI < 100 → 당일 CCI >= 100
+  3. 파라볼릭 SAR 매도 신호         : SAR이 가격 위로 전환 (하락추세 전환)
+  4. 파라볼릭 SAR 매수 신호         : SAR이 가격 아래로 전환 (상승추세 전환)
+  5. Slow Stoch %K 침체선 상향돌파  : 전일 %K < 20 → 당일 %K >= 20
+  6. Slow Stoch %K/%D 골든크로스    : 전일 %K < %D → 당일 %K >= %D
+
+Slow Stochastics 파라미터: K=6, D=3, Smooth=3  /  과열=80, 침체=20
 
 데이터 소스: yfinance (US/KOSPI/KOSDAQ)
 """
@@ -36,10 +40,17 @@ MARKET_LABEL = {
     "us":     "미국",
 }
 
-CCI_PERIOD = 20
+CCI_PERIOD   = 20
 SAR_AF_START = 0.02
 SAR_AF_STEP  = 0.02
 SAR_AF_MAX   = 0.20
+
+# Slow Stochastics 파라미터
+STOCH_K_PERIOD   = 6     # Fast %K 계산 기간
+STOCH_D_PERIOD   = 3     # Fast %K → Slow %K 스무딩
+STOCH_SMOOTH     = 3     # Slow %K → Slow %D 스무딩
+STOCH_OVERSOLD   = 20.0  # 침체 기준선
+STOCH_OVERBOUGHT = 80.0  # 과열 기준선
 
 
 # ── OHLCV 수집 ───────────────────────────────────────────────────────────────
@@ -71,22 +82,20 @@ def fetch_ohlcv(ticker: str, market: str, days: int = 90) -> pd.DataFrame:
 # ── CCI 계산 ─────────────────────────────────────────────────────────────────
 def compute_cci(df: pd.DataFrame, period: int = CCI_PERIOD) -> pd.Series:
     """일봉 DataFrame(High/Low/Close)으로 CCI를 계산합니다."""
-    tp      = (df["High"] + df["Low"] + df["Close"]) / 3
-    sma     = tp.rolling(window=period).mean()
+    tp       = (df["High"] + df["Low"] + df["Close"]) / 3
+    sma      = tp.rolling(window=period).mean()
     mean_dev = tp.rolling(window=period).apply(
         lambda x: np.abs(x - x.mean()).mean(), raw=True
     )
-    cci = (tp - sma) / (0.015 * mean_dev)
-    return cci
+    return (tp - sma) / (0.015 * mean_dev)
 
 
-# ── 파라볼릭 SAR 계산 ─────────────────────────────────────────────────────────
+# ── 파라볼릭 SAR 계산 ────────────────────────────────────────────────────────
 def compute_parabolic_sar(df: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
     """
     파라볼릭 SAR을 계산합니다.
-
     반환: (sar_series, trend_series)
-      trend: +1 = 상승추세(SAR이 가격 아래), -1 = 하락추세(SAR이 가격 위)
+      trend: +1 = 상승추세(SAR 아래), -1 = 하락추세(SAR 위)
     """
     high  = df["High"].values.astype(float)
     low   = df["Low"].values.astype(float)
@@ -98,70 +107,75 @@ def compute_parabolic_sar(df: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
     af    = np.zeros(n)
     trend = np.zeros(n, dtype=int)
 
-    # ── 초기값 설정 ──────────────────────────────────────────────────────────
-    # 첫 두 봉의 방향으로 초기 추세 결정
     if n < 3:
         return pd.Series(sar, index=df.index), pd.Series(trend, index=df.index)
 
     trend[0] = 1 if close[1] >= close[0] else -1
-    if trend[0] == 1:      # 상승추세 초기화
-        sar[0] = low[0]
-        ep[0]  = high[0]
-    else:                  # 하락추세 초기화
-        sar[0] = high[0]
-        ep[0]  = low[0]
+    if trend[0] == 1:
+        sar[0], ep[0] = low[0], high[0]
+    else:
+        sar[0], ep[0] = high[0], low[0]
     af[0] = SAR_AF_START
 
-    # ── 루프 ─────────────────────────────────────────────────────────────────
     for i in range(1, n):
-        prev_trend = trend[i - 1]
-
-        if prev_trend == 1:  # ── 상승추세 ──────────────────────────────────
-            raw_sar = sar[i - 1] + af[i - 1] * (ep[i - 1] - sar[i - 1])
-            # SAR은 직전 두 봉의 저가보다 낮아야 함
-            prev2_low = low[i - 2] if i >= 2 else low[i - 1]
-            raw_sar   = min(raw_sar, low[i - 1], prev2_low)
-
-            if low[i] < raw_sar:            # 추세 반전 → 하락
-                trend[i] = -1
-                sar[i]   = ep[i - 1]        # 새 SAR = 이전 EP(고점)
-                ep[i]    = low[i]
-                af[i]    = SAR_AF_START
-            else:                           # 상승추세 유지
-                trend[i] = 1
-                sar[i]   = raw_sar
-                if high[i] > ep[i - 1]:    # 새 고점 갱신
+        pt = trend[i - 1]
+        if pt == 1:
+            raw = sar[i - 1] + af[i - 1] * (ep[i - 1] - sar[i - 1])
+            raw = min(raw, low[i - 1], low[i - 2] if i >= 2 else low[i - 1])
+            if low[i] < raw:
+                trend[i], sar[i], ep[i], af[i] = -1, ep[i - 1], low[i], SAR_AF_START
+            else:
+                trend[i], sar[i] = 1, raw
+                if high[i] > ep[i - 1]:
                     ep[i] = high[i]
                     af[i] = min(af[i - 1] + SAR_AF_STEP, SAR_AF_MAX)
                 else:
-                    ep[i] = ep[i - 1]
-                    af[i] = af[i - 1]
-
-        else:  # prev_trend == -1  ── 하락추세 ─────────────────────────────
-            raw_sar = sar[i - 1] + af[i - 1] * (ep[i - 1] - sar[i - 1])
-            # SAR은 직전 두 봉의 고가보다 높아야 함
-            prev2_high = high[i - 2] if i >= 2 else high[i - 1]
-            raw_sar    = max(raw_sar, high[i - 1], prev2_high)
-
-            if high[i] > raw_sar:           # 추세 반전 → 상승
-                trend[i] = 1
-                sar[i]   = ep[i - 1]        # 새 SAR = 이전 EP(저점)
-                ep[i]    = high[i]
-                af[i]    = SAR_AF_START
-            else:                           # 하락추세 유지
-                trend[i] = -1
-                sar[i]   = raw_sar
-                if low[i] < ep[i - 1]:     # 새 저점 갱신
+                    ep[i], af[i] = ep[i - 1], af[i - 1]
+        else:
+            raw = sar[i - 1] + af[i - 1] * (ep[i - 1] - sar[i - 1])
+            raw = max(raw, high[i - 1], high[i - 2] if i >= 2 else high[i - 1])
+            if high[i] > raw:
+                trend[i], sar[i], ep[i], af[i] = 1, ep[i - 1], high[i], SAR_AF_START
+            else:
+                trend[i], sar[i] = -1, raw
+                if low[i] < ep[i - 1]:
                     ep[i] = low[i]
                     af[i] = min(af[i - 1] + SAR_AF_STEP, SAR_AF_MAX)
                 else:
-                    ep[i] = ep[i - 1]
-                    af[i] = af[i - 1]
+                    ep[i], af[i] = ep[i - 1], af[i - 1]
 
     return (
         pd.Series(sar,   index=df.index, name="SAR"),
         pd.Series(trend, index=df.index, name="Trend"),
     )
+
+
+# ── Slow Stochastics 계산 ────────────────────────────────────────────────────
+def compute_slow_stochastics(
+    df:       pd.DataFrame,
+    k_period: int = STOCH_K_PERIOD,
+    d_period: int = STOCH_D_PERIOD,
+    smooth:   int = STOCH_SMOOTH,
+) -> tuple[pd.Series, pd.Series]:
+    """
+    Slow Stochastics (6, 3, 3) 계산.
+
+    Fast %K  = (Close - LowestLow_k) / (HighestHigh_k - LowestLow_k) × 100
+    Slow %K  = SMA(Fast %K, d_period)     ← 스무딩된 %K
+    Slow %D  = SMA(Slow %K, smooth)       ← 시그널선
+
+    반환: (slow_k, slow_d)
+    """
+    low_min  = df["Low"].rolling(window=k_period).min()
+    high_max = df["High"].rolling(window=k_period).max()
+    denom    = high_max - low_min
+    fast_k   = (df["Close"] - low_min) / denom.replace(0, np.nan) * 100
+    fast_k   = fast_k.fillna(50.0)  # High == Low 구간 중립값
+
+    slow_k = fast_k.rolling(window=d_period).mean()
+    slow_d = slow_k.rolling(window=smooth).mean()
+
+    return slow_k, slow_d
 
 
 # ── 신호 감지 ────────────────────────────────────────────────────────────────
@@ -171,58 +185,86 @@ def detect_cci_signals(cci: pd.Series) -> list[dict]:
     if len(valid) < 2:
         return []
 
-    prev = float(valid.iloc[-2])
-    curr = float(valid.iloc[-1])
+    prev, curr = float(valid.iloc[-2]), float(valid.iloc[-1])
     signals = []
 
     if prev < 0 and curr >= 0:
         signals.append({
-            "type":  "cci_zero_cross",
-            "label": "📈 CCI 기준선(0) 상향돌파",
+            "type":   "cci_zero_cross",
+            "label":  "📈 CCI 기준선(0) 상향돌파",
             "detail": f"전일 {round(prev,1)} → 당일 {round(curr,1)}",
-            "emoji": "📈",
         })
-
     if prev < 100 and curr >= 100:
         signals.append({
-            "type":  "cci_100_cross",
-            "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+            "type":   "cci_100_cross",
+            "label":  "🚀 CCI +100선 상향돌파 (과매수 진입)",
             "detail": f"전일 {round(prev,1)} → 당일 {round(curr,1)}",
-            "emoji": "🚀",
         })
-
     return signals
 
 
 def detect_sar_signals(sar: pd.Series, trend: pd.Series,
                        close: pd.Series) -> list[dict]:
     """파라볼릭 SAR 신호를 감지합니다."""
-    if len(trend.dropna()) < 2:
+    valid_idx  = trend.dropna().index
+    if len(valid_idx) < 2:
         return []
 
-    valid_idx   = trend.dropna().index
-    prev_trend  = int(trend.loc[valid_idx[-2]])
-    curr_trend  = int(trend.loc[valid_idx[-1]])
-    curr_sar    = float(sar.loc[valid_idx[-1]])
-    curr_close  = float(close.loc[valid_idx[-1]])
-    signals     = []
+    prev_trend = int(trend.loc[valid_idx[-2]])
+    curr_trend = int(trend.loc[valid_idx[-1]])
+    curr_sar   = float(sar.loc[valid_idx[-1]])
+    curr_close = float(close.loc[valid_idx[-1]])
+    signals    = []
 
     if prev_trend == 1 and curr_trend == -1:
         signals.append({
-            "type":  "sar_sell",
-            "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+            "type":   "sar_sell",
+            "label":  "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
             "detail": f"SAR {round(curr_sar,2)}  >  종가 {round(curr_close,2)}",
-            "emoji": "🔴",
         })
-
     if prev_trend == -1 and curr_trend == 1:
         signals.append({
-            "type":  "sar_buy",
-            "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+            "type":   "sar_buy",
+            "label":  "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
             "detail": f"SAR {round(curr_sar,2)}  <  종가 {round(curr_close,2)}",
-            "emoji": "🟢",
         })
+    return signals
 
+
+def detect_stoch_signals(
+    slow_k: pd.Series,
+    slow_d: pd.Series,
+    oversold:    float = STOCH_OVERSOLD,
+    overbought:  float = STOCH_OVERBOUGHT,
+) -> list[dict]:
+    """
+    Slow Stochastics 신호를 감지합니다.
+      - %K 침체선(20) 상향 돌파: 전일 %K < 20 → 당일 %K >= 20
+      - %K/%D 골든크로스       : 전일 %K < %D → 당일 %K >= %D
+    """
+    common = slow_k.dropna().index.intersection(slow_d.dropna().index)
+    if len(common) < 2:
+        return []
+
+    vk = slow_k.loc[common]
+    vd = slow_d.loc[common]
+    prev_k, curr_k = float(vk.iloc[-2]), float(vk.iloc[-1])
+    prev_d, curr_d = float(vd.iloc[-2]), float(vd.iloc[-1])
+
+    signals = []
+
+    if prev_k < oversold and curr_k >= oversold:
+        signals.append({
+            "type":   "stoch_oversold_exit",
+            "label":  f"🔵 Slow Stoch %K 침체선({int(oversold)}) 상향돌파",
+            "detail": f"%K {round(prev_k,1)} → {round(curr_k,1)}  |  %D {round(curr_d,1)}",
+        })
+    if prev_k < prev_d and curr_k >= curr_d:
+        signals.append({
+            "type":   "stoch_golden_cross",
+            "label":  "🟡 Slow Stoch %K/%D 골든크로스",
+            "detail": f"%K {round(curr_k,1)}  ↑  %D {round(curr_d,1)}",
+        })
     return signals
 
 
@@ -239,26 +281,38 @@ def send_telegram(token: str, chat_id: str, message: str) -> bool:
         return False
 
 
-def build_alert_message(stock: dict, cci_signals: list[dict],
-                        sar_signals: list[dict],
-                        cci_val: float, sar_val: float,
-                        curr_trend: int) -> str:
-    mkt   = MARKET_LABEL.get(stock.get("market", "us"), "")
-    name  = stock.get("name", stock["ticker"])
+def build_alert_message(
+    stock:         dict,
+    cci_signals:   list[dict],
+    sar_signals:   list[dict],
+    stoch_signals: list[dict],
+    cci_val:       float,
+    sar_val:       float,
+    curr_trend:    int,
+    slow_k_val:    float,
+    slow_d_val:    float,
+) -> str:
+    mkt    = MARKET_LABEL.get(stock.get("market", "us"), "")
+    name   = stock.get("name", stock["ticker"])
     ticker = stock["ticker"]
 
-    trend_str = "▲ 상승추세" if curr_trend == 1 else "▼ 하락추세"
-    lines = [
-        f"<b>⭐ 관심종목 신호 발생</b>",
-        f"",
-        f"<b>{name}</b>  <code>{ticker}</code>  [{mkt}]",
-        f"CCI: <b>{round(cci_val, 1)}</b>  |  SAR 추세: {trend_str}",
-        f"",
-    ]
+    trend_str  = "▲ 상승추세" if curr_trend == 1 else "▼ 하락추세"
+    stoch_zone = (
+        " 🔴과열" if slow_k_val >= STOCH_OVERBOUGHT else
+        " 🔵침체" if slow_k_val <= STOCH_OVERSOLD   else ""
+    )
 
-    all_signals = cci_signals + sar_signals
-    for sig in all_signals:
-        lines.append(f"{sig['label']}")
+    lines = [
+        "<b>⭐ 관심종목 신호 발생</b>",
+        "",
+        f"<b>{name}</b>  <code>{ticker}</code>  [{mkt}]",
+        f"CCI(20): <b>{round(cci_val,1)}</b>  |  SAR: {trend_str}",
+        f"Stoch({STOCH_K_PERIOD},{STOCH_D_PERIOD},{STOCH_SMOOTH})  "
+        f"%K: <b>{round(slow_k_val,1)}</b>  %D: {round(slow_d_val,1)}{stoch_zone}",
+        "",
+    ]
+    for sig in cci_signals + sar_signals + stoch_signals:
+        lines.append(sig["label"])
         lines.append(f"  {sig['detail']}")
 
     lines.append(f"\n🕐 {datetime.now().strftime('%Y-%m-%d %H:%M')}")
@@ -266,15 +320,17 @@ def build_alert_message(stock: dict, cci_signals: list[dict],
 
 
 # ── 메인 모니터링 ─────────────────────────────────────────────────────────────
-def run_custom_monitor(telegram_token: str, telegram_chat_id: str,
-                       dry_run: bool = False,
-                       custom_watchlist: list[dict] | None = None) -> list[dict]:
+def run_custom_monitor(
+    telegram_token:   str,
+    telegram_chat_id: str,
+    dry_run:          bool = False,
+    custom_watchlist: list[dict] | None = None,
+) -> list[dict]:
     """
-    관심종목 전체를 순회하며 CCI + 파라볼릭 SAR 신호를 감지합니다.
+    관심종목 전체를 순회하며 CCI + 파라볼릭 SAR + Slow Stochastics 신호를 감지합니다.
     dry_run=True 면 Telegram 발송 없이 신호만 반환합니다.
     """
     if custom_watchlist is None:
-        # 직접 로드
         import sys
         if BASE_DIR not in sys.path:
             sys.path.insert(0, BASE_DIR)
@@ -284,6 +340,9 @@ def run_custom_monitor(telegram_token: str, telegram_chat_id: str,
     if not custom_watchlist:
         print("  관심종목이 없습니다.")
         return []
+
+    min_bars = max(CCI_PERIOD + 5,
+                   STOCH_K_PERIOD + STOCH_D_PERIOD + STOCH_SMOOTH + 5)
 
     print(f"  관심종목 {len(custom_watchlist)}개 신호 모니터링 시작...")
     results = []
@@ -295,30 +354,39 @@ def run_custom_monitor(telegram_token: str, telegram_chat_id: str,
         print(f"    [{market.upper()}] {ticker} ({name})...")
 
         df = fetch_ohlcv(ticker, market)
-        if df.empty or len(df) < CCI_PERIOD + 5:
-            print(f"      ⚠ 데이터 부족 ({len(df)}일)")
+        if df.empty or len(df) < min_bars:
+            print(f"      ⚠ 데이터 부족 ({len(df)}일, 필요: {min_bars}일)")
             continue
 
         # CCI
-        cci     = compute_cci(df)
-        cci_val = float(cci.dropna().iloc[-1])
+        cci         = compute_cci(df)
+        cci_val     = float(cci.dropna().iloc[-1])
         cci_signals = detect_cci_signals(cci)
 
         # 파라볼릭 SAR
-        sar, trend = compute_parabolic_sar(df)
+        sar, trend  = compute_parabolic_sar(df)
         curr_trend  = int(trend.iloc[-1])
         sar_val     = float(sar.iloc[-1])
         sar_signals = detect_sar_signals(sar, trend, df["Close"])
 
-        all_signals = cci_signals + sar_signals
+        # Slow Stochastics
+        slow_k, slow_d = compute_slow_stochastics(df)
+        slow_k_val     = float(slow_k.dropna().iloc[-1])
+        slow_d_val     = float(slow_d.dropna().iloc[-1])
+        stoch_signals  = detect_stoch_signals(slow_k, slow_d)
+
+        all_signals = cci_signals + sar_signals + stoch_signals
 
         trend_icon = "▲" if curr_trend == 1 else "▼"
-        print(f"      CCI: {round(cci_val,1)}  SAR: {trend_icon}  "
-              f"신호: {len(all_signals)}개")
+        print(f"      CCI:{round(cci_val,1)}  SAR:{trend_icon}  "
+              f"%K:{round(slow_k_val,1)}/%D:{round(slow_d_val,1)}  "
+              f"신호:{len(all_signals)}건")
 
         if all_signals:
-            msg = build_alert_message(stock, cci_signals, sar_signals,
-                                      cci_val, sar_val, curr_trend)
+            msg = build_alert_message(
+                stock, cci_signals, sar_signals, stoch_signals,
+                cci_val, sar_val, curr_trend, slow_k_val, slow_d_val,
+            )
             if not dry_run:
                 ok     = send_telegram(telegram_token, telegram_chat_id, msg)
                 status = "✓ 발송" if ok else "✗ 실패"
@@ -330,13 +398,16 @@ def run_custom_monitor(telegram_token: str, telegram_chat_id: str,
                 print(f"        → {sig['label']}")
 
         results.append({
-            "stock":       stock,
-            "cci":         round(cci_val, 1),
-            "cci_signals": cci_signals,
-            "sar_trend":   curr_trend,
-            "sar":         round(sar_val, 4),
-            "sar_signals": sar_signals,
-            "all_signals": all_signals,
+            "stock":         stock,
+            "cci":           round(cci_val, 1),
+            "cci_signals":   cci_signals,
+            "sar_trend":     curr_trend,
+            "sar":           round(sar_val, 4),
+            "sar_signals":   sar_signals,
+            "slow_k":        round(slow_k_val, 1),
+            "slow_d":        round(slow_d_val, 1),
+            "stoch_signals": stoch_signals,
+            "all_signals":   all_signals,
         })
 
         time.sleep(0.5)
@@ -346,27 +417,38 @@ def run_custom_monitor(telegram_token: str, telegram_chat_id: str,
 
 # ── 일별 요약 발송 ───────────────────────────────────────────────────────────
 def send_daily_summary(token: str, chat_id: str, results: list[dict]):
-    """일별 CCI + SAR 현황 요약 메시지를 발송합니다."""
+    """일별 CCI + SAR + Stochastics 현황 요약 메시지를 발송합니다."""
     if not results:
         return
 
     lines = [
         f"<b>⭐ 관심종목 신호 요약</b>  {datetime.now().strftime('%Y-%m-%d')}",
-        f"",
+        f"<i>CCI(20) | SAR | Stoch({STOCH_K_PERIOD},{STOCH_D_PERIOD},{STOCH_SMOOTH}) 과열={int(STOCH_OVERBOUGHT)}/침체={int(STOCH_OVERSOLD)}</i>",
+        "",
     ]
-    for r in results:
-        stock = r["stock"]
-        cci   = r["cci"]
-        trend = r["sar_trend"]
 
-        cci_icon   = "🔴" if cci >= 100 else ("🟢" if cci >= 0 else ("🟡" if cci >= -100 else "🔵"))
+    for r in results:
+        stock  = r["stock"]
+        cci    = r["cci"]
+        trend  = r["sar_trend"]
+        slow_k = r.get("slow_k", 0)
+        slow_d = r.get("slow_d", 0)
+
+        cci_icon   = ("🔴" if cci >= 100 else "🟢" if cci >= 0 else "🟡" if cci >= -100 else "🔵")
         trend_icon = "▲" if trend == 1 else "▼"
-        sig_count  = len(r["all_signals"])
-        sig_str    = f"  ⚡{sig_count}건" if sig_count else ""
+        stoch_icon = ("🔴" if slow_k >= STOCH_OVERBOUGHT else
+                      "🔵" if slow_k <= STOCH_OVERSOLD   else "⚪")
+
+        sig_count = len(r["all_signals"])
+        sig_str   = f" ⚡{sig_count}건" if sig_count else ""
 
         lines.append(
-            f"{cci_icon}{trend_icon} <b>{stock['name']}</b>  "
-            f"CCI {cci}  SAR {trend_icon}{sig_str}"
+            f"{cci_icon}{trend_icon}{stoch_icon} <b>{stock['name']}</b>"
+            f"  CCI {cci}  %K {slow_k}/%D {slow_d}{sig_str}"
         )
 
-    send_telegram(token, chat_id, "\n".join(lines))
+    msg = "\n".join(lines)
+    if len(msg) > 4000:
+        msg = msg[:4000] + "\n…(생략)"
+
+    send_telegram(token, chat_id, msg)
