@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-15 01:59",
+  "updated_at": "2026-05-22 05:29",
   "stocks": [
     {
       "ticker": "IREN",
@@ -222,6 +222,84 @@
       "name": "FSLR",
       "market": "us",
       "added_at": "2026-05-15"
+    },
+    {
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "market": "kospi",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "064400",
+      "name": "LG씨엔에스",
+      "market": "kospi",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "011070",
+      "name": "LG이노텍",
+      "market": "kospi",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "307950",
+      "name": "현대오토에버",
+      "market": "kospi",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "080220",
+      "name": "제주반도체",
+      "market": "kosdaq",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "036540",
+      "name": "SFA반도체",
+      "market": "kosdaq",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "166090",
+      "name": "하나머티리얼즈",
+      "market": "kosdaq",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "417200",
+      "name": "LS머트리얼즈",
+      "market": "kosdaq",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "NEAR",
+      "name": "NEAR Protocol",
+      "market": "coin",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "ATOM",
+      "name": "Cosmos Hub",
+      "market": "coin",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "ONDO",
+      "name": "Ondo",
+      "market": "coin",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "TON",
+      "name": "Toncoin",
+      "market": "coin",
+      "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "RENDER",
+      "name": "Render",
+      "market": "coin",
+      "added_at": "2026-05-22"
     }
   ]
 }
