@@ -38,6 +38,27 @@ UNIVERSE_FULL_SIZE = 1000   # IWB Russell 1000
 MIDCAP_START = 501          # 하위 절반 시작 순위 (inclusive)
 MIDCAP_END = 1000           # 하위 절반 종료 순위 (inclusive)
 
+def _get_market_cap(t_obj) -> float | None:
+    """
+    yfinance API 버전에 무관하게 시총을 가져옵니다.
+    fast_info.market_cap → info["marketCap"] 순서로 시도.
+    """
+    try:
+        mcap = getattr(t_obj.fast_info, "market_cap", None)
+        if mcap and mcap > 0:
+            return float(mcap)
+    except Exception:
+        pass
+    try:
+        full_info = t_obj.info
+        mcap = full_info.get("marketCap") or full_info.get("market_cap")
+        if mcap and mcap > 0:
+            return float(mcap)
+    except Exception:
+        pass
+    return None
+
+
 _HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -245,9 +266,8 @@ def refresh_universe(name_cache: dict) -> list[dict]:
     for i, ticker in enumerate(tickers_1000):
         try:
             t_obj = yf.Ticker(ticker)
-            info  = t_obj.fast_info
-            mcap  = getattr(info, "market_cap", None)
-            if not mcap or mcap <= 0:
+            mcap  = _get_market_cap(t_obj)
+            if not mcap:
                 continue
 
             # 이름 우선순위: name_cache > CSV 이름
@@ -330,9 +350,8 @@ def fetch_midcap_data(universe: list[dict], name_cache: dict,
         for ticker in batch:
             try:
                 t_obj = yf.Ticker(ticker)
-                info  = t_obj.fast_info
-                mcap  = getattr(info, "market_cap", None)
-                if not mcap or mcap <= 0:
+                mcap  = _get_market_cap(t_obj)
+                if not mcap:
                     continue
 
                 # 이름 캐시 갱신

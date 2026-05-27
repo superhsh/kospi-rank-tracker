@@ -56,13 +56,30 @@ def _wiki_tables(url: str) -> list:
     return pd.read_html(StringIO(resp.text), flavor="lxml")
 
 
+def _find_ticker_col(df, candidates=("Symbol", "Ticker", "Ticker symbol", "ticker")) -> str | None:
+    """DataFrame에서 티커 컬럼명을 유연하게 탐지합니다."""
+    for col in candidates:
+        if col in df.columns:
+            return col
+    # 대소문자 무시 탐색
+    col_lower = {c.lower(): c for c in df.columns}
+    for candidate in candidates:
+        if candidate.lower() in col_lower:
+            return col_lower[candidate.lower()]
+    return None
+
+
 def get_sp500_tickers() -> list:
     """Wikipedia에서 S&P 500 구성 종목 티커를 가져옵니다."""
     try:
         url    = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
         tables = _wiki_tables(url)
+        col = _find_ticker_col(tables[0])
+        if col is None:
+            print(f"  ⚠ S&P 500 티커 컬럼을 찾지 못했습니다. 컬럼: {list(tables[0].columns)}")
+            return []
         tickers = (
-            tables[0]["Symbol"]
+            tables[0][col]
             .str.replace(".", "-", regex=False)
             .tolist()
         )
@@ -79,15 +96,15 @@ def get_nasdaq100_tickers() -> list:
         url    = "https://en.wikipedia.org/wiki/Nasdaq-100"
         tables = _wiki_tables(url)
         for t in tables:
-            for col in ("Ticker", "Symbol", "Ticker symbol"):
-                if col in t.columns and len(t) >= 90:
-                    tickers = (
-                        t[col]
-                        .str.replace(".", "-", regex=False)
-                        .tolist()
-                    )
-                    print(f"    NASDAQ 100 티커 {len(tickers)}개 수집 완료")
-                    return tickers
+            col = _find_ticker_col(t)
+            if col and len(t) >= 90:
+                tickers = (
+                    t[col]
+                    .str.replace(".", "-", regex=False)
+                    .tolist()
+                )
+                print(f"    NASDAQ 100 티커 {len(tickers)}개 수집 완료")
+                return tickers
         print("  ⚠ NASDAQ 100 티커 테이블을 찾지 못했습니다.")
         return []
     except Exception as e:
@@ -96,6 +113,29 @@ def get_nasdaq100_tickers() -> list:
 
 
 # ── 시가총액 수집 ──────────────────────────────────────────────────────────────
+def _get_market_cap(t_obj) -> float | None:
+    """
+    yfinance API 버전에 무관하게 시총을 가져옵니다.
+    fast_info.market_cap (0.2.x/1.x 공통) → info["marketCap"] 순서로 시도.
+    """
+    # 방법 1: fast_info.market_cap
+    try:
+        mcap = getattr(t_obj.fast_info, "market_cap", None)
+        if mcap and mcap > 0:
+            return float(mcap)
+    except Exception:
+        pass
+    # 방법 2: .info dict (느리지만 더 안정적)
+    try:
+        full_info = t_obj.info
+        mcap = full_info.get("marketCap") or full_info.get("market_cap")
+        if mcap and mcap > 0:
+            return float(mcap)
+    except Exception:
+        pass
+    return None
+
+
 def fetch_market_caps(tickers: list, name_cache: dict,
                       batch_size: int = 50) -> pd.DataFrame:
     """
@@ -114,9 +154,8 @@ def fetch_market_caps(tickers: list, name_cache: dict,
         for ticker in batch:
             try:
                 t_obj = yf.Ticker(ticker)
-                info  = t_obj.fast_info
-                mcap  = getattr(info, "market_cap", None)
-                if not mcap or mcap <= 0:
+                mcap  = _get_market_cap(t_obj)
+                if not mcap:
                     continue
 
                 # 이름 캐시
@@ -133,7 +172,7 @@ def fetch_market_caps(tickers: list, name_cache: dict,
                 results.append({
                     "ticker":     ticker,
                     "name":       name_cache.get(ticker, ticker),
-                    "market_cap": float(mcap),
+                    "market_cap": mcap,
                 })
             except Exception:
                 pass
