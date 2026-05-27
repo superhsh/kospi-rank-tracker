@@ -2,73 +2,73 @@
   "date": "20260527",
   "label": "0920",
   "market": "KOSDAQ",
-  "saved_at": "2026-05-27T04:49:43",
+  "saved_at": "2026-05-27T06:00:29",
   "stocks": [
     {
       "rank": 1,
       "ticker": "247540",
       "name": "에코프로비엠",
-      "market_cap": 21229200000000.0
+      "market_cap": 20886800000000.0
     },
     {
       "rank": 2,
       "ticker": "196170",
       "name": "알테오젠",
-      "market_cap": 20282400000000.0
+      "market_cap": 20577200000000.0
     },
     {
       "rank": 3,
       "ticker": "086520",
       "name": "에코프로",
-      "market_cap": 19836900000000.0
+      "market_cap": 19497500000000.0
     },
     {
       "rank": 4,
       "ticker": "277810",
       "name": "레인보우로보틱스",
-      "market_cap": 14200700000000.0
+      "market_cap": 14181300000000.0
     },
     {
       "rank": 5,
       "ticker": "036930",
       "name": "주성엔지니어링",
-      "market_cap": 10690700000000.0
+      "market_cap": 10667400000000.0
     },
     {
       "rank": 6,
       "ticker": "950160",
       "name": "코오롱티슈진",
-      "market_cap": 9312500000000.0
+      "market_cap": 9304000000000.0
     },
     {
       "rank": 7,
       "ticker": "000250",
       "name": "삼천당제약",
-      "market_cap": 8303900000000.0
+      "market_cap": 8245300000000.0
     },
     {
       "rank": 8,
       "ticker": "058470",
       "name": "리노공업",
-      "market_cap": 7712600000000.0
+      "market_cap": 7796500000000.0
     },
     {
       "rank": 9,
       "ticker": "028300",
       "name": "HLB",
-      "market_cap": 6833100000000.0
+      "market_cap": 6819700000000.0
     },
     {
       "rank": 10,
       "ticker": "087010",
       "name": "펩트론",
-      "market_cap": 6727100000000.0
+      "market_cap": 6680400000000.0
     },
     {
       "rank": 11,
       "ticker": "298380",
       "name": "에이비엘바이오",
-      "market_cap": 6634500000000.0
+      "market_cap": 6612100000000.0
     },
     {
       "rank": 12,
@@ -80,61 +80,61 @@
       "rank": 13,
       "ticker": "141080",
       "name": "리가켐바이오",
-      "market_cap": 6056400000000.0
+      "market_cap": 6030500000000.0
     },
     {
       "rank": 14,
       "ticker": "440110",
       "name": "파두",
-      "market_cap": 5916400000000.0
+      "market_cap": 5806200000000.0
     },
     {
       "rank": 15,
       "ticker": "240810",
       "name": "원익IPS",
-      "market_cap": 5482700000000.0
+      "market_cap": 5512100000000.0
     },
     {
       "rank": 16,
       "ticker": "310210",
       "name": "보로노이",
-      "market_cap": 5207800000000.0
+      "market_cap": 5198600000000.0
     },
     {
       "rank": 17,
       "ticker": "214370",
       "name": "케어젠",
-      "market_cap": 5065300000000.0
+      "market_cap": 5027700000000.0
     },
     {
       "rank": 18,
       "ticker": "178320",
       "name": "서진시스템",
-      "market_cap": 5009900000000.0
+      "market_cap": 5016300000000.0
     },
     {
       "rank": 19,
       "ticker": "095340",
       "name": "ISC",
-      "market_cap": 4981300000000.0
+      "market_cap": 4917700000000.0
     },
     {
       "rank": 20,
       "ticker": "222800",
       "name": "심텍",
-      "market_cap": 4765400000000.0
+      "market_cap": 4649300000000.0
     },
     {
       "rank": 21,
       "ticker": "403870",
       "name": "HPSP",
-      "market_cap": 4608800000000.0
+      "market_cap": 4575900000000.0
     },
     {
       "rank": 22,
       "ticker": "108490",
       "name": "로보티즈",
-      "market_cap": 4441100000000.0
+      "market_cap": 4426400000000.0
     },
     {
       "rank": 23,
@@ -146,223 +146,223 @@
       "rank": 24,
       "ticker": "010170",
       "name": "대한광통신",
-      "market_cap": 4174800000000.0
+      "market_cap": 4283600000000.0
     },
     {
       "rank": 25,
       "ticker": "319400",
       "name": "현대무벡스",
-      "market_cap": 4037400000000.0
+      "market_cap": 4076400000000.0
     },
     {
       "rank": 26,
       "ticker": "080220",
       "name": "제주반도체",
-      "market_cap": 3768000000000.0
+      "market_cap": 3723300000000.0
     },
     {
       "rank": 27,
       "ticker": "226950",
       "name": "올릭스",
-      "market_cap": 3682500000000.0
+      "market_cap": 3601300000000.0
     },
     {
       "rank": 28,
       "ticker": "131970",
       "name": "두산테스나",
-      "market_cap": 3175500000000.0
+      "market_cap": 3206400000000.0
     },
     {
       "rank": 29,
-      "ticker": "064760",
-      "name": "티씨케이",
-      "market_cap": 3169400000000.0
+      "ticker": "357780",
+      "name": "솔브레인",
+      "market_cap": 3204800000000.0
     },
     {
       "rank": 30,
-      "ticker": "214150",
-      "name": "클래시스",
-      "market_cap": 3163900000000.0
+      "ticker": "064760",
+      "name": "티씨케이",
+      "market_cap": 3191700000000.0
     },
     {
       "rank": 31,
-      "ticker": "357780",
-      "name": "솔브레인",
-      "market_cap": 3162000000000.0
+      "ticker": "214150",
+      "name": "클래시스",
+      "market_cap": 3150900000000.0
     },
     {
       "rank": 32,
-      "ticker": "067310",
-      "name": "하나마이크론",
-      "market_cap": 3150400000000.0
+      "ticker": "145020",
+      "name": "휴젤",
+      "market_cap": 3146800000000.0
     },
     {
       "rank": 33,
-      "ticker": "145020",
-      "name": "휴젤",
-      "market_cap": 3149800000000.0
+      "ticker": "067310",
+      "name": "하나마이크론",
+      "market_cap": 3140400000000.0
     },
     {
       "rank": 34,
-      "ticker": "214450",
-      "name": "파마리서치",
-      "market_cap": 3122100000000.0
+      "ticker": "319660",
+      "name": "피에스케이",
+      "market_cap": 3131300000000.0
     },
     {
       "rank": 35,
-      "ticker": "319660",
-      "name": "피에스케이",
-      "market_cap": 3116800000000.0
+      "ticker": "005290",
+      "name": "동진쎄미켐",
+      "market_cap": 3114300000000.0
     },
     {
       "rank": 36,
-      "ticker": "005290",
-      "name": "동진쎄미켐",
-      "market_cap": 3104100000000.0
+      "ticker": "214450",
+      "name": "파마리서치",
+      "market_cap": 3090900000000.0
     },
     {
       "rank": 37,
-      "ticker": "043260",
-      "name": "성호전자",
-      "market_cap": 3056800000000.0
+      "ticker": "084370",
+      "name": "유진테크",
+      "market_cap": 3057000000000.0
     },
     {
       "rank": 38,
-      "ticker": "084370",
-      "name": "유진테크",
-      "market_cap": 3047800000000.0
+      "ticker": "043260",
+      "name": "성호전자",
+      "market_cap": 3024900000000.0
     },
     {
       "rank": 39,
       "ticker": "100790",
       "name": "미래에셋벤처투자",
-      "market_cap": 3001500000000.0
+      "market_cap": 2996200000000.0
     },
     {
       "rank": 40,
       "ticker": "237690",
       "name": "에스티팜",
-      "market_cap": 2920200000000.0
+      "market_cap": 2911900000000.0
     },
     {
       "rank": 41,
       "ticker": "263750",
       "name": "펄어비스",
-      "market_cap": 2843000000000.0
+      "market_cap": 2862200000000.0
     },
     {
       "rank": 42,
-      "ticker": "058610",
-      "name": "에스피지",
-      "market_cap": 2727800000000.0
+      "ticker": "032820",
+      "name": "우리기술",
+      "market_cap": 2719900000000.0
     },
     {
       "rank": 43,
-      "ticker": "032820",
-      "name": "우리기술",
-      "market_cap": 2721700000000.0
+      "ticker": "058610",
+      "name": "에스피지",
+      "market_cap": 2716700000000.0
     },
     {
       "rank": 44,
-      "ticker": "031980",
-      "name": "피에스케이홀딩스",
-      "market_cap": 2622000000000.0
+      "ticker": "218410",
+      "name": "RFHIC",
+      "market_cap": 2628800000000.0
     },
     {
       "rank": 45,
-      "ticker": "218410",
-      "name": "RFHIC",
-      "market_cap": 2612900000000.0
+      "ticker": "031980",
+      "name": "피에스케이홀딩스",
+      "market_cap": 2619800000000.0
     },
     {
       "rank": 46,
       "ticker": "098460",
       "name": "고영",
-      "market_cap": 2571100000000.0
+      "market_cap": 2578000000000.0
     },
     {
       "rank": 47,
-      "ticker": "082920",
-      "name": "비츠로셀",
-      "market_cap": 2543500000000.0
+      "ticker": "0009K0",
+      "name": "에임드바이오",
+      "market_cap": 2515700000000.0
     },
     {
       "rank": 48,
-      "ticker": "0009K0",
-      "name": "에임드바이오",
-      "market_cap": 2535100000000.0
+      "ticker": "082920",
+      "name": "비츠로셀",
+      "market_cap": 2507300000000.0
     },
     {
       "rank": 49,
       "ticker": "257720",
       "name": "실리콘투",
-      "market_cap": 2436200000000.0
+      "market_cap": 2442700000000.0
     },
     {
       "rank": 50,
       "ticker": "083650",
       "name": "비에이치아이",
-      "market_cap": 2422900000000.0
+      "market_cap": 2429100000000.0
     },
     {
       "rank": 51,
       "ticker": "078600",
       "name": "대주전자재료",
-      "market_cap": 2380200000000.0
+      "market_cap": 2347500000000.0
     },
     {
       "rank": 52,
-      "ticker": "095610",
-      "name": "테스",
-      "market_cap": 2338700000000.0
+      "ticker": "131290",
+      "name": "티에스이",
+      "market_cap": 2334000000000.0
     },
     {
       "rank": 53,
       "ticker": "030530",
       "name": "원익홀딩스",
-      "market_cap": 2313300000000.0
+      "market_cap": 2332600000000.0
     },
     {
       "rank": 54,
-      "ticker": "131290",
-      "name": "티에스이",
-      "market_cap": 2306300000000.0
+      "ticker": "095610",
+      "name": "테스",
+      "market_cap": 2329000000000.0
     },
     {
       "rank": 55,
-      "ticker": "007390",
-      "name": "네이처셀",
-      "market_cap": 2261700000000.0
+      "ticker": "347700",
+      "name": "스피어",
+      "market_cap": 2210400000000.0
     },
     {
       "rank": 56,
-      "ticker": "347700",
-      "name": "스피어",
-      "market_cap": 2202800000000.0
-    },
-    {
-      "rank": 57,
       "ticker": "068760",
       "name": "셀트리온제약",
       "market_cap": 2180200000000.0
     },
     {
+      "rank": 57,
+      "ticker": "290650",
+      "name": "엘앤씨바이오",
+      "market_cap": 2141400000000.0
+    },
+    {
       "rank": 58,
       "ticker": "140410",
       "name": "메지온",
-      "market_cap": 2145700000000.0
+      "market_cap": 2139600000000.0
     },
     {
       "rank": 59,
-      "ticker": "290650",
-      "name": "엘앤씨바이오",
-      "market_cap": 2098200000000.0
+      "ticker": "007390",
+      "name": "네이처셀",
+      "market_cap": 2097400000000.0
     },
     {
       "rank": 60,
       "ticker": "035900",
       "name": "JYP Ent.",
-      "market_cap": 2053800000000.0
+      "market_cap": 2068000000000.0
     },
     {
       "rank": 61,
@@ -374,109 +374,109 @@
       "rank": 62,
       "ticker": "323280",
       "name": "태성",
-      "market_cap": 2009400000000.0
+      "market_cap": 2003300000000.0
     },
     {
       "rank": 63,
       "ticker": "476830",
       "name": "알지노믹스",
-      "market_cap": 1988400000000.0
+      "market_cap": 1970200000000.0
     },
     {
       "rank": 64,
-      "ticker": "437730",
-      "name": "삼현",
-      "market_cap": 1959500000000.0
+      "ticker": "140860",
+      "name": "파크시스템스",
+      "market_cap": 1960700000000.0
     },
     {
       "rank": 65,
-      "ticker": "140860",
-      "name": "파크시스템스",
-      "market_cap": 1946700000000.0
+      "ticker": "437730",
+      "name": "삼현",
+      "market_cap": 1956400000000.0
     },
     {
       "rank": 66,
       "ticker": "041510",
       "name": "에스엠",
-      "market_cap": 1907100000000.0
+      "market_cap": 1920900000000.0
     },
     {
       "rank": 67,
       "ticker": "027360",
       "name": "아주IB투자",
-      "market_cap": 1847500000000.0
+      "market_cap": 1841400000000.0
     },
     {
       "rank": 68,
       "ticker": "060370",
       "name": "LS마린솔루션",
-      "market_cap": 1791800000000.0
+      "market_cap": 1789200000000.0
     },
     {
       "rank": 69,
       "ticker": "031330",
       "name": "에스에이엠티",
-      "market_cap": 1769900000000.0
+      "market_cap": 1787900000000.0
     },
     {
       "rank": 70,
       "ticker": "039200",
       "name": "오스코텍",
-      "market_cap": 1702500000000.0
+      "market_cap": 1704400000000.0
     },
     {
       "rank": 71,
       "ticker": "096530",
       "name": "씨젠",
-      "market_cap": 1642500000000.0
+      "market_cap": 1634700000000.0
     },
     {
       "rank": 72,
-      "ticker": "475830",
-      "name": "오름테라퓨틱",
-      "market_cap": 1615600000000.0
+      "ticker": "099320",
+      "name": "쎄트렉아이",
+      "market_cap": 1590100000000.0
     },
     {
       "rank": 73,
-      "ticker": "089970",
-      "name": "브이엠",
-      "market_cap": 1607700000000.0
+      "ticker": "420770",
+      "name": "기가비스",
+      "market_cap": 1589500000000.0
     },
     {
       "rank": 74,
-      "ticker": "420770",
-      "name": "기가비스",
-      "market_cap": 1599700000000.0
+      "ticker": "089970",
+      "name": "브이엠",
+      "market_cap": 1587900000000.0
     },
     {
       "rank": 75,
-      "ticker": "099320",
-      "name": "쎄트렉아이",
-      "market_cap": 1582500000000.0
+      "ticker": "189300",
+      "name": "인텔리안테크",
+      "market_cap": 1582700000000.0
     },
     {
       "rank": 76,
-      "ticker": "036540",
-      "name": "SFA반도체",
-      "market_cap": 1575500000000.0
+      "ticker": "417200",
+      "name": "LS머트리얼즈",
+      "market_cap": 1579700000000.0
     },
     {
       "rank": 77,
-      "ticker": "417200",
-      "name": "LS머트리얼즈",
-      "market_cap": 1569500000000.0
+      "ticker": "475830",
+      "name": "오름테라퓨틱",
+      "market_cap": 1572600000000.0
     },
     {
       "rank": 78,
-      "ticker": "189300",
-      "name": "인텔리안테크",
-      "market_cap": 1556900000000.0
+      "ticker": "491000",
+      "name": "리브스메드",
+      "market_cap": 1557800000000.0
     },
     {
       "rank": 79,
-      "ticker": "397030",
-      "name": "에이프릴바이오",
-      "market_cap": 1550000000000.0
+      "ticker": "036540",
+      "name": "SFA반도체",
+      "market_cap": 1554100000000.0
     },
     {
       "rank": 80,
@@ -486,123 +486,123 @@
     },
     {
       "rank": 81,
-      "ticker": "491000",
-      "name": "리브스메드",
-      "market_cap": 1537800000000.0
+      "ticker": "101490",
+      "name": "에스앤에스텍",
+      "market_cap": 1525400000000.0
     },
     {
       "rank": 82,
-      "ticker": "101490",
-      "name": "에스앤에스텍",
-      "market_cap": 1523300000000.0
+      "ticker": "397030",
+      "name": "에이프릴바이오",
+      "market_cap": 1524200000000.0
     },
     {
       "rank": 83,
-      "ticker": "232140",
-      "name": "와이씨",
-      "market_cap": 1487500000000.0
+      "ticker": "032500",
+      "name": "케이엠더블유",
+      "market_cap": 1508400000000.0
     },
     {
       "rank": 84,
-      "ticker": "032500",
-      "name": "케이엠더블유",
-      "market_cap": 1485100000000.0
+      "ticker": "232140",
+      "name": "와이씨",
+      "market_cap": 1489100000000.0
     },
     {
       "rank": 85,
-      "ticker": "295310",
-      "name": "에이치브이엠",
-      "market_cap": 1473300000000.0
+      "ticker": "166090",
+      "name": "하나머티리얼즈",
+      "market_cap": 1483300000000.0
     },
     {
       "rank": 86,
-      "ticker": "166090",
-      "name": "하나머티리얼즈",
-      "market_cap": 1469500000000.0
+      "ticker": "295310",
+      "name": "에이치브이엠",
+      "market_cap": 1427600000000.0
     },
     {
       "rank": 87,
       "ticker": "490470",
       "name": "세미파이브",
-      "market_cap": 1402500000000.0
+      "market_cap": 1422900000000.0
     },
     {
       "rank": 88,
       "ticker": "048410",
       "name": "현대바이오",
-      "market_cap": 1374200000000.0
+      "market_cap": 1373300000000.0
     },
     {
       "rank": 89,
-      "ticker": "439960",
-      "name": "코스모로보틱스",
-      "market_cap": 1366200000000.0
+      "ticker": "038500",
+      "name": "삼표시멘트",
+      "market_cap": 1345700000000.0
     },
     {
       "rank": 90,
-      "ticker": "038500",
-      "name": "삼표시멘트",
-      "market_cap": 1346800000000.0
+      "ticker": "439960",
+      "name": "코스모로보틱스",
+      "market_cap": 1314900000000.0
     },
     {
       "rank": 91,
-      "ticker": "127120",
-      "name": "제이에스링크",
-      "market_cap": 1312100000000.0
+      "ticker": "090710",
+      "name": "휴림로봇",
+      "market_cap": 1305700000000.0
     },
     {
       "rank": 92,
-      "ticker": "090710",
-      "name": "휴림로봇",
-      "market_cap": 1299700000000.0
+      "ticker": "127120",
+      "name": "제이에스링크",
+      "market_cap": 1296600000000.0
     },
     {
       "rank": 93,
-      "ticker": "458870",
-      "name": "씨어스",
-      "market_cap": 1297800000000.0
-    },
-    {
-      "rank": 94,
       "ticker": "195940",
       "name": "HK이노엔",
       "market_cap": 1296100000000.0
     },
     {
-      "rank": 95,
+      "rank": 94,
       "ticker": "085660",
       "name": "차바이오텍",
-      "market_cap": 1293200000000.0
+      "market_cap": 1296000000000.0
+    },
+    {
+      "rank": 95,
+      "ticker": "003380",
+      "name": "하림지주",
+      "market_cap": 1291400000000.0
     },
     {
       "rank": 96,
-      "ticker": "003380",
-      "name": "하림지주",
-      "market_cap": 1290300000000.0
+      "ticker": "328130",
+      "name": "루닛",
+      "market_cap": 1277900000000.0
     },
     {
       "rank": 97,
-      "ticker": "328130",
-      "name": "루닛",
-      "market_cap": 1283800000000.0
+      "ticker": "281740",
+      "name": "레이크머티리얼즈",
+      "market_cap": 1266000000000.0
     },
     {
       "rank": 98,
-      "ticker": "356860",
-      "name": "티엘비",
-      "market_cap": 1283200000000.0
+      "ticker": "065350",
+      "name": "신성델타테크",
+      "market_cap": 1264300000000.0
     },
     {
       "rank": 99,
-      "ticker": "065350",
-      "name": "신성델타테크",
-      "market_cap": 1269800000000.0
+      "ticker": "356860",
+      "name": "티엘비",
+      "market_cap": 1263500000000.0
     },
     {
       "rank": 100,
-      "ticker": "281740",
-      "name": "레이크머티리얼즈",
-      "market_cap": 1262700000000.0
+      "ticker": "458870",
+      "name": "씨어스",
+      "market_cap": 1259800000000.0
     }
   ]
 }
