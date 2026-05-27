@@ -100,11 +100,14 @@ def _fetch_iwb_tickers() -> list[dict]:
     반환: [{"ticker": "AAPL", "name": "Apple Inc."}, ...]
     """
     urls = [
-        # iShares 공식 CSV (가장 신뢰도 높음)
+        # iShares 공식 CSV — 올바른 URL 형식 (타임스탬프 없음)
         "https://www.ishares.com/us/products/239707/ishares-russell-1000-etf/"
-        "1467271812596.ajax?fileType=csv&fileName=IWB_holdings&dataType=fund",
-        # 백업 URL
+        "?fileType=csv&fileName=IWB_holdings&dataType=fund",
+        # 백업: 대문자 경로
         "https://www.ishares.com/us/products/239707/ISHARES-RUSSELL-1000-ETF/"
+        "?fileType=csv&fileName=IWB_holdings&dataType=fund",
+        # 레거시 AJAX URL (이전 형식)
+        "https://www.ishares.com/us/products/239707/ishares-russell-1000-etf/"
         "1467271812596.ajax?fileType=csv&fileName=IWB_holdings&dataType=fund",
     ]
 

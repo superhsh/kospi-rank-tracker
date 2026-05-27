@@ -91,25 +91,55 @@ def get_sp500_tickers() -> list:
 
 
 def get_nasdaq100_tickers() -> list:
-    """Wikipedia에서 NASDAQ 100 구성 종목 티커를 가져옵니다."""
+    """Wikipedia → Slickcharts 순으로 NASDAQ 100 구성 종목 티커를 가져옵니다."""
+    # ── 1차: Wikipedia ───────────────────────────────────────────────────────
     try:
         url    = "https://en.wikipedia.org/wiki/Nasdaq-100"
         tables = _wiki_tables(url)
-        for t in tables:
-            col = _find_ticker_col(t)
+        print(f"    Wikipedia 테이블 {len(tables)}개 발견")
+        for i, t in enumerate(tables):
+            col = _find_ticker_col(t, candidates=(
+                "Ticker", "Symbol", "Ticker symbol", "NASDAQ symbol",
+                "ticker", "symbol", "Company Symbol",
+            ))
+            print(f"      테이블[{i}]: {len(t)}행, 컬럼={list(t.columns)[:6]}, ticker컬럼={col}")
             if col and len(t) >= 90:
                 tickers = (
                     t[col]
+                    .astype(str)
+                    .str.strip()
                     .str.replace(".", "-", regex=False)
                     .tolist()
                 )
-                print(f"    NASDAQ 100 티커 {len(tickers)}개 수집 완료")
+                print(f"    NASDAQ 100 티커 {len(tickers)}개 수집 완료 (Wikipedia, 컬럼={col})")
                 return tickers
-        print("  ⚠ NASDAQ 100 티커 테이블을 찾지 못했습니다.")
-        return []
+        print("  ⚠ Wikipedia에서 NASDAQ 100 티커 테이블을 찾지 못했습니다 — Slickcharts 시도")
     except Exception as e:
-        print(f"  ⚠ NASDAQ 100 티커 목록 로드 실패: {e}")
-        return []
+        print(f"  ⚠ Wikipedia NASDAQ 100 로드 실패: {e} — Slickcharts 시도")
+
+    # ── 2차: Slickcharts ─────────────────────────────────────────────────────
+    try:
+        url  = "https://www.slickcharts.com/nasdaq100"
+        resp = requests.get(url, headers=_WIKI_HEADERS, timeout=20)
+        resp.raise_for_status()
+        tables = pd.read_html(StringIO(resp.text))
+        for t in tables:
+            col = _find_ticker_col(t, candidates=("Symbol", "Ticker", "ticker", "symbol"))
+            if col and len(t) >= 90:
+                tickers = (
+                    t[col]
+                    .astype(str)
+                    .str.strip()
+                    .str.replace(".", "-", regex=False)
+                    .tolist()
+                )
+                print(f"    NASDAQ 100 티커 {len(tickers)}개 수집 완료 (Slickcharts)")
+                return tickers
+        print("  ⚠ Slickcharts에서도 NASDAQ 100 테이블을 찾지 못했습니다.")
+    except Exception as e:
+        print(f"  ⚠ Slickcharts NASDAQ 100 로드 실패: {e}")
+
+    return []
 
 
 # ── 시가총액 수집 ──────────────────────────────────────────────────────────────
