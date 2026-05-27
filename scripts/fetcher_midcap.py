@@ -143,7 +143,7 @@ def _fetch_iwb_tickers() -> list[dict]:
             # 미국 주식만 필터 (ETF·채권·현금 제외)
             if asset_col:
                 df = df[df[asset_col].astype(str).str.upper().isin(
-                    ["EQUITY", "Equity", "equity", "US EQUITY"]
+                    ["EQUITY", "US EQUITY"]
                 )]
 
             # "-" 또는 빈 티커 제거
@@ -317,6 +317,7 @@ def get_midcap_universe(name_cache: dict, force_refresh: bool = False) -> list[d
     """
     미드캡 유니버스를 반환합니다.
     캐시가 유효하면 캐시를 사용하고, 없거나 만료되면 refresh_universe()를 호출합니다.
+    refresh_universe() 실패 시 만료된 캐시라도 반환하여 스크립트 crash를 방지합니다.
 
     반환: [{"ticker":str, "name":str, "full_rank":int}, ...]
     """
@@ -325,7 +326,28 @@ def get_midcap_universe(name_cache: dict, force_refresh: bool = False) -> list[d
         if cached and cached.get("tickers"):
             return cached["tickers"]
 
-    return refresh_universe(name_cache)
+    try:
+        return refresh_universe(name_cache)
+    except Exception as e:
+        print(f"  ⚠ 유니버스 갱신 실패: {e}")
+        # 갱신 실패 시 만료된 캐시라도 사용
+        stale = _load_stale_universe_cache()
+        if stale:
+            print(f"  ↩ 만료된 캐시 사용 ({len(stale)}종목) — 다음 실행 시 재시도")
+            return stale
+        return []
+
+
+def _load_stale_universe_cache() -> list[dict]:
+    """만료 여부 무관하게 캐시된 유니버스를 반환합니다 (비상용)."""
+    if not os.path.exists(UNIVERSE_PATH):
+        return []
+    try:
+        with open(UNIVERSE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("tickers", [])
+    except Exception:
+        return []
 
 
 # ── 일별 시총 수집 ────────────────────────────────────────────────────────────
