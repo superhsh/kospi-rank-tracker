@@ -1,9 +1,11 @@
 name: ⭐ Custom Watchlist Signal Monitor
 
 on:
-  # 평일 KST 07:00 (UTC 22:00) — 미국 장 마감(04:00 KST) + 한국 장 시작 전
+  # 평일 KST 08:00 (UTC 23:00 전날) — 미국 장 마감 + 한국 장 시작 전
+  # 평일 KST 17:00 (UTC 08:00)      — 한국 장 마감 직후
   schedule:
-    - cron: '0 22 * * 1-5'
+    - cron: '0 23 * * 0-4'   # KST 08:00 (월~금)
+    - cron: '0 8 * * 1-5'    # KST 17:00 (월~금)
 
   # 수동 실행
   workflow_dispatch:
@@ -12,21 +14,19 @@ on:
         description: 'Dry-run (Telegram 발송 없이 신호만 출력): yes/no'
         required: false
         default: 'no'
-      summary:
-        description: '전체 현황 요약도 발송: yes/no'
-        required: false
-        default: 'yes'
 
 jobs:
   custom-signal-monitor:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
 
     steps:
       # ① 코드 체크아웃
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # ② Python 환경 설정
       - name: Set up Python 3.11
@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # ④ 신호 모니터링 실행
+      # ④ 신호 모니터링 실행 + signal_latest.json 저장
       - name: Run custom watchlist signal monitor
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -47,13 +47,19 @@ jobs:
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "yes" ]; then
-            ARGS="$ARGS --dry-run"
-          fi
-          if [ "${{ github.event.inputs.summary }}" = "yes" ]; then
-            ARGS="$ARGS --summary"
-          fi
-          # 스케줄 실행 시 기본으로 summary 포함
-          if [ -z "${{ github.event.inputs.summary }}" ]; then
-            ARGS="$ARGS --summary"
+            ARGS="--dry-run"
           fi
           python run_custom_signals.py $ARGS
+
+      # ⑤ signal_latest.json 커밋 & 푸시
+      - name: Commit signal results
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "github-actions[bot]"
+          git add data/signal_latest.json 2>/dev/null || true
+          git diff --staged --quiet && echo "변경사항 없음 — 커밋 스킵" && exit 0
+          git commit -m "⭐ Signal Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            sleep 10
+          done

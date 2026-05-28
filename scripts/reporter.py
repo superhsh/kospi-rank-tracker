@@ -444,6 +444,21 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .mkt-tag.kospi  { background: #e8f5e9; color: #2e7d32; }
     .mkt-tag.kosdaq { background: #e0f2f1; color: #00695c; }
 
+    /* ── 관심종목 신호 배지 ── */
+    .signal-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+    .signal-badge {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: 10px; font-weight: 700; padding: 2px 8px;
+      border-radius: 10px; white-space: nowrap; line-height: 1.4;
+    }
+    .signal-badge.cci-zero  { background: #e8f5e9; color: #2e7d32; }
+    .signal-badge.cci-100   { background: #fff3e0; color: #e65100; }
+    .signal-badge.sar-buy   { background: #e8f5e9; color: #1b5e20; }
+    .signal-badge.sar-sell  { background: #fce4ec; color: #b71c1c; }
+    .signal-badge.stoch-exit   { background: #e3f2fd; color: #0d47a1; }
+    .signal-badge.stoch-cross  { background: #fffde7; color: #f57f17; }
+    .signal-updated { font-size: 10px; color: #bbb; margin-top: 4px; }
+
     /* ── 푸터 ── */
     footer {
       text-align: center; padding: 20px 16px;
@@ -529,6 +544,7 @@ let DATA_US      = null;
 let DATA_CRYPTO  = null;
 let DATA_MIDCAP  = null;
 let DATA_CUSTOM  = null;
+let DATA_SIGNALS = null;   // signal_latest.json — 관심종목 신호 배지용
 let loadingUS     = false;
 let loadingCrypto = false;
 let loadingMidcap = false;
@@ -1022,13 +1038,13 @@ function loadCustomData() {
   loadingCustom = true;
   showLoadingSpinner('⭐ 관심종목 데이터 로딩 중...');
 
-  fetch('data/report_custom.json')
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
-    .then(data => {
-      DATA_CUSTOM   = data;
+  const fetchCustom  = fetch('data/report_custom.json').then(r => r.ok ? r.json() : Promise.reject(r.status));
+  const fetchSignals = fetch('data/signal_latest.json').then(r => r.ok ? r.json() : null).catch(() => null);
+
+  Promise.all([fetchCustom, fetchSignals])
+    .then(([customData, signalData]) => {
+      DATA_CUSTOM   = customData;
+      DATA_SIGNALS  = signalData;
       loadingCustom = false;
       updateHeader();
       render();
@@ -1715,6 +1731,29 @@ function renderCustomPeriod() {
 
   const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[m] || m);
 
+  // 신호 배지 렌더링 헬퍼
+  const BADGE_CLS = {
+    cci_zero_cross:      'cci-zero',
+    cci_100_cross:       'cci-100',
+    sar_buy:             'sar-buy',
+    sar_sell:            'sar-sell',
+    stoch_oversold_exit: 'stoch-exit',
+    stoch_golden_cross:  'stoch-cross',
+  };
+  function signalBadgesHTML(ticker, market) {
+    if (!DATA_SIGNALS?.signals) return '';
+    const key  = ticker + '_' + market;
+    const info = DATA_SIGNALS.signals[key];
+    if (!info?.signals?.length) return '';
+    const badges = info.signals.map(sig => {
+      const cls = BADGE_CLS[sig.type] || 'cci-zero';
+      return `<span class="signal-badge ${cls}" title="${esc(sig.detail)}">${esc(sig.label)}</span>`;
+    }).join('');
+    const upd = DATA_SIGNALS.updated_at || '';
+    return `<div class="signal-badges">${badges}</div>`
+         + (upd ? `<div class="signal-updated">신호 스캔: ${upd}</div>` : '');
+  }
+
   cards.innerHTML = pd.items.map((s, i) => {
     const isKorea   = s.market === 'kospi' || s.market === 'kosdaq';
     const tickerUrl = isKorea
@@ -1727,6 +1766,7 @@ function renderCustomPeriod() {
     const medalCls  = ['m1','m2','m3','',''][i] || '';
     const chgCls    = s.change_pct > 0 ? 'up' : s.change_pct < 0 ? 'down' : 'flat';
     const sign      = s.change_pct > 0 ? '+' : '';
+    const sigBadges = signalBadgesHTML(s.ticker, s.market);
 
     return `
     <div class="custom-card">
@@ -1743,6 +1783,7 @@ function renderCustomPeriod() {
           <span class="stock-mktcap">${esc(s.market_cap_str)}</span>
         </div>
         <div style="font-size:11px;color:#aaa;margin-top:3px">이전: ${esc(s.prev_market_cap_str)}</div>
+        ${sigBadges}
       </div>
       <div class="rank-change" style="text-align:right;min-width:80px">
         <div class="chg-num ${chgCls}">${sign}${s.change_pct}%</div>

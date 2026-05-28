@@ -18,15 +18,17 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-from scripts.custom_signal_monitor import run_custom_monitor, send_daily_summary
+from scripts.custom_signal_monitor import (
+    run_custom_monitor,
+    save_signal_results,
+    send_daily_summary,
+)
 
 
 def main():
     parser = argparse.ArgumentParser(description="관심종목 CCI + 파라볼릭 SAR 모니터")
-    parser.add_argument("--dry-run",  action="store_true",
+    parser.add_argument("--dry-run", action="store_true",
                         help="Telegram 발송 없이 신호만 출력")
-    parser.add_argument("--summary",  action="store_true",
-                        help="전체 현황 요약도 발송")
     args = parser.parse_args()
 
     token   = os.environ.get("TELEGRAM_BOT_TOKEN", "")
@@ -51,8 +53,12 @@ def main():
     total_signals = sum(len(r["all_signals"]) for r in results)
     print(f"\n  결과: {len(results)}개 종목 스캔  |  신호 {total_signals}건")
 
-    if args.summary and not args.dry_run:
-        print("  일별 요약 발송 중...")
+    # 신호 결과를 JSON으로 저장 (UI 배지 표시용, dry-run 포함 항상 실행)
+    save_signal_results(results)
+
+    # 신호 요약 Telegram 발송 (신호 있는 종목만, dry-run 제외)
+    if not args.dry_run:
+        print("  신호 요약 발송 중...")
         send_daily_summary(token, chat_id, results)
 
     print(f"{'='*54}\n")

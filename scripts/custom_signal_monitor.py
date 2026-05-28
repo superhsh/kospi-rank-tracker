@@ -383,17 +383,12 @@ def run_custom_monitor(
               f"신호:{len(all_signals)}건")
 
         if all_signals:
-            msg = build_alert_message(
-                stock, cci_signals, sar_signals, stoch_signals,
-                cci_val, sar_val, curr_trend, slow_k_val, slow_d_val,
-            )
-            if not dry_run:
-                ok     = send_telegram(telegram_token, telegram_chat_id, msg)
-                status = "✓ 발송" if ok else "✗ 실패"
-            else:
-                print(f"      [dry-run 메시지]\n{msg}")
-                status = "(dry-run)"
-            print(f"      {status}")
+            if dry_run:
+                msg = build_alert_message(
+                    stock, cci_signals, sar_signals, stoch_signals,
+                    cci_val, sar_val, curr_trend, slow_k_val, slow_d_val,
+                )
+                print(f"      [dry-run 미리보기]\n{msg}")
             for sig in all_signals:
                 print(f"        → {sig['label']}")
 
@@ -415,38 +410,84 @@ def run_custom_monitor(
     return results
 
 
-# ── 일별 요약 발송 ───────────────────────────────────────────────────────────
+# ── 신호 결과 JSON 저장 ──────────────────────────────────────────────────────
+def save_signal_results(results: list[dict]) -> str:
+    """
+    신호 감지 결과를 data/signal_latest.json 에 저장합니다.
+    UI에서 관심종목 일별 카드에 신호 배지를 표시하는 데 사용합니다.
+
+    저장 형식:
+      {
+        "updated_at": "2026-05-27 08:00",
+        "signals": {
+          "AAPL_us": {
+            "ticker": "AAPL", "market": "us", "name": "Apple",
+            "signals": [{"type":..., "label":..., "detail":...}, ...]
+          },
+          ...  ← 신호 있는 종목만 저장
+        }
+      }
+    """
+    out_path = os.path.join(BASE_DIR, "data", "signal_latest.json")
+    signals_by_key = {}
+    for r in results:
+        if not r["all_signals"]:
+            continue
+        stock = r["stock"]
+        key   = f"{stock['ticker']}_{stock.get('market','us')}"
+        signals_by_key[key] = {
+            "ticker":  stock["ticker"],
+            "market":  stock.get("market", "us"),
+            "name":    stock.get("name", stock["ticker"]),
+            "signals": r["all_signals"],
+        }
+
+    data = {
+        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "signals":    signals_by_key,
+    }
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    import json
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"  ✓ 신호 결과 저장: {out_path} ({len(signals_by_key)}개 종목)")
+    return out_path
+
+
+# ── 신호 요약 발송 (신호 있는 종목만) ────────────────────────────────────────
 def send_daily_summary(token: str, chat_id: str, results: list[dict]):
-    """일별 CCI + SAR + Stochastics 현황 요약 메시지를 발송합니다."""
-    if not results:
+    """
+    신호가 발생한 종목만 포함한 요약 메시지를 Telegram으로 발송합니다.
+    신호 없는 종목은 표시하지 않으며, 신호가 전혀 없으면 '신호 없음' 메시지를 발송합니다.
+    """
+    signal_results = [r for r in results if r["all_signals"]]
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    if not signal_results:
+        msg = (
+            f"<b>⭐ 관심종목 신호 요약</b>  {now_str}\n\n"
+            f"🔕 오늘 감지된 신호가 없습니다.\n"
+            f"<i>(관심종목 {len(results)}개 스캔 완료)</i>"
+        )
+        send_telegram(token, chat_id, msg)
         return
 
     lines = [
-        f"<b>⭐ 관심종목 신호 요약</b>  {datetime.now().strftime('%Y-%m-%d')}",
-        f"<i>CCI(20) | SAR | Stoch({STOCH_K_PERIOD},{STOCH_D_PERIOD},{STOCH_SMOOTH}) 과열={int(STOCH_OVERBOUGHT)}/침체={int(STOCH_OVERSOLD)}</i>",
+        f"<b>⭐ 관심종목 신호 요약</b>  {now_str}",
+        f"<i>신호 발생 {len(signal_results)}개 종목 / 전체 {len(results)}개 스캔</i>",
         "",
     ]
 
-    for r in results:
+    for r in signal_results:
         stock  = r["stock"]
-        cci    = r["cci"]
-        trend  = r["sar_trend"]
-        slow_k = r.get("slow_k", 0)
-        slow_d = r.get("slow_d", 0)
+        mkt    = MARKET_LABEL.get(stock.get("market", "us"), "")
+        lines.append(f"<b>{stock['name']}</b>  <code>{stock['ticker']}</code>  [{mkt}]")
+        for sig in r["all_signals"]:
+            lines.append(f"  {sig['label']}")
+            lines.append(f"  <i>{sig['detail']}</i>")
+        lines.append("")
 
-        cci_icon   = ("🔴" if cci >= 100 else "🟢" if cci >= 0 else "🟡" if cci >= -100 else "🔵")
-        trend_icon = "▲" if trend == 1 else "▼"
-        stoch_icon = ("🔴" if slow_k >= STOCH_OVERBOUGHT else
-                      "🔵" if slow_k <= STOCH_OVERSOLD   else "⚪")
-
-        sig_count = len(r["all_signals"])
-        sig_str   = f" ⚡{sig_count}건" if sig_count else ""
-
-        lines.append(
-            f"{cci_icon}{trend_icon}{stoch_icon} <b>{stock['name']}</b>"
-            f"  CCI {cci}  %K {slow_k}/%D {slow_d}{sig_str}"
-        )
-
+    lines.append(f"🕐 {now_str}")
     msg = "\n".join(lines)
     if len(msg) > 4000:
         msg = msg[:4000] + "\n…(생략)"
