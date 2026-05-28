@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-22 05:29",
+  "updated_at": "2026-05-28 12:54",
   "stocks": [
     {
       "ticker": "IREN",
@@ -300,6 +300,36 @@
       "name": "Render",
       "market": "coin",
       "added_at": "2026-05-22"
+    },
+    {
+      "ticker": "CACI",
+      "name": "CACI",
+      "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "RDW",
+      "name": "RDW",
+      "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "MCHP",
+      "name": "MCHP",
+      "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "PL",
+      "name": "PL",
+      "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "SPIR",
+      "name": "SPIR",
+      "market": "us",
+      "added_at": "2026-05-28"
     }
   ]
 }
