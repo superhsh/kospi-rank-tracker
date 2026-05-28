@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-28 12:54",
+  "updated_at": "2026-05-28 13:29",
   "stocks": [
     {
       "ticker": "IREN",
@@ -329,6 +329,42 @@
       "ticker": "SPIR",
       "name": "SPIR",
       "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "420770",
+      "name": "기가비스",
+      "market": "kosdaq",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "347850",
+      "name": "디앤디파마텍",
+      "market": "kosdaq",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "WDC",
+      "name": "Western Digital Corporation",
+      "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "NXPI",
+      "name": "NXP Semiconductors N.V.",
+      "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "MRVL",
+      "name": "Marvell Technology, Inc.",
+      "market": "us",
+      "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "003670",
+      "name": "포스코퓨처엠",
+      "market": "kospi",
       "added_at": "2026-05-28"
     }
   ]
