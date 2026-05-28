@@ -228,7 +228,7 @@
     "name": "META",
     "market": "us",
     "currency": "USD",
-    "market_cap": 1612546108377.165,
+    "market_cap": 1612558812888.33,
     "market_cap_str": "$1.61T"
   },
   {
@@ -300,64 +300,64 @@
     "name": "HD현대마린솔루션",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 10804351735000.0,
-    "market_cap_str": "10.80조"
+    "market_cap": 10131881710000.0,
+    "market_cap_str": "10.13조"
   },
   {
     "ticker": "064400",
     "name": "LG씨엔에스",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 9165410680800.0,
-    "market_cap_str": "9.17조"
+    "market_cap": 8487209044800.0,
+    "market_cap_str": "8.49조"
   },
   {
     "ticker": "011070",
     "name": "LG이노텍",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 24705745308000.0,
-    "market_cap_str": "24.71조"
+    "market_cap": 26835550938000.0,
+    "market_cap_str": "26.84조"
   },
   {
     "ticker": "307950",
     "name": "현대오토에버",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 20978683740000.0,
-    "market_cap_str": "20.98조"
+    "market_cap": 20457644536000.0,
+    "market_cap_str": "20.46조"
   },
   {
     "ticker": "080220",
     "name": "제주반도체",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 3540094230400.0,
-    "market_cap_str": "3.54조"
+    "market_cap": 3695036508800.0,
+    "market_cap_str": "3.70조"
   },
   {
     "ticker": "036540",
     "name": "SFA반도체",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1541270990600.0,
-    "market_cap_str": "1.54조"
+    "market_cap": 1475684991000.0,
+    "market_cap_str": "1.48조"
   },
   {
     "ticker": "166090",
     "name": "하나머티리얼즈",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1433206283600.0,
-    "market_cap_str": "1.43조"
+    "market_cap": 1338687968800.0,
+    "market_cap_str": "1.34조"
   },
   {
     "ticker": "417200",
     "name": "LS머트리얼즈",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1569541688800.0,
-    "market_cap_str": "1.57조"
+    "market_cap": 1515419561600.0,
+    "market_cap_str": "1.52조"
   },
   {
     "ticker": "ATOM",
@@ -366,5 +366,45 @@
     "currency": "USD",
     "market_cap": 427037469.66171265,
     "market_cap_str": "$0.4B"
+  },
+  {
+    "ticker": "CACI",
+    "name": "CACI",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 11285122165.299225,
+    "market_cap_str": "$11.3B"
+  },
+  {
+    "ticker": "RDW",
+    "name": "RDW",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 4774049472.0,
+    "market_cap_str": "$4.8B"
+  },
+  {
+    "ticker": "MCHP",
+    "name": "MCHP",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 52500377537.70266,
+    "market_cap_str": "$52.5B"
+  },
+  {
+    "ticker": "PL",
+    "name": "PL",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 17990728370.936142,
+    "market_cap_str": "$18.0B"
+  },
+  {
+    "ticker": "SPIR",
+    "name": "SPIR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 986370250.7992592,
+    "market_cap_str": "$1.0B"
   }
 ]
