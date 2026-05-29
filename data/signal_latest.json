@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-29 00:08",
+  "updated_at": "2026-05-29 11:35",
   "signals": {
     "HOOD_us": {
       "ticker": "HOOD",
@@ -67,7 +67,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -89.2 → 당일 85.0"
+          "detail": "전일 -89.2 → 당일 96.9"
         },
         {
           "type": "sar_buy",
@@ -88,27 +88,15 @@
         }
       ]
     },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
+    "064400_kospi": {
+      "ticker": "064400",
+      "market": "kospi",
+      "name": "LG씨엔에스",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 137100.0  >  종가 109700.0"
-        }
-      ]
-    },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 87900.0  >  종가 69400.0"
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 69000.0  <  종가 113800.0"
         }
       ]
     },
@@ -120,7 +108,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 98.9 → 당일 107.5"
+          "detail": "전일 98.9 → 당일 110.0"
         }
       ]
     },
@@ -142,9 +130,26 @@
       "name": "기가비스",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 145400.0  >  종가 130700.0"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 90.9 → 당일 161.7"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 117400.0  <  종가 141400.0"
+        }
+      ]
+    },
+    "003670_kospi": {
+      "ticker": "003670",
+      "market": "kospi",
+      "name": "포스코퓨처엠",
+      "signals": [
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 211500.0  <  종가 245500.0"
         }
       ]
     }
