@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-02 00:10",
+  "updated_at": "2026-06-02 12:11",
   "signals": {
     "RKLB_us": {
       "ticker": "RKLB",
@@ -102,51 +102,15 @@
         }
       ]
     },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 81.2  ↑  %D 76.7"
-        }
-      ]
-    },
-    "080220_kosdaq": {
-      "ticker": "080220",
+    "417200_kosdaq": {
+      "ticker": "417200",
       "market": "kosdaq",
-      "name": "제주반도체",
+      "name": "LS머트리얼즈",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 137100.0  >  종가 98500.0"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 11640.0  >  종가 7930.0"
-        }
-      ]
-    },
-    "NEAR_coin": {
-      "ticker": "NEAR",
-      "market": "coin",
-      "name": "NEAR Protocol",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 50.8  >  종가 50.59"
+          "detail": "SAR 25150.0  >  종가 19040.0"
         }
       ]
     },
@@ -180,9 +144,9 @@
       "name": "기가비스",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 61.9  ↑  %D 60.3"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 158000.0  >  종가 125400.0"
         }
       ]
     },
