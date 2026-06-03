@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-03 00:26",
+  "updated_at": "2026-06-03 12:47",
   "signals": {
     "BE_us": {
       "ticker": "BE",
@@ -9,7 +9,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -41.3 → 당일 59.7"
+          "detail": "전일 -41.3 → 당일 58.7"
         }
       ]
     },
