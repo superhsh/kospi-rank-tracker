@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-08 00:03",
+  "updated_at": "2026-06-08 12:39",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -229,75 +229,15 @@
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
-      "market": "kospi",
-      "name": "HD현대마린솔루션",
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 260500.0  >  종가 222000.0"
-        }
-      ]
-    },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 1788000.0  >  종가 1160000.0"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 10.9  ↑  %D 9.3"
-        }
-      ]
-    },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 11.0 → 22.6  |  %D 12.3"
-        }
-      ]
-    },
-    "417200_kosdaq": {
-      "ticker": "417200",
-      "market": "kosdaq",
-      "name": "LS머트리얼즈",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 8.9  ↑  %D 8.8"
-        }
-      ]
-    },
-    "420770_kosdaq": {
-      "ticker": "420770",
-      "market": "kosdaq",
-      "name": "기가비스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 46.7  ↑  %D 45.4"
+          "detail": "SAR 114700.0  >  종가 78600.0"
         }
       ]
     },
@@ -310,18 +250,6 @@
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
           "detail": "SAR 339.95  >  종가 295.96"
-        }
-      ]
-    },
-    "003670_kospi": {
-      "ticker": "003670",
-      "market": "kospi",
-      "name": "포스코퓨처엠",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 249500.0  >  종가 209000.0"
         }
       ]
     }
