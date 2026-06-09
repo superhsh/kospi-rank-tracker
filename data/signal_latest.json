@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-09 00:02",
+  "updated_at": "2026-06-09 11:23",
   "signals": {
     "IONQ_us": {
       "ticker": "IONQ",
@@ -71,6 +71,47 @@
         }
       ]
     },
+    "443060_kospi": {
+      "ticker": "443060",
+      "market": "kospi",
+      "name": "HD현대마린솔루션",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.1 → 23.4  |  %D 20.6"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 23.4  ↑  %D 20.6"
+        }
+      ]
+    },
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 1066000.0  >  종가 687000.0"
+        }
+      ]
+    },
+    "036540_kosdaq": {
+      "ticker": "036540",
+      "market": "kosdaq",
+      "name": "SFA반도체",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 13.6  ↑  %D 10.8"
+        }
+      ]
+    },
     "ATOM_coin": {
       "ticker": "ATOM",
       "market": "coin",
@@ -97,18 +138,6 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 22.6  ↑  %D 20.2"
-        }
-      ]
-    },
-    "347850_kosdaq": {
-      "ticker": "347850",
-      "market": "kosdaq",
-      "name": "디앤디파마텍",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 114700.0  >  종가 78600.0"
         }
       ]
     }
