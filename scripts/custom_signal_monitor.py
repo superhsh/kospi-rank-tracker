@@ -231,6 +231,30 @@ def detect_sar_signals(sar: pd.Series, trend: pd.Series,
     return signals
 
 
+def detect_ribbon_signals(df: pd.DataFrame) -> list[dict]:
+    """
+    Dynamic Flow Ribbon Candle 매수 신호를 감지합니다.
+    전일 norm < 0 (하락, 빨강) → 당일 norm >= 0 (상승, 초록) 전환 시 매수 신호.
+    """
+    try:
+        from scripts.chart_builder import compute_ribbon
+        norm  = compute_ribbon(df)
+        valid = norm.dropna()
+        if len(valid) < 2:
+            return []
+        prev_norm = float(valid.iloc[-2])
+        curr_norm = float(valid.iloc[-1])
+        if prev_norm < 0 and curr_norm >= 0:
+            return [{
+                "type":   "ribbon_buy",
+                "label":  "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+                "detail": f"전일 norm {round(prev_norm, 3)} → 당일 norm {round(curr_norm, 3)}",
+            }]
+    except Exception as e:
+        print(f"      ⚠ Ribbon 신호 계산 실패: {e}")
+    return []
+
+
 def detect_stoch_signals(
     slow_k: pd.Series,
     slow_d: pd.Series,
@@ -353,7 +377,8 @@ def run_custom_monitor(
         name   = stock.get("name", ticker)
         print(f"    [{market.upper()}] {ticker} ({name})...")
 
-        df = fetch_ohlcv(ticker, market)
+        # Ribbon 계산에 충분한 데이터(HMA 55 + ATR 14)를 위해 200일 수집
+        df = fetch_ohlcv(ticker, market, days=200)
         if df.empty or len(df) < min_bars:
             print(f"      ⚠ 데이터 부족 ({len(df)}일, 필요: {min_bars}일)")
             continue
@@ -375,7 +400,10 @@ def run_custom_monitor(
         slow_d_val     = float(slow_d.dropna().iloc[-1])
         stoch_signals  = detect_stoch_signals(slow_k, slow_d)
 
-        all_signals = cci_signals + sar_signals + stoch_signals
+        # Ribbon Candle 매수 신호 (하락→상승 전환)
+        ribbon_signals = detect_ribbon_signals(df)
+
+        all_signals = cci_signals + sar_signals + stoch_signals + ribbon_signals
 
         trend_icon = "▲" if curr_trend == 1 else "▼"
         print(f"      CCI:{round(cci_val,1)}  SAR:{trend_icon}  "
@@ -393,16 +421,17 @@ def run_custom_monitor(
                 print(f"        → {sig['label']}")
 
         results.append({
-            "stock":         stock,
-            "cci":           round(cci_val, 1),
-            "cci_signals":   cci_signals,
-            "sar_trend":     curr_trend,
-            "sar":           round(sar_val, 4),
-            "sar_signals":   sar_signals,
-            "slow_k":        round(slow_k_val, 1),
-            "slow_d":        round(slow_d_val, 1),
-            "stoch_signals": stoch_signals,
-            "all_signals":   all_signals,
+            "stock":           stock,
+            "cci":             round(cci_val, 1),
+            "cci_signals":     cci_signals,
+            "sar_trend":       curr_trend,
+            "sar":             round(sar_val, 4),
+            "sar_signals":     sar_signals,
+            "slow_k":          round(slow_k_val, 1),
+            "slow_d":          round(slow_d_val, 1),
+            "stoch_signals":   stoch_signals,
+            "ribbon_signals":  ribbon_signals,
+            "all_signals":     all_signals,
         })
 
         time.sleep(0.5)

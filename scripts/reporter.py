@@ -458,6 +458,19 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .signal-badge.stoch-exit   { background: #e3f2fd; color: #0d47a1; }
     .signal-badge.stoch-cross  { background: #fffde7; color: #f57f17; }
     .signal-updated { font-size: 10px; color: #bbb; margin-top: 4px; }
+    .signal-badge.ribbon-buy { background: #e0f2f1; color: #00695c; }
+
+    /* ── 관심종목 마켓 그룹 헤더 ── */
+    .market-group-header {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; color: #888;
+      letter-spacing: .4px; text-transform: uppercase;
+      padding: 14px 2px 5px;
+      border-bottom: 1px solid #ebebeb;
+      margin-bottom: 2px;
+    }
+    .market-group-header:first-child { padding-top: 4px; }
+    .grp-count { font-weight: 500; color: #bbb; }
 
     /* ── 차트 버튼 & 모달 ── */
     .chart-btn {
@@ -1769,7 +1782,7 @@ function renderCustomPeriod() {
   label.className   = 'compare-label';
   label.textContent = '기준: ' + fmtDate(pd.prev_date);
 
-  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[m] || m);
+  const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국', coin:'코인' }[m] || m);
 
   // 신호 배지 렌더링 헬퍼
   const BADGE_CLS = {
@@ -1779,6 +1792,7 @@ function renderCustomPeriod() {
     sar_sell:            'sar-sell',
     stoch_oversold_exit: 'stoch-exit',
     stoch_golden_cross:  'stoch-cross',
+    ribbon_buy:          'ribbon-buy',
   };
   function signalBadgesHTML(ticker, market) {
     if (!DATA_SIGNALS?.signals) return '';
@@ -1794,29 +1808,25 @@ function renderCustomPeriod() {
          + (upd ? `<div class="signal-updated">신호 스캔: ${upd}</div>` : '');
   }
 
-  cards.innerHTML = pd.items.map((s, i) => {
+  // 카드 1개 HTML 생성
+  function renderCard(s, i) {
     const isKorea   = s.market === 'kospi' || s.market === 'kosdaq';
     const tickerUrl = isKorea
       ? naverUrl(s.ticker)
       : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
-    const nameUrl   = isKorea
-      ? naverUrl(s.ticker)
-      : `https://finance.yahoo.com/quote/${encodeURIComponent(s.ticker)}`;
-    const mktCls    = s.market;
-    const medalCls  = ['m1','m2','m3','',''][i] || '';
+    const medalCls  = ['m1','m2','m3'][i] || '';
     const chgCls    = s.change_pct > 0 ? 'up' : s.change_pct < 0 ? 'down' : 'flat';
     const sign      = s.change_pct > 0 ? '+' : '';
     const sigBadges = signalBadgesHTML(s.ticker, s.market);
-
     return `
     <div class="custom-card">
       <div class="medal ${medalCls}">${i + 1}</div>
       <div class="stock-info">
         <div class="stock-name">
-          <a class="stock-name-link" href="${nameUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
+          <a class="stock-name-link" href="${tickerUrl}" target="_blank" rel="noopener">${esc(s.name)}</a>
         </div>
         <div class="stock-sub">
-          <span class="mkt-tag ${mktCls}">${mktName(s.market)}</span>
+          <span class="mkt-tag ${s.market}">${mktName(s.market)}</span>
           <a class="stock-ticker-link" href="${tickerUrl}" target="_blank" rel="noopener">
             <span class="stock-ticker">${esc(s.ticker)}</span>
           </a>
@@ -1831,7 +1841,23 @@ function renderCustomPeriod() {
         <button class="chart-btn" onclick="openChartModal('${esc(s.ticker)}','${s.market}','${esc(s.name)}');event.stopPropagation()">📊 차트</button>
       </div>
     </div>`;
-  }).join('');
+  }
+
+  // 마켓별 그룹 렌더링
+  const GROUPS = [
+    { label: '🇰🇷 한국', markets: ['kospi', 'kosdaq'] },
+    { label: '🇺🇸 미국',  markets: ['us'] },
+    { label: '🪙 코인',   markets: ['coin'] },
+  ];
+
+  let html = '';
+  for (const grp of GROUPS) {
+    const grpItems = pd.items.filter(s => grp.markets.includes(s.market));
+    if (!grpItems.length) continue;
+    html += `<div class="market-group-header">${grp.label} <span class="grp-count">${grpItems.length}개</span></div>`;
+    grpItems.forEach((s, i) => { html += renderCard(s, i); });
+  }
+  cards.innerHTML = html;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
