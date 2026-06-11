@@ -1,0 +1,76 @@
+{
+  "updated_at": "2026-06-11 11:56",
+  "summary": {
+    "kr": 5,
+    "us": 4,
+    "coin": 0
+  },
+  "kr": [
+    {
+      "ticker": "240810",
+      "name": "원익IPS",
+      "market": "kosdaq",
+      "prev_norm": -0.026,
+      "curr_norm": 0.0241
+    },
+    {
+      "ticker": "222800",
+      "name": "심텍",
+      "market": "kosdaq",
+      "prev_norm": -0.0405,
+      "curr_norm": 0.0048
+    },
+    {
+      "ticker": "031980",
+      "name": "피에스케이홀딩스",
+      "market": "kosdaq",
+      "prev_norm": -0.0204,
+      "curr_norm": 0.0067
+    },
+    {
+      "ticker": "131290",
+      "name": "티에스이",
+      "market": "kosdaq",
+      "prev_norm": -0.0005,
+      "curr_norm": 0.0472
+    },
+    {
+      "ticker": "089030",
+      "name": "테크윙",
+      "market": "kosdaq",
+      "prev_norm": -0.0072,
+      "curr_norm": 0.0298
+    }
+  ],
+  "us": [
+    {
+      "ticker": "MDLZ",
+      "name": "MDLZ",
+      "market": "us",
+      "prev_norm": -0.0093,
+      "curr_norm": 0.0379
+    },
+    {
+      "ticker": "KHC",
+      "name": "KHC",
+      "market": "us",
+      "prev_norm": -0.0186,
+      "curr_norm": 0.0257
+    },
+    {
+      "ticker": "AFL",
+      "name": "AFL",
+      "market": "us",
+      "prev_norm": -0.0007,
+      "curr_norm": 0.0235
+    },
+    {
+      "ticker": "ALLE",
+      "name": "ALLE",
+      "market": "us",
+      "prev_norm": -0.0065,
+      "curr_norm": 0.0039
+    }
+  ],
+  "coin": []
+}
