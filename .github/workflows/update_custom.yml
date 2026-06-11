@@ -48,12 +48,29 @@ jobs:
           fi
           python run_daily_custom.py $DATE_ARG
 
-      # ⑥ 결과 커밋 및 푸시
+      # ⑥ index.html 재생성 (최신 reporter.py 템플릿 반영)
+      - name: Regenerate index.html
+        run: |
+          python - <<'EOF'
+import json, sys, os
+sys.path.insert(0, '.')
+from scripts.reporter import generate_html
+kr_path = 'data/report.json'
+if os.path.exists(kr_path):
+    with open(kr_path, encoding='utf-8') as f:
+        data = json.load(f)
+    generate_html(data)
+    print('index.html 재생성 완료')
+else:
+    print('data/report.json 없음 — index.html 재생성 스킵')
+EOF
+
+      # ⑦ 결과 커밋 및 푸시
       - name: Commit and push data
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/custom/ data/report_custom.json
+          git add data/custom/ data/report_custom.json index.html
           git diff --cached --quiet && echo "변경 없음" || \
             git commit -m "⭐ Update custom watchlist data $(date -u +%Y-%m-%d)"
           for i in 1 2 3; do
