@@ -56,4 +56,7 @@ jobs:
           git add data/custom/ data/report_custom.json
           git diff --cached --quiet && echo "변경 없음" || \
             git commit -m "⭐ Update custom watchlist data $(date -u +%Y-%m-%d)"
-          git push
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            sleep 10
+          done

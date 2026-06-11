@@ -2095,7 +2095,6 @@ init();
 
 </body>
 </html>"""
-"""
 
 
 def generate_html(report_data: dict, output_path: str = OUTPUT_HTML) -> str:
