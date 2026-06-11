@@ -300,16 +300,16 @@
     "name": "HD현대마린솔루션",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 10669857730000.0,
-    "market_cap_str": "10.67조"
+    "market_cap": 10871598737500.0,
+    "market_cap_str": "10.87조"
   },
   {
     "ticker": "064400",
     "name": "LG씨엔에스",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 8855375647200.0,
-    "market_cap_str": "8.86조"
+    "market_cap": 8816621268000.0,
+    "market_cap_str": "8.82조"
   },
   {
     "ticker": "011070",
@@ -324,40 +324,40 @@
     "name": "현대오토에버",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 18318641488000.0,
-    "market_cap_str": "18.32조"
+    "market_cap": 18291218372000.0,
+    "market_cap_str": "18.29조"
   },
   {
     "ticker": "080220",
     "name": "제주반도체",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 3135896982400.0,
-    "market_cap_str": "3.14조"
+    "market_cap": 3105582188800.0,
+    "market_cap_str": "3.11조"
   },
   {
     "ticker": "036540",
     "name": "SFA반도체",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1129718843110.0,
-    "market_cap_str": "1.13조"
+    "market_cap": 1101844793280.0,
+    "market_cap_str": "1.10조"
   },
   {
     "ticker": "166090",
     "name": "하나머티리얼즈",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1271174886800.0,
-    "market_cap_str": "1.27조"
+    "market_cap": 1261530160800.0,
+    "market_cap_str": "1.26조"
   },
   {
     "ticker": "417200",
     "name": "LS머트리얼즈",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1063499799480.0,
-    "market_cap_str": "1.06조"
+    "market_cap": 1050645794270.0,
+    "market_cap_str": "1.05조"
   },
   {
     "ticker": "ATOM",
@@ -412,7 +412,7 @@
     "name": "기가비스",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1590807629000.0,
+    "market_cap": 1589540053200.0,
     "market_cap_str": "1.59조"
   },
   {
@@ -420,8 +420,8 @@
     "name": "디앤디파마텍",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 4066209162000.0,
-    "market_cap_str": "4.07조"
+    "market_cap": 3983491845000.0,
+    "market_cap_str": "3.98조"
   },
   {
     "ticker": "WDC",
@@ -452,7 +452,7 @@
     "name": "포스코퓨처엠",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 16321624764000.0,
-    "market_cap_str": "16.32조"
+    "market_cap": 16108153922400.0,
+    "market_cap_str": "16.11조"
   }
 ]
