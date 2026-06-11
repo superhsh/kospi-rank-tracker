@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-28 13:29",
+  "updated_at": "2026-06-11 11:09",
   "stocks": [
     {
       "ticker": "IREN",
@@ -366,6 +366,30 @@
       "name": "포스코퓨처엠",
       "market": "kospi",
       "added_at": "2026-05-28"
+    },
+    {
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "market": "kospi",
+      "added_at": "2026-06-11"
+    },
+    {
+      "ticker": "090710",
+      "name": "휴림로봇",
+      "market": "kosdaq",
+      "added_at": "2026-06-11"
+    },
+    {
+      "ticker": "DEXE",
+      "name": "DeXe",
+      "market": "coin",
+      "added_at": "2026-06-11"
+    },
+    {
+      "ticker": "WLD",
+      "name": "Worldcoin",
+      "market": "coin",
+      "added_at": "2026-06-11"
     }
   ]
 }
