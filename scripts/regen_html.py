@@ -17,10 +17,7 @@ kr_path = os.path.join(BASE_DIR, "data", "report.json")
 if os.path.exists(kr_path):
     with open(kr_path, encoding="utf-8") as f:
         data = json.load(f)
-    print("data/report.json 로드 완료")
+    generate_html(data)
+    print("index.html 재생성 완료")
 else:
-    data = {}
-    print("data/report.json 없음 — 빈 데이터로 재생성")
-
-generate_html(data)
-print("index.html 재생성 완료")
+    print("data/report.json 없음 — index.html 재생성 스킵")
