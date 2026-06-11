@@ -545,6 +545,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     <button class="tab-btn"        onclick="switchGroup('coin')">🪙 코인</button>
     <button class="tab-btn"        onclick="switchGroup('midcap')">📈 중형주</button>
     <button class="tab-btn"        onclick="switchGroup('custom')">⭐ 관심종목</button>
+    <button class="tab-btn"        onclick="switchGroup('screener')" style="color:#00796b;border-color:#b2dfdb">📡 스크리너</button>
   </div>
 
   <!-- 마켓 탭 (코인 그룹에선 숨김) -->
@@ -593,15 +594,17 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 const DATA_KR = /*__DATA_KR__*/null/*__DATA_KR__*/;
 
 // ── 동적 로딩 데이터 (US/Crypto/MidCap) ─────────────────────────────────────
-let DATA_US      = null;
-let DATA_CRYPTO  = null;
-let DATA_MIDCAP  = null;
-let DATA_CUSTOM  = null;
-let DATA_SIGNALS = null;   // signal_latest.json — 관심종목 신호 배지용
-let loadingUS     = false;
-let loadingCrypto = false;
-let loadingMidcap = false;
-let loadingCustom = false;
+let DATA_US       = null;
+let DATA_CRYPTO   = null;
+let DATA_MIDCAP   = null;
+let DATA_CUSTOM   = null;
+let DATA_SIGNALS  = null;   // signal_latest.json — 관심종목 신호 배지용
+let DATA_SCREENER = null;   // ribbon_screener.json
+let loadingUS       = false;
+let loadingCrypto   = false;
+let loadingMidcap   = false;
+let loadingCustom   = false;
+let loadingScreener = false;
 
 // ── 상태 ──────────────────────────────────────────────────────────────────────
 let currentGroup  = 'korea';
@@ -611,18 +614,20 @@ let activeChart   = null;
 
 // ── 그룹별 마켓/기간 정의 ─────────────────────────────────────────────────────
 const GROUP_MARKETS = {
-  korea:  ['kospi', 'kosdaq'],
-  us:     ['sp500', 'nasdaq100'],
-  coin:   ['coin'],
-  midcap: ['midcap'],
-  custom: ['custom'],
+  korea:    ['kospi', 'kosdaq'],
+  us:       ['sp500', 'nasdaq100'],
+  coin:     ['coin'],
+  midcap:   ['midcap'],
+  custom:   ['custom'],
+  screener: [],
 };
 const GROUP_PERIODS = {
-  korea:  ['intraday','daily','weekly','monthly','streak','summary'],
-  us:     ['daily','weekly','monthly','streak','summary'],
-  coin:   ['daily','weekly','monthly','streak','summary'],
-  midcap: ['daily','weekly','monthly','streak','summary'],
-  custom: ['manage','daily','weekly','monthly'],
+  korea:    ['intraday','daily','weekly','monthly','streak','summary'],
+  us:       ['daily','weekly','monthly','streak','summary'],
+  coin:     ['daily','weekly','monthly','streak','summary'],
+  midcap:   ['daily','weekly','monthly','streak','summary'],
+  custom:   ['manage','daily','weekly','monthly'],
+  screener: [],
 };
 const MARKET_LABEL = {
   kospi:     'KOSPI',
@@ -638,7 +643,8 @@ const GROUP_TITLE = {
   us:     '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
   coin:   '📈 암호화폐 시총 순위 상승 트래커',
   midcap: '📈 Russell 1000 중형주 시총 순위 상승 트래커',
-  custom: '⭐ 관심종목 시총 변동률 트래커',
+  custom:   '⭐ 관심종목 시총 변동률 트래커',
+  screener: '📡 Ribbon 매수 신호 스크리너  (HMA 55 기울기 전환)',
 };
 
 const PERIOD_META = {
@@ -743,7 +749,7 @@ function init() {
 /* ── 그룹 탭 구성 ────────────────────────────────────────────────────────── */
 function buildGroupTabs() {
   document.querySelectorAll('.group-tabs .tab-btn').forEach((btn, i) => {
-    const groups = ['korea','us','coin','midcap','custom'];
+    const groups = ['korea','us','coin','midcap','custom','screener'];
     btn.classList.toggle('active', groups[i] === currentGroup);
   });
 }
@@ -1020,6 +1026,12 @@ function switchGroup(g) {
     render();
     return;
   }
+  if (g === 'screener') {
+    updateHeader();
+    if (!DATA_SCREENER) { loadScreenerData(); return; }
+    render();
+    return;
+  }
 
   updateHeader();
   render();
@@ -1109,6 +1121,95 @@ function loadCustomData() {
     });
 }
 
+/* ── 동적 데이터 로딩: Ribbon 스크리너 ──────────────────────────────────── */
+function loadScreenerData() {
+  if (loadingScreener) return;
+  loadingScreener = true;
+  showLoadingSpinner('📡 Ribbon 스크리너 데이터 로딩 중...');
+
+  fetch('data/ribbon_screener.json')
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(data => {
+      DATA_SCREENER   = data;
+      loadingScreener = false;
+      updateHeader();
+      render();
+    })
+    .catch(() => {
+      loadingScreener = false;
+      showError(
+        '스크리너 데이터가 없습니다.<br>' +
+        '<small style="color:#999">GitHub Actions(📡 Ribbon Screener)를 실행하면 생성됩니다.</small>'
+      );
+    });
+}
+
+/* ── Ribbon 스크리너 렌더링 ──────────────────────────────────────────────── */
+function renderScreener() {
+  const cards = document.getElementById('cards');
+  if (!DATA_SCREENER) { loadScreenerData(); return; }
+
+  const upd   = DATA_SCREENER.updated_at || '';
+  const sm    = DATA_SCREENER.summary    || {};
+  const total = (sm.kr || 0) + (sm.us || 0) + (sm.coin || 0);
+
+  const MKT = { kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국', coin:'코인' };
+
+  const SCGROUPS = [
+    { key:'kr',   label:'🇰🇷 한국',  items: DATA_SCREENER.kr   || [] },
+    { key:'us',   label:'🇺🇸 미국',  items: DATA_SCREENER.us   || [] },
+    { key:'coin', label:'🪙 코인',   items: DATA_SCREENER.coin || [] },
+  ];
+
+  // 스크리너 카드 1개
+  function scCard(s) {
+    const mktTag  = MKT[s.market] || s.market;
+    const normDir = `${s.prev_norm} → <b style="color:#00A99D">${s.curr_norm}</b>`;
+    return `
+    <div class="custom-card">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:14px;font-weight:700">${esc(s.name)}</div>
+        <div class="stock-sub" style="margin-top:4px">
+          <span class="mkt-tag ${s.market}">${mktTag}</span>
+          <span class="stock-ticker">${esc(s.ticker)}</span>
+        </div>
+        <div style="font-size:11px;color:#888;margin-top:5px">
+          norm: ${normDir}
+          &nbsp;|&nbsp; HMA(55) 기울기 하락→상승 전환
+        </div>
+      </div>
+      <div style="text-align:right;min-width:80px">
+        <button class="chart-btn"
+          onclick="openChartModal('${esc(s.ticker)}','${s.market}','${esc(s.name)}');event.stopPropagation()">
+          📊 차트
+        </button>
+      </div>
+    </div>`;
+  }
+
+  let html = `<div style="font-size:11px;color:#aaa;padding:4px 2px 10px">
+    스캔 일시: ${esc(upd)} &nbsp;|&nbsp; 총 ${total}개 종목 신호 감지
+  </div>`;
+
+  let hasAny = false;
+  for (const grp of SCGROUPS) {
+    if (!grp.items.length) continue;
+    hasAny = true;
+    html += `<div class="market-group-header">${grp.label} <span class="grp-count">${grp.items.length}개</span></div>`;
+    grp.items.forEach(s => { html += scCard(s); });
+  }
+
+  if (!hasAny) {
+    html += `<div style="text-align:center;padding:48px 0;color:#bbb">
+      <div style="font-size:32px;margin-bottom:8px">📡</div>
+      <div>현재 HMA(55) 기울기 전환 종목이 없습니다</div>
+      <div style="font-size:11px;margin-top:6px;color:#ccc">스캔 일시: ${esc(upd)}</div>
+    </div>`;
+  }
+
+  cards.innerHTML = html;
+}
+
 /* ── 동적 데이터 로딩: 중형주 ─────────────────────────────────────────────── */
 function loadMidcapData() {
   if (loadingMidcap) return;
@@ -1135,6 +1236,16 @@ function loadMidcapData() {
 /* ── 메인 렌더링 ─────────────────────────────────────────────────────────── */
 function render() {
   if (activeChart) { activeChart.destroy(); activeChart = null; }
+
+  if (currentGroup === 'screener') {
+    document.getElementById('intraday-banner').style.display = 'none';
+    document.getElementById('compare-label').className = 'compare-label';
+    document.getElementById('compare-label').textContent = '';
+    document.getElementById('section-title').textContent = GROUP_TITLE.screener;
+    document.getElementById('hist-section').innerHTML = '';
+    renderScreener();
+    return;
+  }
 
   if (currentGroup === 'custom') {
     document.getElementById('intraday-banner').style.display = 'none';

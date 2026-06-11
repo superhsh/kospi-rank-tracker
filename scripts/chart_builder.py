@@ -35,7 +35,7 @@ GREEN_COL = "#00A99D"
 RED_COL   = "#E84A5F"
 GRAY_COL  = "#888888"
 
-MARKET_SUFFIX = {"kospi": ".KS", "kosdaq": ".KQ", "us": ""}
+MARKET_SUFFIX = {"kospi": ".KS", "kosdaq": ".KQ", "us": "", "coin": "-USD"}
 
 DEFAULT_MODE        = "Hma"
 DEFAULT_LENGTH      = 55
