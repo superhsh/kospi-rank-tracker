@@ -81,10 +81,10 @@ def _get_coin_universe() -> list[dict]:
     """CoinGecko 시총 기준 상위 COIN_LIMIT개 코인."""
     import sys
     sys.path.insert(0, BASE_DIR)
-    from scripts.fetcher_crypto import fetch_top_coins
+    from scripts.fetcher_crypto import fetch_crypto_top100
 
     try:
-        df = fetch_top_coins(pages=1)
+        df = fetch_crypto_top100()
         result = []
         for _, row in df.head(COIN_LIMIT).iterrows():
             result.append({
