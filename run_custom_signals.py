@@ -23,6 +23,7 @@ from scripts.custom_signal_monitor import (
     save_signal_results,
     send_daily_summary,
 )
+from scripts.chart_builder import build_all_charts
 
 
 def main():
@@ -55,6 +56,10 @@ def main():
 
     # 신호 결과를 JSON으로 저장 (UI 배지 표시용, dry-run 포함 항상 실행)
     save_signal_results(results)
+
+    # Ribbon Candle 차트 데이터 빌드 (dry-run 포함 항상 실행)
+    watchlist = [r["stock"] for r in results]
+    build_all_charts(watchlist)
 
     # 신호 요약 Telegram 발송 (신호 있는 종목만, dry-run 제외)
     if not args.dry_run:

@@ -56,9 +56,9 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name  "github-actions[bot]"
-          git add data/signal_latest.json 2>/dev/null || true
+          git add data/signal_latest.json data/charts/ 2>/dev/null || true
           git diff --staged --quiet && echo "변경사항 없음 — 커밋 스킵" && exit 0
-          git commit -m "⭐ Signal Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git commit -m "⭐ Signal+Chart Update: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
           for i in 1 2 3; do
             git pull --rebase origin main && git push && break
             sleep 10

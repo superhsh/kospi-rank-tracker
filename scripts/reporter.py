@@ -459,6 +459,45 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     .signal-badge.stoch-cross  { background: #fffde7; color: #f57f17; }
     .signal-updated { font-size: 10px; color: #bbb; margin-top: 4px; }
 
+    /* ── 차트 버튼 & 모달 ── */
+    .chart-btn {
+      display: inline-flex; align-items: center; gap: 3px;
+      margin-top: 6px; padding: 3px 9px;
+      font-size: 11px; cursor: pointer;
+      background: #f5f5f5; border: 1px solid #e0e0e0;
+      border-radius: 6px; color: #555;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .chart-btn:hover { background: #e8f5f0; border-color: #00A99D; color: #007a72; }
+    .chart-modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,.52); backdrop-filter: blur(3px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    .chart-modal-box {
+      background: #fff; border-radius: 14px;
+      width: min(860px, 96vw); max-height: 90vh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0,0,0,.28);
+      overflow: hidden;
+    }
+    .chart-modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px 8px; border-bottom: 1px solid #f0f0f0;
+    }
+    .chart-modal-title { font-weight: 700; font-size: 16px; color: #222; }
+    .chart-modal-sub { font-size: 11px; color: #aaa; padding: 4px 20px 6px; }
+    .chart-modal-close {
+      background: none; border: none; font-size: 20px; cursor: pointer;
+      color: #bbb; line-height: 1; padding: 2px 6px; border-radius: 4px;
+    }
+    .chart-modal-close:hover { color: #555; background: #f5f5f5; }
+    #chart-container { flex: 1; min-height: 360px; margin: 0 12px; }
+    .chart-modal-note {
+      font-size: 10px; color: #bbb; text-align: center; padding: 8px 20px 14px;
+    }
+
     /* ── 푸터 ── */
     footer {
       text-align: center; padding: 20px 16px;
@@ -535,6 +574,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 // ── 임베드된 한국 데이터 ──────────────────────────────────────────────────────
 const DATA_KR = /*__DATA_KR__*/null/*__DATA_KR__*/;
@@ -1788,6 +1828,7 @@ function renderCustomPeriod() {
       <div class="rank-change" style="text-align:right;min-width:80px">
         <div class="chg-num ${chgCls}">${sign}${s.change_pct}%</div>
         <div class="rank-path" style="margin-top:4px">${s.currency}</div>
+        <button class="chart-btn" onclick="openChartModal('${esc(s.ticker)}','${s.market}','${esc(s.name)}');event.stopPropagation()">📊 차트</button>
       </div>
     </div>`;
   }).join('');
@@ -1927,10 +1968,133 @@ async function syncCustomWatchlist() {
   } catch (e) { showToast(`❌ 오류: ${e.message}`, 'warn'); }
 }
 
+/* ════════════════════════════════════════════════════════════════════════════
+   📊 Ribbon Candle 차트 모달
+   ─ Dynamic Flow - Premium Ribbon Candle (HMA 55, ×1.0)
+   ─ 초록(#00A99D): norm ≥ 0  / 빨강(#E84A5F): norm < 0
+════════════════════════════════════════════════════════════════════════════ */
+let _lwChart = null;
+
+function openChartModal(ticker, market, name) {
+  const modal = document.getElementById('chart-modal');
+  document.getElementById('chart-modal-title').textContent = name + '  (' + ticker + ')';
+  document.getElementById('chart-modal-sub').textContent  =
+    ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국' }[market] || market) +
+    '  |  최근 6개월  |  HMA(55)  ×1.0';
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+
+  const container = document.getElementById('chart-container');
+  container.innerHTML =
+    '<div style="display:flex;align-items:center;justify-content:center;' +
+    'height:100%;color:#bbb;font-size:14px">📊 차트 데이터 로딩 중...</div>';
+
+  if (_lwChart) { try { _lwChart.remove(); } catch(e){} _lwChart = null; }
+
+  fetch('data/charts/' + ticker + '_' + market + '.json')
+    .then(r => { if (!r.ok) throw new Error('no data'); return r.json(); })
+    .then(data => {
+      container.innerHTML = '';
+      _renderRibbonChart(container, data);
+    })
+    .catch(() => {
+      container.innerHTML =
+        '<div style="display:flex;align-items:center;justify-content:center;' +
+        'height:100%;flex-direction:column;gap:10px;color:#bbb">' +
+        '<span style="font-size:36px">📊</span>' +
+        '<span>차트 데이터가 없습니다</span>' +
+        '<span style="font-size:11px;color:#ccc">GitHub Actions 신호 스캔 실행 후 생성됩니다</span>' +
+        '</div>';
+    });
+}
+
+function closeChartModal() {
+  document.getElementById('chart-modal').style.display = 'none';
+  document.body.style.overflow = '';
+  if (_lwChart) { try { _lwChart.remove(); } catch(e){} _lwChart = null; }
+}
+
+function _renderRibbonChart(container, data) {
+  if (typeof LightweightCharts === 'undefined') {
+    container.innerHTML =
+      '<div style="text-align:center;padding:40px;color:#bbb">lightweight-charts 로드 실패</div>';
+    return;
+  }
+
+  _lwChart = LightweightCharts.createChart(container, {
+    width:  container.clientWidth  || 800,
+    height: container.clientHeight || 400,
+    layout: { background: { color: '#ffffff' }, textColor: '#444' },
+    grid:   { vertLines: { color: '#f2f2f2' }, horzLines: { color: '#f2f2f2' } },
+    rightPriceScale: { borderColor: '#e0e0e0' },
+    timeScale: {
+      borderColor:  '#e0e0e0',
+      timeVisible:  true,
+      fixLeftEdge:  true,
+      fixRightEdge: true,
+    },
+    crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    handleScroll: { mouseWheel: true, pressedMouseMove: true },
+    handleScale:  { mouseWheel: true, pinch: true },
+  });
+
+  const series = _lwChart.addCandlestickSeries({
+    upColor:         '#00A99D',
+    downColor:       '#E84A5F',
+    borderUpColor:   '#00A99D',
+    borderDownColor: '#E84A5F',
+    wickUpColor:     '#00A99D',
+    wickDownColor:   '#E84A5F',
+  });
+
+  const candles = (data.candles || []).map(c => ({
+    time:        c.time,
+    open:        c.open,
+    high:        c.high,
+    low:         c.low,
+    close:       c.close,
+    color:       c.color,
+    wickColor:   c.color,
+    borderColor: c.color,
+  }));
+
+  if (candles.length) {
+    series.setData(candles);
+    _lwChart.timeScale().fitContent();
+  }
+
+  // 컨테이너 크기 변화에 맞춰 차트 리사이즈
+  const ro = new ResizeObserver(() => {
+    if (_lwChart) {
+      _lwChart.resize(container.clientWidth, container.clientHeight || 400);
+    }
+  });
+  ro.observe(container);
+}
+
 init();
 </script>
+
+<!-- 📊 Ribbon Candle 차트 모달 -->
+<div id="chart-modal" class="chart-modal-overlay" onclick="closeChartModal()" style="display:none">
+  <div class="chart-modal-box" onclick="event.stopPropagation()">
+    <div class="chart-modal-header">
+      <div class="chart-modal-title" id="chart-modal-title"></div>
+      <button class="chart-modal-close" onclick="closeChartModal()" title="닫기">✕</button>
+    </div>
+    <div class="chart-modal-sub" id="chart-modal-sub"></div>
+    <div id="chart-container"></div>
+    <div class="chart-modal-note">
+      Dynamic Flow — Premium Ribbon Candle &nbsp;|&nbsp; HMA(55) ×1.0 &nbsp;|&nbsp;
+      <span style="color:#00A99D;font-weight:700">■</span> 상승(norm≥0)
+      &nbsp;
+      <span style="color:#E84A5F;font-weight:700">■</span> 하락(norm&lt;0)
+    </div>
+  </div>
+</div>
+
 </body>
-</html>
+</html>"""
 """
 
 
