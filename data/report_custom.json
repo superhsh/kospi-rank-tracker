@@ -1,20 +1,53 @@
 {
-  "updated_at": "2026-06-11 02:59",
+  "updated_at": "2026-06-11 11:11",
   "current_date": "20260611",
   "daily": {
     "available": true,
     "prev_date": "20260610",
     "items": [
       {
+        "ticker": "420770",
+        "name": "기가비스",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1870941880800.0,
+        "market_cap_str": "1.87조",
+        "prev_market_cap": 1580667022600.0,
+        "prev_market_cap_str": "1.58조",
+        "change_pct": 18.36
+      },
+      {
         "ticker": "443060",
         "name": "HD현대마린솔루션",
         "market": "kospi",
         "currency": "KRW",
-        "market_cap": 10871598737500.0,
-        "market_cap_str": "10.87조",
+        "market_cap": 11006092742500.0,
+        "market_cap_str": "11.01조",
         "prev_market_cap": 9414580350000.0,
         "prev_market_cap_str": "9.41조",
-        "change_pct": 15.48
+        "change_pct": 16.9
+      },
+      {
+        "ticker": "166090",
+        "name": "하나머티리얼즈",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1307824845600.0,
+        "market_cap_str": "1.31조",
+        "prev_market_cap": 1219093366400.0,
+        "prev_market_cap_str": "1.22조",
+        "change_pct": 7.28
+      },
+      {
+        "ticker": "347850",
+        "name": "디앤디파마텍",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 4109744592000.0,
+        "market_cap_str": "4.11조",
+        "prev_market_cap": 3900774528000.0,
+        "prev_market_cap_str": "3.90조",
+        "change_pct": 5.36
       },
       {
         "ticker": "LITE",
@@ -28,15 +61,15 @@
         "change_pct": 3.83
       },
       {
-        "ticker": "166090",
-        "name": "하나머티리얼즈",
-        "market": "kosdaq",
+        "ticker": "307950",
+        "name": "현대오토에버",
+        "market": "kospi",
         "currency": "KRW",
-        "market_cap": 1261530160800.0,
-        "market_cap_str": "1.26조",
-        "prev_market_cap": 1219093366400.0,
-        "prev_market_cap_str": "1.22조",
-        "change_pct": 3.48
+        "market_cap": 19470412360000.0,
+        "market_cap_str": "19.47조",
+        "prev_market_cap": 18839680692000.0,
+        "prev_market_cap_str": "18.84조",
+        "change_pct": 3.35
       },
       {
         "ticker": "HOOD",
@@ -50,17 +83,6 @@
         "change_pct": 3.09
       },
       {
-        "ticker": "347850",
-        "name": "디앤디파마텍",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 3983491845000.0,
-        "market_cap_str": "3.98조",
-        "prev_market_cap": 3900774528000.0,
-        "prev_market_cap_str": "3.90조",
-        "change_pct": 2.12
-      },
-      {
         "ticker": "SPIR",
         "name": "SPIR",
         "market": "us",
@@ -70,17 +92,6 @@
         "prev_market_cap": 629449795.6003704,
         "prev_market_cap_str": "$0.6B",
         "change_pct": 0.68
-      },
-      {
-        "ticker": "420770",
-        "name": "기가비스",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 1589540053200.0,
-        "market_cap_str": "1.59조",
-        "prev_market_cap": 1580667022600.0,
-        "prev_market_cap_str": "1.58조",
-        "change_pct": 0.56
       },
       {
         "ticker": "IONQ",
@@ -204,6 +215,17 @@
         "change_pct": -1.57
       },
       {
+        "ticker": "417200",
+        "name": "LS머트리얼즈",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1103414868290.0,
+        "market_cap_str": "1.10조",
+        "prev_market_cap": 1121681086220.0,
+        "prev_market_cap_str": "1.12조",
+        "change_pct": -1.63
+      },
+      {
         "ticker": "PLUG",
         "name": "PLUG",
         "market": "us",
@@ -224,6 +246,17 @@
         "prev_market_cap": 1483936947455.9077,
         "prev_market_cap_str": "$1.48T",
         "change_pct": -2.33
+      },
+      {
+        "ticker": "036540",
+        "name": "SFA반도체",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1132998143090.0,
+        "market_cap_str": "1.13조",
+        "prev_market_cap": 1160872192920.0,
+        "prev_market_cap_str": "1.16조",
+        "change_pct": -2.4
       },
       {
         "ticker": "CRML",
@@ -281,17 +314,6 @@
         "change_pct": -2.88
       },
       {
-        "ticker": "307950",
-        "name": "현대오토에버",
-        "market": "kospi",
-        "currency": "KRW",
-        "market_cap": 18291218372000.0,
-        "market_cap_str": "18.29조",
-        "prev_market_cap": 18839680692000.0,
-        "prev_market_cap_str": "18.84조",
-        "change_pct": -2.91
-      },
-      {
         "ticker": "RKLB",
         "name": "RKLB",
         "market": "us",
@@ -345,6 +367,17 @@
         "prev_market_cap": 58570094848.68207,
         "prev_market_cap_str": "$58.6B",
         "change_pct": -3.17
+      },
+      {
+        "ticker": "080220",
+        "name": "제주반도체",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 3267261088000.0,
+        "market_cap_str": "3.27조",
+        "prev_market_cap": 3381783641600.0,
+        "prev_market_cap_str": "3.38조",
+        "change_pct": -3.39
       },
       {
         "ticker": "LUNR",
@@ -413,6 +446,17 @@
         "change_pct": -3.98
       },
       {
+        "ticker": "003670",
+        "name": "포스코퓨처엠",
+        "market": "kospi",
+        "currency": "KRW",
+        "market_cap": 16428360184800.0,
+        "market_cap_str": "16.43조",
+        "prev_market_cap": 17166613512000.0,
+        "prev_market_cap_str": "17.17조",
+        "change_pct": -4.3
+      },
+      {
         "ticker": "OKLO",
         "name": "OKLO",
         "market": "us",
@@ -479,17 +523,6 @@
         "change_pct": -4.93
       },
       {
-        "ticker": "036540",
-        "name": "SFA반도체",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 1101844793280.0,
-        "market_cap_str": "1.10조",
-        "prev_market_cap": 1160872192920.0,
-        "prev_market_cap_str": "1.16조",
-        "change_pct": -5.08
-      },
-      {
         "ticker": "AVGO",
         "name": "AVGO",
         "market": "us",
@@ -534,6 +567,17 @@
         "change_pct": -5.59
       },
       {
+        "ticker": "011070",
+        "name": "LG이노텍",
+        "market": "kospi",
+        "currency": "KRW",
+        "market_cap": 25368351504000.0,
+        "market_cap_str": "25.37조",
+        "prev_market_cap": 26906544459000.0,
+        "prev_market_cap_str": "26.91조",
+        "change_pct": -5.72
+      },
+      {
         "ticker": "LEU",
         "name": "LEU",
         "market": "us",
@@ -545,26 +589,15 @@
         "change_pct": -6.03
       },
       {
-        "ticker": "003670",
-        "name": "포스코퓨처엠",
+        "ticker": "064400",
+        "name": "LG씨엔에스",
         "market": "kospi",
         "currency": "KRW",
-        "market_cap": 16108153922400.0,
-        "market_cap_str": "16.11조",
-        "prev_market_cap": 17166613512000.0,
-        "prev_market_cap_str": "17.17조",
-        "change_pct": -6.17
-      },
-      {
-        "ticker": "417200",
-        "name": "LS머트리얼즈",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 1050645794270.0,
-        "market_cap_str": "1.05조",
-        "prev_market_cap": 1121681086220.0,
-        "prev_market_cap_str": "1.12조",
-        "change_pct": -6.33
+        "market_cap": 9010393164000.0,
+        "market_cap_str": "9.01조",
+        "prev_market_cap": 9591708852000.0,
+        "prev_market_cap_str": "9.59조",
+        "change_pct": -6.06
       },
       {
         "ticker": "SMR",
@@ -589,39 +622,6 @@
         "change_pct": -7.32
       },
       {
-        "ticker": "064400",
-        "name": "LG씨엔에스",
-        "market": "kospi",
-        "currency": "KRW",
-        "market_cap": 8816621268000.0,
-        "market_cap_str": "8.82조",
-        "prev_market_cap": 9591708852000.0,
-        "prev_market_cap_str": "9.59조",
-        "change_pct": -8.08
-      },
-      {
-        "ticker": "080220",
-        "name": "제주반도체",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 3105582188800.0,
-        "market_cap_str": "3.11조",
-        "prev_market_cap": 3381783641600.0,
-        "prev_market_cap_str": "3.38조",
-        "change_pct": -8.17
-      },
-      {
-        "ticker": "011070",
-        "name": "LG이노텍",
-        "market": "kospi",
-        "currency": "KRW",
-        "market_cap": 24398106717000.0,
-        "market_cap_str": "24.40조",
-        "prev_market_cap": 26906544459000.0,
-        "prev_market_cap_str": "26.91조",
-        "change_pct": -9.32
-      },
-      {
         "ticker": "BE",
         "name": "BE",
         "market": "us",
@@ -643,22 +643,33 @@
         "name": "HD현대마린솔루션",
         "market": "kospi",
         "currency": "KRW",
-        "market_cap": 10871598737500.0,
-        "market_cap_str": "10.87조",
+        "market_cap": 11006092742500.0,
+        "market_cap_str": "11.01조",
         "prev_market_cap": 10131881710000.0,
         "prev_market_cap_str": "10.13조",
-        "change_pct": 7.3
+        "change_pct": 8.63
       },
       {
         "ticker": "347850",
         "name": "디앤디파마텍",
         "market": "kosdaq",
         "currency": "KRW",
-        "market_cap": 3983491845000.0,
-        "market_cap_str": "3.98조",
+        "market_cap": 4109744592000.0,
+        "market_cap_str": "4.11조",
         "prev_market_cap": 3791935953000.0,
         "prev_market_cap_str": "3.79조",
-        "change_pct": 5.05
+        "change_pct": 8.38
+      },
+      {
+        "ticker": "420770",
+        "name": "기가비스",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1870941880800.0,
+        "market_cap_str": "1.87조",
+        "prev_market_cap": 1731508542800.0,
+        "prev_market_cap_str": "1.73조",
+        "change_pct": 8.05
       },
       {
         "ticker": "HOOD",
@@ -670,6 +681,17 @@
         "prev_market_cap": 74606842598.38834,
         "prev_market_cap_str": "$74.6B",
         "change_pct": 4.24
+      },
+      {
+        "ticker": "166090",
+        "name": "하나머티리얼즈",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1307824845600.0,
+        "market_cap_str": "1.31조",
+        "prev_market_cap": 1286606448400.0,
+        "prev_market_cap_str": "1.29조",
+        "change_pct": 1.65
       },
       {
         "ticker": "BWXT",
@@ -703,17 +725,6 @@
         "prev_market_cap": 11665755593.15155,
         "prev_market_cap_str": "$11.7B",
         "change_pct": -1.31
-      },
-      {
-        "ticker": "166090",
-        "name": "하나머티리얼즈",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 1261530160800.0,
-        "market_cap_str": "1.26조",
-        "prev_market_cap": 1286606448400.0,
-        "prev_market_cap_str": "1.29조",
-        "change_pct": -1.95
       },
       {
         "ticker": "NBIX",
@@ -771,15 +782,15 @@
         "change_pct": -7.46
       },
       {
-        "ticker": "420770",
-        "name": "기가비스",
-        "market": "kosdaq",
+        "ticker": "011070",
+        "name": "LG이노텍",
+        "market": "kospi",
         "currency": "KRW",
-        "market_cap": 1589540053200.0,
-        "market_cap_str": "1.59조",
-        "prev_market_cap": 1731508542800.0,
-        "prev_market_cap_str": "1.73조",
-        "change_pct": -8.2
+        "market_cap": 25368351504000.0,
+        "market_cap_str": "25.37조",
+        "prev_market_cap": 27521821641000.0,
+        "prev_market_cap_str": "27.52조",
+        "change_pct": -7.82
       },
       {
         "ticker": "META",
@@ -881,17 +892,6 @@
         "change_pct": -11.28
       },
       {
-        "ticker": "011070",
-        "name": "LG이노텍",
-        "market": "kospi",
-        "currency": "KRW",
-        "market_cap": 24398106717000.0,
-        "market_cap_str": "24.40조",
-        "prev_market_cap": 27521821641000.0,
-        "prev_market_cap_str": "27.52조",
-        "change_pct": -11.35
-      },
-      {
         "ticker": "ATOM",
         "name": "Cosmos Hub",
         "market": "coin",
@@ -936,6 +936,17 @@
         "change_pct": -12.65
       },
       {
+        "ticker": "080220",
+        "name": "제주반도체",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 3267261088000.0,
+        "market_cap_str": "3.27조",
+        "prev_market_cap": 3755666096000.0,
+        "prev_market_cap_str": "3.76조",
+        "change_pct": -13.0
+      },
+      {
         "ticker": "CRWV",
         "name": "CRWV",
         "market": "us",
@@ -958,6 +969,17 @@
         "change_pct": -14.02
       },
       {
+        "ticker": "307950",
+        "name": "현대오토에버",
+        "market": "kospi",
+        "currency": "KRW",
+        "market_cap": 19470412360000.0,
+        "market_cap_str": "19.47조",
+        "prev_market_cap": 22870878744000.0,
+        "prev_market_cap_str": "22.87조",
+        "change_pct": -14.87
+      },
+      {
         "ticker": "COHR",
         "name": "COHR",
         "market": "us",
@@ -978,6 +1000,28 @@
         "prev_market_cap": 127309026912.80566,
         "prev_market_cap_str": "$127.3B",
         "change_pct": -15.22
+      },
+      {
+        "ticker": "036540",
+        "name": "SFA반도체",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1132998143090.0,
+        "market_cap_str": "1.13조",
+        "prev_market_cap": 1337954391840.0,
+        "prev_market_cap_str": "1.34조",
+        "change_pct": -15.32
+      },
+      {
+        "ticker": "003670",
+        "name": "포스코퓨처엠",
+        "market": "kospi",
+        "currency": "KRW",
+        "market_cap": 16428360184800.0,
+        "market_cap_str": "16.43조",
+        "prev_market_cap": 19523687388000.0,
+        "prev_market_cap_str": "19.52조",
+        "change_pct": -15.85
       },
       {
         "ticker": "MRVL",
@@ -1013,6 +1057,17 @@
         "change_pct": -16.62
       },
       {
+        "ticker": "417200",
+        "name": "LS머트리얼즈",
+        "market": "kosdaq",
+        "currency": "KRW",
+        "market_cap": 1103414868290.0,
+        "market_cap_str": "1.10조",
+        "prev_market_cap": 1328698222760.0,
+        "prev_market_cap_str": "1.33조",
+        "change_pct": -16.96
+      },
+      {
         "ticker": "IONQ",
         "name": "IONQ",
         "market": "us",
@@ -1035,17 +1090,6 @@
         "change_pct": -17.16
       },
       {
-        "ticker": "080220",
-        "name": "제주반도체",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 3105582188800.0,
-        "market_cap_str": "3.11조",
-        "prev_market_cap": 3755666096000.0,
-        "prev_market_cap_str": "3.76조",
-        "change_pct": -17.31
-      },
-      {
         "ticker": "MU",
         "name": "MU",
         "market": "us",
@@ -1057,17 +1101,6 @@
         "change_pct": -17.39
       },
       {
-        "ticker": "003670",
-        "name": "포스코퓨처엠",
-        "market": "kospi",
-        "currency": "KRW",
-        "market_cap": 16108153922400.0,
-        "market_cap_str": "16.11조",
-        "prev_market_cap": 19523687388000.0,
-        "prev_market_cap_str": "19.52조",
-        "change_pct": -17.49
-      },
-      {
         "ticker": "WDC",
         "name": "Western Digital Corporation",
         "market": "us",
@@ -1077,17 +1110,6 @@
         "prev_market_cap": 204779095799.35535,
         "prev_market_cap_str": "$204.8B",
         "change_pct": -17.51
-      },
-      {
-        "ticker": "036540",
-        "name": "SFA반도체",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 1101844793280.0,
-        "market_cap_str": "1.10조",
-        "prev_market_cap": 1337954391840.0,
-        "prev_market_cap_str": "1.34조",
-        "change_pct": -17.65
       },
       {
         "ticker": "BE",
@@ -1134,17 +1156,6 @@
         "change_pct": -19.3
       },
       {
-        "ticker": "307950",
-        "name": "현대오토에버",
-        "market": "kospi",
-        "currency": "KRW",
-        "market_cap": 18291218372000.0,
-        "market_cap_str": "18.29조",
-        "prev_market_cap": 22870878744000.0,
-        "prev_market_cap_str": "22.87조",
-        "change_pct": -20.02
-      },
-      {
         "ticker": "RDW",
         "name": "RDW",
         "market": "us",
@@ -1154,17 +1165,6 @@
         "prev_market_cap": 3703866882.29924,
         "prev_market_cap_str": "$3.7B",
         "change_pct": -20.14
-      },
-      {
-        "ticker": "417200",
-        "name": "LS머트리얼즈",
-        "market": "kosdaq",
-        "currency": "KRW",
-        "market_cap": 1050645794270.0,
-        "market_cap_str": "1.05조",
-        "prev_market_cap": 1328698222760.0,
-        "prev_market_cap_str": "1.33조",
-        "change_pct": -20.93
       },
       {
         "ticker": "IREN",
@@ -1233,6 +1233,17 @@
         "change_pct": -22.49
       },
       {
+        "ticker": "064400",
+        "name": "LG씨엔에스",
+        "market": "kospi",
+        "currency": "KRW",
+        "market_cap": 9010393164000.0,
+        "market_cap_str": "9.01조",
+        "prev_market_cap": 11684445328800.0,
+        "prev_market_cap_str": "11.68조",
+        "change_pct": -22.89
+      },
+      {
         "ticker": "SMR",
         "name": "SMR",
         "market": "us",
@@ -1242,17 +1253,6 @@
         "prev_market_cap": 4246718140.384655,
         "prev_market_cap_str": "$4.2B",
         "change_pct": -24.29
-      },
-      {
-        "ticker": "064400",
-        "name": "LG씨엔에스",
-        "market": "kospi",
-        "currency": "KRW",
-        "market_cap": 8816621268000.0,
-        "market_cap_str": "8.82조",
-        "prev_market_cap": 11684445328800.0,
-        "prev_market_cap_str": "11.68조",
-        "change_pct": -24.54
       },
       {
         "ticker": "PL",
