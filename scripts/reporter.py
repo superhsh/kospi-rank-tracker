@@ -543,7 +543,6 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
     <button class="tab-btn active" onclick="switchGroup('korea')">🇰🇷 한국</button>
     <button class="tab-btn"        onclick="switchGroup('us')">🇺🇸 미국</button>
     <button class="tab-btn"        onclick="switchGroup('coin')">🪙 코인</button>
-    <button class="tab-btn"        onclick="switchGroup('midcap')">📈 중형주</button>
     <button class="tab-btn"        onclick="switchGroup('custom')">⭐ 관심종목</button>
     <button class="tab-btn"        onclick="switchGroup('screener')" style="color:#00796b;border-color:#b2dfdb">📡 스크리너</button>
   </div>
@@ -593,16 +592,14 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 // ── 임베드된 한국 데이터 ──────────────────────────────────────────────────────
 const DATA_KR = /*__DATA_KR__*/null/*__DATA_KR__*/;
 
-// ── 동적 로딩 데이터 (US/Crypto/MidCap) ─────────────────────────────────────
+// ── 동적 로딩 데이터 (US/Crypto/Custom/Screener) ─────────────────────────────
 let DATA_US       = null;
 let DATA_CRYPTO   = null;
-let DATA_MIDCAP   = null;
 let DATA_CUSTOM   = null;
 let DATA_SIGNALS  = null;   // signal_latest.json — 관심종목 신호 배지용
 let DATA_SCREENER = null;   // ribbon_screener.json
 let loadingUS       = false;
 let loadingCrypto   = false;
-let loadingMidcap   = false;
 let loadingCustom   = false;
 let loadingScreener = false;
 
@@ -617,7 +614,6 @@ const GROUP_MARKETS = {
   korea:    ['kospi', 'kosdaq'],
   us:       ['sp500', 'nasdaq100'],
   coin:     ['coin'],
-  midcap:   ['midcap'],
   custom:   ['custom'],
   screener: [],
 };
@@ -625,7 +621,6 @@ const GROUP_PERIODS = {
   korea:    ['intraday','daily','weekly','monthly','streak','summary'],
   us:       ['daily','weekly','monthly','streak','summary'],
   coin:     ['daily','weekly','monthly','streak','summary'],
-  midcap:   ['daily','weekly','monthly','streak','summary'],
   custom:   ['manage','daily','weekly','monthly'],
   screener: [],
 };
@@ -635,14 +630,12 @@ const MARKET_LABEL = {
   sp500:     'S&P 500',
   nasdaq100: '나스닥 100',
   coin:      '코인',
-  midcap:    '중형주 (Russell 1000 하위 500)',
   custom:    '관심종목',
 };
 const GROUP_TITLE = {
-  korea:  '📈 KOSPI / KOSDAQ 시총 순위 상승 트래커',
-  us:     '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
-  coin:   '📈 암호화폐 시총 순위 상승 트래커',
-  midcap: '📈 Russell 1000 중형주 시총 순위 상승 트래커',
+  korea:    '📈 KOSPI / KOSDAQ 시총 순위 상승 트래커',
+  us:       '📈 S&P 500 / NASDAQ 100 시총 순위 상승 트래커',
+  coin:     '📈 암호화폐 시총 순위 상승 트래커',
   custom:   '⭐ 관심종목 시총 변동률 트래커',
   screener: '📡 Ribbon 매수 신호 스크리너  (HMA 55 기울기 전환)',
 };
@@ -728,7 +721,6 @@ function naverUrl(ticker) {
 function getGroupData() {
   if (currentGroup === 'korea')  return DATA_KR;
   if (currentGroup === 'us')     return DATA_US;
-  if (currentGroup === 'midcap') return DATA_MIDCAP;
   if (currentGroup === 'custom') return DATA_CUSTOM;
   return DATA_CRYPTO;
 }
@@ -749,7 +741,7 @@ function init() {
 /* ── 그룹 탭 구성 ────────────────────────────────────────────────────────── */
 function buildGroupTabs() {
   document.querySelectorAll('.group-tabs .tab-btn').forEach((btn, i) => {
-    const groups = ['korea','us','coin','midcap','custom','screener'];
+    const groups = ['korea','us','coin','custom','screener'];
     btn.classList.toggle('active', groups[i] === currentGroup);
   });
 }
@@ -863,10 +855,6 @@ function computeSummaryData() {
     ['daily','weekly','monthly'].forEach(p =>
       (DATA_CRYPTO?.coin?.[p]?.top5 || []).forEach(s => add('coin', p, PERIOD_META[p].label, s)));
     (DATA_CRYPTO?.coin?.streak || []).forEach(s => add('coin', 'streak', '연속상승', s));
-  } else if (currentGroup === 'midcap' && DATA_MIDCAP) {
-    ['daily','weekly','monthly'].forEach(p =>
-      (DATA_MIDCAP?.midcap?.[p]?.top5 || []).forEach(s => add('midcap', p, PERIOD_META[p].label, s)));
-    (DATA_MIDCAP?.midcap?.streak || []).forEach(s => add('midcap', 'streak', '연속상승', s));
   }
 
   return Object.values(all).sort((a, b) => b.count - a.count || a.rank - b.rank);
@@ -890,14 +878,6 @@ function renderSummaryOrWait() {
       .catch(e => showError(`데이터 로딩 실패: ${e}`));
     return;
   }
-  if (currentGroup === 'midcap' && !DATA_MIDCAP) {
-    showLoadingSpinner('📈 중형주 데이터 로딩 중...');
-    fetch('data/report_midcap.json')
-      .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(d => { DATA_MIDCAP = d; renderSummary(); })
-      .catch(e => showError(`데이터 로딩 실패: ${e}`));
-    return;
-  }
   renderSummary();
 }
 
@@ -908,10 +888,9 @@ function renderSummary() {
   document.getElementById('intraday-banner').style.display = 'none';
 
   const grpLabel = {
-    korea:  '🇰🇷 한국 (KOSPI + KOSDAQ)',
-    us:     '🇺🇸 미국 (S&P 500 + NASDAQ 100)',
-    coin:   '🪙 암호화폐',
-    midcap: '📈 중형주 (Russell 1000 하위 500)',
+    korea: '🇰🇷 한국 (KOSPI + KOSDAQ)',
+    us:    '🇺🇸 미국 (S&P 500 + NASDAQ 100)',
+    coin:  '🪙 암호화폐',
   }[currentGroup];
   document.getElementById('section-title').textContent = `${grpLabel} 전 기간 종합 분석`;
   label.textContent = '';
@@ -1015,10 +994,6 @@ function switchGroup(g) {
   }
   if (g === 'coin' && !DATA_CRYPTO) {
     loadCryptoData();
-    return;
-  }
-  if (g === 'midcap' && !DATA_MIDCAP) {
-    loadMidcapData();
     return;
   }
   if (g === 'custom') {
@@ -1208,29 +1183,6 @@ function renderScreener() {
   }
 
   cards.innerHTML = html;
-}
-
-/* ── 동적 데이터 로딩: 중형주 ─────────────────────────────────────────────── */
-function loadMidcapData() {
-  if (loadingMidcap) return;
-  loadingMidcap = true;
-  showLoadingSpinner('📈 중형주 데이터 로딩 중...');
-
-  fetch('data/report_midcap.json')
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
-    .then(data => {
-      DATA_MIDCAP   = data;
-      loadingMidcap = false;
-      updateHeader();
-      render();
-    })
-    .catch(err => {
-      loadingMidcap = false;
-      showError(`중형주 데이터를 불러올 수 없습니다.<br><small>${esc(err.message)}</small>`);
-    });
 }
 
 /* ── 메인 렌더링 ─────────────────────────────────────────────────────────── */
@@ -1500,8 +1452,42 @@ function showError(msg) {
 
 /* ── Claude 분석 기능 ────────────────────────────────────────────────────── */
 function buildClaudePrompt() {
+  // ── 관심종목 탭 전용 프롬프트 ────────────────────────────────────────────
+  if (currentGroup === 'custom') {
+    if (!DATA_CUSTOM) return null;
+    const pd = DATA_CUSTOM?.[currentPeriod];
+    if (!pd || !pd.items?.length) return null;
+    const periodLabel = PERIOD_META[currentPeriod]?.label || currentPeriod;
+    const top5 = pd.items.slice(0, 5);
+    const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국 (NYSE/NASDAQ)', coin:'코인' }[m] || m);
+    const stockLines = top5.map((s, i) =>
+      `${i+1}. ${s.name} (${s.ticker})\n` +
+      `   · 시장: ${mktName(s.market)}  /  시총 변동률: ${s.change_pct > 0 ? '+' : ''}${s.change_pct}%\n` +
+      `   · 현재 시총: ${s.market_cap_str}  /  이전 시총: ${s.prev_market_cap_str}`
+    ).join('\n\n');
+    return `아래는 관심종목 중 [${periodLabel}] 기준 시총 변동률 상위 종목들입니다.\n\n${stockLines}\n\n위 종목 각각에 대해 슈퍼애널리스트 관점의 종합 투자 보고서를 작성해주세요.\n각 종목마다 다음 항목을 포함해주세요:\n\n① 기업/자산 개요 및 핵심 사업\n② 최근 실적 및 재무 현황\n③ 시총 변동 원인 분석 (최근 뉴스·이슈·수급)\n④ 성장 동력 및 중장기 전망\n⑤ 주요 리스크 요인\n⑥ 투자 의견 (매수/중립/매도) 및 근거\n\n전문적이고 객관적인 시각으로 작성하되, 일반 투자자도 이해할 수 있도록 명확하게 설명해주세요.`;
+  }
+
+  // ── 스크리너 탭 전용 프롬프트 ────────────────────────────────────────────
+  if (currentGroup === 'screener') {
+    if (!DATA_SCREENER) return null;
+    const allItems = [
+      ...(DATA_SCREENER.kr   || []),
+      ...(DATA_SCREENER.us   || []),
+      ...(DATA_SCREENER.coin || []),
+    ];
+    if (!allItems.length) return null;
+    const mktName = m => ({ kospi:'KOSPI', kosdaq:'KOSDAQ', us:'미국', coin:'코인' }[m] || m);
+    const stockLines = allItems.slice(0, 10).map((s, i) =>
+      `${i+1}. ${s.name} (${s.ticker})\n` +
+      `   · 시장: ${mktName(s.market)}\n` +
+      `   · HMA(55) norm: ${s.prev_norm} → ${s.curr_norm} (음수→양수 전환 — 매수 신호)`
+    ).join('\n\n');
+    return `아래는 HMA(55) 기울기가 음수에서 양수로 전환되어 Dynamic Flow Ribbon 매수 신호가 발생한 종목들입니다.\n\n${stockLines}\n\n위 종목 각각에 대해 슈퍼애널리스트 관점의 종합 투자 보고서를 작성해주세요.\n각 종목마다 다음 항목을 포함해주세요:\n\n① 기업/자산 개요 및 핵심 사업\n② 최근 실적 및 재무 현황\n③ HMA 기울기 전환 시점의 시장 배경 및 모멘텀 분석\n④ 성장 동력 및 중단기 전망\n⑤ 주요 리스크 요인\n⑥ 투자 의견 (매수/중립/매도) 및 목표 주가 근거\n\n전문적이고 객관적인 시각으로 작성하되, 일반 투자자도 이해할 수 있도록 명확하게 설명해주세요.`;
+  }
+
   const data = getGroupData();
-  const groupLabel  = { korea:'한국', us:'미국', coin:'암호화폐', midcap:'미국 중형주' }[currentGroup];
+  const groupLabel  = { korea:'한국', us:'미국', coin:'암호화폐' }[currentGroup];
   const marketLabel = MARKET_LABEL[currentMarket];
   const currency    = currentGroup === 'korea' ? 'KRW' : 'USD';
 
@@ -1509,7 +1495,7 @@ function buildClaudePrompt() {
   if (currentPeriod === 'summary') {
     const all = computeSummaryData().filter(s => s.count >= 2).slice(0, 10);
     if (!all.length) return null;
-    const grpLabel = { korea:'한국 (KOSPI/KOSDAQ)', us:'미국 (S&P500/NASDAQ100)', coin:'암호화폐', midcap:'중형주 (Russell 1000 하위 500)' }[currentGroup];
+    const grpLabel = { korea:'한국 (KOSPI/KOSDAQ)', us:'미국 (S&P500/NASDAQ100)', coin:'암호화폐' }[currentGroup];
     const stockLines = all.map((s, i) => {
       const tabs = [...new Set(s.appearances.map(a=>a.periodLabel))].join('·');
       const mkt  = [...s.markets].map(m=>MARKET_LABEL[m]||m).join('·');
@@ -1774,7 +1760,7 @@ async function triggerUpdate() {
   const pat = getPAT();
   if (!pat) { showPATModal(); return; }
 
-  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml', midcap:'update_midcap.yml', custom:'update_custom.yml' };
+  const WORKFLOW = { korea:'update.yml', us:'update_us.yml', coin:'update_crypto.yml', custom:'update_custom.yml', screener:'update_ribbon_screener.yml' };
   const workflow = WORKFLOW[currentGroup];
   const btn = document.getElementById('update-btn');
   if (btn) { btn.disabled = true; btn.textContent = '⏳ 요청 중...'; }
@@ -1989,7 +1975,7 @@ function cwlHas(ticker, market) {
 
 /* ── custom watchlist 버튼 헬퍼 ─────────────────────────────────────────── */
 function cwlMapMarket(market, group) {
-  const MAP = { kospi:'kospi', kosdaq:'kosdaq', sp500:'us', nasdaq100:'us', midcap:'us', coin:'coin', us:'us' };
+  const MAP = { kospi:'kospi', kosdaq:'kosdaq', sp500:'us', nasdaq100:'us', coin:'coin', us:'us' };
   return MAP[market] || MAP[group] || 'us';
 }
 
