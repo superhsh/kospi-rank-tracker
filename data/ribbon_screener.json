@@ -1,45 +1,38 @@
 {
-  "updated_at": "2026-06-12 02:46",
+  "updated_at": "2026-06-13 02:38",
   "summary": {
-    "kr": 6,
-    "us": 2,
+    "kr": 5,
+    "us": 4,
     "coin": 0
   },
   "kr": [
-    {
-      "ticker": "105560",
-      "name": "KB금융",
-      "market": "kospi",
-      "prev_norm": -0.0184,
-      "curr_norm": 0.0061
-    },
     {
       "ticker": "033780",
       "name": "KT&G",
       "market": "kospi",
       "prev_norm": -0.0143,
-      "curr_norm": 0.0126
+      "curr_norm": 0.0088
     },
     {
       "ticker": "024110",
       "name": "기업은행",
       "market": "kospi",
       "prev_norm": -0.0365,
-      "curr_norm": 0.03
-    },
-    {
-      "ticker": "030200",
-      "name": "KT",
-      "market": "kospi",
-      "prev_norm": -0.0093,
-      "curr_norm": 0.0215
+      "curr_norm": 0.0203
     },
     {
       "ticker": "091160",
       "name": "KODEX 반도체",
       "market": "kospi",
       "prev_norm": -0.0046,
-      "curr_norm": 0.0158
+      "curr_norm": 0.0124
+    },
+    {
+      "ticker": "039030",
+      "name": "이오테크닉스",
+      "market": "kosdaq",
+      "prev_norm": -0.0708,
+      "curr_norm": 0.0177
     },
     {
       "ticker": "403870",
@@ -51,18 +44,32 @@
   ],
   "us": [
     {
-      "ticker": "CHTR",
-      "name": "CHTR",
+      "ticker": "WDC",
+      "name": "WDC",
       "market": "us",
-      "prev_norm": -0.038,
-      "curr_norm": 0.0015
+      "prev_norm": -0.0036,
+      "curr_norm": 0.0071
     },
     {
-      "ticker": "AXP",
-      "name": "AXP",
+      "ticker": "LNT",
+      "name": "LNT",
+      "market": "us",
+      "prev_norm": -0.0077,
+      "curr_norm": 0.0161
+    },
+    {
+      "ticker": "AEE",
+      "name": "AEE",
       "market": "us",
       "prev_norm": -0.0186,
-      "curr_norm": 0.0138
+      "curr_norm": 0.0122
+    },
+    {
+      "ticker": "AVY",
+      "name": "AVY",
+      "market": "us",
+      "prev_norm": -0.0095,
+      "curr_norm": 0.0192
     }
   ],
   "coin": []
