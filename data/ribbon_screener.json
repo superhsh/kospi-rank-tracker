@@ -1,76 +1,119 @@
 {
-  "updated_at": "2026-06-13 02:38",
+  "updated_at": "2026-06-16 02:56",
   "summary": {
-    "kr": 5,
-    "us": 4,
-    "coin": 0
+    "kr": 9,
+    "us": 5,
+    "coin": 1
   },
   "kr": [
     {
-      "ticker": "033780",
-      "name": "KT&G",
+      "ticker": "034730",
+      "name": "SK",
       "market": "kospi",
-      "prev_norm": -0.0143,
-      "curr_norm": 0.0088
+      "prev_norm": -0.0219,
+      "curr_norm": 0.0052
     },
     {
-      "ticker": "024110",
-      "name": "기업은행",
+      "ticker": "086790",
+      "name": "하나금융지주",
       "market": "kospi",
-      "prev_norm": -0.0365,
-      "curr_norm": 0.0203
+      "prev_norm": -0.0097,
+      "curr_norm": 0.0463
     },
     {
-      "ticker": "091160",
-      "name": "KODEX 반도체",
+      "ticker": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
       "market": "kospi",
-      "prev_norm": -0.0046,
-      "curr_norm": 0.0124
+      "prev_norm": -0.1177,
+      "curr_norm": 0.0026
     },
     {
-      "ticker": "039030",
-      "name": "이오테크닉스",
-      "market": "kosdaq",
-      "prev_norm": -0.0708,
-      "curr_norm": 0.0177
+      "ticker": "011200",
+      "name": "HMM",
+      "market": "kospi",
+      "prev_norm": -0.0203,
+      "curr_norm": 0.0576
     },
     {
-      "ticker": "403870",
-      "name": "HPSP",
-      "market": "kosdaq",
-      "prev_norm": -0.0182,
-      "curr_norm": 0.0678
+      "ticker": "010950",
+      "name": "S-Oil",
+      "market": "kospi",
+      "prev_norm": -0.022,
+      "curr_norm": 0.0029
+    },
+    {
+      "ticker": "133690",
+      "name": "TIGER 미국나스닥100",
+      "market": "kospi",
+      "prev_norm": -0.0079,
+      "curr_norm": 0.0115
+    },
+    {
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "market": "kospi",
+      "prev_norm": -0.0324,
+      "curr_norm": 0.0146
+    },
+    {
+      "ticker": "122630",
+      "name": "KODEX 레버리지",
+      "market": "kospi",
+      "prev_norm": -0.0068,
+      "curr_norm": 0.0225
+    },
+    {
+      "ticker": "379810",
+      "name": "KODEX 미국나스닥100",
+      "market": "kospi",
+      "prev_norm": -0.0066,
+      "curr_norm": 0.0126
     }
   ],
   "us": [
     {
-      "ticker": "WDC",
-      "name": "WDC",
+      "ticker": "AMD",
+      "name": "AMD",
       "market": "us",
-      "prev_norm": -0.0036,
-      "curr_norm": 0.0071
+      "prev_norm": -0.0131,
+      "curr_norm": 0.0194
     },
     {
-      "ticker": "LNT",
-      "name": "LNT",
+      "ticker": "STX",
+      "name": "STX",
       "market": "us",
-      "prev_norm": -0.0077,
-      "curr_norm": 0.0161
+      "prev_norm": -0.0038,
+      "curr_norm": 0.0544
     },
     {
-      "ticker": "AEE",
-      "name": "AEE",
+      "ticker": "AEP",
+      "name": "AEP",
       "market": "us",
-      "prev_norm": -0.0186,
-      "curr_norm": 0.0122
+      "prev_norm": -0.0231,
+      "curr_norm": 0.0041
     },
     {
-      "ticker": "AVY",
-      "name": "AVY",
+      "ticker": "APO",
+      "name": "APO",
       "market": "us",
-      "prev_norm": -0.0095,
-      "curr_norm": 0.0192
+      "prev_norm": -0.0123,
+      "curr_norm": 0.0195
+    },
+    {
+      "ticker": "BALL",
+      "name": "BALL",
+      "market": "us",
+      "prev_norm": -0.0039,
+      "curr_norm": 0.0687
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "M",
+      "name": "MemeCore",
+      "market": "coin",
+      "prev_norm": -0.0156,
+      "curr_norm": 0.0413
+    }
+  ]
 }
