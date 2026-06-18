@@ -1,110 +1,47 @@
 {
-  "updated_at": "2026-06-17 02:53",
+  "updated_at": "2026-06-18 02:48",
   "summary": {
-    "kr": 7,
-    "us": 7,
+    "kr": 4,
+    "us": 1,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "000270",
-      "name": "기아",
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
       "market": "kospi",
-      "prev_norm": -0.0062,
-      "curr_norm": 0.0056
+      "prev_norm": -0.053,
+      "curr_norm": 0.0163
     },
     {
-      "ticker": "042660",
-      "name": "한화오션",
+      "ticker": "009540",
+      "name": "HD한국조선해양",
       "market": "kospi",
-      "prev_norm": -0.0349,
-      "curr_norm": 0.0575
+      "prev_norm": -0.0276,
+      "curr_norm": 0.0107
     },
     {
-      "ticker": "015760",
-      "name": "한국전력",
+      "ticker": "005830",
+      "name": "DB손해보험",
       "market": "kospi",
-      "prev_norm": -0.0343,
-      "curr_norm": 0.0261
+      "prev_norm": -0.0173,
+      "curr_norm": 0.006
     },
     {
-      "ticker": "064350",
-      "name": "현대로템",
-      "market": "kospi",
-      "prev_norm": -0.0294,
-      "curr_norm": 0.0368
-    },
-    {
-      "ticker": "443060",
-      "name": "HD현대마린솔루션",
-      "market": "kospi",
-      "prev_norm": -0.0324,
-      "curr_norm": 0.0101
-    },
-    {
-      "ticker": "352820",
-      "name": "하이브",
-      "market": "kospi",
-      "prev_norm": -0.0491,
-      "curr_norm": 0.0098
-    },
-    {
-      "ticker": "005290",
-      "name": "동진쎄미켐",
+      "ticker": "196170",
+      "name": "알테오젠",
       "market": "kosdaq",
-      "prev_norm": -0.011,
+      "prev_norm": -0.0013,
       "curr_norm": 0.029
     }
   ],
   "us": [
     {
-      "ticker": "HON",
-      "name": "HON",
+      "ticker": "MELI",
+      "name": "MELI",
       "market": "us",
-      "prev_norm": -0.0195,
-      "curr_norm": 0.0242
-    },
-    {
-      "ticker": "ABNB",
-      "name": "ABNB",
-      "market": "us",
-      "prev_norm": -0.0396,
-      "curr_norm": 0.0171
-    },
-    {
-      "ticker": "ORLY",
-      "name": "ORLY",
-      "market": "us",
-      "prev_norm": -0.001,
-      "curr_norm": 0.0175
-    },
-    {
-      "ticker": "DASH",
-      "name": "DASH",
-      "market": "us",
-      "prev_norm": -0.0178,
-      "curr_norm": 0.036
-    },
-    {
-      "ticker": "FER",
-      "name": "FER",
-      "market": "us",
-      "prev_norm": -0.0429,
-      "curr_norm": 0.0166
-    },
-    {
-      "ticker": "AMP",
-      "name": "AMP",
-      "market": "us",
-      "prev_norm": -0.0408,
-      "curr_norm": 0.0137
-    },
-    {
-      "ticker": "AME",
-      "name": "AME",
-      "market": "us",
-      "prev_norm": -0.0323,
-      "curr_norm": 0.0057
+      "prev_norm": -0.0048,
+      "curr_norm": 0.0159
     }
   ],
   "coin": []
