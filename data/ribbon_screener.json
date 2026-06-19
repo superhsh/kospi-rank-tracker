@@ -1,47 +1,26 @@
 {
-  "updated_at": "2026-06-18 02:48",
+  "updated_at": "2026-06-19 03:33",
   "summary": {
-    "kr": 4,
+    "kr": 1,
     "us": 1,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
       "market": "kospi",
-      "prev_norm": -0.053,
-      "curr_norm": 0.0163
-    },
-    {
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "market": "kospi",
-      "prev_norm": -0.0276,
-      "curr_norm": 0.0107
-    },
-    {
-      "ticker": "005830",
-      "name": "DB손해보험",
-      "market": "kospi",
-      "prev_norm": -0.0173,
-      "curr_norm": 0.006
-    },
-    {
-      "ticker": "196170",
-      "name": "알테오젠",
-      "market": "kosdaq",
-      "prev_norm": -0.0013,
-      "curr_norm": 0.029
+      "prev_norm": -0.008,
+      "curr_norm": 0.0164
     }
   ],
   "us": [
     {
-      "ticker": "MELI",
-      "name": "MELI",
+      "ticker": "INTC",
+      "name": "INTC",
       "market": "us",
-      "prev_norm": -0.0048,
-      "curr_norm": 0.0159
+      "prev_norm": -0.033,
+      "curr_norm": 0.0132
     }
   ],
   "coin": []
