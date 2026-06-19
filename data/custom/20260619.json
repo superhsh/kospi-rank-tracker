@@ -180,7 +180,7 @@
     "name": "NTAP",
     "market": "us",
     "currency": "USD",
-    "market_cap": 31290372856.55037,
+    "market_cap": 31290371541.170002,
     "market_cap_str": "$31.3B"
   },
   {
@@ -196,7 +196,7 @@
     "name": "NBIX",
     "market": "us",
     "currency": "USD",
-    "market_cap": 15916056133.990768,
+    "market_cap": 15916056809.07,
     "market_cap_str": "$15.9B"
   },
   {
@@ -292,7 +292,7 @@
     "name": "FSLR",
     "market": "us",
     "currency": "USD",
-    "market_cap": 27690732956.78656,
+    "market_cap": 27690731645.1,
     "market_cap_str": "$27.7B"
   },
   {
@@ -300,64 +300,64 @@
     "name": "HD현대마린솔루션",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 10714689065000.0,
-    "market_cap_str": "10.71조"
+    "market_cap": 10087050375000.0,
+    "market_cap_str": "10.09조"
   },
   {
     "ticker": "064400",
     "name": "LG씨엔에스",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 8719735320000.0,
-    "market_cap_str": "8.72조"
+    "market_cap": 8312814338400.0,
+    "market_cap_str": "8.31조"
   },
   {
     "ticker": "011070",
     "name": "LG이노텍",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 30361562481000.0,
-    "market_cap_str": "30.36조"
+    "market_cap": 27095860515000.0,
+    "market_cap_str": "27.10조"
   },
   {
     "ticker": "307950",
     "name": "현대오토에버",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 18318641488000.0,
-    "market_cap_str": "18.32조"
+    "market_cap": 18154102792000.0,
+    "market_cap_str": "18.15조"
   },
   {
     "ticker": "080220",
     "name": "제주반도체",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 3964501340800.0,
-    "market_cap_str": "3.96조"
+    "market_cap": 3849978787200.0,
+    "market_cap_str": "3.85조"
   },
   {
     "ticker": "036540",
     "name": "SFA반도체",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1180547992800.0,
-    "market_cap_str": "1.18조"
+    "market_cap": 1114961993200.0,
+    "market_cap_str": "1.11조"
   },
   {
     "ticker": "166090",
     "name": "하나머티리얼즈",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1330972188000.0,
-    "market_cap_str": "1.33조"
+    "market_cap": 1244169654000.0,
+    "market_cap_str": "1.24조"
   },
   {
     "ticker": "417200",
     "name": "LS머트리얼즈",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1123710665990.0,
-    "market_cap_str": "1.12조"
+    "market_cap": 1163625734800.0,
+    "market_cap_str": "1.16조"
   },
   {
     "ticker": "ATOM",
@@ -372,7 +372,7 @@
     "name": "CACI",
     "market": "us",
     "currency": "USD",
-    "market_cap": 10303826774.736176,
+    "market_cap": 10303826478.1,
     "market_cap_str": "$10.3B"
   },
   {
@@ -404,7 +404,7 @@
     "name": "SPIR",
     "market": "us",
     "currency": "USD",
-    "market_cap": 734358057.9488888,
+    "market_cap": 734358084.53,
     "market_cap_str": "$0.7B"
   },
   {
@@ -412,16 +412,16 @@
     "name": "기가비스",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1778408847400.0,
-    "market_cap_str": "1.78조"
+    "market_cap": 1761930362000.0,
+    "market_cap_str": "1.76조"
   },
   {
     "ticker": "347850",
     "name": "디앤디파마텍",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 4743989120100.0,
-    "market_cap_str": "4.74조"
+    "market_cap": 4871021146400.0,
+    "market_cap_str": "4.87조"
   },
   {
     "ticker": "WDC",
@@ -452,23 +452,23 @@
     "name": "포스코퓨처엠",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 17967129370000.0,
-    "market_cap_str": "17.97조"
+    "market_cap": 17744763907500.0,
+    "market_cap_str": "17.74조"
   },
   {
     "ticker": "007660",
     "name": "이수페타시스",
     "market": "kospi",
     "currency": "KRW",
-    "market_cap": 8911879186600.0,
-    "market_cap_str": "8.91조"
+    "market_cap": 8449401106900.0,
+    "market_cap_str": "8.45조"
   },
   {
     "ticker": "090710",
     "name": "휴림로봇",
     "market": "kosdaq",
     "currency": "KRW",
-    "market_cap": 1251293487840.0,
-    "market_cap_str": "1.25조"
+    "market_cap": 1209464192640.0,
+    "market_cap_str": "1.21조"
   }
 ]
