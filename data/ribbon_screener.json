@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-19 03:33",
+  "updated_at": "2026-06-20 02:37",
   "summary": {
-    "kr": 1,
+    "kr": 2,
     "us": 1,
     "coin": 0
   },
@@ -11,7 +11,14 @@
       "name": "한화에어로스페이스",
       "market": "kospi",
       "prev_norm": -0.008,
-      "curr_norm": 0.0164
+      "curr_norm": 0.0084
+    },
+    {
+      "ticker": "005940",
+      "name": "NH투자증권",
+      "market": "kospi",
+      "prev_norm": -0.0126,
+      "curr_norm": 0.0034
     }
   ],
   "us": [
