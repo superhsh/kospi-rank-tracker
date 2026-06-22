@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19 12:14",
+  "updated_at": "2026-06-22 00:07",
   "signals": {
     "BE_us": {
       "ticker": "BE",
@@ -101,9 +101,9 @@
       "name": "BWXT",
       "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.039 → 당일 norm 0.013"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 80.7 → 당일 125.4"
         }
       ]
     },
