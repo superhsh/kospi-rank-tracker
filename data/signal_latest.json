@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23 00:02",
+  "updated_at": "2026-06-23 11:23",
   "signals": {
     "BE_us": {
       "ticker": "BE",
@@ -93,7 +93,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 24.2 → 당일 113.9"
+          "detail": "전일 24.2 → 당일 114.0"
         },
         {
           "type": "sar_buy",
@@ -148,39 +148,15 @@
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
-      "market": "kospi",
-      "name": "HD현대마린솔루션",
+    "166090_kosdaq": {
+      "ticker": "166090",
+      "market": "kosdaq",
+      "name": "하나머티리얼즈",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 264000.0  >  종가 209500.0"
-        }
-      ]
-    },
-    "064400_kospi": {
-      "ticker": "064400",
-      "market": "kospi",
-      "name": "LG씨엔에스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 19.4  ↑  %D 19.3"
-        }
-      ]
-    },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 75.0  ↑  %D 74.2"
+          "detail": "SAR 77800.0  >  종가 60900.0"
         }
       ]
     },
@@ -224,9 +200,9 @@
       "name": "기가비스",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 40.9 → 당일 164.9"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 58.0  ↑  %D 53.5"
         }
       ]
     },
@@ -256,18 +232,6 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 65.1  ↑  %D 63.6"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 12430.0  >  종가 9580.0"
         }
       ]
     }
