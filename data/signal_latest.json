@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23 23:54",
+  "updated_at": "2026-06-24 10:57",
   "signals": {
     "RGTI_us": {
       "ticker": "RGTI",
@@ -13,15 +13,15 @@
         }
       ]
     },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
+    "NEAR_coin": {
+      "ticker": "NEAR",
+      "market": "coin",
+      "name": "NEAR Protocol",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 77800.0  >  종가 60900.0"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -43.2 → 당일 0.5"
         }
       ]
     },
@@ -39,18 +39,6 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 20.4  ↑  %D 14.7"
-        }
-      ]
-    },
-    "420770_kosdaq": {
-      "ticker": "420770",
-      "market": "kosdaq",
-      "name": "기가비스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 58.0  ↑  %D 53.5"
         }
       ]
     }
