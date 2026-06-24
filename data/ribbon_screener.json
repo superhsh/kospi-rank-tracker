@@ -1,68 +1,47 @@
 {
-  "updated_at": "2026-06-23 02:31",
+  "updated_at": "2026-06-24 02:32",
   "summary": {
-    "kr": 2,
-    "us": 6,
+    "kr": 3,
+    "us": 2,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "298040",
-      "name": "효성중공업",
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
       "market": "kospi",
-      "prev_norm": -0.0136,
-      "curr_norm": 0.0018
+      "prev_norm": -0.0028,
+      "curr_norm": 0.0105
     },
     {
       "ticker": "028300",
       "name": "HLB",
       "market": "kosdaq",
-      "prev_norm": -0.0114,
-      "curr_norm": 0.0019
+      "prev_norm": -0.0068,
+      "curr_norm": 0.0134
+    },
+    {
+      "ticker": "214150",
+      "name": "클래시스",
+      "market": "kosdaq",
+      "prev_norm": -0.0126,
+      "curr_norm": 0.0061
     }
   ],
   "us": [
     {
-      "ticker": "TXN",
-      "name": "TXN",
+      "ticker": "CEG",
+      "name": "CEG",
       "market": "us",
-      "prev_norm": -0.0343,
-      "curr_norm": 0.021
+      "prev_norm": -0.0077,
+      "curr_norm": 0.0241
     },
     {
-      "ticker": "ADI",
-      "name": "ADI",
-      "market": "us",
-      "prev_norm": -0.004,
-      "curr_norm": 0.041
-    },
-    {
-      "ticker": "MCHP",
-      "name": "MCHP",
-      "market": "us",
-      "prev_norm": -0.0176,
-      "curr_norm": 0.0289
-    },
-    {
-      "ticker": "TTWO",
-      "name": "TTWO",
-      "market": "us",
-      "prev_norm": -0.0091,
-      "curr_norm": 0.0476
-    },
-    {
-      "ticker": "AIG",
-      "name": "AIG",
-      "market": "us",
-      "prev_norm": -0.0214,
-      "curr_norm": 0.0107
-    },
-    {
-      "ticker": "ACGL",
-      "name": "ACGL",
+      "ticker": "XEL",
+      "name": "XEL",
       "market": "us",
       "prev_norm": -0.0006,
-      "curr_norm": 0.0106
+      "curr_norm": 0.0355
     }
   ],
   "coin": []
