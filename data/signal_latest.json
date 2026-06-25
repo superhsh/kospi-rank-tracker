@@ -1,15 +1,49 @@
 {
-  "updated_at": "2026-06-24 10:57",
+  "updated_at": "2026-06-25 00:06",
   "signals": {
-    "RGTI_us": {
-      "ticker": "RGTI",
+    "NBIX_us": {
+      "ticker": "NBIX",
       "market": "us",
-      "name": "RGTI",
+      "name": "NBIX",
       "signals": [
+        {
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 34.2 → 당일 113.0"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 155.3  <  종가 166.06"
+        }
+      ]
+    },
+    "LITE_us": {
+      "ticker": "LITE",
+      "market": "us",
+      "name": "LITE",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 19.2 → 23.7  |  %D 22.7"
+        },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 46.4  ↑  %D 41.9"
+          "detail": "%K 23.7  ↑  %D 22.7"
+        }
+      ]
+    },
+    "SNDK_us": {
+      "ticker": "SNDK",
+      "market": "us",
+      "name": "SNDK",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 2354.39  >  종가 1914.46"
         }
       ]
     },
@@ -19,26 +53,14 @@
       "name": "NEAR Protocol",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -43.2 → 당일 0.5"
-        }
-      ]
-    },
-    "CACI_us": {
-      "ticker": "CACI",
-      "market": "us",
-      "name": "CACI",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 9.7 → 20.4  |  %D 14.7"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 0.5 → 당일 143.3"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 20.4  ↑  %D 14.7"
+          "detail": "%K 38.9  ↑  %D 30.3"
         }
       ]
     }
