@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25 00:06",
+  "updated_at": "2026-06-25 10:48",
   "signals": {
     "NBIX_us": {
       "ticker": "NBIX",
@@ -9,7 +9,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 34.2 → 당일 113.0"
+          "detail": "전일 34.2 → 당일 115.4"
         },
         {
           "type": "sar_buy",
@@ -44,6 +44,35 @@
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
           "detail": "SAR 2354.39  >  종가 1914.46"
+        }
+      ]
+    },
+    "443060_kospi": {
+      "ticker": "443060",
+      "market": "kospi",
+      "name": "HD현대마린솔루션",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 11.0 → 28.4  |  %D 15.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 28.4  ↑  %D 15.3"
+        }
+      ]
+    },
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 6.5  ↑  %D 6.0"
         }
       ]
     },
