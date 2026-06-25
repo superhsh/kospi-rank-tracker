@@ -1,48 +1,56 @@
 {
-  "updated_at": "2026-06-24 02:32",
+  "updated_at": "2026-06-25 02:33",
   "summary": {
-    "kr": 3,
-    "us": 2,
-    "coin": 0
+    "kr": 4,
+    "us": 1,
+    "coin": 1
   },
   "kr": [
     {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
+      "ticker": "015760",
+      "name": "한국전력",
       "market": "kospi",
-      "prev_norm": -0.0028,
-      "curr_norm": 0.0105
+      "prev_norm": -0.0087,
+      "curr_norm": 0.0056
     },
     {
-      "ticker": "028300",
-      "name": "HLB",
-      "market": "kosdaq",
-      "prev_norm": -0.0068,
-      "curr_norm": 0.0134
+      "ticker": "180640",
+      "name": "한진칼",
+      "market": "kospi",
+      "prev_norm": -0.0036,
+      "curr_norm": 0.0065
     },
     {
-      "ticker": "214150",
-      "name": "클래시스",
+      "ticker": "141080",
+      "name": "리가켐바이오",
       "market": "kosdaq",
-      "prev_norm": -0.0126,
-      "curr_norm": 0.0061
+      "prev_norm": -0.0194,
+      "curr_norm": 0.0274
+    },
+    {
+      "ticker": "214450",
+      "name": "파마리서치",
+      "market": "kosdaq",
+      "prev_norm": -0.0172,
+      "curr_norm": 0.0121
     }
   ],
   "us": [
     {
-      "ticker": "CEG",
-      "name": "CEG",
+      "ticker": "ATO",
+      "name": "ATO",
       "market": "us",
-      "prev_norm": -0.0077,
-      "curr_norm": 0.0241
-    },
-    {
-      "ticker": "XEL",
-      "name": "XEL",
-      "market": "us",
-      "prev_norm": -0.0006,
-      "curr_norm": 0.0355
+      "prev_norm": -0.0265,
+      "curr_norm": 0.0154
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "DAI",
+      "name": "Dai",
+      "market": "coin",
+      "prev_norm": -0.0009,
+      "curr_norm": 0.0015
+    }
+  ]
 }
