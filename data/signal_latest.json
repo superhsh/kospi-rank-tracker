@@ -1,37 +1,80 @@
 {
-  "updated_at": "2026-06-25 10:48",
+  "updated_at": "2026-06-26 00:06",
   "signals": {
-    "NBIX_us": {
-      "ticker": "NBIX",
+    "MU_us": {
+      "ticker": "MU",
       "market": "us",
-      "name": "NBIX",
+      "name": "MU",
       "signals": [
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 34.2 → 당일 115.4"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 155.3  <  종가 166.06"
+          "detail": "전일 30.7 → 당일 168.3"
         }
       ]
     },
-    "LITE_us": {
-      "ticker": "LITE",
+    "HOOD_us": {
+      "ticker": "HOOD",
       "market": "us",
-      "name": "LITE",
+      "name": "HOOD",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 112.5  >  종가 93.47"
+        }
+      ]
+    },
+    "JOBY_us": {
+      "ticker": "JOBY",
+      "market": "us",
+      "name": "JOBY",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 10.3  >  종가 8.87"
+        }
+      ]
+    },
+    "SYM_us": {
+      "ticker": "SYM",
+      "market": "us",
+      "name": "SYM",
       "signals": [
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 19.2 → 23.7  |  %D 22.7"
+          "detail": "%K 17.6 → 34.7  |  %D 25.9"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 23.7  ↑  %D 22.7"
+          "detail": "%K 34.7  ↑  %D 25.9"
+        }
+      ]
+    },
+    "VRT_us": {
+      "ticker": "VRT",
+      "market": "us",
+      "name": "VRT",
+      "signals": [
+        {
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.004 → 당일 norm 0.013"
+        }
+      ]
+    },
+    "COHR_us": {
+      "ticker": "COHR",
+      "market": "us",
+      "name": "COHR",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -8.2 → 당일 52.2"
         }
       ]
     },
@@ -41,9 +84,14 @@
       "name": "SNDK",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 2354.39  >  종가 1914.46"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 36.5 → 당일 140.0"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 1861.01  <  종가 2335.0"
         }
       ]
     },
@@ -82,14 +130,9 @@
       "name": "NEAR Protocol",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 0.5 → 당일 143.3"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 38.9  ↑  %D 30.3"
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 50.51  <  종가 50.63"
         }
       ]
     }
