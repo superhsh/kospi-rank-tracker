@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-26 02:36",
+  "updated_at": "2026-06-27 02:29",
   "summary": {
     "kr": 2,
-    "us": 5,
-    "coin": 1
+    "us": 4,
+    "coin": 0
   },
   "kr": [
     {
@@ -11,60 +11,45 @@
       "name": "휴젤",
       "market": "kosdaq",
       "prev_norm": -0.0076,
-      "curr_norm": 0.0064
+      "curr_norm": 0.0041
     },
     {
       "ticker": "031980",
       "name": "피에스케이홀딩스",
       "market": "kosdaq",
       "prev_norm": -0.0174,
-      "curr_norm": 0.0118
+      "curr_norm": 0.0119
     }
   ],
   "us": [
     {
-      "ticker": "SBUX",
-      "name": "SBUX",
+      "ticker": "CSX",
+      "name": "CSX",
       "market": "us",
-      "prev_norm": -0.0038,
-      "curr_norm": 0.0278
+      "prev_norm": -0.028,
+      "curr_norm": 0.0048
     },
     {
-      "ticker": "WBD",
-      "name": "WBD",
+      "ticker": "PYPL",
+      "name": "PYPL",
       "market": "us",
-      "prev_norm": -0.017,
-      "curr_norm": 0.0044
+      "prev_norm": -0.0057,
+      "curr_norm": 0.0401
     },
     {
-      "ticker": "REGN",
-      "name": "REGN",
+      "ticker": "ALNY",
+      "name": "ALNY",
       "market": "us",
-      "prev_norm": -0.004,
-      "curr_norm": 0.0306
+      "prev_norm": -0.0083,
+      "curr_norm": 0.0036
     },
     {
-      "ticker": "MO",
-      "name": "MO",
+      "ticker": "AXON",
+      "name": "AXON",
       "market": "us",
-      "prev_norm": -0.0466,
-      "curr_norm": 0.0041
-    },
-    {
-      "ticker": "BDX",
-      "name": "BDX",
-      "market": "us",
-      "prev_norm": -0.016,
-      "curr_norm": 0.0327
+      "prev_norm": -0.0087,
+      "curr_norm": 0.0149
     }
   ],
-  "coin": [
-    {
-      "ticker": "TRX",
-      "name": "TRON",
-      "market": "coin",
-      "prev_norm": -0.0031,
-      "curr_norm": 0.0102
-    }
-  ]
+  "coin": []
 }
