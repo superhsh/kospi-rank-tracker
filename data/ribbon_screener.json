@@ -1,54 +1,33 @@
 {
-  "updated_at": "2026-06-27 02:29",
+  "updated_at": "2026-06-30 02:37",
   "summary": {
-    "kr": 2,
-    "us": 4,
+    "kr": 1,
+    "us": 2,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "145020",
-      "name": "휴젤",
-      "market": "kosdaq",
-      "prev_norm": -0.0076,
-      "curr_norm": 0.0041
-    },
-    {
-      "ticker": "031980",
-      "name": "피에스케이홀딩스",
-      "market": "kosdaq",
-      "prev_norm": -0.0174,
-      "curr_norm": 0.0119
+      "ticker": "068270",
+      "name": "셀트리온",
+      "market": "kospi",
+      "prev_norm": -0.0135,
+      "curr_norm": 0.0047
     }
   ],
   "us": [
     {
-      "ticker": "CSX",
-      "name": "CSX",
+      "ticker": "AZO",
+      "name": "AZO",
       "market": "us",
-      "prev_norm": -0.028,
-      "curr_norm": 0.0048
+      "prev_norm": -0.0178,
+      "curr_norm": 0.0226
     },
     {
-      "ticker": "PYPL",
-      "name": "PYPL",
+      "ticker": "AVB",
+      "name": "AVB",
       "market": "us",
-      "prev_norm": -0.0057,
-      "curr_norm": 0.0401
-    },
-    {
-      "ticker": "ALNY",
-      "name": "ALNY",
-      "market": "us",
-      "prev_norm": -0.0083,
-      "curr_norm": 0.0036
-    },
-    {
-      "ticker": "AXON",
-      "name": "AXON",
-      "market": "us",
-      "prev_norm": -0.0087,
-      "curr_norm": 0.0149
+      "prev_norm": -0.0398,
+      "curr_norm": 0.0369
     }
   ],
   "coin": []
