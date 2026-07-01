@@ -1,34 +1,84 @@
 {
-  "updated_at": "2026-06-30 02:37",
+  "updated_at": "2026-07-01 02:43",
   "summary": {
-    "kr": 1,
-    "us": 2,
-    "coin": 0
+    "kr": 3,
+    "us": 5,
+    "coin": 2
   },
   "kr": [
     {
       "ticker": "068270",
       "name": "셀트리온",
       "market": "kospi",
-      "prev_norm": -0.0135,
-      "curr_norm": 0.0047
+      "prev_norm": -0.0003,
+      "curr_norm": 0.0104
+    },
+    {
+      "ticker": "047810",
+      "name": "한국항공우주",
+      "market": "kospi",
+      "prev_norm": -0.0159,
+      "curr_norm": 0.0153
+    },
+    {
+      "ticker": "131290",
+      "name": "티에스이",
+      "market": "kosdaq",
+      "prev_norm": -0.0243,
+      "curr_norm": 0.0054
     }
   ],
   "us": [
     {
-      "ticker": "AZO",
-      "name": "AZO",
+      "ticker": "CMCSA",
+      "name": "CMCSA",
       "market": "us",
-      "prev_norm": -0.0178,
-      "curr_norm": 0.0226
+      "prev_norm": -0.0498,
+      "curr_norm": 0.0071
     },
     {
-      "ticker": "AVB",
-      "name": "AVB",
+      "ticker": "ORLY",
+      "name": "ORLY",
       "market": "us",
-      "prev_norm": -0.0398,
-      "curr_norm": 0.0369
+      "prev_norm": -0.0093,
+      "curr_norm": 0.0435
+    },
+    {
+      "ticker": "KHC",
+      "name": "KHC",
+      "market": "us",
+      "prev_norm": -0.0029,
+      "curr_norm": 0.0157
+    },
+    {
+      "ticker": "APD",
+      "name": "APD",
+      "market": "us",
+      "prev_norm": -0.0603,
+      "curr_norm": 0.0099
+    },
+    {
+      "ticker": "AON",
+      "name": "AON",
+      "market": "us",
+      "prev_norm": -0.0101,
+      "curr_norm": 0.0185
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "WBT",
+      "name": "WhiteBIT Coin",
+      "market": "coin",
+      "prev_norm": -0.0479,
+      "curr_norm": 0.0396
+    },
+    {
+      "ticker": "LTC",
+      "name": "Litecoin",
+      "market": "coin",
+      "prev_norm": -0.0199,
+      "curr_norm": 0.0096
+    }
+  ]
 }
