@@ -1,84 +1,140 @@
 {
-  "updated_at": "2026-07-01 02:43",
+  "updated_at": "2026-07-02 02:32",
   "summary": {
-    "kr": 3,
-    "us": 5,
-    "coin": 2
+    "kr": 13,
+    "us": 4,
+    "coin": 1
   },
   "kr": [
     {
-      "ticker": "068270",
-      "name": "셀트리온",
+      "ticker": "105560",
+      "name": "KB금융",
       "market": "kospi",
-      "prev_norm": -0.0003,
-      "curr_norm": 0.0104
+      "prev_norm": -0.0286,
+      "curr_norm": 0.0282
     },
     {
-      "ticker": "047810",
-      "name": "한국항공우주",
+      "ticker": "360750",
+      "name": "TIGER 미국S&P500",
       "market": "kospi",
-      "prev_norm": -0.0159,
-      "curr_norm": 0.0153
+      "prev_norm": -0.0124,
+      "curr_norm": 0.0295
     },
     {
-      "ticker": "131290",
-      "name": "티에스이",
+      "ticker": "278470",
+      "name": "에이피알",
+      "market": "kospi",
+      "prev_norm": -0.0162,
+      "curr_norm": 0.0381
+    },
+    {
+      "ticker": "030200",
+      "name": "KT",
+      "market": "kospi",
+      "prev_norm": -0.0226,
+      "curr_norm": 0.0055
+    },
+    {
+      "ticker": "379800",
+      "name": "KODEX 미국S&P500",
+      "market": "kospi",
+      "prev_norm": -0.0124,
+      "curr_norm": 0.0292
+    },
+    {
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "market": "kospi",
+      "prev_norm": -0.0338,
+      "curr_norm": 0.0138
+    },
+    {
+      "ticker": "003230",
+      "name": "삼양식품",
+      "market": "kospi",
+      "prev_norm": -0.0199,
+      "curr_norm": 0.0267
+    },
+    {
+      "ticker": "062040",
+      "name": "산일전기",
+      "market": "kospi",
+      "prev_norm": -0.0288,
+      "curr_norm": 0.0083
+    },
+    {
+      "ticker": "090430",
+      "name": "아모레퍼시픽",
+      "market": "kospi",
+      "prev_norm": -0.015,
+      "curr_norm": 0.0777
+    },
+    {
+      "ticker": "021240",
+      "name": "코웨이",
+      "market": "kospi",
+      "prev_norm": -0.0334,
+      "curr_norm": 0.0276
+    },
+    {
+      "ticker": "064760",
+      "name": "티씨케이",
       "market": "kosdaq",
-      "prev_norm": -0.0243,
-      "curr_norm": 0.0054
+      "prev_norm": -0.0022,
+      "curr_norm": 0.0151
+    },
+    {
+      "ticker": "257720",
+      "name": "실리콘투",
+      "market": "kosdaq",
+      "prev_norm": -0.0388,
+      "curr_norm": 0.0077
+    },
+    {
+      "ticker": "140410",
+      "name": "메지온",
+      "market": "kosdaq",
+      "prev_norm": -0.0237,
+      "curr_norm": 0.0165
     }
   ],
   "us": [
     {
-      "ticker": "CMCSA",
-      "name": "CMCSA",
+      "ticker": "CRWD",
+      "name": "CRWD",
       "market": "us",
-      "prev_norm": -0.0498,
-      "curr_norm": 0.0071
+      "prev_norm": -0.0007,
+      "curr_norm": 0.3159
     },
     {
-      "ticker": "ORLY",
-      "name": "ORLY",
+      "ticker": "DDOG",
+      "name": "DDOG",
       "market": "us",
-      "prev_norm": -0.0093,
-      "curr_norm": 0.0435
+      "prev_norm": -0.0416,
+      "curr_norm": 0.0184
     },
     {
-      "ticker": "KHC",
-      "name": "KHC",
+      "ticker": "TRI",
+      "name": "TRI",
       "market": "us",
-      "prev_norm": -0.0029,
-      "curr_norm": 0.0157
+      "prev_norm": -0.0153,
+      "curr_norm": 0.0161
     },
     {
-      "ticker": "APD",
-      "name": "APD",
+      "ticker": "PAYX",
+      "name": "PAYX",
       "market": "us",
-      "prev_norm": -0.0603,
-      "curr_norm": 0.0099
-    },
-    {
-      "ticker": "AON",
-      "name": "AON",
-      "market": "us",
-      "prev_norm": -0.0101,
-      "curr_norm": 0.0185
+      "prev_norm": -0.0245,
+      "curr_norm": 0.0095
     }
   ],
   "coin": [
     {
-      "ticker": "WBT",
-      "name": "WhiteBIT Coin",
-      "market": "coin",
-      "prev_norm": -0.0479,
-      "curr_norm": 0.0396
-    },
-    {
       "ticker": "LTC",
       "name": "Litecoin",
       "market": "coin",
-      "prev_norm": -0.0199,
-      "curr_norm": 0.0096
+      "prev_norm": -0.0007,
+      "curr_norm": 0.033
     }
   ]
 }
