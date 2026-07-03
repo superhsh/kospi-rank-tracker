@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-03 00:02",
+  "updated_at": "2026-07-03 10:43",
   "signals": {
     "MU_us": {
       "ticker": "MU",
@@ -86,7 +86,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -21.2 → 당일 32.6"
+          "detail": "전일 -21.2 → 당일 31.6"
         }
       ]
     },
@@ -114,15 +114,32 @@
         }
       ]
     },
-    "166090_kosdaq": {
-      "ticker": "166090",
+    "036540_kosdaq": {
+      "ticker": "036540",
       "market": "kosdaq",
-      "name": "하나머티리얼즈",
+      "name": "SFA반도체",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.5 → 25.4  |  %D 23.8"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 25.4  ↑  %D 23.8"
+        }
+      ]
+    },
+    "417200_kosdaq": {
+      "ticker": "417200",
+      "market": "kosdaq",
+      "name": "LS머트리얼즈",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 72800.0  >  종가 56200.0"
+          "detail": "SAR 16570.0  >  종가 14390.0"
         }
       ]
     },
@@ -134,7 +151,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 69.5 → 당일 109.2"
+          "detail": "전일 69.5 → 당일 111.0"
         }
       ]
     },
@@ -152,6 +169,18 @@
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
           "detail": "SAR 434.7  <  종가 502.83"
+        }
+      ]
+    },
+    "420770_kosdaq": {
+      "ticker": "420770",
+      "market": "kosdaq",
+      "name": "기가비스",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 206000.0  >  종가 167000.0"
         }
       ]
     }
