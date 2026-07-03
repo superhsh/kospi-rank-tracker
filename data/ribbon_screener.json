@@ -1,140 +1,98 @@
 {
-  "updated_at": "2026-07-02 02:32",
+  "updated_at": "2026-07-03 02:08",
   "summary": {
-    "kr": 13,
-    "us": 4,
-    "coin": 1
+    "kr": 8,
+    "us": 2,
+    "coin": 2
   },
   "kr": [
     {
-      "ticker": "105560",
-      "name": "KB금융",
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
       "market": "kospi",
-      "prev_norm": -0.0286,
-      "curr_norm": 0.0282
+      "prev_norm": -0.0207,
+      "curr_norm": 0.0228
     },
     {
-      "ticker": "360750",
-      "name": "TIGER 미국S&P500",
+      "ticker": "055550",
+      "name": "신한지주",
       "market": "kospi",
-      "prev_norm": -0.0124,
-      "curr_norm": 0.0295
+      "prev_norm": -0.0194,
+      "curr_norm": 0.0335
     },
     {
-      "ticker": "278470",
-      "name": "에이피알",
+      "ticker": "086790",
+      "name": "하나금융지주",
       "market": "kospi",
-      "prev_norm": -0.0162,
-      "curr_norm": 0.0381
+      "prev_norm": -0.0429,
+      "curr_norm": 0.0017
     },
     {
-      "ticker": "030200",
-      "name": "KT",
+      "ticker": "138040",
+      "name": "메리츠금융지주",
       "market": "kospi",
-      "prev_norm": -0.0226,
-      "curr_norm": 0.0055
+      "prev_norm": -0.0149,
+      "curr_norm": 0.0166
     },
     {
-      "ticker": "379800",
-      "name": "KODEX 미국S&P500",
+      "ticker": "010950",
+      "name": "S-Oil",
       "market": "kospi",
-      "prev_norm": -0.0124,
-      "curr_norm": 0.0292
+      "prev_norm": -0.0164,
+      "curr_norm": 0.0186
     },
     {
-      "ticker": "007660",
-      "name": "이수페타시스",
+      "ticker": "005830",
+      "name": "DB손해보험",
       "market": "kospi",
-      "prev_norm": -0.0338,
-      "curr_norm": 0.0138
+      "prev_norm": -0.0462,
+      "curr_norm": 0.0075
     },
     {
-      "ticker": "003230",
-      "name": "삼양식품",
+      "ticker": "078930",
+      "name": "GS",
       "market": "kospi",
-      "prev_norm": -0.0199,
-      "curr_norm": 0.0267
-    },
-    {
-      "ticker": "062040",
-      "name": "산일전기",
-      "market": "kospi",
-      "prev_norm": -0.0288,
-      "curr_norm": 0.0083
-    },
-    {
-      "ticker": "090430",
-      "name": "아모레퍼시픽",
-      "market": "kospi",
-      "prev_norm": -0.015,
-      "curr_norm": 0.0777
-    },
-    {
-      "ticker": "021240",
-      "name": "코웨이",
-      "market": "kospi",
-      "prev_norm": -0.0334,
-      "curr_norm": 0.0276
-    },
-    {
-      "ticker": "064760",
-      "name": "티씨케이",
-      "market": "kosdaq",
-      "prev_norm": -0.0022,
-      "curr_norm": 0.0151
+      "prev_norm": -0.0383,
+      "curr_norm": 0.0053
     },
     {
       "ticker": "257720",
       "name": "실리콘투",
       "market": "kosdaq",
-      "prev_norm": -0.0388,
-      "curr_norm": 0.0077
-    },
-    {
-      "ticker": "140410",
-      "name": "메지온",
-      "market": "kosdaq",
-      "prev_norm": -0.0237,
-      "curr_norm": 0.0165
+      "prev_norm": -0.0052,
+      "curr_norm": 0.0369
     }
   ],
   "us": [
     {
-      "ticker": "CRWD",
-      "name": "CRWD",
+      "ticker": "GILD",
+      "name": "GILD",
       "market": "us",
-      "prev_norm": -0.0007,
-      "curr_norm": 0.3159
+      "prev_norm": -0.0242,
+      "curr_norm": 0.0218
     },
     {
-      "ticker": "DDOG",
-      "name": "DDOG",
+      "ticker": "ADP",
+      "name": "ADP",
       "market": "us",
-      "prev_norm": -0.0416,
-      "curr_norm": 0.0184
-    },
-    {
-      "ticker": "TRI",
-      "name": "TRI",
-      "market": "us",
-      "prev_norm": -0.0153,
-      "curr_norm": 0.0161
-    },
-    {
-      "ticker": "PAYX",
-      "name": "PAYX",
-      "market": "us",
-      "prev_norm": -0.0245,
-      "curr_norm": 0.0095
+      "prev_norm": -0.001,
+      "curr_norm": 0.0735
     }
   ],
   "coin": [
     {
-      "ticker": "LTC",
-      "name": "Litecoin",
+      "ticker": "ETH",
+      "name": "Ethereum",
       "market": "coin",
-      "prev_norm": -0.0007,
-      "curr_norm": 0.033
+      "prev_norm": -0.0283,
+      "curr_norm": 0.0292
+    },
+    {
+      "ticker": "ADA",
+      "name": "Cardano",
+      "market": "coin",
+      "prev_norm": -0.0483,
+      "curr_norm": 0.0348
     }
   ]
 }
