@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-03 02:08",
+  "updated_at": "2026-07-04 02:06",
   "summary": {
-    "kr": 8,
+    "kr": 7,
     "us": 2,
-    "coin": 2
+    "coin": 4
   },
   "kr": [
     {
@@ -11,56 +11,49 @@
       "name": "한화에어로스페이스",
       "market": "kospi",
       "prev_norm": -0.0207,
-      "curr_norm": 0.0228
+      "curr_norm": 0.0296
     },
     {
       "ticker": "055550",
       "name": "신한지주",
       "market": "kospi",
       "prev_norm": -0.0194,
-      "curr_norm": 0.0335
+      "curr_norm": 0.0347
     },
     {
       "ticker": "086790",
       "name": "하나금융지주",
       "market": "kospi",
       "prev_norm": -0.0429,
-      "curr_norm": 0.0017
+      "curr_norm": 0.0042
     },
     {
       "ticker": "138040",
       "name": "메리츠금융지주",
       "market": "kospi",
       "prev_norm": -0.0149,
-      "curr_norm": 0.0166
+      "curr_norm": 0.0358
     },
     {
       "ticker": "010950",
       "name": "S-Oil",
       "market": "kospi",
       "prev_norm": -0.0164,
-      "curr_norm": 0.0186
+      "curr_norm": 0.011
     },
     {
       "ticker": "005830",
       "name": "DB손해보험",
       "market": "kospi",
       "prev_norm": -0.0462,
-      "curr_norm": 0.0075
-    },
-    {
-      "ticker": "078930",
-      "name": "GS",
-      "market": "kospi",
-      "prev_norm": -0.0383,
-      "curr_norm": 0.0053
+      "curr_norm": 0.0025
     },
     {
       "ticker": "257720",
       "name": "실리콘투",
       "market": "kosdaq",
       "prev_norm": -0.0052,
-      "curr_norm": 0.0369
+      "curr_norm": 0.0391
     }
   ],
   "us": [
@@ -81,18 +74,32 @@
   ],
   "coin": [
     {
-      "ticker": "ETH",
-      "name": "Ethereum",
+      "ticker": "BTC",
+      "name": "Bitcoin",
       "market": "coin",
-      "prev_norm": -0.0283,
-      "curr_norm": 0.0292
+      "prev_norm": -0.0173,
+      "curr_norm": 0.0192
     },
     {
-      "ticker": "ADA",
-      "name": "Cardano",
+      "ticker": "TRX",
+      "name": "TRON",
       "market": "coin",
-      "prev_norm": -0.0483,
+      "prev_norm": -0.0019,
       "curr_norm": 0.0348
+    },
+    {
+      "ticker": "ZEC",
+      "name": "Zcash",
+      "market": "coin",
+      "prev_norm": -0.0237,
+      "curr_norm": 0.023
+    },
+    {
+      "ticker": "LINK",
+      "name": "Chainlink",
+      "market": "coin",
+      "prev_norm": -0.0195,
+      "curr_norm": 0.0287
     }
   ]
 }
