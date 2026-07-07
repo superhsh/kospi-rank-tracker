@@ -1,44 +1,61 @@
 {
-  "updated_at": "2026-07-06 12:09",
+  "updated_at": "2026-07-07 00:04",
   "signals": {
-    "MU_us": {
-      "ticker": "MU",
+    "IREN_us": {
+      "ticker": "IREN",
       "market": "us",
-      "name": "MU",
+      "name": "IREN",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 1255.0  >  종가 975.56"
-        }
-      ]
-    },
-    "HOOD_us": {
-      "ticker": "HOOD",
-      "market": "us",
-      "name": "HOOD",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 98.6 → 당일 160.5"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 11.1 → 25.0  |  %D 16.2"
         },
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 92.8  <  종가 112.73"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 25.0  ↑  %D 16.2"
         }
       ]
     },
-    "SYM_us": {
-      "ticker": "SYM",
+    "BE_us": {
+      "ticker": "BE",
       "market": "us",
-      "name": "SYM",
+      "name": "BE",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -17.6 → 당일 20.6"
+        }
+      ]
+    },
+    "TSLA_us": {
+      "ticker": "TSLA",
+      "market": "us",
+      "name": "TSLA",
       "signals": [
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.013 → 당일 norm 0.008"
+          "detail": "전일 norm -0.036 → 당일 norm 0.0"
+        }
+      ]
+    },
+    "CRCL_us": {
+      "ticker": "CRCL",
+      "market": "us",
+      "name": "CRCL",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 7.2 → 23.0  |  %D 15.7"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 23.0  ↑  %D 15.7"
         }
       ]
     },
@@ -48,21 +65,50 @@
       "name": "BWXT",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.0  ↑  %D 15.1"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.0 → 32.1  |  %D 21.2"
         }
       ]
     },
-    "ALAB_us": {
-      "ticker": "ALAB",
+    "VRT_us": {
+      "ticker": "VRT",
       "market": "us",
-      "name": "ALAB",
+      "name": "VRT",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 499.48  >  종가 406.42"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -39.5 → 당일 35.6"
+        },
+        {
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.009 → 당일 norm 0.001"
+        }
+      ]
+    },
+    "NTAP_us": {
+      "ticker": "NTAP",
+      "market": "us",
+      "name": "NTAP",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -61.6 → 당일 27.3"
+        }
+      ]
+    },
+    "LEU_us": {
+      "ticker": "LEU",
+      "market": "us",
+      "name": "LEU",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -23.3 → 당일 48.7"
         }
       ]
     },
@@ -72,45 +118,57 @@
       "name": "NBIX",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 94.2 → 당일 164.9"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 83.5  ↑  %D 78.1"
         }
       ]
     },
-    "PLTR_us": {
-      "ticker": "PLTR",
+    "META_us": {
+      "ticker": "META",
       "market": "us",
-      "name": "PLTR",
+      "name": "META",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -21.2 → 당일 31.6"
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.033 → 당일 norm 0.012"
         }
       ]
     },
-    "SNDK_us": {
-      "ticker": "SNDK",
+    "MSTR_us": {
+      "ticker": "MSTR",
       "market": "us",
-      "name": "SNDK",
+      "name": "MSTR",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 2348.0  >  종가 1745.0"
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 81.81  <  종가 100.77"
         }
       ]
     },
-    "INTC_us": {
-      "ticker": "INTC",
+    "BMNR_us": {
+      "ticker": "BMNR",
       "market": "us",
-      "name": "INTC",
+      "name": "BMNR",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 142.35  >  종가 120.35"
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 12.8  <  종가 15.55"
+        }
+      ]
+    },
+    "FSLR_us": {
+      "ticker": "FSLR",
+      "market": "us",
+      "name": "FSLR",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 17.9 → 25.7  |  %D 20.3"
         }
       ]
     },
@@ -120,26 +178,9 @@
       "name": "NEAR Protocol",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 69.5 → 당일 111.0"
-        }
-      ]
-    },
-    "CACI_us": {
-      "ticker": "CACI",
-      "market": "us",
-      "name": "CACI",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -54.2 → 당일 1.0"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 434.7  <  종가 502.83"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 70.2  ↑  %D 66.1"
         }
       ]
     },
