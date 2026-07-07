@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07 00:04",
+  "updated_at": "2026-07-07 11:14",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -79,7 +79,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -39.5 → 당일 35.6"
+          "detail": "전일 -39.5 → 당일 34.8"
         },
         {
           "type": "ribbon_buy",
@@ -172,6 +172,30 @@
         }
       ]
     },
+    "011070_kospi": {
+      "ticker": "011070",
+      "market": "kospi",
+      "name": "LG이노텍",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 23.1  ↑  %D 22.5"
+        }
+      ]
+    },
+    "080220_kosdaq": {
+      "ticker": "080220",
+      "market": "kosdaq",
+      "name": "제주반도체",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.9 → 20.9  |  %D 21.3"
+        }
+      ]
+    },
     "NEAR_coin": {
       "ticker": "NEAR",
       "market": "coin",
@@ -184,15 +208,15 @@
         }
       ]
     },
-    "007660_kospi": {
-      "ticker": "007660",
-      "market": "kospi",
-      "name": "이수페타시스",
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 135200.0  >  종가 101300.0"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 19.5 → 20.3  |  %D 22.8"
         }
       ]
     }
