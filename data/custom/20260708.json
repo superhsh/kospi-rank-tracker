@@ -1,0 +1,474 @@
+[
+  {
+    "ticker": "IREN",
+    "name": "IREN",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 15369070257.091606,
+    "market_cap_str": "$15.4B"
+  },
+  {
+    "ticker": "BE",
+    "name": "BE",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 72331229284.00165,
+    "market_cap_str": "$72.3B"
+  },
+  {
+    "ticker": "PLUG",
+    "name": "PLUG",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 3431869994.937662,
+    "market_cap_str": "$3.4B"
+  },
+  {
+    "ticker": "SMR",
+    "name": "SMR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 3031886755.8173275,
+    "market_cap_str": "$3.0B"
+  },
+  {
+    "ticker": "IONQ",
+    "name": "IONQ",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 16827009939.317688,
+    "market_cap_str": "$16.8B"
+  },
+  {
+    "ticker": "RKLB",
+    "name": "RKLB",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 52078639775.35229,
+    "market_cap_str": "$52.1B"
+  },
+  {
+    "ticker": "TSLA",
+    "name": "TSLA",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 1479980539437.0122,
+    "market_cap_str": "$1.48T"
+  },
+  {
+    "ticker": "MU",
+    "name": "MU",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 1071568207882.2625,
+    "market_cap_str": "$1.07T"
+  },
+  {
+    "ticker": "HOOD",
+    "name": "HOOD",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 102234338021.96066,
+    "market_cap_str": "$102.2B"
+  },
+  {
+    "ticker": "JOBY",
+    "name": "JOBY",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 7800287647.506514,
+    "market_cap_str": "$7.8B"
+  },
+  {
+    "ticker": "ASTS",
+    "name": "ASTS",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 22391040494.14839,
+    "market_cap_str": "$22.4B"
+  },
+  {
+    "ticker": "RGTI",
+    "name": "RGTI",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 5624187839.800016,
+    "market_cap_str": "$5.6B"
+  },
+  {
+    "ticker": "FCEL",
+    "name": "FCEL",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 1523888281.317131,
+    "market_cap_str": "$1.5B"
+  },
+  {
+    "ticker": "CRCL",
+    "name": "CRCL",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 15926266166.240616,
+    "market_cap_str": "$15.9B"
+  },
+  {
+    "ticker": "SYM",
+    "name": "SYM",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 5303610309.886219,
+    "market_cap_str": "$5.3B"
+  },
+  {
+    "ticker": "OKLO",
+    "name": "OKLO",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 8226293652.968658,
+    "market_cap_str": "$8.2B"
+  },
+  {
+    "ticker": "BWXT",
+    "name": "BWXT",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 16867173083.307144,
+    "market_cap_str": "$16.9B"
+  },
+  {
+    "ticker": "VRT",
+    "name": "VRT",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 122073621875.19434,
+    "market_cap_str": "$122.1B"
+  },
+  {
+    "ticker": "AVGO",
+    "name": "AVGO",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 1849223858775.8062,
+    "market_cap_str": "$1.85T"
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVDA",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 4943990401733.398,
+    "market_cap_str": "$4.94T"
+  },
+  {
+    "ticker": "ALAB",
+    "name": "ALAB",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 67390745924.95462,
+    "market_cap_str": "$67.4B"
+  },
+  {
+    "ticker": "AMD",
+    "name": "AMD",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 843680971393.2981,
+    "market_cap_str": "$843.7B"
+  },
+  {
+    "ticker": "NTAP",
+    "name": "NTAP",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 32405154729.999664,
+    "market_cap_str": "$32.4B"
+  },
+  {
+    "ticker": "LEU",
+    "name": "LEU",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 3274930041.194641,
+    "market_cap_str": "$3.3B"
+  },
+  {
+    "ticker": "NBIX",
+    "name": "NBIX",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 17922029522.257553,
+    "market_cap_str": "$17.9B"
+  },
+  {
+    "ticker": "COHR",
+    "name": "COHR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 62027444334.874695,
+    "market_cap_str": "$62.0B"
+  },
+  {
+    "ticker": "LITE",
+    "name": "LITE",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 55012378100.58594,
+    "market_cap_str": "$55.0B"
+  },
+  {
+    "ticker": "LUNR",
+    "name": "LUNR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 2730898372.629238,
+    "market_cap_str": "$2.7B"
+  },
+  {
+    "ticker": "META",
+    "name": "META",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 1530973850713.835,
+    "market_cap_str": "$1.53T"
+  },
+  {
+    "ticker": "PLTR",
+    "name": "PLTR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 316972592525.3462,
+    "market_cap_str": "$317.0B"
+  },
+  {
+    "ticker": "SNDK",
+    "name": "SNDK",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 255777676176.47974,
+    "market_cap_str": "$255.8B"
+  },
+  {
+    "ticker": "INTC",
+    "name": "INTC",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 554066229263.3057,
+    "market_cap_str": "$554.1B"
+  },
+  {
+    "ticker": "CRWV",
+    "name": "CRWV",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 49101331140.0,
+    "market_cap_str": "$49.1B"
+  },
+  {
+    "ticker": "MSTR",
+    "name": "MSTR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 33583732518.260605,
+    "market_cap_str": "$33.6B"
+  },
+  {
+    "ticker": "BMNR",
+    "name": "BMNR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 8463911334.791318,
+    "market_cap_str": "$8.5B"
+  },
+  {
+    "ticker": "CRML",
+    "name": "CRML",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 1241209934.8331938,
+    "market_cap_str": "$1.2B"
+  },
+  {
+    "ticker": "FSLR",
+    "name": "FSLR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 24101789648.82164,
+    "market_cap_str": "$24.1B"
+  },
+  {
+    "ticker": "443060",
+    "name": "HD현대마린솔루션",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 8858671796000.0,
+    "market_cap_str": "8.86조"
+  },
+  {
+    "ticker": "064400",
+    "name": "LG씨엔에스",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 6898279497600.0,
+    "market_cap_str": "6.90조"
+  },
+  {
+    "ticker": "011070",
+    "name": "LG이노텍",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 18056018841000.0,
+    "market_cap_str": "18.06조"
+  },
+  {
+    "ticker": "307950",
+    "name": "현대오토에버",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 12107305714000.0,
+    "market_cap_str": "12.11조"
+  },
+  {
+    "ticker": "080220",
+    "name": "제주반도체",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 2539706041600.0,
+    "market_cap_str": "2.54조"
+  },
+  {
+    "ticker": "036540",
+    "name": "SFA반도체",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 819824995000.0,
+    "market_cap_str": "8198억"
+  },
+  {
+    "ticker": "166090",
+    "name": "하나머티리얼즈",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 927822641200.0,
+    "market_cap_str": "9278억"
+  },
+  {
+    "ticker": "417200",
+    "name": "LS머트리얼즈",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 813861487770.0,
+    "market_cap_str": "8139억"
+  },
+  {
+    "ticker": "ATOM",
+    "name": "Cosmos Hub",
+    "market": "coin",
+    "currency": "USD",
+    "market_cap": 264043126.64604187,
+    "market_cap_str": "$0.3B"
+  },
+  {
+    "ticker": "CACI",
+    "name": "CACI",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 10908244555.933075,
+    "market_cap_str": "$10.9B"
+  },
+  {
+    "ticker": "RDW",
+    "name": "RDW",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 2104560127.0637054,
+    "market_cap_str": "$2.1B"
+  },
+  {
+    "ticker": "MCHP",
+    "name": "MCHP",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 46421784391.308975,
+    "market_cap_str": "$46.4B"
+  },
+  {
+    "ticker": "PL",
+    "name": "PL",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 9890170096.5,
+    "market_cap_str": "$9.9B"
+  },
+  {
+    "ticker": "SPIR",
+    "name": "SPIR",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 629062671.25,
+    "market_cap_str": "$0.6B"
+  },
+  {
+    "ticker": "420770",
+    "name": "기가비스",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 1844322789000.0,
+    "market_cap_str": "1.84조"
+  },
+  {
+    "ticker": "347850",
+    "name": "디앤디파마텍",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 3600700883400.0,
+    "market_cap_str": "3.60조"
+  },
+  {
+    "ticker": "WDC",
+    "name": "Western Digital Corporation",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 189678572481.75446,
+    "market_cap_str": "$189.7B"
+  },
+  {
+    "ticker": "NXPI",
+    "name": "NXP Semiconductors N.V.",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 71653816314.60553,
+    "market_cap_str": "$71.7B"
+  },
+  {
+    "ticker": "MRVL",
+    "name": "Marvell Technology, Inc.",
+    "market": "us",
+    "currency": "USD",
+    "market_cap": 202874431594.17773,
+    "market_cap_str": "$202.9B"
+  },
+  {
+    "ticker": "003670",
+    "name": "포스코퓨처엠",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 12870512969500.0,
+    "market_cap_str": "12.87조"
+  },
+  {
+    "ticker": "007660",
+    "name": "이수페타시스",
+    "market": "kospi",
+    "currency": "KRW",
+    "market_cap": 6445329428200.0,
+    "market_cap_str": "6.45조"
+  },
+  {
+    "ticker": "090710",
+    "name": "휴림로봇",
+    "market": "kosdaq",
+    "currency": "KRW",
+    "market_cap": 779220013440.0,
+    "market_cap_str": "7792억"
+  }
+]
