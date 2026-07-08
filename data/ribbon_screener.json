@@ -1,119 +1,55 @@
 {
-  "updated_at": "2026-07-07 02:14",
+  "updated_at": "2026-07-08 01:55",
   "summary": {
-    "kr": 6,
-    "us": 6,
-    "coin": 3
+    "kr": 3,
+    "us": 3,
+    "coin": 0
   },
   "kr": [
     {
-      "ticker": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
+      "ticker": "011200",
+      "name": "HMM",
       "market": "kospi",
-      "prev_norm": -0.0199,
-      "curr_norm": 0.0155
+      "prev_norm": -0.0225,
+      "curr_norm": 0.0054
     },
     {
-      "ticker": "323410",
-      "name": "카카오뱅크",
+      "ticker": "016360",
+      "name": "삼성증권",
       "market": "kospi",
-      "prev_norm": -0.0199,
-      "curr_norm": 0.0107
-    },
-    {
-      "ticker": "352820",
-      "name": "하이브",
-      "market": "kospi",
-      "prev_norm": -0.0088,
-      "curr_norm": 0.062
-    },
-    {
-      "ticker": "161390",
-      "name": "한국타이어앤테크놀로지",
-      "market": "kospi",
-      "prev_norm": -0.0217,
-      "curr_norm": 0.0223
-    },
-    {
-      "ticker": "035900",
-      "name": "JYP Ent.",
-      "market": "kosdaq",
-      "prev_norm": -0.0026,
-      "curr_norm": 0.032
+      "prev_norm": -0.0137,
+      "curr_norm": 0.0033
     },
     {
       "ticker": "068760",
       "name": "셀트리온제약",
       "market": "kosdaq",
-      "prev_norm": -0.027,
-      "curr_norm": 0.001
+      "prev_norm": -0.0073,
+      "curr_norm": 0.0073
     }
   ],
   "us": [
     {
-      "ticker": "TSLA",
-      "name": "TSLA",
+      "ticker": "AAPL",
+      "name": "AAPL",
       "market": "us",
-      "prev_norm": -0.0356,
-      "curr_norm": 0.0005
-    },
-    {
-      "ticker": "META",
-      "name": "META",
-      "market": "us",
-      "prev_norm": -0.0329,
-      "curr_norm": 0.0121
+      "prev_norm": -0.0539,
+      "curr_norm": 0.0103
     },
     {
       "ticker": "PEP",
       "name": "PEP",
       "market": "us",
+      "prev_norm": -0.0074,
+      "curr_norm": 0.0353
+    },
+    {
+      "ticker": "WDAY",
+      "name": "WDAY",
+      "market": "us",
       "prev_norm": -0.0275,
-      "curr_norm": 0.0048
-    },
-    {
-      "ticker": "ISRG",
-      "name": "ISRG",
-      "market": "us",
-      "prev_norm": -0.0104,
-      "curr_norm": 0.0569
-    },
-    {
-      "ticker": "PDD",
-      "name": "PDD",
-      "market": "us",
-      "prev_norm": -0.0805,
-      "curr_norm": 0.0006
-    },
-    {
-      "ticker": "CTAS",
-      "name": "CTAS",
-      "market": "us",
-      "prev_norm": -0.0019,
-      "curr_norm": 0.0296
+      "curr_norm": 0.0323
     }
   ],
-  "coin": [
-    {
-      "ticker": "USDT",
-      "name": "Tether",
-      "market": "coin",
-      "prev_norm": -0.0001,
-      "curr_norm": 0.0122
-    },
-    {
-      "ticker": "BNB",
-      "name": "BNB",
-      "market": "coin",
-      "prev_norm": -0.0033,
-      "curr_norm": 0.028
-    },
-    {
-      "ticker": "XLM",
-      "name": "Stellar",
-      "market": "coin",
-      "prev_norm": -0.0035,
-      "curr_norm": 0.004
-    }
-  ]
+  "coin": []
 }
