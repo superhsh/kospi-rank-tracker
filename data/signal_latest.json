@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07 23:55",
+  "updated_at": "2026-07-08 10:24",
   "signals": {
     "PLUG_us": {
       "ticker": "PLUG",
@@ -85,27 +85,15 @@
         }
       ]
     },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 23.1  ↑  %D 22.5"
-        }
-      ]
-    },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.9 → 20.9  |  %D 21.3"
+          "detail": "%K 32.0  ↑  %D 28.3"
         }
       ]
     },
@@ -118,18 +106,6 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 19.3  ↑  %D 19.2"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 19.5 → 20.3  |  %D 22.8"
         }
       ]
     }
