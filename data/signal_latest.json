@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09 00:06",
+  "updated_at": "2026-07-09 11:10",
   "signals": {
     "MU_us": {
       "ticker": "MU",
@@ -33,7 +33,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -64.3 → 당일 2.5"
+          "detail": "전일 -64.3 → 당일 1.8"
         },
         {
           "type": "stoch_golden_cross",
@@ -165,15 +165,20 @@
         }
       ]
     },
-    "347850_kosdaq": {
-      "ticker": "347850",
+    "420770_kosdaq": {
+      "ticker": "420770",
       "market": "kosdaq",
-      "name": "디앤디파마텍",
+      "name": "기가비스",
       "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 17.1 → 23.3  |  %D 19.4"
+        },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 32.0  ↑  %D 28.3"
+          "detail": "%K 23.3  ↑  %D 19.4"
         }
       ]
     },
@@ -186,6 +191,18 @@
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
           "detail": "%K 19.3 → 25.8  |  %D 21.3"
+        }
+      ]
+    },
+    "007660_kospi": {
+      "ticker": "007660",
+      "market": "kospi",
+      "name": "이수페타시스",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 6.1  ↑  %D 6.0"
         }
       ]
     }
