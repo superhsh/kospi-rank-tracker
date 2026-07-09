@@ -1,54 +1,33 @@
 {
-  "updated_at": "2026-07-08 01:55",
+  "updated_at": "2026-07-09 02:08",
   "summary": {
-    "kr": 3,
-    "us": 3,
+    "kr": 1,
+    "us": 2,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "011200",
-      "name": "HMM",
-      "market": "kospi",
-      "prev_norm": -0.0225,
-      "curr_norm": 0.0054
-    },
-    {
-      "ticker": "016360",
-      "name": "삼성증권",
-      "market": "kospi",
-      "prev_norm": -0.0137,
-      "curr_norm": 0.0033
-    },
-    {
       "ticker": "068760",
       "name": "셀트리온제약",
       "market": "kosdaq",
-      "prev_norm": -0.0073,
-      "curr_norm": 0.0073
+      "prev_norm": -0.0036,
+      "curr_norm": 0.0079
     }
   ],
   "us": [
     {
-      "ticker": "AAPL",
-      "name": "AAPL",
+      "ticker": "GOOGL",
+      "name": "GOOGL",
       "market": "us",
-      "prev_norm": -0.0539,
-      "curr_norm": 0.0103
+      "prev_norm": -0.0186,
+      "curr_norm": 0.006
     },
     {
-      "ticker": "PEP",
-      "name": "PEP",
+      "ticker": "INTU",
+      "name": "INTU",
       "market": "us",
-      "prev_norm": -0.0074,
-      "curr_norm": 0.0353
-    },
-    {
-      "ticker": "WDAY",
-      "name": "WDAY",
-      "market": "us",
-      "prev_norm": -0.0275,
-      "curr_norm": 0.0323
+      "prev_norm": -0.0038,
+      "curr_norm": 0.0158
     }
   ],
   "coin": []
