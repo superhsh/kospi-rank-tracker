@@ -1,34 +1,112 @@
 {
-  "updated_at": "2026-07-09 02:08",
+  "updated_at": "2026-07-10 02:07",
   "summary": {
-    "kr": 1,
-    "us": 2,
-    "coin": 0
+    "kr": 7,
+    "us": 6,
+    "coin": 1
   },
   "kr": [
+    {
+      "ticker": "033780",
+      "name": "KT&G",
+      "market": "kospi",
+      "prev_norm": -0.0111,
+      "curr_norm": 0.0073
+    },
+    {
+      "ticker": "096770",
+      "name": "SK이노베이션",
+      "market": "kospi",
+      "prev_norm": -0.022,
+      "curr_norm": 0.0202
+    },
+    {
+      "ticker": "039490",
+      "name": "키움증권",
+      "market": "kospi",
+      "prev_norm": -0.0047,
+      "curr_norm": 0.0032
+    },
+    {
+      "ticker": "131290",
+      "name": "티에스이",
+      "market": "kosdaq",
+      "prev_norm": -0.022,
+      "curr_norm": 0.0096
+    },
+    {
+      "ticker": "089970",
+      "name": "브이엠",
+      "market": "kosdaq",
+      "prev_norm": -0.0026,
+      "curr_norm": 0.0052
+    },
+    {
+      "ticker": "263750",
+      "name": "펄어비스",
+      "market": "kosdaq",
+      "prev_norm": -0.0087,
+      "curr_norm": 0.0174
+    },
     {
       "ticker": "068760",
       "name": "셀트리온제약",
       "market": "kosdaq",
-      "prev_norm": -0.0036,
-      "curr_norm": 0.0079
+      "prev_norm": -0.0025,
+      "curr_norm": 0.0135
     }
   ],
   "us": [
     {
-      "ticker": "GOOGL",
-      "name": "GOOGL",
+      "ticker": "AMZN",
+      "name": "AMZN",
       "market": "us",
-      "prev_norm": -0.0186,
-      "curr_norm": 0.006
+      "prev_norm": -0.005,
+      "curr_norm": 0.0282
     },
     {
-      "ticker": "INTU",
-      "name": "INTU",
+      "ticker": "GOOG",
+      "name": "GOOG",
       "market": "us",
-      "prev_norm": -0.0038,
-      "curr_norm": 0.0158
+      "prev_norm": -0.0006,
+      "curr_norm": 0.0086
+    },
+    {
+      "ticker": "PLTR",
+      "name": "PLTR",
+      "market": "us",
+      "prev_norm": -0.0036,
+      "curr_norm": 0.0105
+    },
+    {
+      "ticker": "ADBE",
+      "name": "ADBE",
+      "market": "us",
+      "prev_norm": -0.0356,
+      "curr_norm": 0.0006
+    },
+    {
+      "ticker": "IDXX",
+      "name": "IDXX",
+      "market": "us",
+      "prev_norm": -0.0001,
+      "curr_norm": 0.013
+    },
+    {
+      "ticker": "ADSK",
+      "name": "ADSK",
+      "market": "us",
+      "prev_norm": -0.0278,
+      "curr_norm": 0.0081
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "LEO",
+      "name": "LEO Token",
+      "market": "coin",
+      "prev_norm": -0.042,
+      "curr_norm": 0.0088
+    }
+  ]
 }
