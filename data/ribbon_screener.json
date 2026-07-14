@@ -1,54 +1,47 @@
 {
-  "updated_at": "2026-07-11 01:53",
+  "updated_at": "2026-07-14 01:45",
   "summary": {
-    "kr": 4,
-    "us": 2,
+    "kr": 2,
+    "us": 3,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "096770",
-      "name": "SK이노베이션",
+      "ticker": "021240",
+      "name": "코웨이",
       "market": "kospi",
-      "prev_norm": -0.022,
-      "curr_norm": 0.0107
+      "prev_norm": -0.007,
+      "curr_norm": 0.0116
     },
     {
       "ticker": "089970",
       "name": "브이엠",
       "market": "kosdaq",
-      "prev_norm": -0.0026,
-      "curr_norm": 0.0007
-    },
-    {
-      "ticker": "263750",
-      "name": "펄어비스",
-      "market": "kosdaq",
-      "prev_norm": -0.0087,
-      "curr_norm": 0.0069
-    },
-    {
-      "ticker": "068760",
-      "name": "셀트리온제약",
-      "market": "kosdaq",
-      "prev_norm": -0.0025,
-      "curr_norm": 0.0079
+      "prev_norm": -0.0072,
+      "curr_norm": 0.0023
     }
   ],
   "us": [
     {
-      "ticker": "TSLA",
-      "name": "TSLA",
+      "ticker": "DXCM",
+      "name": "DXCM",
       "market": "us",
-      "prev_norm": -0.005,
-      "curr_norm": 0.002
+      "prev_norm": -0.0204,
+      "curr_norm": 0.0208
     },
     {
-      "ticker": "TMUS",
-      "name": "TMUS",
+      "ticker": "AES",
+      "name": "AES",
       "market": "us",
-      "prev_norm": -0.0074,
-      "curr_norm": 0.0426
+      "prev_norm": -0.0331,
+      "curr_norm": 0.0078
+    },
+    {
+      "ticker": "ADM",
+      "name": "ADM",
+      "market": "us",
+      "prev_norm": -0.0111,
+      "curr_norm": 0.0416
     }
   ],
   "coin": []
