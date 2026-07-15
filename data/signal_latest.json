@@ -1,18 +1,6 @@
 {
-  "updated_at": "2026-07-14 23:50",
+  "updated_at": "2026-07-15 10:08",
   "signals": {
-    "PLUG_us": {
-      "ticker": "PLUG",
-      "market": "us",
-      "name": "PLUG",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 11.8  ↑  %D 9.0"
-        }
-      ]
-    },
     "SMR_us": {
       "ticker": "SMR",
       "market": "us",
@@ -34,6 +22,18 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 10.9  ↑  %D 7.9"
+        }
+      ]
+    },
+    "TSLA_us": {
+      "ticker": "TSLA",
+      "market": "us",
+      "name": "TSLA",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 32.3  ↑  %D 31.7"
         }
       ]
     },
@@ -73,18 +73,6 @@
         }
       ]
     },
-    "FCEL_us": {
-      "ticker": "FCEL",
-      "market": "us",
-      "name": "FCEL",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 10.4  ↑  %D 9.5"
-        }
-      ]
-    },
     "CRCL_us": {
       "ticker": "CRCL",
       "market": "us",
@@ -97,63 +85,15 @@
         }
       ]
     },
-    "AVGO_us": {
-      "ticker": "AVGO",
+    "LEU_us": {
+      "ticker": "LEU",
       "market": "us",
-      "name": "AVGO",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.019 → 당일 norm 0.008"
-        }
-      ]
-    },
-    "NVDA_us": {
-      "ticker": "NVDA",
-      "market": "us",
-      "name": "NVDA",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.008 → 당일 norm 0.041"
-        }
-      ]
-    },
-    "AMD_us": {
-      "ticker": "AMD",
-      "market": "us",
-      "name": "AMD",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.007 → 당일 norm 0.004"
-        }
-      ]
-    },
-    "NTAP_us": {
-      "ticker": "NTAP",
-      "market": "us",
-      "name": "NTAP",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 79.1 → 당일 159.7"
-        }
-      ]
-    },
-    "NBIX_us": {
-      "ticker": "NBIX",
-      "market": "us",
-      "name": "NBIX",
+      "name": "LEU",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 181.18  >  종가 172.04"
+          "detail": "SAR 192.36  >  종가 156.05"
         }
       ]
     },
@@ -186,23 +126,6 @@
         }
       ]
     },
-    "INTC_us": {
-      "ticker": "INTC",
-      "market": "us",
-      "name": "INTC",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 17.3 → 21.9  |  %D 19.9"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 21.9  ↑  %D 19.9"
-        }
-      ]
-    },
     "BMNR_us": {
       "ticker": "BMNR",
       "market": "us",
@@ -211,7 +134,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -28.0 → 당일 75.2"
+          "detail": "전일 -28.0 → 당일 75.1"
         },
         {
           "type": "stoch_golden_cross",
@@ -237,39 +160,27 @@
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
+    "011070_kospi": {
+      "ticker": "011070",
       "market": "kospi",
-      "name": "HD현대마린솔루션",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.2 → 28.2  |  %D 19.3"
-        }
-      ]
-    },
-    "064400_kospi": {
-      "ticker": "064400",
-      "market": "kospi",
-      "name": "LG씨엔에스",
+      "name": "LG이노텍",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 15.3  ↑  %D 13.3"
+          "detail": "%K 18.9  ↑  %D 15.0"
         }
       ]
     },
-    "417200_kosdaq": {
-      "ticker": "417200",
+    "036540_kosdaq": {
+      "ticker": "036540",
       "market": "kosdaq",
-      "name": "LS머트리얼즈",
+      "name": "SFA반도체",
       "signals": [
         {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 15.7 → 21.0  |  %D 16.9"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -68.1 → 당일 21.2"
         }
       ]
     },
@@ -326,15 +237,20 @@
         }
       ]
     },
-    "003670_kospi": {
-      "ticker": "003670",
-      "market": "kospi",
-      "name": "포스코퓨처엠",
+    "420770_kosdaq": {
+      "ticker": "420770",
+      "market": "kosdaq",
+      "name": "기가비스",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 159700.0  >  종가 144300.0"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -19.8 → 당일 10.6"
+        },
+        {
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.01 → 당일 norm 0.006"
         }
       ]
     }
