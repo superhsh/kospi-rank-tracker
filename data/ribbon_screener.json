@@ -1,48 +1,70 @@
 {
-  "updated_at": "2026-07-14 01:45",
+  "updated_at": "2026-07-15 01:41",
   "summary": {
-    "kr": 2,
-    "us": 3,
-    "coin": 0
+    "kr": 1,
+    "us": 6,
+    "coin": 1
   },
   "kr": [
     {
-      "ticker": "021240",
-      "name": "코웨이",
-      "market": "kospi",
-      "prev_norm": -0.007,
-      "curr_norm": 0.0116
-    },
-    {
-      "ticker": "089970",
-      "name": "브이엠",
+      "ticker": "420770",
+      "name": "기가비스",
       "market": "kosdaq",
-      "prev_norm": -0.0072,
-      "curr_norm": 0.0023
+      "prev_norm": -0.0103,
+      "curr_norm": 0.0103
     }
   ],
   "us": [
     {
-      "ticker": "DXCM",
-      "name": "DXCM",
+      "ticker": "NVDA",
+      "name": "NVDA",
       "market": "us",
-      "prev_norm": -0.0204,
-      "curr_norm": 0.0208
+      "prev_norm": -0.0081,
+      "curr_norm": 0.041
     },
     {
-      "ticker": "AES",
-      "name": "AES",
+      "ticker": "AVGO",
+      "name": "AVGO",
       "market": "us",
-      "prev_norm": -0.0331,
-      "curr_norm": 0.0078
+      "prev_norm": -0.0194,
+      "curr_norm": 0.0085
     },
     {
-      "ticker": "ADM",
-      "name": "ADM",
+      "ticker": "AMD",
+      "name": "AMD",
       "market": "us",
-      "prev_norm": -0.0111,
-      "curr_norm": 0.0416
+      "prev_norm": -0.0066,
+      "curr_norm": 0.0042
+    },
+    {
+      "ticker": "TXN",
+      "name": "TXN",
+      "market": "us",
+      "prev_norm": -0.0071,
+      "curr_norm": 0.0053
+    },
+    {
+      "ticker": "WBD",
+      "name": "WBD",
+      "market": "us",
+      "prev_norm": -0.015,
+      "curr_norm": 0.0445
+    },
+    {
+      "ticker": "FANG",
+      "name": "FANG",
+      "market": "us",
+      "prev_norm": -0.0417,
+      "curr_norm": 0.0116
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "XRP",
+      "name": "XRP",
+      "market": "coin",
+      "prev_norm": -0.0004,
+      "curr_norm": 0.0156
+    }
+  ]
 }
