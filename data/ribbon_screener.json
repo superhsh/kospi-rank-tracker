@@ -1,70 +1,41 @@
 {
-  "updated_at": "2026-07-15 01:41",
+  "updated_at": "2026-07-16 01:51",
   "summary": {
     "kr": 1,
-    "us": 6,
-    "coin": 1
+    "us": 3,
+    "coin": 0
   },
   "kr": [
     {
-      "ticker": "420770",
-      "name": "기가비스",
-      "market": "kosdaq",
-      "prev_norm": -0.0103,
-      "curr_norm": 0.0103
+      "ticker": "241560",
+      "name": "두산밥캣",
+      "market": "kospi",
+      "prev_norm": -0.0077,
+      "curr_norm": 0.0127
     }
   ],
   "us": [
     {
-      "ticker": "NVDA",
-      "name": "NVDA",
+      "ticker": "MSFT",
+      "name": "MSFT",
       "market": "us",
-      "prev_norm": -0.0081,
-      "curr_norm": 0.041
+      "prev_norm": -0.0166,
+      "curr_norm": 0.0253
     },
     {
-      "ticker": "AVGO",
-      "name": "AVGO",
+      "ticker": "CEG",
+      "name": "CEG",
       "market": "us",
-      "prev_norm": -0.0194,
-      "curr_norm": 0.0085
+      "prev_norm": -0.0001,
+      "curr_norm": 0.0349
     },
     {
-      "ticker": "AMD",
-      "name": "AMD",
+      "ticker": "APA",
+      "name": "APA",
       "market": "us",
-      "prev_norm": -0.0066,
-      "curr_norm": 0.0042
-    },
-    {
-      "ticker": "TXN",
-      "name": "TXN",
-      "market": "us",
-      "prev_norm": -0.0071,
-      "curr_norm": 0.0053
-    },
-    {
-      "ticker": "WBD",
-      "name": "WBD",
-      "market": "us",
-      "prev_norm": -0.015,
-      "curr_norm": 0.0445
-    },
-    {
-      "ticker": "FANG",
-      "name": "FANG",
-      "market": "us",
-      "prev_norm": -0.0417,
-      "curr_norm": 0.0116
+      "prev_norm": -0.0157,
+      "curr_norm": 0.0038
     }
   ],
-  "coin": [
-    {
-      "ticker": "XRP",
-      "name": "XRP",
-      "market": "coin",
-      "prev_norm": -0.0004,
-      "curr_norm": 0.0156
-    }
-  ]
+  "coin": []
 }
