@@ -1,116 +1,39 @@
 {
-  "updated_at": "2026-07-16 10:16",
+  "updated_at": "2026-07-16 23:55",
   "signals": {
-    "BE_us": {
-      "ticker": "BE",
+    "PLUG_us": {
+      "ticker": "PLUG",
       "market": "us",
-      "name": "BE",
+      "name": "PLUG",
       "signals": [
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.7 → 23.2  |  %D 19.0"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 23.2  ↑  %D 19.0"
+          "detail": "%K 17.2 → 20.9  |  %D 16.7"
         }
       ]
     },
-    "IONQ_us": {
-      "ticker": "IONQ",
+    "BWXT_us": {
+      "ticker": "BWXT",
       "market": "us",
-      "name": "IONQ",
+      "name": "BWXT",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 5.4  ↑  %D 5.0"
+          "detail": "%K 17.3  ↑  %D 16.3"
         }
       ]
     },
-    "TSLA_us": {
-      "ticker": "TSLA",
+    "META_us": {
+      "ticker": "META",
       "market": "us",
-      "name": "TSLA",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 432.86  >  종가 394.46"
-        }
-      ]
-    },
-    "HOOD_us": {
-      "ticker": "HOOD",
-      "market": "us",
-      "name": "HOOD",
+      "name": "META",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 39.0  ↑  %D 34.6"
-        }
-      ]
-    },
-    "JOBY_us": {
-      "ticker": "JOBY",
-      "market": "us",
-      "name": "JOBY",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 12.5 → 26.2  |  %D 14.8"
-        }
-      ]
-    },
-    "RGTI_us": {
-      "ticker": "RGTI",
-      "market": "us",
-      "name": "RGTI",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.6 → 20.0  |  %D 17.1"
-        }
-      ]
-    },
-    "NVDA_us": {
-      "ticker": "NVDA",
-      "market": "us",
-      "name": "NVDA",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 93.6 → 당일 111.8"
-        }
-      ]
-    },
-    "NTAP_us": {
-      "ticker": "NTAP",
-      "market": "us",
-      "name": "NTAP",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 176.97  >  종가 162.1"
-        }
-      ]
-    },
-    "MSTR_us": {
-      "ticker": "MSTR",
-      "market": "us",
-      "name": "MSTR",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 44.1  ↑  %D 33.5"
+          "detail": "%K 86.4  ↑  %D 85.7"
         }
       ]
     },
@@ -120,9 +43,9 @@
       "name": "FSLR",
       "signals": [
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 217.19  <  종가 223.82"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 230.84  >  종가 211.93"
         }
       ]
     },
@@ -138,15 +61,15 @@
         }
       ]
     },
-    "PL_us": {
-      "ticker": "PL",
+    "CACI_us": {
+      "ticker": "CACI",
       "market": "us",
-      "name": "PL",
+      "name": "CACI",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 8.8  ↑  %D 8.0"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 515.67  >  종가 462.85"
         }
       ]
     }
