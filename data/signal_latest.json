@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-15 23:56",
+  "updated_at": "2026-07-16 10:16",
   "signals": {
     "BE_us": {
       "ticker": "BE",
@@ -9,12 +9,12 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.7 → 22.6  |  %D 18.8"
+          "detail": "%K 16.7 → 23.2  |  %D 19.0"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 22.6  ↑  %D 18.8"
+          "detail": "%K 23.2  ↑  %D 19.0"
         }
       ]
     },
@@ -110,7 +110,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 44.2  ↑  %D 33.6"
+          "detail": "%K 44.1  ↑  %D 33.5"
         }
       ]
     },
@@ -132,21 +132,9 @@
       "name": "LG이노텍",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.9  ↑  %D 15.0"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -68.1 → 당일 21.2"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.9 → 28.6  |  %D 20.0"
         }
       ]
     },
@@ -159,23 +147,6 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 8.8  ↑  %D 8.0"
-        }
-      ]
-    },
-    "420770_kosdaq": {
-      "ticker": "420770",
-      "market": "kosdaq",
-      "name": "기가비스",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -19.8 → 당일 10.6"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.01 → 당일 norm 0.006"
         }
       ]
     }
