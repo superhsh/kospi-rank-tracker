@@ -1,40 +1,39 @@
 {
-  "updated_at": "2026-07-16 01:51",
+  "updated_at": "2026-07-17 01:55",
   "summary": {
-    "kr": 1,
-    "us": 3,
+    "kr": 0,
+    "us": 4,
     "coin": 0
   },
-  "kr": [
-    {
-      "ticker": "241560",
-      "name": "두산밥캣",
-      "market": "kospi",
-      "prev_norm": -0.0077,
-      "curr_norm": 0.0127
-    }
-  ],
+  "kr": [],
   "us": [
     {
-      "ticker": "MSFT",
-      "name": "MSFT",
+      "ticker": "IDXX",
+      "name": "IDXX",
       "market": "us",
-      "prev_norm": -0.0166,
-      "curr_norm": 0.0253
+      "prev_norm": -0.0005,
+      "curr_norm": 0.0248
     },
     {
-      "ticker": "CEG",
-      "name": "CEG",
+      "ticker": "A",
+      "name": "A",
       "market": "us",
-      "prev_norm": -0.0001,
-      "curr_norm": 0.0349
+      "prev_norm": -0.0073,
+      "curr_norm": 0.0188
     },
     {
-      "ticker": "APA",
-      "name": "APA",
+      "ticker": "MO",
+      "name": "MO",
       "market": "us",
-      "prev_norm": -0.0157,
-      "curr_norm": 0.0038
+      "prev_norm": -0.0111,
+      "curr_norm": 0.0062
+    },
+    {
+      "ticker": "T",
+      "name": "T",
+      "market": "us",
+      "prev_norm": -0.0406,
+      "curr_norm": 0.012
     }
   ],
   "coin": []
