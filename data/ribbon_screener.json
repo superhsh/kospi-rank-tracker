@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17 01:55",
+  "updated_at": "2026-07-18 01:45",
   "summary": {
     "kr": 0,
     "us": 4,
@@ -8,32 +8,32 @@
   "kr": [],
   "us": [
     {
-      "ticker": "IDXX",
-      "name": "IDXX",
+      "ticker": "ROST",
+      "name": "ROST",
       "market": "us",
-      "prev_norm": -0.0005,
-      "curr_norm": 0.0248
+      "prev_norm": -0.0071,
+      "curr_norm": 0.0437
     },
     {
-      "ticker": "A",
-      "name": "A",
+      "ticker": "ODFL",
+      "name": "ODFL",
       "market": "us",
-      "prev_norm": -0.0073,
-      "curr_norm": 0.0188
+      "prev_norm": -0.0145,
+      "curr_norm": 0.011
     },
     {
-      "ticker": "MO",
-      "name": "MO",
-      "market": "us",
-      "prev_norm": -0.0111,
-      "curr_norm": 0.0062
-    },
-    {
-      "ticker": "T",
-      "name": "T",
+      "ticker": "ACN",
+      "name": "ACN",
       "market": "us",
       "prev_norm": -0.0406,
-      "curr_norm": 0.012
+      "curr_norm": 0.0056
+    },
+    {
+      "ticker": "ARES",
+      "name": "ARES",
+      "market": "us",
+      "prev_norm": -0.0004,
+      "curr_norm": 0.0248
     }
   ],
   "coin": []
