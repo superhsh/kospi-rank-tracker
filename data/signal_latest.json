@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-19 23:53",
+  "updated_at": "2026-07-20 10:58",
   "signals": {
     "HOOD_us": {
       "ticker": "HOOD",
@@ -133,18 +133,6 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 23.6  ↑  %D 22.6"
-        }
-      ]
-    },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.9 → 28.6  |  %D 20.0"
         }
       ]
     },
