@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-20 23:54",
+  "updated_at": "2026-07-21 10:30",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -213,6 +213,18 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 17.3  ↑  %D 12.8"
+        }
+      ]
+    },
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
+      "signals": [
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 5970.0  <  종가 6290.0"
         }
       ]
     }
