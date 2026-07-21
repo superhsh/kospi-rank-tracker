@@ -1,39 +1,26 @@
 {
-  "updated_at": "2026-07-18 01:45",
+  "updated_at": "2026-07-21 01:53",
   "summary": {
-    "kr": 0,
-    "us": 4,
+    "kr": 1,
+    "us": 1,
     "coin": 0
   },
-  "kr": [],
+  "kr": [
+    {
+      "ticker": "033780",
+      "name": "KT&G",
+      "market": "kospi",
+      "prev_norm": -0.0133,
+      "curr_norm": 0.0049
+    }
+  ],
   "us": [
     {
-      "ticker": "ROST",
-      "name": "ROST",
+      "ticker": "MSTR",
+      "name": "MSTR",
       "market": "us",
-      "prev_norm": -0.0071,
-      "curr_norm": 0.0437
-    },
-    {
-      "ticker": "ODFL",
-      "name": "ODFL",
-      "market": "us",
-      "prev_norm": -0.0145,
-      "curr_norm": 0.011
-    },
-    {
-      "ticker": "ACN",
-      "name": "ACN",
-      "market": "us",
-      "prev_norm": -0.0406,
-      "curr_norm": 0.0056
-    },
-    {
-      "ticker": "ARES",
-      "name": "ARES",
-      "market": "us",
-      "prev_norm": -0.0004,
-      "curr_norm": 0.0248
+      "prev_norm": -0.0036,
+      "curr_norm": 0.0237
     }
   ],
   "coin": []
