@@ -1,27 +1,42 @@
 {
-  "updated_at": "2026-07-21 01:53",
+  "updated_at": "2026-07-22 01:52",
   "summary": {
     "kr": 1,
-    "us": 1,
-    "coin": 0
+    "us": 2,
+    "coin": 1
   },
   "kr": [
     {
-      "ticker": "033780",
-      "name": "KT&G",
+      "ticker": "035720",
+      "name": "카카오",
       "market": "kospi",
-      "prev_norm": -0.0133,
-      "curr_norm": 0.0049
+      "prev_norm": -0.008,
+      "curr_norm": 0.0138
     }
   ],
   "us": [
     {
-      "ticker": "MSTR",
-      "name": "MSTR",
+      "ticker": "MMM",
+      "name": "MMM",
       "market": "us",
-      "prev_norm": -0.0036,
-      "curr_norm": 0.0237
+      "prev_norm": -0.0519,
+      "curr_norm": 0.0182
+    },
+    {
+      "ticker": "AKAM",
+      "name": "AKAM",
+      "market": "us",
+      "prev_norm": -0.0215,
+      "curr_norm": 0.0132
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "XLM",
+      "name": "Stellar",
+      "market": "coin",
+      "prev_norm": -0.0007,
+      "curr_norm": 0.033
+    }
+  ]
 }
