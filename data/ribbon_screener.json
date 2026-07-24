@@ -1,42 +1,63 @@
 {
-  "updated_at": "2026-07-22 01:52",
+  "updated_at": "2026-07-24 01:56",
   "summary": {
-    "kr": 1,
-    "us": 2,
+    "kr": 3,
+    "us": 3,
     "coin": 1
   },
   "kr": [
     {
-      "ticker": "035720",
-      "name": "카카오",
+      "ticker": "009540",
+      "name": "HD한국조선해양",
       "market": "kospi",
-      "prev_norm": -0.008,
-      "curr_norm": 0.0138
+      "prev_norm": -0.0284,
+      "curr_norm": 0.0182
+    },
+    {
+      "ticker": "005490",
+      "name": "POSCO홀딩스",
+      "market": "kospi",
+      "prev_norm": -0.0149,
+      "curr_norm": 0.0135
+    },
+    {
+      "ticker": "018260",
+      "name": "삼성에스디에스",
+      "market": "kospi",
+      "prev_norm": -0.0237,
+      "curr_norm": 0.01
     }
   ],
   "us": [
     {
-      "ticker": "MMM",
-      "name": "MMM",
+      "ticker": "HON",
+      "name": "HON",
       "market": "us",
-      "prev_norm": -0.0519,
-      "curr_norm": 0.0182
+      "prev_norm": -0.0265,
+      "curr_norm": 0.0393
     },
     {
-      "ticker": "AKAM",
-      "name": "AKAM",
+      "ticker": "LITE",
+      "name": "LITE",
       "market": "us",
-      "prev_norm": -0.0215,
-      "curr_norm": 0.0132
+      "prev_norm": -0.0195,
+      "curr_norm": 0.0072
+    },
+    {
+      "ticker": "A",
+      "name": "A",
+      "market": "us",
+      "prev_norm": -0.0111,
+      "curr_norm": 0.0305
     }
   ],
   "coin": [
     {
-      "ticker": "XLM",
-      "name": "Stellar",
+      "ticker": "USDG",
+      "name": "Global Dollar",
       "market": "coin",
-      "prev_norm": -0.0007,
-      "curr_norm": 0.033
+      "prev_norm": -0.0222,
+      "curr_norm": 0.0238
     }
   ]
 }
