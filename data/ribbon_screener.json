@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-24 01:56",
+  "updated_at": "2026-07-25 01:55",
   "summary": {
-    "kr": 3,
-    "us": 3,
-    "coin": 1
+    "kr": 4,
+    "us": 2,
+    "coin": 0
   },
   "kr": [
     {
@@ -11,53 +11,45 @@
       "name": "HD한국조선해양",
       "market": "kospi",
       "prev_norm": -0.0284,
-      "curr_norm": 0.0182
+      "curr_norm": 0.0062
     },
     {
       "ticker": "005490",
       "name": "POSCO홀딩스",
       "market": "kospi",
       "prev_norm": -0.0149,
-      "curr_norm": 0.0135
+      "curr_norm": 0.0056
+    },
+    {
+      "ticker": "024110",
+      "name": "기업은행",
+      "market": "kospi",
+      "prev_norm": -0.0045,
+      "curr_norm": 0.0068
     },
     {
       "ticker": "018260",
       "name": "삼성에스디에스",
       "market": "kospi",
       "prev_norm": -0.0237,
-      "curr_norm": 0.01
+      "curr_norm": 0.0106
     }
   ],
   "us": [
     {
-      "ticker": "HON",
-      "name": "HON",
+      "ticker": "BKR",
+      "name": "BKR",
       "market": "us",
-      "prev_norm": -0.0265,
-      "curr_norm": 0.0393
+      "prev_norm": -0.019,
+      "curr_norm": 0.0136
     },
     {
-      "ticker": "LITE",
-      "name": "LITE",
+      "ticker": "XEL",
+      "name": "XEL",
       "market": "us",
-      "prev_norm": -0.0195,
-      "curr_norm": 0.0072
-    },
-    {
-      "ticker": "A",
-      "name": "A",
-      "market": "us",
-      "prev_norm": -0.0111,
-      "curr_norm": 0.0305
+      "prev_norm": -0.0134,
+      "curr_norm": 0.0165
     }
   ],
-  "coin": [
-    {
-      "ticker": "USDG",
-      "name": "Global Dollar",
-      "market": "coin",
-      "prev_norm": -0.0222,
-      "curr_norm": 0.0238
-    }
-  ]
+  "coin": []
 }
