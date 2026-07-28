@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27 23:59",
+  "updated_at": "2026-07-28 10:40",
   "signals": {
     "IONQ_us": {
       "ticker": "IONQ",
@@ -9,7 +9,17 @@
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 33.29  <  종가 35.92"
+          "detail": "SAR 32.56  <  종가 35.92"
+        },
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 15.9 → 33.4  |  %D 24.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 33.4  ↑  %D 24.3"
         }
       ]
     },
@@ -57,7 +67,17 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -37.6 → 당일 25.3"
+          "detail": "전일 -55.7 → 당일 20.3"
+        },
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 12.9 → 32.8  |  %D 25.8"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 32.8  ↑  %D 25.8"
         }
       ]
     },
@@ -69,7 +89,19 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -4.6 → 당일 37.9"
+          "detail": "전일 -58.2 → 당일 34.4"
+        }
+      ]
+    },
+    "BMNR_us": {
+      "ticker": "BMNR",
+      "market": "us",
+      "name": "BMNR",
+      "signals": [
+        {
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 48.4 → 당일 143.9"
         }
       ]
     },
@@ -81,19 +113,31 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 13.2 → 23.7  |  %D 16.0"
+          "detail": "%K 14.6 → 22.2  |  %D 16.7"
         }
       ]
     },
-    "011070_kospi": {
-      "ticker": "011070",
+    "064400_kospi": {
+      "ticker": "064400",
       "market": "kospi",
-      "name": "LG이노텍",
+      "name": "LG씨엔에스",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 698000.0  >  종가 614000.0"
+          "detail": "SAR 70100.0  >  종가 61800.0"
+        }
+      ]
+    },
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 436000.0  >  종가 341500.0"
         }
       ]
     },
@@ -103,9 +147,21 @@
       "name": "하나머티리얼즈",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -13.6 → 당일 14.7"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 59200.0  >  종가 48150.0"
+        }
+      ]
+    },
+    "417200_kosdaq": {
+      "ticker": "417200",
+      "market": "kosdaq",
+      "name": "LS머트리얼즈",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 12660.0  >  종가 10490.0"
         }
       ]
     },
@@ -118,6 +174,18 @@
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
           "detail": "SAR 435.92  <  종가 495.89"
+        }
+      ]
+    },
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 7920.0  >  종가 6200.0"
         }
       ]
     }
