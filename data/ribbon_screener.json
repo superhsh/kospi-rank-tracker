@@ -1,54 +1,61 @@
 {
-  "updated_at": "2026-07-25 01:55",
+  "updated_at": "2026-07-28 01:48",
   "summary": {
-    "kr": 4,
-    "us": 2,
+    "kr": 2,
+    "us": 5,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "market": "kospi",
-      "prev_norm": -0.0284,
-      "curr_norm": 0.0062
+      "ticker": "068760",
+      "name": "셀트리온제약",
+      "market": "kosdaq",
+      "prev_norm": -0.0105,
+      "curr_norm": 0.0078
     },
     {
-      "ticker": "005490",
-      "name": "POSCO홀딩스",
-      "market": "kospi",
-      "prev_norm": -0.0149,
-      "curr_norm": 0.0056
-    },
-    {
-      "ticker": "024110",
-      "name": "기업은행",
-      "market": "kospi",
-      "prev_norm": -0.0045,
-      "curr_norm": 0.0068
-    },
-    {
-      "ticker": "018260",
-      "name": "삼성에스디에스",
-      "market": "kospi",
-      "prev_norm": -0.0237,
-      "curr_norm": 0.0106
+      "ticker": "140410",
+      "name": "메지온",
+      "market": "kosdaq",
+      "prev_norm": -0.0181,
+      "curr_norm": 0.0027
     }
   ],
   "us": [
     {
-      "ticker": "BKR",
-      "name": "BKR",
+      "ticker": "COST",
+      "name": "COST",
       "market": "us",
-      "prev_norm": -0.019,
-      "curr_norm": 0.0136
+      "prev_norm": -0.0229,
+      "curr_norm": 0.0141
     },
     {
-      "ticker": "XEL",
-      "name": "XEL",
+      "ticker": "SHOP",
+      "name": "SHOP",
       "market": "us",
-      "prev_norm": -0.0134,
-      "curr_norm": 0.0165
+      "prev_norm": -0.0119,
+      "curr_norm": 0.0116
+    },
+    {
+      "ticker": "ORLY",
+      "name": "ORLY",
+      "market": "us",
+      "prev_norm": -0.0214,
+      "curr_norm": 0.0239
+    },
+    {
+      "ticker": "MPWR",
+      "name": "MPWR",
+      "market": "us",
+      "prev_norm": -0.005,
+      "curr_norm": 0.0026
+    },
+    {
+      "ticker": "EXC",
+      "name": "EXC",
+      "market": "us",
+      "prev_norm": -0.008,
+      "curr_norm": 0.0015
     }
   ],
   "coin": []
