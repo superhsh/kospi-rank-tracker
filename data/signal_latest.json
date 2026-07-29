@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-28 23:55",
+  "updated_at": "2026-07-29 10:44",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -110,7 +110,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 84.7 → 당일 155.1"
+          "detail": "전일 84.7 → 당일 148.2"
         }
       ]
     },
@@ -174,51 +174,27 @@
         }
       ]
     },
-    "064400_kospi": {
-      "ticker": "064400",
+    "443060_kospi": {
+      "ticker": "443060",
       "market": "kospi",
-      "name": "LG씨엔에스",
+      "name": "HD현대마린솔루션",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 70100.0  >  종가 61800.0"
+          "detail": "SAR 220000.0  >  종가 181200.0"
         }
       ]
     },
-    "307950_kospi": {
-      "ticker": "307950",
-      "market": "kospi",
-      "name": "현대오토에버",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 436000.0  >  종가 341500.0"
-        }
-      ]
-    },
-    "166090_kosdaq": {
-      "ticker": "166090",
+    "036540_kosdaq": {
+      "ticker": "036540",
       "market": "kosdaq",
-      "name": "하나머티리얼즈",
+      "name": "SFA반도체",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 59200.0  >  종가 48150.0"
-        }
-      ]
-    },
-    "417200_kosdaq": {
-      "ticker": "417200",
-      "market": "kosdaq",
-      "name": "LS머트리얼즈",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 12660.0  >  종가 10490.0"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 13.8  ↑  %D 13.3"
         }
       ]
     },
@@ -258,6 +234,18 @@
         }
       ]
     },
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 13.8  ↑  %D 13.0"
+        }
+      ]
+    },
     "WDC_us": {
       "ticker": "WDC",
       "market": "us",
@@ -279,18 +267,6 @@
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
           "detail": "SAR 280.46  >  종가 259.12"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 7920.0  >  종가 6200.0"
         }
       ]
     }
