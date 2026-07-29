@@ -1,61 +1,67 @@
 {
-  "updated_at": "2026-07-28 01:48",
+  "updated_at": "2026-07-29 01:51",
   "summary": {
-    "kr": 2,
-    "us": 5,
+    "kr": 0,
+    "us": 8,
     "coin": 0
   },
-  "kr": [
-    {
-      "ticker": "068760",
-      "name": "셀트리온제약",
-      "market": "kosdaq",
-      "prev_norm": -0.0105,
-      "curr_norm": 0.0078
-    },
-    {
-      "ticker": "140410",
-      "name": "메지온",
-      "market": "kosdaq",
-      "prev_norm": -0.0181,
-      "curr_norm": 0.0027
-    }
-  ],
+  "kr": [],
   "us": [
     {
-      "ticker": "COST",
-      "name": "COST",
+      "ticker": "CMCSA",
+      "name": "CMCSA",
       "market": "us",
-      "prev_norm": -0.0229,
-      "curr_norm": 0.0141
+      "prev_norm": -0.0245,
+      "curr_norm": 0.0092
     },
     {
-      "ticker": "SHOP",
-      "name": "SHOP",
+      "ticker": "IDXX",
+      "name": "IDXX",
       "market": "us",
-      "prev_norm": -0.0119,
-      "curr_norm": 0.0116
+      "prev_norm": -0.0181,
+      "curr_norm": 0.0031
     },
     {
-      "ticker": "ORLY",
-      "name": "ORLY",
+      "ticker": "DXCM",
+      "name": "DXCM",
       "market": "us",
-      "prev_norm": -0.0214,
-      "curr_norm": 0.0239
+      "prev_norm": -0.0064,
+      "curr_norm": 0.0054
     },
     {
-      "ticker": "MPWR",
-      "name": "MPWR",
+      "ticker": "CPRT",
+      "name": "CPRT",
       "market": "us",
-      "prev_norm": -0.005,
-      "curr_norm": 0.0026
+      "prev_norm": -0.0266,
+      "curr_norm": 0.0634
     },
     {
-      "ticker": "EXC",
-      "name": "EXC",
+      "ticker": "AOS",
+      "name": "AOS",
       "market": "us",
-      "prev_norm": -0.008,
-      "curr_norm": 0.0015
+      "prev_norm": -0.0282,
+      "curr_norm": 0.0338
+    },
+    {
+      "ticker": "ARE",
+      "name": "ARE",
+      "market": "us",
+      "prev_norm": -0.0455,
+      "curr_norm": 0.018
+    },
+    {
+      "ticker": "AVY",
+      "name": "AVY",
+      "market": "us",
+      "prev_norm": -0.0593,
+      "curr_norm": 0.0005
+    },
+    {
+      "ticker": "BRK-B",
+      "name": "BRK-B",
+      "market": "us",
+      "prev_norm": -0.0652,
+      "curr_norm": 0.0186
     }
   ],
   "coin": []
