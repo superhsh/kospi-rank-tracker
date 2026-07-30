@@ -1,67 +1,89 @@
 {
-  "updated_at": "2026-07-29 01:51",
+  "updated_at": "2026-07-30 01:43",
   "summary": {
-    "kr": 0,
+    "kr": 3,
     "us": 8,
     "coin": 0
   },
-  "kr": [],
+  "kr": [
+    {
+      "ticker": "024110",
+      "name": "기업은행",
+      "market": "kospi",
+      "prev_norm": -0.0157,
+      "curr_norm": 0.0005
+    },
+    {
+      "ticker": "323410",
+      "name": "카카오뱅크",
+      "market": "kospi",
+      "prev_norm": -0.0094,
+      "curr_norm": 0.0008
+    },
+    {
+      "ticker": "068760",
+      "name": "셀트리온제약",
+      "market": "kosdaq",
+      "prev_norm": -0.0,
+      "curr_norm": 0.0057
+    }
+  ],
   "us": [
     {
-      "ticker": "CMCSA",
-      "name": "CMCSA",
+      "ticker": "PEP",
+      "name": "PEP",
       "market": "us",
-      "prev_norm": -0.0245,
-      "curr_norm": 0.0092
+      "prev_norm": -0.0104,
+      "curr_norm": 0.045
+    },
+    {
+      "ticker": "MAR",
+      "name": "MAR",
+      "market": "us",
+      "prev_norm": -0.0242,
+      "curr_norm": 0.016
+    },
+    {
+      "ticker": "ABNB",
+      "name": "ABNB",
+      "market": "us",
+      "prev_norm": -0.0169,
+      "curr_norm": 0.0281
     },
     {
       "ticker": "IDXX",
       "name": "IDXX",
       "market": "us",
-      "prev_norm": -0.0181,
-      "curr_norm": 0.0031
+      "prev_norm": -0.0017,
+      "curr_norm": 0.0258
+    },
+    {
+      "ticker": "GEHC",
+      "name": "GEHC",
+      "market": "us",
+      "prev_norm": -0.0931,
+      "curr_norm": 0.0337
     },
     {
       "ticker": "DXCM",
       "name": "DXCM",
       "market": "us",
-      "prev_norm": -0.0064,
-      "curr_norm": 0.0054
+      "prev_norm": -0.0024,
+      "curr_norm": 0.0217
     },
     {
-      "ticker": "CPRT",
-      "name": "CPRT",
+      "ticker": "AMT",
+      "name": "AMT",
       "market": "us",
-      "prev_norm": -0.0266,
-      "curr_norm": 0.0634
+      "prev_norm": -0.0281,
+      "curr_norm": 0.0585
     },
     {
-      "ticker": "AOS",
-      "name": "AOS",
+      "ticker": "AZO",
+      "name": "AZO",
       "market": "us",
-      "prev_norm": -0.0282,
-      "curr_norm": 0.0338
-    },
-    {
-      "ticker": "ARE",
-      "name": "ARE",
-      "market": "us",
-      "prev_norm": -0.0455,
-      "curr_norm": 0.018
-    },
-    {
-      "ticker": "AVY",
-      "name": "AVY",
-      "market": "us",
-      "prev_norm": -0.0593,
-      "curr_norm": 0.0005
-    },
-    {
-      "ticker": "BRK-B",
-      "name": "BRK-B",
-      "market": "us",
-      "prev_norm": -0.0652,
-      "curr_norm": 0.0186
+      "prev_norm": -0.0054,
+      "curr_norm": 0.0321
     }
   ],
   "coin": []
