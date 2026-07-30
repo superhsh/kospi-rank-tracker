@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-29 23:57",
+  "updated_at": "2026-07-30 10:30",
   "signals": {
     "SMR_us": {
       "ticker": "SMR",
@@ -37,30 +37,6 @@
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
-      "market": "kospi",
-      "name": "HD현대마린솔루션",
-      "signals": [
-        {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 220000.0  >  종가 181200.0"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 13.8  ↑  %D 13.3"
-        }
-      ]
-    },
     "NEAR_coin": {
       "ticker": "NEAR",
       "market": "coin",
@@ -69,7 +45,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -2.5 → 당일 11.8"
+          "detail": "전일 -2.5 → 당일 11.9"
         },
         {
           "type": "sar_buy",
@@ -87,18 +63,6 @@
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
           "detail": "%K 20.0 → 20.7  |  %D 21.6"
-        }
-      ]
-    },
-    "347850_kosdaq": {
-      "ticker": "347850",
-      "market": "kosdaq",
-      "name": "디앤디파마텍",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 13.8  ↑  %D 13.0"
         }
       ]
     }
