@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-30 23:59",
+  "updated_at": "2026-07-31 10:45",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -239,7 +239,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -31.6 → 당일 79.9"
+          "detail": "전일 -31.6 → 당일 79.8"
         }
       ]
     },
@@ -332,6 +332,103 @@
         }
       ]
     },
+    "011070_kospi": {
+      "ticker": "011070",
+      "market": "kospi",
+      "name": "LG이노텍",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 18.3  ↑  %D 13.2"
+        }
+      ]
+    },
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 11.7 → 29.3  |  %D 21.9"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 29.3  ↑  %D 21.9"
+        }
+      ]
+    },
+    "080220_kosdaq": {
+      "ticker": "080220",
+      "market": "kosdaq",
+      "name": "제주반도체",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 5.9 → 22.1  |  %D 14.2"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 22.1  ↑  %D 14.2"
+        }
+      ]
+    },
+    "036540_kosdaq": {
+      "ticker": "036540",
+      "market": "kosdaq",
+      "name": "SFA반도체",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 8.5 → 28.4  |  %D 16.9"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 28.4  ↑  %D 16.9"
+        }
+      ]
+    },
+    "166090_kosdaq": {
+      "ticker": "166090",
+      "market": "kosdaq",
+      "name": "하나머티리얼즈",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 15.1 → 36.1  |  %D 27.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 36.1  ↑  %D 27.3"
+        }
+      ]
+    },
+    "417200_kosdaq": {
+      "ticker": "417200",
+      "market": "kosdaq",
+      "name": "LS머트리얼즈",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 10.1 → 21.7  |  %D 19.5"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 21.7  ↑  %D 19.5"
+        }
+      ]
+    },
     "ATOM_coin": {
       "ticker": "ATOM",
       "market": "coin",
@@ -368,6 +465,35 @@
         }
       ]
     },
+    "420770_kosdaq": {
+      "ticker": "420770",
+      "market": "kosdaq",
+      "name": "기가비스",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 6.6 → 20.5  |  %D 12.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 20.5  ↑  %D 12.3"
+        }
+      ]
+    },
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 14.4  ↑  %D 13.5"
+        }
+      ]
+    },
     "WDC_us": {
       "ticker": "WDC",
       "market": "us",
@@ -377,6 +503,52 @@
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
           "detail": "%K 41.5  ↑  %D 35.1"
+        }
+      ]
+    },
+    "003670_kospi": {
+      "ticker": "003670",
+      "market": "kospi",
+      "name": "포스코퓨처엠",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 42.0  ↑  %D 30.0"
+        }
+      ]
+    },
+    "007660_kospi": {
+      "ticker": "007660",
+      "market": "kospi",
+      "name": "이수페타시스",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 5.2 → 20.6  |  %D 11.9"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 20.6  ↑  %D 11.9"
+        }
+      ]
+    },
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 13.1 → 21.2  |  %D 20.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 21.2  ↑  %D 20.3"
         }
       ]
     }
