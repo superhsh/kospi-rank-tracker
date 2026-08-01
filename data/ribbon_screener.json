@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-31 02:01",
+  "updated_at": "2026-08-01 02:02",
   "summary": {
-    "kr": 3,
+    "kr": 4,
     "us": 3,
     "coin": 0
   },
@@ -11,44 +11,51 @@
       "name": "카카오뱅크",
       "market": "kospi",
       "prev_norm": -0.0029,
-      "curr_norm": 0.0047
+      "curr_norm": 0.0097
     },
     {
       "ticker": "319400",
       "name": "현대무벡스",
       "market": "kosdaq",
       "prev_norm": -0.0175,
-      "curr_norm": 0.0051
+      "curr_norm": 0.0075
+    },
+    {
+      "ticker": "140410",
+      "name": "메지온",
+      "market": "kosdaq",
+      "prev_norm": -0.0196,
+      "curr_norm": 0.0109
     },
     {
       "ticker": "068760",
       "name": "셀트리온제약",
       "market": "kosdaq",
       "prev_norm": -0.0026,
-      "curr_norm": 0.0042
+      "curr_norm": 0.0123
     }
   ],
   "us": [
     {
-      "ticker": "NFLX",
-      "name": "NFLX",
+      "ticker": "AMZN",
+      "name": "AMZN",
       "market": "us",
-      "prev_norm": -0.0025,
-      "curr_norm": 0.0373
+      "prev_norm": -0.0942,
+      "curr_norm": 0.0361
     },
     {
-      "ticker": "DDOG",
-      "name": "DDOG",
+      "ticker": "WMT",
+      "name": "WMT",
       "market": "us",
-      "prev_norm": -0.0045,
-      "curr_norm": 0.0254
+      "prev_norm": -0.0097,
+      "curr_norm": 0.0006
     },
     {
-      "ticker": "DASH",
-      "name": "DASH",
+      "ticker": "MPWR",
+      "name": "MPWR",
       "market": "us",
-      "prev_norm": -0.0194,
-      "curr_norm": 0.0144
+      "prev_norm": -0.0287,
+      "curr_norm": 0.0115
     }
   ],
   "coin": []
