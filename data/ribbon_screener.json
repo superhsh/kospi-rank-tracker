@@ -1,61 +1,82 @@
 {
-  "updated_at": "2026-08-01 02:02",
+  "updated_at": "2026-08-04 01:47",
   "summary": {
-    "kr": 4,
-    "us": 3,
+    "kr": 5,
+    "us": 5,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "323410",
-      "name": "카카오뱅크",
+      "ticker": "012330",
+      "name": "현대모비스",
       "market": "kospi",
-      "prev_norm": -0.0029,
-      "curr_norm": 0.0097
+      "prev_norm": -0.0094,
+      "curr_norm": 0.0056
     },
     {
-      "ticker": "319400",
-      "name": "현대무벡스",
-      "market": "kosdaq",
-      "prev_norm": -0.0175,
-      "curr_norm": 0.0075
+      "ticker": "028050",
+      "name": "삼성E&A",
+      "market": "kospi",
+      "prev_norm": -0.0084,
+      "curr_norm": 0.0041
     },
     {
-      "ticker": "140410",
-      "name": "메지온",
-      "market": "kosdaq",
-      "prev_norm": -0.0196,
-      "curr_norm": 0.0109
+      "ticker": "021240",
+      "name": "코웨이",
+      "market": "kospi",
+      "prev_norm": -0.0017,
+      "curr_norm": 0.0044
     },
     {
-      "ticker": "068760",
-      "name": "셀트리온제약",
+      "ticker": "257720",
+      "name": "실리콘투",
       "market": "kosdaq",
-      "prev_norm": -0.0026,
-      "curr_norm": 0.0123
+      "prev_norm": -0.0134,
+      "curr_norm": 0.0186
+    },
+    {
+      "ticker": "041510",
+      "name": "에스엠",
+      "market": "kosdaq",
+      "prev_norm": -0.0303,
+      "curr_norm": 0.0014
     }
   ],
   "us": [
     {
-      "ticker": "AMZN",
-      "name": "AMZN",
+      "ticker": "GOOGL",
+      "name": "GOOGL",
       "market": "us",
-      "prev_norm": -0.0942,
-      "curr_norm": 0.0361
+      "prev_norm": -0.0725,
+      "curr_norm": 0.023
     },
     {
-      "ticker": "WMT",
-      "name": "WMT",
+      "ticker": "GOOG",
+      "name": "GOOG",
       "market": "us",
-      "prev_norm": -0.0097,
-      "curr_norm": 0.0006
+      "prev_norm": -0.0635,
+      "curr_norm": 0.0307
     },
     {
-      "ticker": "MPWR",
-      "name": "MPWR",
+      "ticker": "CSCO",
+      "name": "CSCO",
       "market": "us",
-      "prev_norm": -0.0287,
-      "curr_norm": 0.0115
+      "prev_norm": -0.0198,
+      "curr_norm": 0.0036
+    },
+    {
+      "ticker": "PLTR",
+      "name": "PLTR",
+      "market": "us",
+      "prev_norm": -0.0032,
+      "curr_norm": 0.0022
+    },
+    {
+      "ticker": "ANET",
+      "name": "ANET",
+      "market": "us",
+      "prev_norm": -0.0264,
+      "curr_norm": 0.0083
     }
   ],
   "coin": []
