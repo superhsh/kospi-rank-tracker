@@ -1,82 +1,138 @@
 {
-  "updated_at": "2026-08-04 01:47",
+  "updated_at": "2026-08-05 01:48",
   "summary": {
-    "kr": 5,
+    "kr": 13,
     "us": 5,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "012330",
-      "name": "현대모비스",
+      "ticker": "373220",
+      "name": "LG에너지솔루션",
       "market": "kospi",
-      "prev_norm": -0.0094,
-      "curr_norm": 0.0056
+      "prev_norm": -0.0236,
+      "curr_norm": 0.006
     },
     {
-      "ticker": "028050",
-      "name": "삼성E&A",
+      "ticker": "086790",
+      "name": "하나금융지주",
       "market": "kospi",
-      "prev_norm": -0.0084,
-      "curr_norm": 0.0041
+      "prev_norm": -0.0045,
+      "curr_norm": 0.0067
     },
     {
-      "ticker": "021240",
-      "name": "코웨이",
+      "ticker": "010130",
+      "name": "고려아연",
       "market": "kospi",
-      "prev_norm": -0.0017,
-      "curr_norm": 0.0044
+      "prev_norm": -0.0053,
+      "curr_norm": 0.0313
     },
     {
-      "ticker": "257720",
-      "name": "실리콘투",
+      "ticker": "017670",
+      "name": "SK텔레콤",
+      "market": "kospi",
+      "prev_norm": -0.0293,
+      "curr_norm": 0.0163
+    },
+    {
+      "ticker": "051910",
+      "name": "LG화학",
+      "market": "kospi",
+      "prev_norm": -0.0229,
+      "curr_norm": 0.0055
+    },
+    {
+      "ticker": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
+      "market": "kospi",
+      "prev_norm": -0.0168,
+      "curr_norm": 0.0296
+    },
+    {
+      "ticker": "272210",
+      "name": "한화시스템",
+      "market": "kospi",
+      "prev_norm": -0.0275,
+      "curr_norm": 0.0273
+    },
+    {
+      "ticker": "180640",
+      "name": "한진칼",
+      "market": "kospi",
+      "prev_norm": -0.0439,
+      "curr_norm": 0.001
+    },
+    {
+      "ticker": "005387",
+      "name": "현대차2우B",
+      "market": "kospi",
+      "prev_norm": -0.026,
+      "curr_norm": 0.0111
+    },
+    {
+      "ticker": "108490",
+      "name": "로보티즈",
       "market": "kosdaq",
-      "prev_norm": -0.0134,
+      "prev_norm": -0.0081,
+      "curr_norm": 0.0398
+    },
+    {
+      "ticker": "145020",
+      "name": "휴젤",
+      "market": "kosdaq",
+      "prev_norm": -0.02,
       "curr_norm": 0.0186
     },
     {
-      "ticker": "041510",
-      "name": "에스엠",
+      "ticker": "032820",
+      "name": "우리기술",
       "market": "kosdaq",
-      "prev_norm": -0.0303,
-      "curr_norm": 0.0014
+      "prev_norm": -0.0477,
+      "curr_norm": 0.0132
+    },
+    {
+      "ticker": "010170",
+      "name": "대한광통신",
+      "market": "kosdaq",
+      "prev_norm": -0.0635,
+      "curr_norm": 0.0018
     }
   ],
   "us": [
     {
-      "ticker": "GOOGL",
-      "name": "GOOGL",
+      "ticker": "NVDA",
+      "name": "NVDA",
       "market": "us",
-      "prev_norm": -0.0725,
-      "curr_norm": 0.023
+      "prev_norm": -0.0109,
+      "curr_norm": 0.0361
     },
     {
-      "ticker": "GOOG",
-      "name": "GOOG",
+      "ticker": "CRWD",
+      "name": "CRWD",
       "market": "us",
-      "prev_norm": -0.0635,
-      "curr_norm": 0.0307
+      "prev_norm": -0.0384,
+      "curr_norm": 0.0244
     },
     {
-      "ticker": "CSCO",
-      "name": "CSCO",
+      "ticker": "FTNT",
+      "name": "FTNT",
       "market": "us",
-      "prev_norm": -0.0198,
-      "curr_norm": 0.0036
+      "prev_norm": -0.0323,
+      "curr_norm": 0.0117
     },
     {
-      "ticker": "PLTR",
-      "name": "PLTR",
+      "ticker": "AXON",
+      "name": "AXON",
       "market": "us",
-      "prev_norm": -0.0032,
-      "curr_norm": 0.0022
+      "prev_norm": -0.0202,
+      "curr_norm": 0.0288
     },
     {
-      "ticker": "ANET",
-      "name": "ANET",
+      "ticker": "AKAM",
+      "name": "AKAM",
       "market": "us",
-      "prev_norm": -0.0264,
-      "curr_norm": 0.0083
+      "prev_norm": -0.0101,
+      "curr_norm": 0.0401
     }
   ],
   "coin": []
