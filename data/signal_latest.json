@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-04 23:59",
+  "updated_at": "2026-08-05 10:42",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -21,7 +21,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -24.2 → 당일 39.3"
+          "detail": "전일 -24.2 → 당일 39.4"
         }
       ]
     },
@@ -248,12 +248,12 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -52.6 → 당일 370.1"
+          "detail": "전일 -52.6 → 당일 370.2"
         },
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 -52.6 → 당일 370.1"
+          "detail": "전일 -52.6 → 당일 370.2"
         },
         {
           "type": "sar_buy",
@@ -282,7 +282,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 28.1 → 당일 127.2"
+          "detail": "전일 28.1 → 당일 127.0"
         }
       ]
     },
@@ -306,7 +306,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 66.1 → 당일 102.4"
+          "detail": "전일 66.1 → 당일 102.5"
         }
       ]
     },
@@ -318,7 +318,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -51.7 → 당일 2.0"
+          "detail": "전일 -51.7 → 당일 2.2"
         }
       ]
     },
@@ -334,44 +334,90 @@
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
-      "market": "kospi",
-      "name": "HD현대마린솔루션",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 17.9 → 26.4  |  %D 20.1"
-        }
-      ]
-    },
     "064400_kospi": {
       "ticker": "064400",
       "market": "kospi",
       "name": "LG씨엔에스",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -78.0 → 당일 5.9"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 5.9 → 당일 119.1"
         },
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 57700.0  <  종가 68100.0"
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.065 → 당일 norm 0.001"
         }
       ]
     },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
+    "011070_kospi": {
+      "ticker": "011070",
+      "market": "kospi",
+      "name": "LG이노텍",
       "signals": [
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 40200.0  <  종가 54900.0"
+          "detail": "SAR 416000.0  <  종가 601000.0"
+        }
+      ]
+    },
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -26.9 → 당일 32.1"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 305000.0  <  종가 414500.0"
+        }
+      ]
+    },
+    "080220_kosdaq": {
+      "ticker": "080220",
+      "market": "kosdaq",
+      "name": "제주반도체",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -49.4 → 당일 8.2"
+        }
+      ]
+    },
+    "036540_kosdaq": {
+      "ticker": "036540",
+      "market": "kosdaq",
+      "name": "SFA반도체",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -27.6 → 당일 17.8"
+        }
+      ]
+    },
+    "417200_kosdaq": {
+      "ticker": "417200",
+      "market": "kosdaq",
+      "name": "LS머트리얼즈",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -11.3 → 당일 44.7"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 8700.0  <  종가 12000.0"
         }
       ]
     },
@@ -383,7 +429,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 1.8 → 당일 124.9"
+          "detail": "전일 1.8 → 당일 124.3"
         },
         {
           "type": "ribbon_buy",
@@ -452,15 +498,15 @@
         }
       ]
     },
-    "007660_kospi": {
-      "ticker": "007660",
+    "003670_kospi": {
+      "ticker": "003670",
       "market": "kospi",
-      "name": "이수페타시스",
+      "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 57900.0  <  종가 79600.0"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -20.2 → 당일 38.9"
         }
       ]
     },
@@ -470,9 +516,19 @@
       "name": "휴림로봇",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -11.3 → 당일 66.9"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 66.9 → 당일 145.8"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 5500.0  <  종가 7640.0"
+        },
+        {
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.004 → 당일 norm 0.054"
         }
       ]
     }
