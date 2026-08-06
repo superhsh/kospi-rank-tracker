@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-05 23:56",
+  "updated_at": "2026-08-06 10:45",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -21,7 +21,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -22.2 → 당일 0.4"
+          "detail": "전일 -22.2 → 당일 0.1"
         }
       ]
     },
@@ -81,7 +81,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 91.1 → 당일 103.2"
+          "detail": "전일 91.1 → 당일 103.1"
         }
       ]
     },
@@ -109,61 +109,15 @@
         }
       ]
     },
-    "064400_kospi": {
-      "ticker": "064400",
-      "market": "kospi",
-      "name": "LG씨엔에스",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 5.9 → 당일 119.1"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.065 → 당일 norm 0.001"
-        }
-      ]
-    },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 416000.0  <  종가 601000.0"
-        }
-      ]
-    },
     "307950_kospi": {
       "ticker": "307950",
       "market": "kospi",
       "name": "현대오토에버",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -26.9 → 당일 32.1"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 305000.0  <  종가 414500.0"
-        }
-      ]
-    },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -49.4 → 당일 8.2"
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.046 → 당일 norm 0.002"
         }
       ]
     },
@@ -173,26 +127,21 @@
       "name": "SFA반도체",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -27.6 → 당일 17.8"
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.023 → 당일 norm 0.01"
         }
       ]
     },
-    "417200_kosdaq": {
-      "ticker": "417200",
+    "166090_kosdaq": {
+      "ticker": "166090",
       "market": "kosdaq",
-      "name": "LS머트리얼즈",
+      "name": "하나머티리얼즈",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -11.3 → 당일 44.7"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 8700.0  <  종가 12000.0"
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.005 → 당일 norm 0.02"
         }
       ]
     },
@@ -214,31 +163,9 @@
       "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -20.2 → 당일 38.9"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 66.9 → 당일 145.8"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 5500.0  <  종가 7640.0"
-        },
-        {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.004 → 당일 norm 0.054"
+          "detail": "전일 norm -0.023 → 당일 norm 0.014"
         }
       ]
     }
