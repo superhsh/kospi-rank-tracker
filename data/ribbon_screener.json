@@ -1,159 +1,103 @@
 {
-  "updated_at": "2026-08-06 01:49",
+  "updated_at": "2026-08-07 02:12",
   "summary": {
-    "kr": 14,
-    "us": 7,
+    "kr": 10,
+    "us": 3,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "012450",
-      "name": "한화에어로스페이스",
+      "ticker": "006400",
+      "name": "삼성SDI",
       "market": "kospi",
-      "prev_norm": -0.0121,
-      "curr_norm": 0.035
-    },
-    {
-      "ticker": "034020",
-      "name": "두산에너빌리티",
-      "market": "kospi",
-      "prev_norm": -0.0338,
-      "curr_norm": 0.0138
-    },
-    {
-      "ticker": "042660",
-      "name": "한화오션",
-      "market": "kospi",
-      "prev_norm": -0.0059,
-      "curr_norm": 0.0248
-    },
-    {
-      "ticker": "010140",
-      "name": "삼성중공업",
-      "market": "kospi",
-      "prev_norm": -0.0069,
-      "curr_norm": 0.0117
-    },
-    {
-      "ticker": "051910",
-      "name": "LG화학",
-      "market": "kospi",
-      "prev_norm": -0.0025,
-      "curr_norm": 0.0171
-    },
-    {
-      "ticker": "003670",
-      "name": "포스코퓨처엠",
-      "market": "kospi",
-      "prev_norm": -0.0234,
-      "curr_norm": 0.0044
-    },
-    {
-      "ticker": "000720",
-      "name": "현대건설",
-      "market": "kospi",
-      "prev_norm": -0.0006,
-      "curr_norm": 0.0475
-    },
-    {
-      "ticker": "006260",
-      "name": "LS",
-      "market": "kospi",
-      "prev_norm": -0.0323,
-      "curr_norm": 0.0226
-    },
-    {
-      "ticker": "180640",
-      "name": "한진칼",
-      "market": "kospi",
-      "prev_norm": -0.0126,
-      "curr_norm": 0.0174
-    },
-    {
-      "ticker": "326030",
-      "name": "SK바이오팜",
-      "market": "kospi",
-      "prev_norm": -0.0133,
-      "curr_norm": 0.0006
-    },
-    {
-      "ticker": "241560",
-      "name": "두산밥캣",
-      "market": "kospi",
-      "prev_norm": -0.0111,
-      "curr_norm": 0.0092
-    },
-    {
-      "ticker": "086520",
-      "name": "에코프로",
-      "market": "kosdaq",
-      "prev_norm": -0.0048,
-      "curr_norm": 0.0236
-    },
-    {
-      "ticker": "214370",
-      "name": "케어젠",
-      "market": "kosdaq",
       "prev_norm": -0.0041,
-      "curr_norm": 0.0307
+      "curr_norm": 0.0356
     },
     {
-      "ticker": "089030",
-      "name": "테크윙",
+      "ticker": "066570",
+      "name": "LG전자",
+      "market": "kospi",
+      "prev_norm": -0.0181,
+      "curr_norm": 0.0217
+    },
+    {
+      "ticker": "298040",
+      "name": "효성중공업",
+      "market": "kospi",
+      "prev_norm": -0.0309,
+      "curr_norm": 0.0107
+    },
+    {
+      "ticker": "015760",
+      "name": "한국전력",
+      "market": "kospi",
+      "prev_norm": -0.006,
+      "curr_norm": 0.0067
+    },
+    {
+      "ticker": "000150",
+      "name": "두산",
+      "market": "kospi",
+      "prev_norm": -0.0097,
+      "curr_norm": 0.0024
+    },
+    {
+      "ticker": "030200",
+      "name": "KT",
+      "market": "kospi",
+      "prev_norm": -0.0035,
+      "curr_norm": 0.0025
+    },
+    {
+      "ticker": "003490",
+      "name": "대한항공",
+      "market": "kospi",
+      "prev_norm": -0.0272,
+      "curr_norm": 0.0026
+    },
+    {
+      "ticker": "298380",
+      "name": "에이비엘바이오",
       "market": "kosdaq",
-      "prev_norm": -0.0229,
-      "curr_norm": 0.0102
+      "prev_norm": -0.0122,
+      "curr_norm": 0.0305
+    },
+    {
+      "ticker": "310210",
+      "name": "보로노이",
+      "market": "kosdaq",
+      "prev_norm": -0.0192,
+      "curr_norm": 0.0218
+    },
+    {
+      "ticker": "357780",
+      "name": "솔브레인",
+      "market": "kosdaq",
+      "prev_norm": -0.033,
+      "curr_norm": 0.0066
     }
   ],
   "us": [
     {
-      "ticker": "PANW",
-      "name": "PANW",
+      "ticker": "RKLB",
+      "name": "RKLB",
       "market": "us",
-      "prev_norm": -0.0185,
-      "curr_norm": 0.0219
+      "prev_norm": -0.0224,
+      "curr_norm": 0.022
     },
     {
-      "ticker": "SHOP",
-      "name": "SHOP",
+      "ticker": "ALB",
+      "name": "ALB",
       "market": "us",
-      "prev_norm": -0.0012,
-      "curr_norm": 0.0615
+      "prev_norm": -0.0061,
+      "curr_norm": 0.0497
     },
     {
-      "ticker": "LITE",
-      "name": "LITE",
+      "ticker": "AZO",
+      "name": "AZO",
       "market": "us",
-      "prev_norm": -0.0087,
-      "curr_norm": 0.0351
-    },
-    {
-      "ticker": "TER",
-      "name": "TER",
-      "market": "us",
-      "prev_norm": -0.0297,
-      "curr_norm": 0.0106
-    },
-    {
-      "ticker": "CRWV",
-      "name": "CRWV",
-      "market": "us",
-      "prev_norm": -0.0162,
-      "curr_norm": 0.0502
-    },
-    {
-      "ticker": "FER",
-      "name": "FER",
-      "market": "us",
-      "prev_norm": -0.0023,
-      "curr_norm": 0.0695
-    },
-    {
-      "ticker": "APH",
-      "name": "APH",
-      "market": "us",
-      "prev_norm": -0.0133,
-      "curr_norm": 0.0444
+      "prev_norm": -0.0019,
+      "curr_norm": 0.0024
     }
   ],
   "coin": []
