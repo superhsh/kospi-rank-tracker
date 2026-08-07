@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-07 01:41",
+  "updated_at": "2026-08-07 09:05",
   "signals": {
     "IONQ_us": {
       "ticker": "IONQ",
@@ -78,6 +78,18 @@
         }
       ]
     },
+    "443060_kospi": {
+      "ticker": "443060",
+      "market": "kospi",
+      "name": "HD현대마린솔루션",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -11.8 → 당일 0.1"
+        }
+      ]
+    },
     "417200_kosdaq": {
       "ticker": "417200",
       "market": "kosdaq",
@@ -86,7 +98,7 @@
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.0 → 당일 norm 0.031"
+          "detail": "전일 norm -0.0 → 당일 norm 0.036"
         }
       ]
     },
@@ -122,7 +134,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 49.9 → 당일 143.0"
+          "detail": "전일 49.9 → 당일 147.3"
         }
       ]
     }
