@@ -1,27 +1,27 @@
 {
-  "updated_at": "2026-08-06 10:45",
+  "updated_at": "2026-08-07 01:41",
   "signals": {
-    "IREN_us": {
-      "ticker": "IREN",
+    "IONQ_us": {
+      "ticker": "IONQ",
       "market": "us",
-      "name": "IREN",
+      "name": "IONQ",
       "signals": [
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.015 → 당일 norm 0.015"
+          "detail": "전일 norm -0.008 → 당일 norm 0.036"
         }
       ]
     },
-    "MU_us": {
-      "ticker": "MU",
+    "RKLB_us": {
+      "ticker": "RKLB",
       "market": "us",
-      "name": "MU",
+      "name": "RKLB",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -22.2 → 당일 0.1"
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.022 → 당일 norm 0.022"
         }
       ]
     },
@@ -31,45 +31,21 @@
       "name": "JOBY",
       "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.041 → 당일 norm 0.0"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 88.2 → 당일 172.3"
         }
       ]
     },
-    "ASTS_us": {
-      "ticker": "ASTS",
+    "SYM_us": {
+      "ticker": "SYM",
       "market": "us",
-      "name": "ASTS",
+      "name": "SYM",
       "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.034 → 당일 norm 0.007"
-        }
-      ]
-    },
-    "RGTI_us": {
-      "ticker": "RGTI",
-      "market": "us",
-      "name": "RGTI",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.004 → 당일 norm 0.042"
-        }
-      ]
-    },
-    "OKLO_us": {
-      "ticker": "OKLO",
-      "market": "us",
-      "name": "OKLO",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -3.7 → 당일 4.1"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 48.24  >  종가 39.6"
         }
       ]
     },
@@ -79,81 +55,62 @@
       "name": "COHR",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 91.1 → 당일 103.1"
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.047 → 당일 norm 0.019"
         }
       ]
     },
-    "LITE_us": {
-      "ticker": "LITE",
+    "LUNR_us": {
+      "ticker": "LUNR",
       "market": "us",
-      "name": "LITE",
+      "name": "LUNR",
       "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -5.3 → 당일 65.3"
+        },
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.009 → 당일 norm 0.035"
+          "detail": "전일 norm -0.012 → 당일 norm 0.045"
         }
       ]
     },
-    "CRWV_us": {
-      "ticker": "CRWV",
-      "market": "us",
-      "name": "CRWV",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.016 → 당일 norm 0.05"
-        }
-      ]
-    },
-    "307950_kospi": {
-      "ticker": "307950",
-      "market": "kospi",
-      "name": "현대오토에버",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.046 → 당일 norm 0.002"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
+    "417200_kosdaq": {
+      "ticker": "417200",
       "market": "kosdaq",
-      "name": "SFA반도체",
+      "name": "LS머트리얼즈",
       "signals": [
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.023 → 당일 norm 0.01"
+          "detail": "전일 norm -0.0 → 당일 norm 0.031"
         }
       ]
     },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.005 → 당일 norm 0.02"
-        }
-      ]
-    },
-    "NXPI_us": {
-      "ticker": "NXPI",
+    "PL_us": {
+      "ticker": "PL",
       "market": "us",
-      "name": "NXP Semiconductors N.V.",
+      "name": "PL",
       "signals": [
         {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.9 → 27.8  |  %D 17.7"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -11.8 → 당일 14.5"
+        }
+      ]
+    },
+    "WDC_us": {
+      "ticker": "WDC",
+      "market": "us",
+      "name": "Western Digital Corporation",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 580.0  >  종가 451.52"
         }
       ]
     },
@@ -163,9 +120,9 @@
       "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.023 → 당일 norm 0.014"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 49.9 → 당일 143.0"
         }
       ]
     }
