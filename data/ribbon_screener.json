@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-07 02:12",
+  "updated_at": "2026-08-08 01:00",
   "summary": {
-    "kr": 10,
-    "us": 3,
+    "kr": 11,
+    "us": 5,
     "coin": 0
   },
   "kr": [
@@ -11,42 +11,49 @@
       "name": "삼성SDI",
       "market": "kospi",
       "prev_norm": -0.0041,
-      "curr_norm": 0.0356
+      "curr_norm": 0.049
     },
     {
       "ticker": "066570",
       "name": "LG전자",
       "market": "kospi",
       "prev_norm": -0.0181,
-      "curr_norm": 0.0217
+      "curr_norm": 0.031
     },
     {
       "ticker": "298040",
       "name": "효성중공업",
       "market": "kospi",
       "prev_norm": -0.0309,
-      "curr_norm": 0.0107
+      "curr_norm": 0.0141
     },
     {
       "ticker": "015760",
       "name": "한국전력",
       "market": "kospi",
       "prev_norm": -0.006,
-      "curr_norm": 0.0067
+      "curr_norm": 0.0153
     },
     {
       "ticker": "000150",
       "name": "두산",
       "market": "kospi",
       "prev_norm": -0.0097,
-      "curr_norm": 0.0024
+      "curr_norm": 0.0079
+    },
+    {
+      "ticker": "278470",
+      "name": "에이피알",
+      "market": "kospi",
+      "prev_norm": -0.0418,
+      "curr_norm": 0.0035
     },
     {
       "ticker": "030200",
       "name": "KT",
       "market": "kospi",
       "prev_norm": -0.0035,
-      "curr_norm": 0.0025
+      "curr_norm": 0.0008
     },
     {
       "ticker": "003490",
@@ -60,44 +67,58 @@
       "name": "에이비엘바이오",
       "market": "kosdaq",
       "prev_norm": -0.0122,
-      "curr_norm": 0.0305
+      "curr_norm": 0.0511
     },
     {
       "ticker": "310210",
       "name": "보로노이",
       "market": "kosdaq",
       "prev_norm": -0.0192,
-      "curr_norm": 0.0218
+      "curr_norm": 0.0307
     },
     {
       "ticker": "357780",
       "name": "솔브레인",
       "market": "kosdaq",
       "prev_norm": -0.033,
-      "curr_norm": 0.0066
+      "curr_norm": 0.0122
     }
   ],
   "us": [
     {
-      "ticker": "RKLB",
-      "name": "RKLB",
+      "ticker": "ADI",
+      "name": "ADI",
       "market": "us",
-      "prev_norm": -0.0224,
-      "curr_norm": 0.022
+      "prev_norm": -0.03,
+      "curr_norm": 0.0172
     },
     {
-      "ticker": "ALB",
-      "name": "ALB",
+      "ticker": "SBUX",
+      "name": "SBUX",
       "market": "us",
-      "prev_norm": -0.0061,
-      "curr_norm": 0.0497
+      "prev_norm": -0.0003,
+      "curr_norm": 0.0018
     },
     {
-      "ticker": "AZO",
-      "name": "AZO",
+      "ticker": "SNPS",
+      "name": "SNPS",
       "market": "us",
-      "prev_norm": -0.0019,
-      "curr_norm": 0.0024
+      "prev_norm": -0.0402,
+      "curr_norm": 0.0191
+    },
+    {
+      "ticker": "WBD",
+      "name": "WBD",
+      "market": "us",
+      "prev_norm": -0.0455,
+      "curr_norm": 0.0023
+    },
+    {
+      "ticker": "NBIS",
+      "name": "NBIS",
+      "market": "us",
+      "prev_norm": -0.0021,
+      "curr_norm": 0.0006
     }
   ],
   "coin": []
