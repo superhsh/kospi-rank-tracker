@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-10 23:30",
+  "updated_at": "2026-08-11 09:04",
   "signals": {
     "TSLA_us": {
       "ticker": "TSLA",
@@ -73,32 +73,27 @@
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
+    "064400_kospi": {
+      "ticker": "064400",
       "market": "kospi",
-      "name": "HD현대마린솔루션",
+      "name": "LG씨엔에스",
       "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.045 → 당일 norm 0.002"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 85.1  ↑  %D 83.1"
         }
       ]
     },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
       "signals": [
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 25.5 → 당일 110.3"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.046 → 당일 norm 0.023"
+          "detail": "전일 90.6 → 당일 112.6"
         }
       ]
     },
@@ -108,14 +103,9 @@
       "name": "SFA반도체",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -11.5 → 당일 43.3"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 3735.0  <  종가 5540.0"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 43.3 → 당일 145.4"
         }
       ]
     },
@@ -125,9 +115,9 @@
       "name": "하나머티리얼즈",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 25.0 → 당일 124.5"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 78.0  ↑  %D 75.6"
         }
       ]
     },
@@ -167,20 +157,15 @@
         }
       ]
     },
-    "347850_kosdaq": {
-      "ticker": "347850",
+    "420770_kosdaq": {
+      "ticker": "420770",
       "market": "kosdaq",
-      "name": "디앤디파마텍",
+      "name": "기가비스",
       "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -45.8 → 당일 22.9"
-        },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 67.0  ↑  %D 58.3"
+          "detail": "%K 58.0  ↑  %D 56.7"
         }
       ]
     },
@@ -193,18 +178,6 @@
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
           "detail": "전일 norm -0.024 → 당일 norm 0.004"
-        }
-      ]
-    },
-    "007660_kospi": {
-      "ticker": "007660",
-      "market": "kospi",
-      "name": "이수페타시스",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -19.8 → 당일 36.3"
         }
       ]
     }
