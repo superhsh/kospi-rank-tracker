@@ -1,124 +1,82 @@
 {
-  "updated_at": "2026-08-08 01:00",
+  "updated_at": "2026-08-11 01:05",
   "summary": {
-    "kr": 11,
-    "us": 5,
+    "kr": 6,
+    "us": 4,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "006400",
-      "name": "삼성SDI",
+      "ticker": "000810",
+      "name": "삼성화재",
       "market": "kospi",
-      "prev_norm": -0.0041,
-      "curr_norm": 0.049
+      "prev_norm": -0.0038,
+      "curr_norm": 0.0065
     },
     {
-      "ticker": "066570",
-      "name": "LG전자",
+      "ticker": "010950",
+      "name": "S-Oil",
       "market": "kospi",
-      "prev_norm": -0.0181,
-      "curr_norm": 0.031
+      "prev_norm": -0.0201,
+      "curr_norm": 0.0238
     },
     {
-      "ticker": "298040",
-      "name": "효성중공업",
+      "ticker": "323410",
+      "name": "카카오뱅크",
       "market": "kospi",
-      "prev_norm": -0.0309,
-      "curr_norm": 0.0141
+      "prev_norm": -0.0081,
+      "curr_norm": 0.0012
     },
     {
-      "ticker": "015760",
-      "name": "한국전력",
+      "ticker": "007660",
+      "name": "이수페타시스",
       "market": "kospi",
-      "prev_norm": -0.006,
-      "curr_norm": 0.0153
+      "prev_norm": -0.0366,
+      "curr_norm": 0.0018
     },
     {
-      "ticker": "000150",
-      "name": "두산",
-      "market": "kospi",
-      "prev_norm": -0.0097,
-      "curr_norm": 0.0079
-    },
-    {
-      "ticker": "278470",
-      "name": "에이피알",
-      "market": "kospi",
-      "prev_norm": -0.0418,
-      "curr_norm": 0.0035
-    },
-    {
-      "ticker": "030200",
-      "name": "KT",
-      "market": "kospi",
-      "prev_norm": -0.0035,
-      "curr_norm": 0.0008
-    },
-    {
-      "ticker": "003490",
-      "name": "대한항공",
-      "market": "kospi",
-      "prev_norm": -0.0272,
-      "curr_norm": 0.0026
-    },
-    {
-      "ticker": "298380",
-      "name": "에이비엘바이오",
+      "ticker": "178320",
+      "name": "서진시스템",
       "market": "kosdaq",
-      "prev_norm": -0.0122,
-      "curr_norm": 0.0511
+      "prev_norm": -0.0063,
+      "curr_norm": 0.0297
     },
     {
-      "ticker": "310210",
-      "name": "보로노이",
+      "ticker": "005290",
+      "name": "동진쎄미켐",
       "market": "kosdaq",
-      "prev_norm": -0.0192,
-      "curr_norm": 0.0307
-    },
-    {
-      "ticker": "357780",
-      "name": "솔브레인",
-      "market": "kosdaq",
-      "prev_norm": -0.033,
-      "curr_norm": 0.0122
+      "prev_norm": -0.0423,
+      "curr_norm": 0.0022
     }
   ],
   "us": [
     {
-      "ticker": "ADI",
-      "name": "ADI",
+      "ticker": "MRVL",
+      "name": "MRVL",
       "market": "us",
-      "prev_norm": -0.03,
-      "curr_norm": 0.0172
+      "prev_norm": -0.0242,
+      "curr_norm": 0.0044
     },
     {
-      "ticker": "SBUX",
-      "name": "SBUX",
+      "ticker": "ISRG",
+      "name": "ISRG",
       "market": "us",
-      "prev_norm": -0.0003,
-      "curr_norm": 0.0018
+      "prev_norm": -0.0179,
+      "curr_norm": 0.0399
     },
     {
-      "ticker": "SNPS",
-      "name": "SNPS",
+      "ticker": "MNST",
+      "name": "MNST",
       "market": "us",
-      "prev_norm": -0.0402,
-      "curr_norm": 0.0191
+      "prev_norm": -0.1779,
+      "curr_norm": 0.2176
     },
     {
-      "ticker": "WBD",
-      "name": "WBD",
+      "ticker": "APD",
+      "name": "APD",
       "market": "us",
-      "prev_norm": -0.0455,
-      "curr_norm": 0.0023
-    },
-    {
-      "ticker": "NBIS",
-      "name": "NBIS",
-      "market": "us",
-      "prev_norm": -0.0021,
-      "curr_norm": 0.0006
+      "prev_norm": -0.0103,
+      "curr_norm": 0.0162
     }
   ],
   "coin": []
