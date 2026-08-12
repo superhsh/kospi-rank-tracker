@@ -1,83 +1,133 @@
 {
-  "updated_at": "2026-08-11 01:05",
+  "updated_at": "2026-08-12 01:12",
   "summary": {
-    "kr": 6,
-    "us": 4,
-    "coin": 0
+    "kr": 9,
+    "us": 6,
+    "coin": 2
   },
   "kr": [
     {
-      "ticker": "000810",
-      "name": "삼성화재",
+      "ticker": "267260",
+      "name": "HD현대일렉트릭",
       "market": "kospi",
-      "prev_norm": -0.0038,
-      "curr_norm": 0.0065
+      "prev_norm": -0.0154,
+      "curr_norm": 0.0059
     },
     {
-      "ticker": "010950",
-      "name": "S-Oil",
+      "ticker": "006800",
+      "name": "미래에셋증권",
       "market": "kospi",
-      "prev_norm": -0.0201,
-      "curr_norm": 0.0238
+      "prev_norm": -0.014,
+      "curr_norm": 0.0016
+    },
+    {
+      "ticker": "030200",
+      "name": "KT",
+      "market": "kospi",
+      "prev_norm": -0.0082,
+      "curr_norm": 0.0019
     },
     {
       "ticker": "323410",
       "name": "카카오뱅크",
       "market": "kospi",
-      "prev_norm": -0.0081,
-      "curr_norm": 0.0012
+      "prev_norm": -0.0061,
+      "curr_norm": 0.0035
     },
     {
       "ticker": "007660",
       "name": "이수페타시스",
       "market": "kospi",
-      "prev_norm": -0.0366,
-      "curr_norm": 0.0018
+      "prev_norm": -0.0041,
+      "curr_norm": 0.0274
     },
     {
-      "ticker": "178320",
-      "name": "서진시스템",
+      "ticker": "403870",
+      "name": "HPSP",
       "market": "kosdaq",
-      "prev_norm": -0.0063,
-      "curr_norm": 0.0297
+      "prev_norm": -0.0193,
+      "curr_norm": 0.011
+    },
+    {
+      "ticker": "131290",
+      "name": "티에스이",
+      "market": "kosdaq",
+      "prev_norm": -0.0339,
+      "curr_norm": 0.002
+    },
+    {
+      "ticker": "064760",
+      "name": "티씨케이",
+      "market": "kosdaq",
+      "prev_norm": -0.0474,
+      "curr_norm": 0.0101
     },
     {
       "ticker": "005290",
       "name": "동진쎄미켐",
       "market": "kosdaq",
-      "prev_norm": -0.0423,
-      "curr_norm": 0.0022
+      "prev_norm": -0.0038,
+      "curr_norm": 0.0312
     }
   ],
   "us": [
     {
-      "ticker": "MRVL",
-      "name": "MRVL",
+      "ticker": "ARM",
+      "name": "ARM",
       "market": "us",
-      "prev_norm": -0.0242,
-      "curr_norm": 0.0044
+      "prev_norm": -0.0065,
+      "curr_norm": 0.0117
     },
     {
-      "ticker": "ISRG",
-      "name": "ISRG",
+      "ticker": "VRTX",
+      "name": "VRTX",
       "market": "us",
-      "prev_norm": -0.0179,
-      "curr_norm": 0.0399
+      "prev_norm": -0.0021,
+      "curr_norm": 0.0694
     },
     {
-      "ticker": "MNST",
-      "name": "MNST",
+      "ticker": "SBUX",
+      "name": "SBUX",
       "market": "us",
-      "prev_norm": -0.1779,
-      "curr_norm": 0.2176
+      "prev_norm": -0.007,
+      "curr_norm": 0.0049
     },
     {
-      "ticker": "APD",
-      "name": "APD",
+      "ticker": "MELI",
+      "name": "MELI",
       "market": "us",
-      "prev_norm": -0.0103,
-      "curr_norm": 0.0162
+      "prev_norm": -0.002,
+      "curr_norm": 0.0181
+    },
+    {
+      "ticker": "MCHP",
+      "name": "MCHP",
+      "market": "us",
+      "prev_norm": -0.0192,
+      "curr_norm": 0.0053
+    },
+    {
+      "ticker": "AWK",
+      "name": "AWK",
+      "market": "us",
+      "prev_norm": -0.0091,
+      "curr_norm": 0.0092
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "SOL",
+      "name": "Solana",
+      "market": "coin",
+      "prev_norm": -0.0047,
+      "curr_norm": 0.0251
+    },
+    {
+      "ticker": "DOGE",
+      "name": "Dogecoin",
+      "market": "coin",
+      "prev_norm": -0.0285,
+      "curr_norm": 0.0122
+    }
+  ]
 }
