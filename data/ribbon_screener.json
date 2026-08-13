@@ -1,133 +1,98 @@
 {
-  "updated_at": "2026-08-12 01:12",
+  "updated_at": "2026-08-13 01:14",
   "summary": {
-    "kr": 9,
-    "us": 6,
-    "coin": 2
+    "kr": 7,
+    "us": 4,
+    "coin": 1
   },
   "kr": [
     {
-      "ticker": "267260",
-      "name": "HD현대일렉트릭",
+      "ticker": "005935",
+      "name": "삼성전자우",
       "market": "kospi",
-      "prev_norm": -0.0154,
-      "curr_norm": 0.0059
+      "prev_norm": -0.0026,
+      "curr_norm": 0.0275
     },
     {
-      "ticker": "006800",
-      "name": "미래에셋증권",
+      "ticker": "009150",
+      "name": "삼성전기",
       "market": "kospi",
-      "prev_norm": -0.014,
-      "curr_norm": 0.0016
+      "prev_norm": -0.0256,
+      "curr_norm": 0.0365
+    },
+    {
+      "ticker": "028260",
+      "name": "삼성물산",
+      "market": "kospi",
+      "prev_norm": -0.0051,
+      "curr_norm": 0.0361
+    },
+    {
+      "ticker": "011070",
+      "name": "LG이노텍",
+      "market": "kospi",
+      "prev_norm": -0.022,
+      "curr_norm": 0.0274
     },
     {
       "ticker": "030200",
       "name": "KT",
       "market": "kospi",
-      "prev_norm": -0.0082,
-      "curr_norm": 0.0019
+      "prev_norm": -0.0106,
+      "curr_norm": 0.0031
     },
     {
-      "ticker": "323410",
-      "name": "카카오뱅크",
-      "market": "kospi",
-      "prev_norm": -0.0061,
-      "curr_norm": 0.0035
-    },
-    {
-      "ticker": "007660",
-      "name": "이수페타시스",
-      "market": "kospi",
-      "prev_norm": -0.0041,
-      "curr_norm": 0.0274
-    },
-    {
-      "ticker": "403870",
-      "name": "HPSP",
+      "ticker": "036930",
+      "name": "주성엔지니어링",
       "market": "kosdaq",
-      "prev_norm": -0.0193,
-      "curr_norm": 0.011
+      "prev_norm": -0.0184,
+      "curr_norm": 0.0345
     },
     {
-      "ticker": "131290",
-      "name": "티에스이",
+      "ticker": "440110",
+      "name": "파두",
       "market": "kosdaq",
-      "prev_norm": -0.0339,
-      "curr_norm": 0.002
-    },
-    {
-      "ticker": "064760",
-      "name": "티씨케이",
-      "market": "kosdaq",
-      "prev_norm": -0.0474,
-      "curr_norm": 0.0101
-    },
-    {
-      "ticker": "005290",
-      "name": "동진쎄미켐",
-      "market": "kosdaq",
-      "prev_norm": -0.0038,
-      "curr_norm": 0.0312
+      "prev_norm": -0.0042,
+      "curr_norm": 0.0116
     }
   ],
   "us": [
     {
-      "ticker": "ARM",
-      "name": "ARM",
+      "ticker": "ASML",
+      "name": "ASML",
       "market": "us",
-      "prev_norm": -0.0065,
-      "curr_norm": 0.0117
+      "prev_norm": -0.0078,
+      "curr_norm": 0.034
     },
     {
-      "ticker": "VRTX",
-      "name": "VRTX",
+      "ticker": "INTC",
+      "name": "INTC",
       "market": "us",
-      "prev_norm": -0.0021,
-      "curr_norm": 0.0694
+      "prev_norm": -0.0196,
+      "curr_norm": 0.0089
     },
     {
-      "ticker": "SBUX",
-      "name": "SBUX",
+      "ticker": "STX",
+      "name": "STX",
       "market": "us",
-      "prev_norm": -0.007,
-      "curr_norm": 0.0049
+      "prev_norm": -0.0189,
+      "curr_norm": 0.0059
     },
     {
-      "ticker": "MELI",
-      "name": "MELI",
+      "ticker": "NBIS",
+      "name": "NBIS",
       "market": "us",
-      "prev_norm": -0.002,
-      "curr_norm": 0.0181
-    },
-    {
-      "ticker": "MCHP",
-      "name": "MCHP",
-      "market": "us",
-      "prev_norm": -0.0192,
-      "curr_norm": 0.0053
-    },
-    {
-      "ticker": "AWK",
-      "name": "AWK",
-      "market": "us",
-      "prev_norm": -0.0091,
-      "curr_norm": 0.0092
+      "prev_norm": -0.0032,
+      "curr_norm": 0.0644
     }
   ],
   "coin": [
     {
-      "ticker": "SOL",
-      "name": "Solana",
+      "ticker": "LINK",
+      "name": "Chainlink",
       "market": "coin",
-      "prev_norm": -0.0047,
-      "curr_norm": 0.0251
-    },
-    {
-      "ticker": "DOGE",
-      "name": "Dogecoin",
-      "market": "coin",
-      "prev_norm": -0.0285,
-      "curr_norm": 0.0122
+      "prev_norm": -0.0274,
+      "curr_norm": 0.0053
     }
   ]
 }
