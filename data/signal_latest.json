@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-13 23:36",
+  "updated_at": "2026-08-14 09:12",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -134,43 +134,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -22.9 → 당일 6.5"
-        }
-      ]
-    },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.022 → 당일 norm 0.023"
-        }
-      ]
-    },
-    "307950_kospi": {
-      "ticker": "307950",
-      "market": "kospi",
-      "name": "현대오토에버",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 90.7 → 당일 140.7"
-        }
-      ]
-    },
-    "417200_kosdaq": {
-      "ticker": "417200",
-      "market": "kosdaq",
-      "name": "LS머트리얼즈",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 76.8 → 당일 105.9"
+          "detail": "전일 -22.9 → 당일 6.7"
         }
       ]
     },
@@ -182,7 +146,31 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 82.9  ↑  %D 78.1"
+          "detail": "%K 82.8  ↑  %D 78.0"
+        }
+      ]
+    },
+    "420770_kosdaq": {
+      "ticker": "420770",
+      "market": "kosdaq",
+      "name": "기가비스",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -0.2 → 당일 11.8"
+        }
+      ]
+    },
+    "003670_kospi": {
+      "ticker": "003670",
+      "market": "kospi",
+      "name": "포스코퓨처엠",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 83.5  ↑  %D 76.6"
         }
       ]
     },
@@ -192,21 +180,9 @@
       "name": "이수페타시스",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 49.3 → 당일 109.1"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 100.0 → 당일 119.8"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 83.8  ↑  %D 82.8"
         }
       ]
     }
