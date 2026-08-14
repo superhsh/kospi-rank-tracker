@@ -1,98 +1,76 @@
 {
-  "updated_at": "2026-08-13 01:14",
+  "updated_at": "2026-08-14 01:13",
   "summary": {
-    "kr": 7,
-    "us": 4,
-    "coin": 1
+    "kr": 6,
+    "us": 3,
+    "coin": 0
   },
   "kr": [
     {
-      "ticker": "005935",
-      "name": "삼성전자우",
+      "ticker": "000270",
+      "name": "기아",
       "market": "kospi",
-      "prev_norm": -0.0026,
-      "curr_norm": 0.0275
+      "prev_norm": -0.0158,
+      "curr_norm": 0.0163
     },
     {
-      "ticker": "009150",
-      "name": "삼성전기",
+      "ticker": "069500",
+      "name": "KODEX 200",
       "market": "kospi",
-      "prev_norm": -0.0256,
-      "curr_norm": 0.0365
+      "prev_norm": -0.037,
+      "curr_norm": 0.0088
     },
     {
-      "ticker": "028260",
-      "name": "삼성물산",
+      "ticker": "102110",
+      "name": "TIGER 200",
       "market": "kospi",
-      "prev_norm": -0.0051,
-      "curr_norm": 0.0361
+      "prev_norm": -0.0364,
+      "curr_norm": 0.0094
     },
     {
-      "ticker": "011070",
-      "name": "LG이노텍",
+      "ticker": "396500",
+      "name": "TIGER 반도체TOP10",
       "market": "kospi",
-      "prev_norm": -0.022,
-      "curr_norm": 0.0274
+      "prev_norm": -0.0346,
+      "curr_norm": 0.0155
     },
     {
-      "ticker": "030200",
-      "name": "KT",
+      "ticker": "278530",
+      "name": "KODEX 200TR",
       "market": "kospi",
-      "prev_norm": -0.0106,
-      "curr_norm": 0.0031
+      "prev_norm": -0.0375,
+      "curr_norm": 0.0091
     },
     {
-      "ticker": "036930",
-      "name": "주성엔지니어링",
+      "ticker": "084370",
+      "name": "유진테크",
       "market": "kosdaq",
-      "prev_norm": -0.0184,
-      "curr_norm": 0.0345
-    },
-    {
-      "ticker": "440110",
-      "name": "파두",
-      "market": "kosdaq",
-      "prev_norm": -0.0042,
-      "curr_norm": 0.0116
+      "prev_norm": -0.0024,
+      "curr_norm": 0.0192
     }
   ],
   "us": [
     {
-      "ticker": "ASML",
-      "name": "ASML",
+      "ticker": "MU",
+      "name": "MU",
       "market": "us",
-      "prev_norm": -0.0078,
-      "curr_norm": 0.034
+      "prev_norm": -0.0255,
+      "curr_norm": 0.0109
     },
     {
-      "ticker": "INTC",
-      "name": "INTC",
+      "ticker": "LRCX",
+      "name": "LRCX",
       "market": "us",
-      "prev_norm": -0.0196,
-      "curr_norm": 0.0089
+      "prev_norm": -0.0079,
+      "curr_norm": 0.0373
     },
     {
-      "ticker": "STX",
-      "name": "STX",
+      "ticker": "QCOM",
+      "name": "QCOM",
       "market": "us",
-      "prev_norm": -0.0189,
-      "curr_norm": 0.0059
-    },
-    {
-      "ticker": "NBIS",
-      "name": "NBIS",
-      "market": "us",
-      "prev_norm": -0.0032,
-      "curr_norm": 0.0644
+      "prev_norm": -0.0096,
+      "curr_norm": 0.0083
     }
   ],
-  "coin": [
-    {
-      "ticker": "LINK",
-      "name": "Chainlink",
-      "market": "coin",
-      "prev_norm": -0.0274,
-      "curr_norm": 0.0053
-    }
-  ]
+  "coin": []
 }
