@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-14 01:13",
+  "updated_at": "2026-08-15 00:44",
   "summary": {
-    "kr": 6,
-    "us": 3,
+    "kr": 8,
+    "us": 2,
     "coin": 0
   },
   "kr": [
@@ -11,65 +11,72 @@
       "name": "기아",
       "market": "kospi",
       "prev_norm": -0.0158,
-      "curr_norm": 0.0163
+      "curr_norm": 0.0183
     },
     {
       "ticker": "069500",
       "name": "KODEX 200",
       "market": "kospi",
       "prev_norm": -0.037,
-      "curr_norm": 0.0088
+      "curr_norm": 0.0122
+    },
+    {
+      "ticker": "133690",
+      "name": "TIGER 미국나스닥100",
+      "market": "kospi",
+      "prev_norm": -0.0416,
+      "curr_norm": 0.004
     },
     {
       "ticker": "102110",
       "name": "TIGER 200",
       "market": "kospi",
       "prev_norm": -0.0364,
-      "curr_norm": 0.0094
+      "curr_norm": 0.0131
     },
     {
       "ticker": "396500",
       "name": "TIGER 반도체TOP10",
       "market": "kospi",
       "prev_norm": -0.0346,
-      "curr_norm": 0.0155
+      "curr_norm": 0.0187
     },
     {
       "ticker": "278530",
       "name": "KODEX 200TR",
       "market": "kospi",
       "prev_norm": -0.0375,
-      "curr_norm": 0.0091
+      "curr_norm": 0.0124
+    },
+    {
+      "ticker": "039490",
+      "name": "키움증권",
+      "market": "kospi",
+      "prev_norm": -0.0146,
+      "curr_norm": 0.0029
     },
     {
       "ticker": "084370",
       "name": "유진테크",
       "market": "kosdaq",
       "prev_norm": -0.0024,
-      "curr_norm": 0.0192
+      "curr_norm": 0.0275
     }
   ],
   "us": [
     {
-      "ticker": "MU",
-      "name": "MU",
+      "ticker": "SNDK",
+      "name": "SNDK",
       "market": "us",
-      "prev_norm": -0.0255,
-      "curr_norm": 0.0109
+      "prev_norm": -0.0489,
+      "curr_norm": 0.0179
     },
     {
-      "ticker": "LRCX",
-      "name": "LRCX",
+      "ticker": "ALGN",
+      "name": "ALGN",
       "market": "us",
-      "prev_norm": -0.0079,
-      "curr_norm": 0.0373
-    },
-    {
-      "ticker": "QCOM",
-      "name": "QCOM",
-      "market": "us",
-      "prev_norm": -0.0096,
-      "curr_norm": 0.0083
+      "prev_norm": -0.0334,
+      "curr_norm": 0.0046
     }
   ],
   "coin": []
