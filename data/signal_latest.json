@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-16 23:15",
+  "updated_at": "2026-08-17 08:50",
   "signals": {
     "PLUG_us": {
       "ticker": "PLUG",
@@ -57,7 +57,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -12.0 → 당일 27.7"
+          "detail": "전일 -10.6 → 당일 26.8"
         }
       ]
     },
