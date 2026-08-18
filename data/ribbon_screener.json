@@ -1,83 +1,84 @@
 {
-  "updated_at": "2026-08-15 00:44",
+  "updated_at": "2026-08-18 00:44",
   "summary": {
     "kr": 8,
-    "us": 2,
-    "coin": 0
+    "us": 1,
+    "coin": 1
   },
   "kr": [
     {
-      "ticker": "000270",
-      "name": "기아",
+      "ticker": "402340",
+      "name": "SK스퀘어",
       "market": "kospi",
-      "prev_norm": -0.0158,
-      "curr_norm": 0.0183
+      "prev_norm": -0.046,
+      "curr_norm": 0.0217
     },
     {
-      "ticker": "069500",
-      "name": "KODEX 200",
+      "ticker": "032830",
+      "name": "삼성생명",
       "market": "kospi",
-      "prev_norm": -0.037,
-      "curr_norm": 0.0122
+      "prev_norm": -0.0237,
+      "curr_norm": 0.0173
     },
     {
-      "ticker": "133690",
-      "name": "TIGER 미국나스닥100",
+      "ticker": "034730",
+      "name": "SK",
       "market": "kospi",
-      "prev_norm": -0.0416,
+      "prev_norm": -0.0346,
+      "curr_norm": 0.02
+    },
+    {
+      "ticker": "064350",
+      "name": "현대로템",
+      "market": "kospi",
+      "prev_norm": -0.0017,
+      "curr_norm": 0.0177
+    },
+    {
+      "ticker": "030200",
+      "name": "KT",
+      "market": "kospi",
+      "prev_norm": -0.0052,
+      "curr_norm": 0.0126
+    },
+    {
+      "ticker": "379800",
+      "name": "KODEX 미국S&P500",
+      "market": "kospi",
+      "prev_norm": -0.0079,
       "curr_norm": 0.004
     },
     {
-      "ticker": "102110",
-      "name": "TIGER 200",
+      "ticker": "122630",
+      "name": "KODEX 레버리지",
       "market": "kospi",
-      "prev_norm": -0.0364,
-      "curr_norm": 0.0131
+      "prev_norm": -0.0144,
+      "curr_norm": 0.0473
     },
     {
-      "ticker": "396500",
-      "name": "TIGER 반도체TOP10",
-      "market": "kospi",
-      "prev_norm": -0.0346,
-      "curr_norm": 0.0187
-    },
-    {
-      "ticker": "278530",
-      "name": "KODEX 200TR",
-      "market": "kospi",
-      "prev_norm": -0.0375,
-      "curr_norm": 0.0124
-    },
-    {
-      "ticker": "039490",
-      "name": "키움증권",
-      "market": "kospi",
-      "prev_norm": -0.0146,
-      "curr_norm": 0.0029
-    },
-    {
-      "ticker": "084370",
-      "name": "유진테크",
+      "ticker": "347850",
+      "name": "디앤디파마텍",
       "market": "kosdaq",
-      "prev_norm": -0.0024,
-      "curr_norm": 0.0275
+      "prev_norm": -0.0052,
+      "curr_norm": 0.009
     }
   ],
   "us": [
     {
-      "ticker": "SNDK",
-      "name": "SNDK",
+      "ticker": "KLAC",
+      "name": "KLAC",
       "market": "us",
-      "prev_norm": -0.0489,
-      "curr_norm": 0.0179
-    },
-    {
-      "ticker": "ALGN",
-      "name": "ALGN",
-      "market": "us",
-      "prev_norm": -0.0334,
-      "curr_norm": 0.0046
+      "prev_norm": -0.0107,
+      "curr_norm": 0.0145
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "DOGE",
+      "name": "Dogecoin",
+      "market": "coin",
+      "prev_norm": -0.0001,
+      "curr_norm": 0.006
+    }
+  ]
 }
