@@ -1,84 +1,42 @@
 {
-  "updated_at": "2026-08-18 00:44",
+  "updated_at": "2026-08-19 00:44",
   "summary": {
-    "kr": 8,
+    "kr": 1,
     "us": 1,
-    "coin": 1
+    "coin": 2
   },
   "kr": [
     {
       "ticker": "402340",
       "name": "SK스퀘어",
       "market": "kospi",
-      "prev_norm": -0.046,
-      "curr_norm": 0.0217
-    },
-    {
-      "ticker": "032830",
-      "name": "삼성생명",
-      "market": "kospi",
-      "prev_norm": -0.0237,
-      "curr_norm": 0.0173
-    },
-    {
-      "ticker": "034730",
-      "name": "SK",
-      "market": "kospi",
-      "prev_norm": -0.0346,
-      "curr_norm": 0.02
-    },
-    {
-      "ticker": "064350",
-      "name": "현대로템",
-      "market": "kospi",
-      "prev_norm": -0.0017,
-      "curr_norm": 0.0177
-    },
-    {
-      "ticker": "030200",
-      "name": "KT",
-      "market": "kospi",
-      "prev_norm": -0.0052,
-      "curr_norm": 0.0126
-    },
-    {
-      "ticker": "379800",
-      "name": "KODEX 미국S&P500",
-      "market": "kospi",
-      "prev_norm": -0.0079,
-      "curr_norm": 0.004
-    },
-    {
-      "ticker": "122630",
-      "name": "KODEX 레버리지",
-      "market": "kospi",
-      "prev_norm": -0.0144,
-      "curr_norm": 0.0473
-    },
-    {
-      "ticker": "347850",
-      "name": "디앤디파마텍",
-      "market": "kosdaq",
-      "prev_norm": -0.0052,
-      "curr_norm": 0.009
+      "prev_norm": -0.0005,
+      "curr_norm": 0.0064
     }
   ],
   "us": [
     {
-      "ticker": "KLAC",
-      "name": "KLAC",
+      "ticker": "AZO",
+      "name": "AZO",
       "market": "us",
-      "prev_norm": -0.0107,
-      "curr_norm": 0.0145
+      "prev_norm": -0.0036,
+      "curr_norm": 0.0052
     }
   ],
   "coin": [
     {
-      "ticker": "DOGE",
-      "name": "Dogecoin",
+      "ticker": "ZEC",
+      "name": "Zcash",
       "market": "coin",
-      "prev_norm": -0.0001,
-      "curr_norm": 0.006
+      "prev_norm": -0.0283,
+      "curr_norm": 0.0003
+    },
+    {
+      "ticker": "DAI",
+      "name": "Dai",
+      "market": "coin",
+      "prev_norm": -0.0017,
+      "curr_norm": 0.0022
     }
   ]
 }
