@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-18 23:17",
+  "updated_at": "2026-08-19 08:44",
   "signals": {
     "BE_us": {
       "ticker": "BE",
@@ -81,7 +81,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 107.57  >  종가 96.68"
+          "detail": "SAR 107.57  >  종가 96.69"
         }
       ]
     },
@@ -115,21 +115,21 @@
       "name": "HD현대마린솔루션",
       "signals": [
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 174198.07  <  종가 204000.0"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 59.2  ↑  %D 55.6"
         }
       ]
     },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
+    "064400_kospi": {
+      "ticker": "064400",
+      "market": "kospi",
+      "name": "LG씨엔에스",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 94800.0  >  종가 75800.0"
+          "detail": "SAR 83147.5  >  종가 71000.0"
         }
       ]
     },
@@ -157,27 +157,15 @@
         }
       ]
     },
-    "347850_kosdaq": {
-      "ticker": "347850",
+    "420770_kosdaq": {
+      "ticker": "420770",
       "market": "kosdaq",
-      "name": "디앤디파마텍",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.005 → 당일 norm 0.0"
-        }
-      ]
-    },
-    "007660_kospi": {
-      "ticker": "007660",
-      "market": "kospi",
-      "name": "이수페타시스",
+      "name": "기가비스",
       "signals": [
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 98.0 → 당일 141.9"
+          "detail": "전일 96.5 → 당일 105.0"
         }
       ]
     }
