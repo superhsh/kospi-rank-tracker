@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-20 23:21",
+  "updated_at": "2026-08-21 08:48",
   "signals": {
     "SMR_us": {
       "ticker": "SMR",
@@ -96,9 +96,21 @@
       "name": "제주반도체",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -4.8 → 당일 12.4"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 15.8  ↑  %D 15.8"
+        }
+      ]
+    },
+    "166090_kosdaq": {
+      "ticker": "166090",
+      "market": "kosdaq",
+      "name": "하나머티리얼즈",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 66000.0  >  종가 53400.0"
         }
       ]
     },
@@ -108,9 +120,9 @@
       "name": "LS머트리얼즈",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -0.4 → 당일 27.4"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 12930.0  >  종가 10860.0"
         }
       ]
     },
@@ -144,9 +156,14 @@
       "name": "디앤디파마텍",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -1.4 → 당일 15.1"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 66500.0  >  종가 53300.0"
+        },
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 19.6 → 21.2  |  %D 23.7"
         }
       ]
     },
@@ -158,7 +175,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 67.8  ↑  %D 62.8"
+          "detail": "%K 67.6  ↑  %D 62.7"
         }
       ]
     }
