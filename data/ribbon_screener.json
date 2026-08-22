@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-08-21 00:49",
+  "updated_at": "2026-08-22 00:44",
   "summary": {
     "kr": 3,
-    "us": 1,
-    "coin": 7
+    "us": 3,
+    "coin": 2
   },
   "kr": [
     {
@@ -11,81 +11,60 @@
       "name": "SK하이닉스",
       "market": "kospi",
       "prev_norm": -0.0007,
-      "curr_norm": 0.0368
+      "curr_norm": 0.0395
     },
     {
-      "ticker": "000880",
-      "name": "한화",
+      "ticker": "000810",
+      "name": "삼성화재",
       "market": "kospi",
-      "prev_norm": -0.0019,
-      "curr_norm": 0.0146
+      "prev_norm": -0.0356,
+      "curr_norm": 0.0028
     },
     {
       "ticker": "950160",
       "name": "코오롱티슈진",
       "market": "kosdaq",
       "prev_norm": -0.0244,
-      "curr_norm": 0.0094
+      "curr_norm": 0.0104
     }
   ],
   "us": [
     {
-      "ticker": "PDD",
-      "name": "PDD",
+      "ticker": "TMUS",
+      "name": "TMUS",
       "market": "us",
-      "prev_norm": -0.0144,
-      "curr_norm": 0.001
+      "prev_norm": -0.0046,
+      "curr_norm": 0.0066
+    },
+    {
+      "ticker": "MELI",
+      "name": "MELI",
+      "market": "us",
+      "prev_norm": -0.031,
+      "curr_norm": 0.0011
+    },
+    {
+      "ticker": "ARE",
+      "name": "ARE",
+      "market": "us",
+      "prev_norm": -0.0174,
+      "curr_norm": 0.0414
     }
   ],
   "coin": [
     {
-      "ticker": "XRP",
-      "name": "XRP",
+      "ticker": "GRAM",
+      "name": "Gram (prev. Toncoin)",
       "market": "coin",
-      "prev_norm": -0.0843,
-      "curr_norm": 0.1082
+      "prev_norm": -0.0212,
+      "curr_norm": 0.0676
     },
     {
-      "ticker": "USDC",
-      "name": "USDC",
+      "ticker": "SHIB",
+      "name": "Shiba Inu",
       "market": "coin",
-      "prev_norm": -0.0013,
-      "curr_norm": 0.0023
-    },
-    {
-      "ticker": "ADA",
-      "name": "Cardano",
-      "market": "coin",
-      "prev_norm": -0.0437,
-      "curr_norm": 0.0326
-    },
-    {
-      "ticker": "XLM",
-      "name": "Stellar",
-      "market": "coin",
-      "prev_norm": -0.1081,
-      "curr_norm": 0.0129
-    },
-    {
-      "ticker": "BCH",
-      "name": "Bitcoin Cash",
-      "market": "coin",
-      "prev_norm": -0.0731,
-      "curr_norm": 0.0146
-    },
-    {
-      "ticker": "LTC",
-      "name": "Litecoin",
-      "market": "coin",
-      "prev_norm": -0.0785,
-      "curr_norm": 0.0168
-    },
-    {
-      "ticker": "HBAR",
-      "name": "Hedera",
-      "market": "coin",
-      "prev_norm": -0.0508,
-      "curr_norm": 0.0507
+      "prev_norm": -0.0675,
+      "curr_norm": 0.0196
     }
   ]
 }
