@@ -1,27 +1,27 @@
 {
-  "updated_at": "2026-08-24 08:54",
+  "updated_at": "2026-08-24 23:19",
   "signals": {
-    "PLUG_us": {
-      "ticker": "PLUG",
+    "BE_us": {
+      "ticker": "BE",
       "market": "us",
-      "name": "PLUG",
+      "name": "BE",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 42.6  ↑  %D 33.7"
+          "detail": "%K 17.0  ↑  %D 12.5"
         }
       ]
     },
-    "SMR_us": {
-      "ticker": "SMR",
+    "IONQ_us": {
+      "ticker": "IONQ",
       "market": "us",
-      "name": "SMR",
+      "name": "IONQ",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -2.9 → 당일 41.0"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 30.5  ↑  %D 29.3"
         }
       ]
     },
@@ -31,140 +31,57 @@
       "name": "MU",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 92.5 → 당일 101.3"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 1036.13  >  종가 910.43"
         }
       ]
     },
-    "HOOD_us": {
-      "ticker": "HOOD",
+    "VRT_us": {
+      "ticker": "VRT",
       "market": "us",
-      "name": "HOOD",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 89.3 → 당일 266.6"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 58.6  ↑  %D 40.0"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.06 → 당일 norm 0.018"
-        }
-      ]
-    },
-    "JOBY_us": {
-      "ticker": "JOBY",
-      "market": "us",
-      "name": "JOBY",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 17.3 → 20.2  |  %D 17.4"
-        }
-      ]
-    },
-    "ASTS_us": {
-      "ticker": "ASTS",
-      "market": "us",
-      "name": "ASTS",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -8.4 → 당일 25.4"
-        },
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 17.1 → 29.8  |  %D 25.0"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 29.8  ↑  %D 25.0"
-        }
-      ]
-    },
-    "RGTI_us": {
-      "ticker": "RGTI",
-      "market": "us",
-      "name": "RGTI",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -20.5 → 당일 32.3"
-        },
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 11.4 → 28.6  |  %D 22.9"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 28.6  ↑  %D 22.9"
-        }
-      ]
-    },
-    "SYM_us": {
-      "ticker": "SYM",
-      "market": "us",
-      "name": "SYM",
+      "name": "VRT",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 49.9  ↑  %D 43.7"
+          "detail": "%K 18.7  ↑  %D 17.5"
         }
       ]
     },
-    "OKLO_us": {
-      "ticker": "OKLO",
+    "COHR_us": {
+      "ticker": "COHR",
       "market": "us",
-      "name": "OKLO",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.2 → 25.8  |  %D 19.6"
-        }
-      ]
-    },
-    "AVGO_us": {
-      "ticker": "AVGO",
-      "market": "us",
-      "name": "AVGO",
+      "name": "COHR",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 12.1  ↑  %D 9.0"
+          "detail": "%K 13.7  ↑  %D 10.3"
         }
       ]
     },
-    "LEU_us": {
-      "ticker": "LEU",
+    "LITE_us": {
+      "ticker": "LITE",
       "market": "us",
-      "name": "LEU",
+      "name": "LITE",
       "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -33.2 → 당일 20.9"
-        },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 36.7  ↑  %D 25.5"
+          "detail": "%K 28.0  ↑  %D 25.5"
+        }
+      ]
+    },
+    "LUNR_us": {
+      "ticker": "LUNR",
+      "market": "us",
+      "name": "LUNR",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 20.84  >  종가 16.66"
         }
       ]
     },
@@ -174,55 +91,21 @@
       "name": "META",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 15.3  ↑  %D 10.6"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 15.3 → 24.6  |  %D 16.3"
         }
       ]
     },
-    "PLTR_us": {
-      "ticker": "PLTR",
+    "SNDK_us": {
+      "ticker": "SNDK",
       "market": "us",
-      "name": "PLTR",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 59.5  ↑  %D 47.1"
-        }
-      ]
-    },
-    "CRWV_us": {
-      "ticker": "CRWV",
-      "market": "us",
-      "name": "CRWV",
+      "name": "SNDK",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 117.49  >  종가 87.85"
-        }
-      ]
-    },
-    "CRML_us": {
-      "ticker": "CRML",
-      "market": "us",
-      "name": "CRML",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -57.1 → 당일 59.3"
-        },
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 9.7 → 38.3  |  %D 20.5"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 38.3  ↑  %D 20.5"
+          "detail": "SAR 1827.99  >  종가 1493.12"
         }
       ]
     },
@@ -274,27 +157,15 @@
         }
       ]
     },
-    "ATOM_coin": {
-      "ticker": "ATOM",
+    "NEAR_coin": {
+      "ticker": "NEAR",
       "market": "coin",
-      "name": "Cosmos Hub",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 15.3  ↑  %D 11.5"
-        }
-      ]
-    },
-    "MCHP_us": {
-      "ticker": "MCHP",
-      "market": "us",
-      "name": "MCHP",
+      "name": "NEAR Protocol",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 85.97  >  종가 76.08"
+          "detail": "SAR 50.6  >  종가 50.56"
         }
       ]
     },
@@ -312,6 +183,18 @@
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
           "detail": "전일 norm -0.001 → 당일 norm 0.009"
+        }
+      ]
+    },
+    "NXPI_us": {
+      "ticker": "NXPI",
+      "market": "us",
+      "name": "NXP Semiconductors N.V.",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 14.5  ↑  %D 13.4"
         }
       ]
     },
