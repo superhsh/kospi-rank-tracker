@@ -1,70 +1,19 @@
 {
-  "updated_at": "2026-08-22 00:44",
+  "updated_at": "2026-08-25 00:46",
   "summary": {
-    "kr": 3,
-    "us": 3,
-    "coin": 2
+    "kr": 0,
+    "us": 1,
+    "coin": 0
   },
-  "kr": [
-    {
-      "ticker": "000660",
-      "name": "SK하이닉스",
-      "market": "kospi",
-      "prev_norm": -0.0007,
-      "curr_norm": 0.0395
-    },
-    {
-      "ticker": "000810",
-      "name": "삼성화재",
-      "market": "kospi",
-      "prev_norm": -0.0356,
-      "curr_norm": 0.0028
-    },
-    {
-      "ticker": "950160",
-      "name": "코오롱티슈진",
-      "market": "kosdaq",
-      "prev_norm": -0.0244,
-      "curr_norm": 0.0104
-    }
-  ],
+  "kr": [],
   "us": [
     {
-      "ticker": "TMUS",
-      "name": "TMUS",
+      "ticker": "AJG",
+      "name": "AJG",
       "market": "us",
-      "prev_norm": -0.0046,
-      "curr_norm": 0.0066
-    },
-    {
-      "ticker": "MELI",
-      "name": "MELI",
-      "market": "us",
-      "prev_norm": -0.031,
-      "curr_norm": 0.0011
-    },
-    {
-      "ticker": "ARE",
-      "name": "ARE",
-      "market": "us",
-      "prev_norm": -0.0174,
-      "curr_norm": 0.0414
+      "prev_norm": -0.0053,
+      "curr_norm": 0.056
     }
   ],
-  "coin": [
-    {
-      "ticker": "GRAM",
-      "name": "Gram (prev. Toncoin)",
-      "market": "coin",
-      "prev_norm": -0.0212,
-      "curr_norm": 0.0676
-    },
-    {
-      "ticker": "SHIB",
-      "name": "Shiba Inu",
-      "market": "coin",
-      "prev_norm": -0.0675,
-      "curr_norm": 0.0196
-    }
-  ]
+  "coin": []
 }
