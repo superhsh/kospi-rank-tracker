@@ -1,18 +1,54 @@
 {
-  "updated_at": "2026-08-25 00:46",
+  "updated_at": "2026-08-26 00:48",
   "summary": {
-    "kr": 0,
-    "us": 1,
+    "kr": 2,
+    "us": 4,
     "coin": 0
   },
-  "kr": [],
+  "kr": [
+    {
+      "ticker": "055550",
+      "name": "신한지주",
+      "market": "kospi",
+      "prev_norm": -0.0107,
+      "curr_norm": 0.0005
+    },
+    {
+      "ticker": "003490",
+      "name": "대한항공",
+      "market": "kospi",
+      "prev_norm": -0.0033,
+      "curr_norm": 0.0426
+    }
+  ],
   "us": [
     {
-      "ticker": "AJG",
-      "name": "AJG",
+      "ticker": "GOOGL",
+      "name": "GOOGL",
       "market": "us",
-      "prev_norm": -0.0053,
-      "curr_norm": 0.056
+      "prev_norm": -0.0085,
+      "curr_norm": 0.0049
+    },
+    {
+      "ticker": "CSX",
+      "name": "CSX",
+      "market": "us",
+      "prev_norm": -0.0103,
+      "curr_norm": 0.0061
+    },
+    {
+      "ticker": "CCEP",
+      "name": "CCEP",
+      "market": "us",
+      "prev_norm": -0.0266,
+      "curr_norm": 0.0005
+    },
+    {
+      "ticker": "ALNY",
+      "name": "ALNY",
+      "market": "us",
+      "prev_norm": -0.0358,
+      "curr_norm": 0.0013
     }
   ],
   "coin": []
