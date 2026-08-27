@@ -1,54 +1,54 @@
 {
-  "updated_at": "2026-08-26 00:48",
+  "updated_at": "2026-08-27 06:18",
   "summary": {
-    "kr": 2,
-    "us": 4,
+    "kr": 5,
+    "us": 1,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "055550",
-      "name": "신한지주",
+      "ticker": "086790",
+      "name": "하나금융지주",
       "market": "kospi",
-      "prev_norm": -0.0107,
-      "curr_norm": 0.0005
+      "prev_norm": -0.0154,
+      "curr_norm": 0.0073
     },
     {
-      "ticker": "003490",
-      "name": "대한항공",
+      "ticker": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
       "market": "kospi",
-      "prev_norm": -0.0033,
-      "curr_norm": 0.0426
+      "prev_norm": -0.0004,
+      "curr_norm": 0.0001
+    },
+    {
+      "ticker": "064350",
+      "name": "현대로템",
+      "market": "kospi",
+      "prev_norm": -0.0157,
+      "curr_norm": 0.0039
+    },
+    {
+      "ticker": "267270",
+      "name": "HD건설기계",
+      "market": "kospi",
+      "prev_norm": -0.0024,
+      "curr_norm": 0.0268
+    },
+    {
+      "ticker": "095610",
+      "name": "테스",
+      "market": "kosdaq",
+      "prev_norm": -0.0259,
+      "curr_norm": 0.0055
     }
   ],
   "us": [
     {
-      "ticker": "GOOGL",
-      "name": "GOOGL",
+      "ticker": "AIZ",
+      "name": "AIZ",
       "market": "us",
-      "prev_norm": -0.0085,
-      "curr_norm": 0.0049
-    },
-    {
-      "ticker": "CSX",
-      "name": "CSX",
-      "market": "us",
-      "prev_norm": -0.0103,
-      "curr_norm": 0.0061
-    },
-    {
-      "ticker": "CCEP",
-      "name": "CCEP",
-      "market": "us",
-      "prev_norm": -0.0266,
-      "curr_norm": 0.0005
-    },
-    {
-      "ticker": "ALNY",
-      "name": "ALNY",
-      "market": "us",
-      "prev_norm": -0.0358,
-      "curr_norm": 0.0013
+      "prev_norm": -0.0034,
+      "curr_norm": 0.0194
     }
   ],
   "coin": []
