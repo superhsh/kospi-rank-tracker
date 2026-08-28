@@ -1,54 +1,54 @@
 {
-  "updated_at": "2026-08-27 06:18",
+  "updated_at": "2026-08-28 08:11",
   "summary": {
-    "kr": 5,
-    "us": 1,
+    "kr": 3,
+    "us": 3,
     "coin": 0
   },
   "kr": [
     {
-      "ticker": "086790",
-      "name": "하나금융지주",
+      "ticker": "316140",
+      "name": "우리금융지주",
       "market": "kospi",
-      "prev_norm": -0.0154,
-      "curr_norm": 0.0073
+      "prev_norm": -0.0164,
+      "curr_norm": 0.0082
     },
     {
-      "ticker": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
+      "ticker": "010950",
+      "name": "S-Oil",
       "market": "kospi",
-      "prev_norm": -0.0004,
-      "curr_norm": 0.0001
+      "prev_norm": -0.0183,
+      "curr_norm": 0.005
     },
     {
-      "ticker": "064350",
-      "name": "현대로템",
+      "ticker": "024110",
+      "name": "기업은행",
       "market": "kospi",
-      "prev_norm": -0.0157,
-      "curr_norm": 0.0039
-    },
-    {
-      "ticker": "267270",
-      "name": "HD건설기계",
-      "market": "kospi",
-      "prev_norm": -0.0024,
-      "curr_norm": 0.0268
-    },
-    {
-      "ticker": "095610",
-      "name": "테스",
-      "market": "kosdaq",
-      "prev_norm": -0.0259,
-      "curr_norm": 0.0055
+      "prev_norm": -0.0264,
+      "curr_norm": 0.0144
     }
   ],
   "us": [
     {
-      "ticker": "AIZ",
-      "name": "AIZ",
+      "ticker": "NVDA",
+      "name": "NVDA",
       "market": "us",
-      "prev_norm": -0.0034,
-      "curr_norm": 0.0194
+      "prev_norm": -0.0042,
+      "curr_norm": 0.0421
+    },
+    {
+      "ticker": "ADI",
+      "name": "ADI",
+      "market": "us",
+      "prev_norm": -0.0013,
+      "curr_norm": 0.0039
+    },
+    {
+      "ticker": "CDNS",
+      "name": "CDNS",
+      "market": "us",
+      "prev_norm": -0.0018,
+      "curr_norm": 0.0674
     }
   ],
   "coin": []
