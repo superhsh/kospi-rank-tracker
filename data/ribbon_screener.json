@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29 04:56",
+  "updated_at": "2026-09-01 02:50",
   "summary": {
     "kr": 3,
     "us": 3,
@@ -7,48 +7,48 @@
   },
   "kr": [
     {
-      "ticker": "316140",
-      "name": "우리금융지주",
+      "ticker": "096770",
+      "name": "SK이노베이션",
       "market": "kospi",
-      "prev_norm": -0.0164,
-      "curr_norm": 0.0082
+      "prev_norm": -0.0403,
+      "curr_norm": 0.0015
     },
     {
-      "ticker": "010950",
-      "name": "S-Oil",
+      "ticker": "138040",
+      "name": "메리츠금융지주",
       "market": "kospi",
-      "prev_norm": -0.0183,
-      "curr_norm": 0.005
+      "prev_norm": -0.0215,
+      "curr_norm": 0.0012
     },
     {
-      "ticker": "024110",
-      "name": "기업은행",
+      "ticker": "352820",
+      "name": "하이브",
       "market": "kospi",
-      "prev_norm": -0.0264,
-      "curr_norm": 0.0144
+      "prev_norm": -0.0148,
+      "curr_norm": 0.0015
     }
   ],
   "us": [
     {
-      "ticker": "NVDA",
-      "name": "NVDA",
+      "ticker": "PANW",
+      "name": "PANW",
       "market": "us",
-      "prev_norm": -0.0042,
-      "curr_norm": 0.0421
+      "prev_norm": -0.031,
+      "curr_norm": 0.013
     },
     {
-      "ticker": "ADI",
-      "name": "ADI",
+      "ticker": "LIN",
+      "name": "LIN",
       "market": "us",
-      "prev_norm": -0.0013,
-      "curr_norm": 0.0039
+      "prev_norm": -0.0233,
+      "curr_norm": 0.0002
     },
     {
-      "ticker": "CDNS",
-      "name": "CDNS",
+      "ticker": "FTNT",
+      "name": "FTNT",
       "market": "us",
-      "prev_norm": -0.0018,
-      "curr_norm": 0.0674
+      "prev_norm": -0.0025,
+      "curr_norm": 0.0591
     }
   ],
   "coin": []
