@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-08-31 16:01",
+  "updated_at": "2026-09-01 01:34",
   "signals": {
+    "IREN_us": {
+      "ticker": "IREN",
+      "market": "us",
+      "name": "IREN",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 18.0  ↑  %D 16.0"
+        }
+      ]
+    },
     "IONQ_us": {
       "ticker": "IONQ",
       "market": "us",
@@ -9,12 +21,12 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.3 → 27.3  |  %D 23.5"
+          "detail": "%K 18.3 → 23.6  |  %D 22.3"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 27.3  ↑  %D 23.5"
+          "detail": "%K 23.6  ↑  %D 22.3"
         }
       ]
     },
@@ -26,24 +38,24 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 80.3 → 당일 125.2"
+          "detail": "전일 80.3 → 당일 133.5"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 58.6  ↑  %D 48.5"
+          "detail": "%K 59.9  ↑  %D 49.0"
         }
       ]
     },
-    "FSLR_us": {
-      "ticker": "FSLR",
+    "CRCL_us": {
+      "ticker": "CRCL",
       "market": "us",
-      "name": "FSLR",
+      "name": "CRCL",
       "signals": [
         {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.3 → 21.3  |  %D 17.4"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 94.9 → 당일 105.2"
         }
       ]
     }
