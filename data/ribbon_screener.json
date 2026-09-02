@@ -1,54 +1,25 @@
 {
-  "updated_at": "2026-09-01 02:50",
+  "updated_at": "2026-09-02 02:10",
   "summary": {
-    "kr": 3,
-    "us": 3,
+    "kr": 0,
+    "us": 2,
     "coin": 0
   },
-  "kr": [
-    {
-      "ticker": "096770",
-      "name": "SK이노베이션",
-      "market": "kospi",
-      "prev_norm": -0.0403,
-      "curr_norm": 0.0015
-    },
-    {
-      "ticker": "138040",
-      "name": "메리츠금융지주",
-      "market": "kospi",
-      "prev_norm": -0.0215,
-      "curr_norm": 0.0012
-    },
-    {
-      "ticker": "352820",
-      "name": "하이브",
-      "market": "kospi",
-      "prev_norm": -0.0148,
-      "curr_norm": 0.0015
-    }
-  ],
+  "kr": [],
   "us": [
     {
-      "ticker": "PANW",
-      "name": "PANW",
+      "ticker": "AAPL",
+      "name": "AAPL",
       "market": "us",
-      "prev_norm": -0.031,
-      "curr_norm": 0.013
+      "prev_norm": -0.0436,
+      "curr_norm": 0.009
     },
     {
-      "ticker": "LIN",
-      "name": "LIN",
+      "ticker": "ADM",
+      "name": "ADM",
       "market": "us",
-      "prev_norm": -0.0233,
-      "curr_norm": 0.0002
-    },
-    {
-      "ticker": "FTNT",
-      "name": "FTNT",
-      "market": "us",
-      "prev_norm": -0.0025,
-      "curr_norm": 0.0591
+      "prev_norm": -0.0259,
+      "curr_norm": 0.0318
     }
   ],
   "coin": []
