@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-02 00:47",
+  "updated_at": "2026-09-02 12:41",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -57,7 +57,19 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 710000.0  >  종가 580000.0"
+          "detail": "SAR 710000.0  >  종가 567000.0"
+        }
+      ]
+    },
+    "003670_kospi": {
+      "ticker": "003670",
+      "market": "kospi",
+      "name": "포스코퓨처엠",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 201000.0  >  종가 176000.0"
         }
       ]
     }
