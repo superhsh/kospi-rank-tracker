@@ -1,25 +1,18 @@
 {
-  "updated_at": "2026-09-02 02:10",
+  "updated_at": "2026-09-03 02:17",
   "summary": {
     "kr": 0,
-    "us": 2,
+    "us": 1,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "AAPL",
-      "name": "AAPL",
+      "ticker": "META",
+      "name": "META",
       "market": "us",
-      "prev_norm": -0.0436,
-      "curr_norm": 0.009
-    },
-    {
-      "ticker": "ADM",
-      "name": "ADM",
-      "market": "us",
-      "prev_norm": -0.0259,
-      "curr_norm": 0.0318
+      "prev_norm": -0.0086,
+      "curr_norm": 0.0312
     }
   ],
   "coin": []
