@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-03 12:44",
+  "updated_at": "2026-09-04 00:40",
   "signals": {
     "SMR_us": {
       "ticker": "SMR",
@@ -161,6 +161,69 @@
         }
       ]
     },
+    "443060_kospi": {
+      "ticker": "443060",
+      "market": "kospi",
+      "name": "HD현대마린솔루션",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -2.6 → 당일 45.9"
+        },
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 13.4 → 23.9  |  %D 18.4"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 23.9  ↑  %D 18.4"
+        }
+      ]
+    },
+    "064400_kospi": {
+      "ticker": "064400",
+      "market": "kospi",
+      "name": "LG씨엔에스",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -27.4 → 당일 3.3"
+        }
+      ]
+    },
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 12.3 → 24.5  |  %D 18.6"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 24.5  ↑  %D 18.6"
+        }
+      ]
+    },
+    "ATOM_coin": {
+      "ticker": "ATOM",
+      "market": "coin",
+      "name": "Cosmos Hub",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 9.7  ↑  %D 8.9"
+        }
+      ]
+    },
     "MCHP_us": {
       "ticker": "MCHP",
       "market": "us",
@@ -207,15 +270,32 @@
         }
       ]
     },
-    "007660_kospi": {
-      "ticker": "007660",
+    "003670_kospi": {
+      "ticker": "003670",
       "market": "kospi",
-      "name": "이수페타시스",
+      "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 115900.0  >  종가 106000.0"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 85.0 → 당일 102.1"
+        }
+      ]
+    },
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 10.5 → 23.2  |  %D 20.4"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 23.2  ↑  %D 20.4"
         }
       ]
     }
