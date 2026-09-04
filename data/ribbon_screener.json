@@ -1,11 +1,26 @@
 {
-  "updated_at": "2026-09-03 02:17",
+  "updated_at": "2026-09-04 02:12",
   "summary": {
-    "kr": 0,
+    "kr": 2,
     "us": 1,
-    "coin": 0
+    "coin": 1
   },
-  "kr": [],
+  "kr": [
+    {
+      "ticker": "267250",
+      "name": "HD현대",
+      "market": "kospi",
+      "prev_norm": -0.0052,
+      "curr_norm": 0.0308
+    },
+    {
+      "ticker": "267270",
+      "name": "HD건설기계",
+      "market": "kospi",
+      "prev_norm": -0.001,
+      "curr_norm": 0.0153
+    }
+  ],
   "us": [
     {
       "ticker": "META",
@@ -15,5 +30,13 @@
       "curr_norm": 0.0312
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "ADA",
+      "name": "Cardano",
+      "market": "coin",
+      "prev_norm": -0.0275,
+      "curr_norm": 0.0172
+    }
+  ]
 }
