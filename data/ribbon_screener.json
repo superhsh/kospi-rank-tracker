@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-04 02:12",
+  "updated_at": "2026-09-05 02:13",
   "summary": {
     "kr": 2,
-    "us": 1,
+    "us": 5,
     "coin": 1
   },
   "kr": [
@@ -11,32 +11,60 @@
       "name": "HD현대",
       "market": "kospi",
       "prev_norm": -0.0052,
-      "curr_norm": 0.0308
+      "curr_norm": 0.0407
     },
     {
       "ticker": "267270",
       "name": "HD건설기계",
       "market": "kospi",
       "prev_norm": -0.001,
-      "curr_norm": 0.0153
+      "curr_norm": 0.015
     }
   ],
   "us": [
     {
-      "ticker": "META",
-      "name": "META",
+      "ticker": "INTC",
+      "name": "INTC",
       "market": "us",
-      "prev_norm": -0.0086,
-      "curr_norm": 0.0312
+      "prev_norm": -0.0065,
+      "curr_norm": 0.0241
+    },
+    {
+      "ticker": "NBIS",
+      "name": "NBIS",
+      "market": "us",
+      "prev_norm": -0.0178,
+      "curr_norm": 0.0023
+    },
+    {
+      "ticker": "NXPI",
+      "name": "NXPI",
+      "market": "us",
+      "prev_norm": -0.0093,
+      "curr_norm": 0.0267
+    },
+    {
+      "ticker": "ALAB",
+      "name": "ALAB",
+      "market": "us",
+      "prev_norm": -0.0252,
+      "curr_norm": 0.0005
+    },
+    {
+      "ticker": "APH",
+      "name": "APH",
+      "market": "us",
+      "prev_norm": -0.0047,
+      "curr_norm": 0.0083
     }
   ],
   "coin": [
     {
-      "ticker": "ADA",
-      "name": "Cardano",
+      "ticker": "GRAM",
+      "name": "Gram (prev. Toncoin)",
       "market": "coin",
-      "prev_norm": -0.0275,
-      "curr_norm": 0.0172
+      "prev_norm": -0.0063,
+      "curr_norm": 0.0149
     }
   ]
 }
