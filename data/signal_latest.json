@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07 00:39",
+  "updated_at": "2026-09-07 14:08",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -280,12 +280,12 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -4.3 → 당일 63.2"
+          "detail": "전일 -4.3 → 당일 68.0"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 47.5  ↑  %D 43.4"
+          "detail": "%K 47.0  ↑  %D 43.2"
         }
       ]
     },
@@ -297,12 +297,12 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.3 → 28.3  |  %D 22.8"
+          "detail": "%K 16.3 → 29.2  |  %D 23.1"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 28.3  ↑  %D 22.8"
+          "detail": "%K 29.2  ↑  %D 23.1"
         }
       ]
     },
@@ -314,7 +314,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 19.8 → 35.1  |  %D 22.4"
+          "detail": "%K 19.8 → 37.7  |  %D 23.2"
         }
       ]
     },
@@ -326,12 +326,24 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 14.0 → 29.6  |  %D 22.5"
+          "detail": "%K 14.0 → 26.8  |  %D 21.5"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 29.6  ↑  %D 22.5"
+          "detail": "%K 26.8  ↑  %D 21.5"
+        }
+      ]
+    },
+    "036540_kosdaq": {
+      "ticker": "036540",
+      "market": "kosdaq",
+      "name": "SFA반도체",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -47.3 → 당일 52.7"
         }
       ]
     },
@@ -343,7 +355,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 43.6  ↑  %D 31.3"
+          "detail": "%K 42.0  ↑  %D 30.8"
         }
       ]
     },
@@ -355,12 +367,12 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 14.0 → 28.8  |  %D 21.3"
+          "detail": "%K 14.0 → 29.0  |  %D 21.4"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 28.8  ↑  %D 21.3"
+          "detail": "%K 29.0  ↑  %D 21.4"
         }
       ]
     },
@@ -400,18 +412,6 @@
         }
       ]
     },
-    "420770_kosdaq": {
-      "ticker": "420770",
-      "market": "kosdaq",
-      "name": "기가비스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 36.8  ↑  %D 35.0"
-        }
-      ]
-    },
     "347850_kosdaq": {
       "ticker": "347850",
       "market": "kosdaq",
@@ -420,7 +420,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 14.0  ↑  %D 9.4"
+          "detail": "%K 16.5  ↑  %D 10.3"
         }
       ]
     },
@@ -466,19 +466,9 @@
       "name": "이수페타시스",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 68.4 → 당일 109.7"
-        },
-        {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 103900.0  <  종가 114200.0"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 50.2  ↑  %D 48.9"
+          "detail": "SAR 103900.0  <  종가 111900.0"
         }
       ]
     }
