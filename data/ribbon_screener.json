@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-09-05 02:13",
+  "updated_at": "2026-09-08 02:17",
   "summary": {
     "kr": 2,
     "us": 5,
-    "coin": 1
+    "coin": 0
   },
   "kr": [
     {
-      "ticker": "267250",
-      "name": "HD현대",
+      "ticker": "028050",
+      "name": "삼성E&A",
       "market": "kospi",
-      "prev_norm": -0.0052,
-      "curr_norm": 0.0407
+      "prev_norm": -0.0295,
+      "curr_norm": 0.005
     },
     {
-      "ticker": "267270",
-      "name": "HD건설기계",
+      "ticker": "039490",
+      "name": "키움증권",
       "market": "kospi",
-      "prev_norm": -0.001,
-      "curr_norm": 0.015
+      "prev_norm": -0.0017,
+      "curr_norm": 0.0046
     }
   ],
   "us": [
@@ -58,13 +58,5 @@
       "curr_norm": 0.0083
     }
   ],
-  "coin": [
-    {
-      "ticker": "GRAM",
-      "name": "Gram (prev. Toncoin)",
-      "market": "coin",
-      "prev_norm": -0.0063,
-      "curr_norm": 0.0149
-    }
-  ]
+  "coin": []
 }
