@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08 00:53",
+  "updated_at": "2026-09-08 12:46",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -280,7 +280,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 54.3  ↑  %D 50.0"
+          "detail": "%K 61.4  ↑  %D 52.4"
         }
       ]
     },
@@ -320,18 +320,6 @@
         }
       ]
     },
-    "420770_kosdaq": {
-      "ticker": "420770",
-      "market": "kosdaq",
-      "name": "기가비스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 40.9  ↑  %D 34.6"
-        }
-      ]
-    },
     "347850_kosdaq": {
       "ticker": "347850",
       "market": "kosdaq",
@@ -340,7 +328,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.5 → 24.0  |  %D 16.2"
+          "detail": "%K 16.5 → 22.9  |  %D 15.8"
         }
       ]
     },
@@ -388,7 +376,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 66.3  ↑  %D 52.4"
+          "detail": "%K 54.0  ↑  %D 48.3"
         }
       ]
     }
