@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08 12:46",
+  "updated_at": "2026-09-09 01:00",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -278,9 +278,9 @@
       "name": "SFA반도체",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 61.4  ↑  %D 52.4"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 68.7 → 당일 167.0"
         }
       ]
     },
@@ -320,18 +320,6 @@
         }
       ]
     },
-    "347850_kosdaq": {
-      "ticker": "347850",
-      "market": "kosdaq",
-      "name": "디앤디파마텍",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.5 → 22.9  |  %D 15.8"
-        }
-      ]
-    },
     "WDC_us": {
       "ticker": "WDC",
       "market": "us",
@@ -365,18 +353,6 @@
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
           "detail": "%K 14.7 → 35.7  |  %D 20.6"
-        }
-      ]
-    },
-    "007660_kospi": {
-      "ticker": "007660",
-      "market": "kospi",
-      "name": "이수페타시스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 54.0  ↑  %D 48.3"
         }
       ]
     }
