@@ -1,61 +1,82 @@
 {
-  "updated_at": "2026-09-08 02:17",
+  "updated_at": "2026-09-09 02:20",
   "summary": {
-    "kr": 2,
-    "us": 5,
+    "kr": 3,
+    "us": 7,
     "coin": 0
   },
   "kr": [
     {
+      "ticker": "015760",
+      "name": "한국전력",
+      "market": "kospi",
+      "prev_norm": -0.0263,
+      "curr_norm": 0.0125
+    },
+    {
       "ticker": "028050",
       "name": "삼성E&A",
       "market": "kospi",
-      "prev_norm": -0.0295,
-      "curr_norm": 0.005
+      "prev_norm": -0.0088,
+      "curr_norm": 0.0197
     },
     {
-      "ticker": "039490",
-      "name": "키움증권",
-      "market": "kospi",
-      "prev_norm": -0.0017,
-      "curr_norm": 0.0046
+      "ticker": "032820",
+      "name": "우리기술",
+      "market": "kosdaq",
+      "prev_norm": -0.0061,
+      "curr_norm": 0.0598
     }
   ],
   "us": [
     {
-      "ticker": "INTC",
-      "name": "INTC",
+      "ticker": "AMD",
+      "name": "AMD",
       "market": "us",
-      "prev_norm": -0.0065,
-      "curr_norm": 0.0241
+      "prev_norm": -0.0274,
+      "curr_norm": 0.0221
     },
     {
-      "ticker": "NBIS",
-      "name": "NBIS",
+      "ticker": "LRCX",
+      "name": "LRCX",
       "market": "us",
-      "prev_norm": -0.0178,
-      "curr_norm": 0.0023
+      "prev_norm": -0.0166,
+      "curr_norm": 0.0098
     },
     {
-      "ticker": "NXPI",
-      "name": "NXPI",
+      "ticker": "ARM",
+      "name": "ARM",
       "market": "us",
-      "prev_norm": -0.0093,
-      "curr_norm": 0.0267
+      "prev_norm": -0.0137,
+      "curr_norm": 0.0144
     },
     {
-      "ticker": "ALAB",
-      "name": "ALAB",
+      "ticker": "STX",
+      "name": "STX",
       "market": "us",
-      "prev_norm": -0.0252,
-      "curr_norm": 0.0005
+      "prev_norm": -0.0256,
+      "curr_norm": 0.0093
     },
     {
-      "ticker": "APH",
-      "name": "APH",
+      "ticker": "AEP",
+      "name": "AEP",
+      "market": "us",
+      "prev_norm": -0.0175,
+      "curr_norm": 0.0272
+    },
+    {
+      "ticker": "CRWV",
+      "name": "CRWV",
+      "market": "us",
+      "prev_norm": -0.0347,
+      "curr_norm": 0.0148
+    },
+    {
+      "ticker": "BBY",
+      "name": "BBY",
       "market": "us",
       "prev_norm": -0.0047,
-      "curr_norm": 0.0083
+      "curr_norm": 0.0362
     }
   ],
   "coin": []
