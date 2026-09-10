@@ -1,82 +1,25 @@
 {
-  "updated_at": "2026-09-09 02:20",
+  "updated_at": "2026-09-10 02:19",
   "summary": {
-    "kr": 3,
-    "us": 7,
+    "kr": 0,
+    "us": 2,
     "coin": 0
   },
-  "kr": [
-    {
-      "ticker": "015760",
-      "name": "한국전력",
-      "market": "kospi",
-      "prev_norm": -0.0263,
-      "curr_norm": 0.0125
-    },
-    {
-      "ticker": "028050",
-      "name": "삼성E&A",
-      "market": "kospi",
-      "prev_norm": -0.0088,
-      "curr_norm": 0.0197
-    },
-    {
-      "ticker": "032820",
-      "name": "우리기술",
-      "market": "kosdaq",
-      "prev_norm": -0.0061,
-      "curr_norm": 0.0598
-    }
-  ],
+  "kr": [],
   "us": [
     {
-      "ticker": "AMD",
-      "name": "AMD",
+      "ticker": "WDC",
+      "name": "WDC",
       "market": "us",
-      "prev_norm": -0.0274,
-      "curr_norm": 0.0221
+      "prev_norm": -0.0013,
+      "curr_norm": 0.023
     },
     {
-      "ticker": "LRCX",
-      "name": "LRCX",
+      "ticker": "ALAB",
+      "name": "ALAB",
       "market": "us",
-      "prev_norm": -0.0166,
-      "curr_norm": 0.0098
-    },
-    {
-      "ticker": "ARM",
-      "name": "ARM",
-      "market": "us",
-      "prev_norm": -0.0137,
-      "curr_norm": 0.0144
-    },
-    {
-      "ticker": "STX",
-      "name": "STX",
-      "market": "us",
-      "prev_norm": -0.0256,
-      "curr_norm": 0.0093
-    },
-    {
-      "ticker": "AEP",
-      "name": "AEP",
-      "market": "us",
-      "prev_norm": -0.0175,
-      "curr_norm": 0.0272
-    },
-    {
-      "ticker": "CRWV",
-      "name": "CRWV",
-      "market": "us",
-      "prev_norm": -0.0347,
-      "curr_norm": 0.0148
-    },
-    {
-      "ticker": "BBY",
-      "name": "BBY",
-      "market": "us",
-      "prev_norm": -0.0047,
-      "curr_norm": 0.0362
+      "prev_norm": -0.0063,
+      "curr_norm": 0.0023
     }
   ],
   "coin": []
