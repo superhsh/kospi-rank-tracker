@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09 12:51",
+  "updated_at": "2026-09-10 00:47",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -310,30 +310,6 @@
         }
       ]
     },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 68.7 → 당일 202.2"
-        }
-      ]
-    },
-    "CACI_us": {
-      "ticker": "CACI",
-      "market": "us",
-      "name": "CACI",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 54.7  ↑  %D 48.0"
-        }
-      ]
-    },
     "WDC_us": {
       "ticker": "WDC",
       "market": "us",
@@ -364,9 +340,14 @@
       "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 51.1  ↑  %D 39.1"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 83.3 → 당일 105.3"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 174600.0  <  종가 196000.0"
         }
       ]
     }
