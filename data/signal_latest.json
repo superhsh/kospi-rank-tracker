@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-10 12:49",
+  "updated_at": "2026-09-11 00:48",
   "signals": {
     "SYM_us": {
       "ticker": "SYM",
@@ -42,56 +42,15 @@
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
+    "011070_kospi": {
+      "ticker": "011070",
       "market": "kospi",
-      "name": "HD현대마린솔루션",
+      "name": "LG이노텍",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 64.7 → 당일 169.4"
-        }
-      ]
-    },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -36.5 → 당일 19.5"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 67400.0  <  종가 78800.0"
-        }
-      ]
-    },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -33.2 → 당일 9.9"
-        }
-      ]
-    },
-    "417200_kosdaq": {
-      "ticker": "417200",
-      "market": "kosdaq",
-      "name": "LS머트리얼즈",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.003 → 당일 norm 0.004"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 29.8  ↑  %D 27.1"
         }
       ]
     },
@@ -128,18 +87,6 @@
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
           "detail": "SAR 200.62  <  종가 235.01"
-        }
-      ]
-    },
-    "003670_kospi": {
-      "ticker": "003670",
-      "market": "kospi",
-      "name": "포스코퓨처엠",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 174600.0  <  종가 193000.0"
         }
       ]
     }
