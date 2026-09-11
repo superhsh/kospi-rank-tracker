@@ -1,44 +1,111 @@
 {
-  "updated_at": "2026-09-11 00:48",
+  "updated_at": "2026-09-11 12:44",
   "signals": {
-    "SYM_us": {
-      "ticker": "SYM",
+    "IONQ_us": {
+      "ticker": "IONQ",
       "market": "us",
-      "name": "SYM",
+      "name": "IONQ",
       "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.007 → 당일 norm 0.02"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 44.43  >  종가 36.84"
         }
       ]
     },
-    "OKLO_us": {
-      "ticker": "OKLO",
+    "RKLB_us": {
+      "ticker": "RKLB",
       "market": "us",
-      "name": "OKLO",
+      "name": "RKLB",
       "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.011 → 당일 norm 0.003"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 67.7  >  종가 61.96"
         }
       ]
     },
-    "ALAB_us": {
-      "ticker": "ALAB",
+    "TSLA_us": {
+      "ticker": "TSLA",
       "market": "us",
-      "name": "ALAB",
+      "name": "TSLA",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 49.8  ↑  %D 49.1"
+        }
+      ]
+    },
+    "CRCL_us": {
+      "ticker": "CRCL",
+      "market": "us",
+      "name": "CRCL",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 103.28  >  종가 90.32"
+        }
+      ]
+    },
+    "VRT_us": {
+      "ticker": "VRT",
+      "market": "us",
+      "name": "VRT",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 295.34  >  종가 248.13"
+        }
+      ]
+    },
+    "NBIX_us": {
+      "ticker": "NBIX",
+      "market": "us",
+      "name": "NBIX",
       "signals": [
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -7.2 → 당일 9.8"
-        },
+          "detail": "전일 -20.7 → 당일 67.5"
+        }
+      ]
+    },
+    "MSTR_us": {
+      "ticker": "MSTR",
+      "market": "us",
+      "name": "MSTR",
+      "signals": [
         {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.006 → 당일 norm 0.002"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 144.92  >  종가 128.56"
+        }
+      ]
+    },
+    "BMNR_us": {
+      "ticker": "BMNR",
+      "market": "us",
+      "name": "BMNR",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 26.91  >  종가 24.2"
+        }
+      ]
+    },
+    "FSLR_us": {
+      "ticker": "FSLR",
+      "market": "us",
+      "name": "FSLR",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 220.98  >  종가 207.17"
         }
       ]
     },
@@ -50,43 +117,19 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 29.8  ↑  %D 27.1"
+          "detail": "%K 26.5  ↑  %D 26.0"
         }
       ]
     },
-    "RDW_us": {
-      "ticker": "RDW",
+    "NXPI_us": {
+      "ticker": "NXPI",
       "market": "us",
-      "name": "RDW",
+      "name": "NXP Semiconductors N.V.",
       "signals": [
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 10.14  <  종가 10.7"
-        }
-      ]
-    },
-    "WDC_us": {
-      "ticker": "WDC",
-      "market": "us",
-      "name": "Western Digital Corporation",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.001 → 당일 norm 0.023"
-        }
-      ]
-    },
-    "MRVL_us": {
-      "ticker": "MRVL",
-      "market": "us",
-      "name": "Marvell Technology, Inc.",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 200.62  <  종가 235.01"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 231.3  >  종가 226.47"
         }
       ]
     }
