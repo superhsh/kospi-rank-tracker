@@ -1,26 +1,27 @@
 {
-  "updated_at": "2026-09-10 02:19",
+  "updated_at": "2026-09-11 02:15",
   "summary": {
     "kr": 0,
-    "us": 2,
-    "coin": 0
+    "us": 1,
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "WDC",
-      "name": "WDC",
+      "ticker": "APP",
+      "name": "APP",
       "market": "us",
-      "prev_norm": -0.0013,
-      "curr_norm": 0.023
-    },
-    {
-      "ticker": "ALAB",
-      "name": "ALAB",
-      "market": "us",
-      "prev_norm": -0.0063,
-      "curr_norm": 0.0023
+      "prev_norm": -0.0056,
+      "curr_norm": 0.0184
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "TRX",
+      "name": "TRON",
+      "market": "coin",
+      "prev_norm": -0.0043,
+      "curr_norm": 0.0292
+    }
+  ]
 }
