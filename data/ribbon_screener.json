@@ -1,27 +1,26 @@
 {
-  "updated_at": "2026-09-11 02:15",
+  "updated_at": "2026-09-12 02:22",
   "summary": {
     "kr": 0,
-    "us": 1,
-    "coin": 1
+    "us": 2,
+    "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "APP",
-      "name": "APP",
+      "ticker": "FANG",
+      "name": "FANG",
       "market": "us",
-      "prev_norm": -0.0056,
-      "curr_norm": 0.0184
+      "prev_norm": -0.0004,
+      "curr_norm": 0.0098
+    },
+    {
+      "ticker": "APH",
+      "name": "APH",
+      "market": "us",
+      "prev_norm": -0.0164,
+      "curr_norm": 0.003
     }
   ],
-  "coin": [
-    {
-      "ticker": "TRX",
-      "name": "TRON",
-      "market": "coin",
-      "prev_norm": -0.0043,
-      "curr_norm": 0.0292
-    }
-  ]
+  "coin": []
 }
