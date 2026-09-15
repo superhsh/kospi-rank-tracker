@@ -1,26 +1,41 @@
 {
-  "updated_at": "2026-09-12 02:22",
+  "updated_at": "2026-09-15 02:40",
   "summary": {
     "kr": 0,
-    "us": 2,
-    "coin": 0
+    "us": 3,
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "FANG",
-      "name": "FANG",
+      "ticker": "CRWD",
+      "name": "CRWD",
       "market": "us",
-      "prev_norm": -0.0004,
-      "curr_norm": 0.0098
+      "prev_norm": -0.0342,
+      "curr_norm": 0.0207
     },
     {
-      "ticker": "APH",
-      "name": "APH",
+      "ticker": "FTNT",
+      "name": "FTNT",
       "market": "us",
-      "prev_norm": -0.0164,
-      "curr_norm": 0.003
+      "prev_norm": -0.0548,
+      "curr_norm": 0.0039
+    },
+    {
+      "ticker": "ABBV",
+      "name": "ABBV",
+      "market": "us",
+      "prev_norm": -0.0205,
+      "curr_norm": 0.0075
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "XLM",
+      "name": "Stellar",
+      "market": "coin",
+      "prev_norm": -0.0246,
+      "curr_norm": 0.006
+    }
+  ]
 }
