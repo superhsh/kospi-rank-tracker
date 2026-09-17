@@ -1,19 +1,11 @@
 {
-  "updated_at": "2026-09-16 02:35",
+  "updated_at": "2026-09-17 02:39",
   "summary": {
     "kr": 0,
-    "us": 1,
+    "us": 0,
     "coin": 0
   },
   "kr": [],
-  "us": [
-    {
-      "ticker": "BRK-B",
-      "name": "BRK-B",
-      "market": "us",
-      "prev_norm": -0.004,
-      "curr_norm": 0.0398
-    }
-  ],
+  "us": [],
   "coin": []
 }
