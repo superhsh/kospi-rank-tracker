@@ -1,60 +1,32 @@
 {
-  "updated_at": "2026-09-18 02:26",
+  "updated_at": "2026-09-19 02:26",
   "summary": {
     "kr": 0,
-    "us": 7,
-    "coin": 1
+    "us": 3,
+    "coin": 2
   },
   "kr": [],
   "us": [
     {
-      "ticker": "GOOGL",
-      "name": "GOOGL",
+      "ticker": "TXN",
+      "name": "TXN",
       "market": "us",
-      "prev_norm": -0.0207,
-      "curr_norm": 0.0167
+      "prev_norm": -0.0166,
+      "curr_norm": 0.0057
     },
     {
-      "ticker": "GOOG",
-      "name": "GOOG",
+      "ticker": "ISRG",
+      "name": "ISRG",
       "market": "us",
-      "prev_norm": -0.0273,
-      "curr_norm": 0.0107
+      "prev_norm": -0.0021,
+      "curr_norm": 0.0455
     },
     {
-      "ticker": "PANW",
-      "name": "PANW",
+      "ticker": "AIG",
+      "name": "AIG",
       "market": "us",
-      "prev_norm": -0.0221,
-      "curr_norm": 0.0115
-    },
-    {
-      "ticker": "ARM",
-      "name": "ARM",
-      "market": "us",
-      "prev_norm": -0.0126,
+      "prev_norm": -0.0025,
       "curr_norm": 0.0105
-    },
-    {
-      "ticker": "DDOG",
-      "name": "DDOG",
-      "market": "us",
-      "prev_norm": -0.0369,
-      "curr_norm": 0.0021
-    },
-    {
-      "ticker": "ACN",
-      "name": "ACN",
-      "market": "us",
-      "prev_norm": -0.0031,
-      "curr_norm": 0.0107
-    },
-    {
-      "ticker": "BIIB",
-      "name": "BIIB",
-      "market": "us",
-      "prev_norm": -0.0054,
-      "curr_norm": 0.0055
     }
   ],
   "coin": [
@@ -62,8 +34,15 @@
       "ticker": "BNB",
       "name": "BNB",
       "market": "coin",
-      "prev_norm": -0.0088,
-      "curr_norm": 0.007
+      "prev_norm": -0.0058,
+      "curr_norm": 0.027
+    },
+    {
+      "ticker": "AVAX",
+      "name": "Avalanche",
+      "market": "coin",
+      "prev_norm": -0.0535,
+      "curr_norm": 0.0299
     }
   ]
 }
