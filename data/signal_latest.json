@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-22 13:16",
+  "updated_at": "2026-09-23 01:11",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -276,39 +276,20 @@
         }
       ]
     },
-    "307950_kospi": {
-      "ticker": "307950",
+    "443060_kospi": {
+      "ticker": "443060",
       "market": "kospi",
-      "name": "현대오토에버",
+      "name": "HD현대마린솔루션",
       "signals": [
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 357500.0  <  종가 385000.0"
-        }
-      ]
-    },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 68400.0  <  종가 75600.0"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 86.4 → 당일 101.9"
+        },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 89.8  ↑  %D 89.7"
+          "detail": "%K 68.9  ↑  %D 65.4"
         }
       ]
     },
@@ -388,9 +369,14 @@
       "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 197300.0  >  종가 184200.0"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -22.5 → 당일 77.8"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 44.9  ↑  %D 32.2"
         }
       ]
     },
@@ -400,19 +386,21 @@
       "name": "이수페타시스",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -21.1 → 당일 128.6"
-        },
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.005 → 당일 norm 0.015"
+        }
+      ]
+    },
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
+      "signals": [
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 -21.1 → 당일 128.6"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 98600.0  <  종가 112900.0"
+          "detail": "전일 81.9 → 당일 153.1"
         }
       ]
     }
