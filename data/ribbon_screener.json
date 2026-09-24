@@ -1,69 +1,61 @@
 {
-  "updated_at": "2026-09-23 02:37",
+  "updated_at": "2026-09-24 02:26",
   "summary": {
     "kr": 0,
-    "us": 5,
-    "coin": 3
+    "us": 7,
+    "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "ADI",
-      "name": "ADI",
+      "ticker": "PLTR",
+      "name": "PLTR",
       "market": "us",
-      "prev_norm": -0.0233,
-      "curr_norm": 0.0214
+      "prev_norm": -0.0408,
+      "curr_norm": 0.0152
     },
     {
-      "ticker": "WBD",
-      "name": "WBD",
+      "ticker": "STX",
+      "name": "STX",
       "market": "us",
-      "prev_norm": -0.1169,
-      "curr_norm": 0.0405
+      "prev_norm": -0.045,
+      "curr_norm": 0.0086
     },
     {
-      "ticker": "ALAB",
-      "name": "ALAB",
+      "ticker": "WDC",
+      "name": "WDC",
       "market": "us",
-      "prev_norm": -0.0273,
-      "curr_norm": 0.051
+      "prev_norm": -0.0288,
+      "curr_norm": 0.0082
     },
     {
-      "ticker": "A",
-      "name": "A",
+      "ticker": "RKLB",
+      "name": "RKLB",
       "market": "us",
-      "prev_norm": -0.0083,
-      "curr_norm": 0.0574
+      "prev_norm": -0.009,
+      "curr_norm": 0.0306
     },
     {
-      "ticker": "ANET",
-      "name": "ANET",
+      "ticker": "AKAM",
+      "name": "AKAM",
       "market": "us",
-      "prev_norm": -0.0111,
-      "curr_norm": 0.0229
+      "prev_norm": -0.0224,
+      "curr_norm": 0.0414
+    },
+    {
+      "ticker": "TECH",
+      "name": "TECH",
+      "market": "us",
+      "prev_norm": -0.0119,
+      "curr_norm": 0.0079
+    },
+    {
+      "ticker": "BIIB",
+      "name": "BIIB",
+      "market": "us",
+      "prev_norm": -0.0034,
+      "curr_norm": 0.0338
     }
   ],
-  "coin": [
-    {
-      "ticker": "XRP",
-      "name": "XRP",
-      "market": "coin",
-      "prev_norm": -0.0359,
-      "curr_norm": 0.0423
-    },
-    {
-      "ticker": "USDC",
-      "name": "USDC",
-      "market": "coin",
-      "prev_norm": -0.0014,
-      "curr_norm": 0.0009
-    },
-    {
-      "ticker": "BCH",
-      "name": "Bitcoin Cash",
-      "market": "coin",
-      "prev_norm": -0.0056,
-      "curr_norm": 0.1378
-    }
-  ]
+  "coin": []
 }
