@@ -1,60 +1,74 @@
 {
-  "updated_at": "2026-09-24 02:26",
+  "updated_at": "2026-09-25 02:43",
   "summary": {
     "kr": 0,
-    "us": 7,
+    "us": 9,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "PLTR",
-      "name": "PLTR",
+      "ticker": "AMAT",
+      "name": "AMAT",
       "market": "us",
-      "prev_norm": -0.0408,
-      "curr_norm": 0.0152
+      "prev_norm": -0.015,
+      "curr_norm": 0.037
     },
     {
-      "ticker": "STX",
-      "name": "STX",
+      "ticker": "KLAC",
+      "name": "KLAC",
       "market": "us",
-      "prev_norm": -0.045,
-      "curr_norm": 0.0086
+      "prev_norm": -0.0166,
+      "curr_norm": 0.0332
     },
     {
-      "ticker": "WDC",
-      "name": "WDC",
+      "ticker": "MAR",
+      "name": "MAR",
       "market": "us",
-      "prev_norm": -0.0288,
-      "curr_norm": 0.0082
+      "prev_norm": -0.004,
+      "curr_norm": 0.0416
     },
     {
-      "ticker": "RKLB",
-      "name": "RKLB",
+      "ticker": "NBIS",
+      "name": "NBIS",
       "market": "us",
-      "prev_norm": -0.009,
-      "curr_norm": 0.0306
+      "prev_norm": -0.0135,
+      "curr_norm": 0.0244
     },
     {
-      "ticker": "AKAM",
-      "name": "AKAM",
+      "ticker": "MPWR",
+      "name": "MPWR",
       "market": "us",
-      "prev_norm": -0.0224,
-      "curr_norm": 0.0414
+      "prev_norm": -0.0353,
+      "curr_norm": 0.04
     },
     {
-      "ticker": "TECH",
-      "name": "TECH",
+      "ticker": "TER",
+      "name": "TER",
       "market": "us",
-      "prev_norm": -0.0119,
-      "curr_norm": 0.0079
+      "prev_norm": -0.0228,
+      "curr_norm": 0.0211
     },
     {
-      "ticker": "BIIB",
-      "name": "BIIB",
+      "ticker": "MCHP",
+      "name": "MCHP",
       "market": "us",
-      "prev_norm": -0.0034,
-      "curr_norm": 0.0338
+      "prev_norm": -0.0096,
+      "curr_norm": 0.0207
+    },
+    {
+      "ticker": "AME",
+      "name": "AME",
+      "market": "us",
+      "prev_norm": -0.0435,
+      "curr_norm": 0.0262
+    },
+    {
+      "ticker": "APH",
+      "name": "APH",
+      "market": "us",
+      "prev_norm": -0.0449,
+      "curr_norm": 0.0033
     }
   ],
   "coin": []
