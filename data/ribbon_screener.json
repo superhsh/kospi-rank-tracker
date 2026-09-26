@@ -1,74 +1,32 @@
 {
-  "updated_at": "2026-09-25 02:43",
+  "updated_at": "2026-09-26 02:46",
   "summary": {
     "kr": 0,
-    "us": 9,
+    "us": 3,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "AMAT",
-      "name": "AMAT",
+      "ticker": "ASML",
+      "name": "ASML",
       "market": "us",
-      "prev_norm": -0.015,
-      "curr_norm": 0.037
+      "prev_norm": -0.0004,
+      "curr_norm": 0.0376
     },
     {
-      "ticker": "KLAC",
-      "name": "KLAC",
+      "ticker": "LRCX",
+      "name": "LRCX",
       "market": "us",
-      "prev_norm": -0.0166,
-      "curr_norm": 0.0332
+      "prev_norm": -0.008,
+      "curr_norm": 0.0399
     },
     {
-      "ticker": "MAR",
-      "name": "MAR",
+      "ticker": "HON",
+      "name": "HON",
       "market": "us",
-      "prev_norm": -0.004,
-      "curr_norm": 0.0416
-    },
-    {
-      "ticker": "NBIS",
-      "name": "NBIS",
-      "market": "us",
-      "prev_norm": -0.0135,
-      "curr_norm": 0.0244
-    },
-    {
-      "ticker": "MPWR",
-      "name": "MPWR",
-      "market": "us",
-      "prev_norm": -0.0353,
-      "curr_norm": 0.04
-    },
-    {
-      "ticker": "TER",
-      "name": "TER",
-      "market": "us",
-      "prev_norm": -0.0228,
-      "curr_norm": 0.0211
-    },
-    {
-      "ticker": "MCHP",
-      "name": "MCHP",
-      "market": "us",
-      "prev_norm": -0.0096,
-      "curr_norm": 0.0207
-    },
-    {
-      "ticker": "AME",
-      "name": "AME",
-      "market": "us",
-      "prev_norm": -0.0435,
-      "curr_norm": 0.0262
-    },
-    {
-      "ticker": "APH",
-      "name": "APH",
-      "market": "us",
-      "prev_norm": -0.0449,
-      "curr_norm": 0.0033
+      "prev_norm": -0.0029,
+      "curr_norm": 0.042
     }
   ],
   "coin": []
