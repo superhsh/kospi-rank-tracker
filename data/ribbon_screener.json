@@ -1,32 +1,18 @@
 {
-  "updated_at": "2026-09-26 02:46",
+  "updated_at": "2026-09-29 03:29",
   "summary": {
     "kr": 0,
-    "us": 3,
+    "us": 1,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "ASML",
-      "name": "ASML",
+      "ticker": "FAST",
+      "name": "FAST",
       "market": "us",
-      "prev_norm": -0.0004,
-      "curr_norm": 0.0376
-    },
-    {
-      "ticker": "LRCX",
-      "name": "LRCX",
-      "market": "us",
-      "prev_norm": -0.008,
-      "curr_norm": 0.0399
-    },
-    {
-      "ticker": "HON",
-      "name": "HON",
-      "market": "us",
-      "prev_norm": -0.0029,
-      "curr_norm": 0.042
+      "prev_norm": -0.0017,
+      "curr_norm": 0.0195
     }
   ],
   "coin": []
