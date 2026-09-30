@@ -1,19 +1,34 @@
 {
-  "updated_at": "2026-09-29 03:29",
+  "updated_at": "2026-09-30 03:13",
   "summary": {
     "kr": 0,
-    "us": 1,
-    "coin": 0
+    "us": 2,
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "FAST",
-      "name": "FAST",
+      "ticker": "LIN",
+      "name": "LIN",
       "market": "us",
-      "prev_norm": -0.0017,
-      "curr_norm": 0.0195
+      "prev_norm": -0.0246,
+      "curr_norm": 0.0024
+    },
+    {
+      "ticker": "SHOP",
+      "name": "SHOP",
+      "market": "us",
+      "prev_norm": -0.0055,
+      "curr_norm": 0.0292
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "DAI",
+      "name": "Dai",
+      "market": "coin",
+      "prev_norm": -0.0022,
+      "curr_norm": 0.0001
+    }
+  ]
 }
