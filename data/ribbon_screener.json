@@ -1,34 +1,19 @@
 {
-  "updated_at": "2026-09-30 03:13",
+  "updated_at": "2026-10-01 03:20",
   "summary": {
     "kr": 0,
-    "us": 2,
-    "coin": 1
+    "us": 1,
+    "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "LIN",
-      "name": "LIN",
+      "ticker": "MSFT",
+      "name": "MSFT",
       "market": "us",
-      "prev_norm": -0.0246,
-      "curr_norm": 0.0024
-    },
-    {
-      "ticker": "SHOP",
-      "name": "SHOP",
-      "market": "us",
-      "prev_norm": -0.0055,
-      "curr_norm": 0.0292
+      "prev_norm": -0.0015,
+      "curr_norm": 0.0137
     }
   ],
-  "coin": [
-    {
-      "ticker": "DAI",
-      "name": "Dai",
-      "market": "coin",
-      "prev_norm": -0.0022,
-      "curr_norm": 0.0001
-    }
-  ]
+  "coin": []
 }
