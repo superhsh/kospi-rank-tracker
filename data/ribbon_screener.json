@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01 03:20",
+  "updated_at": "2026-10-02 03:20",
   "summary": {
     "kr": 0,
     "us": 1,
@@ -8,11 +8,11 @@
   "kr": [],
   "us": [
     {
-      "ticker": "MSFT",
-      "name": "MSFT",
+      "ticker": "CRWV",
+      "name": "CRWV",
       "market": "us",
-      "prev_norm": -0.0015,
-      "curr_norm": 0.0137
+      "prev_norm": -0.0115,
+      "curr_norm": 0.0028
     }
   ],
   "coin": []
