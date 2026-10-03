@@ -1,18 +1,39 @@
 {
-  "updated_at": "2026-10-02 03:20",
+  "updated_at": "2026-10-03 03:06",
   "summary": {
     "kr": 0,
-    "us": 1,
+    "us": 4,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "CRWV",
-      "name": "CRWV",
+      "ticker": "GOOGL",
+      "name": "GOOGL",
       "market": "us",
-      "prev_norm": -0.0115,
-      "curr_norm": 0.0028
+      "prev_norm": -0.0014,
+      "curr_norm": 0.0052
+    },
+    {
+      "ticker": "CSCO",
+      "name": "CSCO",
+      "market": "us",
+      "prev_norm": -0.0413,
+      "curr_norm": 0.0198
+    },
+    {
+      "ticker": "COST",
+      "name": "COST",
+      "market": "us",
+      "prev_norm": -0.0119,
+      "curr_norm": 0.0124
+    },
+    {
+      "ticker": "ACN",
+      "name": "ACN",
+      "market": "us",
+      "prev_norm": -0.0208,
+      "curr_norm": 0.022
     }
   ],
   "coin": []
