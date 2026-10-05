@@ -1,18 +1,6 @@
 {
-  "updated_at": "2026-10-02 14:37",
+  "updated_at": "2026-10-05 01:32",
   "signals": {
-    "IREN_us": {
-      "ticker": "IREN",
-      "market": "us",
-      "name": "IREN",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 8.2 → 26.0  |  %D 12.3"
-        }
-      ]
-    },
     "BE_us": {
       "ticker": "BE",
       "market": "us",
@@ -21,7 +9,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 64.2 → 당일 147.8"
+          "detail": "전일 64.2 → 당일 144.6"
         }
       ]
     },
@@ -33,7 +21,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 13.1  ↑  %D 8.1"
+          "detail": "%K 10.3  ↑  %D 7.1"
         }
       ]
     },
@@ -45,17 +33,17 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 61.5 → 당일 113.7"
+          "detail": "전일 61.5 → 당일 103.5"
         },
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 15.7 → 44.7  |  %D 30.3"
+          "detail": "%K 15.7 → 34.2  |  %D 26.8"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 44.7  ↑  %D 30.3"
+          "detail": "%K 34.2  ↑  %D 26.8"
         }
       ]
     },
@@ -67,12 +55,12 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -90.4 → 당일 28.1"
+          "detail": "전일 -90.4 → 당일 25.3"
         },
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 15.1 → 35.1  |  %D 19.7"
+          "detail": "%K 15.1 → 34.1  |  %D 19.4"
         }
       ]
     },
@@ -84,7 +72,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.4  ↑  %D 10.2"
+          "detail": "%K 7.9  ↑  %D 6.7"
         }
       ]
     },
@@ -96,7 +84,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 19.2  ↑  %D 15.4"
+          "detail": "%K 17.1  ↑  %D 14.7"
         }
       ]
     },
@@ -106,14 +94,21 @@
       "name": "RGTI",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -8.2 → 당일 19.1"
-        },
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 17.66  >  종가 15.25"
+        }
+      ]
+    },
+    "FCEL_us": {
+      "ticker": "FCEL",
+      "market": "us",
+      "name": "FCEL",
+      "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 13.7  ↑  %D 10.1"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 8.5 → 당일 117.0"
         }
       ]
     },
@@ -125,19 +120,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 13.3  ↑  %D 7.6"
-        }
-      ]
-    },
-    "OKLO_us": {
-      "ticker": "OKLO",
-      "market": "us",
-      "name": "OKLO",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 9.8  ↑  %D 7.1"
+          "detail": "%K 7.0  ↑  %D 5.5"
         }
       ]
     },
@@ -149,7 +132,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 47.7  ↑  %D 40.5"
+          "detail": "%K 48.9  ↑  %D 41.0"
         }
       ]
     },
@@ -161,7 +144,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 34.0  ↑  %D 28.3"
+          "detail": "%K 30.9  ↑  %D 27.3"
         }
       ]
     },
@@ -173,7 +156,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 88.1 → 당일 150.1"
+          "detail": "전일 88.1 → 당일 137.0"
         }
       ]
     },
@@ -185,19 +168,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 56.9  ↑  %D 43.1"
-        }
-      ]
-    },
-    "LEU_us": {
-      "ticker": "LEU",
-      "market": "us",
-      "name": "LEU",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 13.2 → 26.9  |  %D 15.3"
+          "detail": "%K 53.0  ↑  %D 41.8"
         }
       ]
     },
@@ -209,7 +180,7 @@
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 136.31  <  종가 143.39"
+          "detail": "SAR 136.31  <  종가 143.18"
         }
       ]
     },
@@ -221,12 +192,12 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 81.1 → 당일 164.2"
+          "detail": "전일 81.1 → 당일 180.8"
         },
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 275.79  <  종가 332.3"
+          "detail": "SAR 275.79  <  종가 337.04"
         }
       ]
     },
@@ -236,36 +207,9 @@
       "name": "LUNR",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -88.7 → 당일 2.9"
-        },
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 2.4 → 21.5  |  %D 13.5"
-        },
-        {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 21.5  ↑  %D 13.5"
-        }
-      ]
-    },
-    "PLTR_us": {
-      "ticker": "PLTR",
-      "market": "us",
-      "name": "PLTR",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 88.6 → 당일 104.1"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 57.2  ↑  %D 48.1"
+          "detail": "%K 13.8  ↑  %D 11.0"
         }
       ]
     },
@@ -277,7 +221,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 19.8  ↑  %D 15.2"
+          "detail": "%K 15.6  ↑  %D 13.7"
         }
       ]
     },
@@ -289,7 +233,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 6.8  ↑  %D 4.8"
+          "detail": "%K 4.5  ↑  %D 4.0"
         }
       ]
     },
@@ -301,7 +245,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.7 → 33.2  |  %D 21.1"
+          "detail": "%K 16.7 → 26.5  |  %D 18.9"
         }
       ]
     },
@@ -340,31 +284,9 @@
       "name": "RDW",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -76.0 → 당일 5.8"
-        },
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 5.8 → 22.4  |  %D 12.1"
-        },
-        {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 22.4  ↑  %D 12.1"
-        }
-      ]
-    },
-    "MCHP_us": {
-      "ticker": "MCHP",
-      "market": "us",
-      "name": "MCHP",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 77.2  ↑  %D 74.9"
+          "detail": "%K 13.9  ↑  %D 9.3"
         }
       ]
     },
@@ -376,17 +298,17 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -80.7 → 당일 22.8"
+          "detail": "전일 -80.7 → 당일 39.7"
         },
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 9.8 → 26.2  |  %D 18.5"
+          "detail": "%K 9.8 → 27.7  |  %D 19.0"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 26.2  ↑  %D 18.5"
+          "detail": "%K 27.7  ↑  %D 19.0"
         }
       ]
     },
@@ -398,7 +320,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 15.2  ↑  %D 9.8"
+          "detail": "%K 9.3  ↑  %D 7.9"
         }
       ]
     },
@@ -422,7 +344,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 79.3  ↑  %D 75.8"
+          "detail": "%K 75.3  ↑  %D 74.5"
         }
       ]
     },
@@ -434,7 +356,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 96.8 → 당일 132.0"
+          "detail": "전일 96.8 → 당일 123.3"
         }
       ]
     },
