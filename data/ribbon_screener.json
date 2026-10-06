@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03 03:06",
+  "updated_at": "2026-10-06 04:03",
   "summary": {
     "kr": 0,
     "us": 4,
@@ -8,32 +8,32 @@
   "kr": [],
   "us": [
     {
-      "ticker": "GOOGL",
-      "name": "GOOGL",
+      "ticker": "AVGO",
+      "name": "AVGO",
       "market": "us",
-      "prev_norm": -0.0014,
-      "curr_norm": 0.0052
+      "prev_norm": -0.0089,
+      "curr_norm": 0.0233
     },
     {
-      "ticker": "CSCO",
-      "name": "CSCO",
+      "ticker": "IDXX",
+      "name": "IDXX",
       "market": "us",
-      "prev_norm": -0.0413,
-      "curr_norm": 0.0198
+      "prev_norm": -0.0015,
+      "curr_norm": 0.0202
     },
     {
-      "ticker": "COST",
-      "name": "COST",
+      "ticker": "APTV",
+      "name": "APTV",
       "market": "us",
-      "prev_norm": -0.0119,
-      "curr_norm": 0.0124
+      "prev_norm": -0.0045,
+      "curr_norm": 0.0069
     },
     {
-      "ticker": "ACN",
-      "name": "ACN",
+      "ticker": "TECH",
+      "name": "TECH",
       "market": "us",
-      "prev_norm": -0.0208,
-      "curr_norm": 0.022
+      "prev_norm": -0.0004,
+      "curr_norm": 0.0132
     }
   ],
   "coin": []
