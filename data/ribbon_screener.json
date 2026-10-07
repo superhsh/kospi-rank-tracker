@@ -1,39 +1,46 @@
 {
-  "updated_at": "2026-10-06 04:03",
+  "updated_at": "2026-10-07 03:31",
   "summary": {
     "kr": 0,
-    "us": 4,
+    "us": 5,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "AVGO",
-      "name": "AVGO",
+      "ticker": "TSLA",
+      "name": "TSLA",
       "market": "us",
-      "prev_norm": -0.0089,
-      "curr_norm": 0.0233
+      "prev_norm": -0.0151,
+      "curr_norm": 0.0152
     },
     {
-      "ticker": "IDXX",
-      "name": "IDXX",
+      "ticker": "PYPL",
+      "name": "PYPL",
       "market": "us",
-      "prev_norm": -0.0015,
-      "curr_norm": 0.0202
+      "prev_norm": -0.037,
+      "curr_norm": 0.0053
     },
     {
-      "ticker": "APTV",
-      "name": "APTV",
+      "ticker": "ODFL",
+      "name": "ODFL",
       "market": "us",
-      "prev_norm": -0.0045,
-      "curr_norm": 0.0069
+      "prev_norm": -0.0048,
+      "curr_norm": 0.0176
     },
     {
-      "ticker": "TECH",
-      "name": "TECH",
+      "ticker": "ALLE",
+      "name": "ALLE",
       "market": "us",
-      "prev_norm": -0.0004,
-      "curr_norm": 0.0132
+      "prev_norm": -0.0073,
+      "curr_norm": 0.0133
+    },
+    {
+      "ticker": "AIG",
+      "name": "AIG",
+      "market": "us",
+      "prev_norm": -0.0049,
+      "curr_norm": 0.0078
     }
   ],
   "coin": []
