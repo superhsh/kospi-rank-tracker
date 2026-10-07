@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-06 14:56",
+  "updated_at": "2026-10-07 02:00",
   "signals": {
     "SMR_us": {
       "ticker": "SMR",
@@ -9,7 +9,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 9.6 → 31.1  |  %D 17.0"
+          "detail": "%K 9.6 → 26.3  |  %D 15.4"
         }
       ]
     },
@@ -21,7 +21,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 76.4 → 당일 120.6"
+          "detail": "전일 76.4 → 당일 114.3"
         }
       ]
     },
@@ -33,24 +33,12 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 80.9 → 당일 117.3"
+          "detail": "전일 80.9 → 당일 117.2"
         },
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
           "detail": "전일 norm -0.015 → 당일 norm 0.015"
-        }
-      ]
-    },
-    "HOOD_us": {
-      "ticker": "HOOD",
-      "market": "us",
-      "name": "HOOD",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 15.6 → 24.0  |  %D 15.8"
         }
       ]
     },
@@ -62,12 +50,12 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -107.3 → 당일 95.0"
+          "detail": "전일 -107.3 → 당일 93.0"
         },
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 55.42  <  종가 63.22"
+          "detail": "SAR 55.42  <  종가 63.12"
         }
       ]
     },
@@ -79,7 +67,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 79.1 → 당일 164.3"
+          "detail": "전일 79.1 → 당일 221.4"
         }
       ]
     },
@@ -91,7 +79,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 19.6 → 39.1  |  %D 21.9"
+          "detail": "%K 19.6 → 31.9  |  %D 19.5"
         }
       ]
     },
@@ -103,7 +91,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -19.3 → 당일 38.8"
+          "detail": "전일 -19.3 → 당일 60.4"
         }
       ]
     },
@@ -115,12 +103,12 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -83.9 → 당일 15.3"
+          "detail": "전일 -83.9 → 당일 9.6"
         },
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 7.1 → 38.3  |  %D 17.0"
+          "detail": "%K 7.1 → 32.4  |  %D 15.0"
         }
       ]
     },
@@ -132,12 +120,12 @@
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 131.86  <  종가 145.76"
+          "detail": "SAR 131.86  <  종가 145.7"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 50.6  ↑  %D 38.0"
+          "detail": "%K 49.9  ↑  %D 37.8"
         }
       ]
     },
@@ -149,7 +137,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 65.7 → 당일 178.9"
+          "detail": "전일 65.7 → 당일 184.0"
         }
       ]
     },
@@ -161,19 +149,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 66.1 → 당일 114.3"
-        }
-      ]
-    },
-    "NTAP_us": {
-      "ticker": "NTAP",
-      "market": "us",
-      "name": "NTAP",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 84.1  ↑  %D 83.7"
+          "detail": "전일 66.1 → 당일 110.1"
         }
       ]
     },
@@ -185,12 +161,12 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -63.3 → 당일 22.1"
+          "detail": "전일 -63.3 → 당일 32.3"
         },
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 135.75  <  종가 154.38"
+          "detail": "SAR 135.75  <  종가 153.88"
         }
       ]
     },
@@ -202,12 +178,12 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -61.5 → 당일 13.5"
+          "detail": "전일 -61.5 → 당일 19.9"
         },
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 19.5 → 37.3  |  %D 23.5"
+          "detail": "%K 19.5 → 41.0  |  %D 24.8"
         }
       ]
     },
@@ -219,46 +195,31 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 1909.48  >  종가 1678.61"
+          "detail": "SAR 1909.48  >  종가 1660.46"
         }
       ]
     },
-    "064400_kospi": {
-      "ticker": "064400",
-      "market": "kospi",
-      "name": "LG씨엔에스",
+    "CRWV_us": {
+      "ticker": "CRWV",
+      "market": "us",
+      "name": "CRWV",
       "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -13.6 → 당일 102.7"
-        },
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 -13.6 → 당일 102.7"
-        },
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 68300.0  <  종가 73600.0"
+          "detail": "SAR 78.27  <  종가 91.72"
         }
       ]
     },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
+    "CACI_us": {
+      "ticker": "CACI",
+      "market": "us",
+      "name": "CACI",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 72.5 → 당일 208.6"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 79.5  ↑  %D 72.1"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 639.88  >  종가 599.64"
         }
       ]
     },
@@ -270,7 +231,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.0 → 30.9  |  %D 20.9"
+          "detail": "%K 18.0 → 23.4  |  %D 18.4"
         }
       ]
     },
@@ -282,63 +243,12 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 79.4 → 당일 229.7"
+          "detail": "전일 79.4 → 당일 230.6"
         },
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.037 → 당일 norm 0.026"
-        }
-      ]
-    },
-    "347850_kosdaq": {
-      "ticker": "347850",
-      "market": "kosdaq",
-      "name": "디앤디파마텍",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -68.6 → 당일 11.0"
-        }
-      ]
-    },
-    "003670_kospi": {
-      "ticker": "003670",
-      "market": "kospi",
-      "name": "포스코퓨처엠",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 33.9 → 당일 290.7"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 173300.0  <  종가 204500.0"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.052 → 당일 norm 0.002"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 78.0 → 당일 138.1"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.006 → 당일 norm 0.023"
+          "detail": "전일 norm -0.037 → 당일 norm 0.028"
         }
       ]
     }
