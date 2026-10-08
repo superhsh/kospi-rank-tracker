@@ -1,47 +1,55 @@
 {
-  "updated_at": "2026-10-07 03:31",
+  "updated_at": "2026-10-08 03:45",
   "summary": {
     "kr": 0,
     "us": 5,
-    "coin": 0
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "TSLA",
-      "name": "TSLA",
+      "ticker": "AMZN",
+      "name": "AMZN",
       "market": "us",
-      "prev_norm": -0.0151,
-      "curr_norm": 0.0152
-    },
-    {
-      "ticker": "PYPL",
-      "name": "PYPL",
-      "market": "us",
-      "prev_norm": -0.037,
-      "curr_norm": 0.0053
-    },
-    {
-      "ticker": "ODFL",
-      "name": "ODFL",
-      "market": "us",
-      "prev_norm": -0.0048,
+      "prev_norm": -0.0385,
       "curr_norm": 0.0176
     },
     {
-      "ticker": "ALLE",
-      "name": "ALLE",
+      "ticker": "WMT",
+      "name": "WMT",
       "market": "us",
-      "prev_norm": -0.0073,
-      "curr_norm": 0.0133
+      "prev_norm": -0.0151,
+      "curr_norm": 0.0101
     },
     {
-      "ticker": "AIG",
-      "name": "AIG",
+      "ticker": "CEG",
+      "name": "CEG",
       "market": "us",
-      "prev_norm": -0.0049,
-      "curr_norm": 0.0078
+      "prev_norm": -0.0206,
+      "curr_norm": 0.0514
+    },
+    {
+      "ticker": "AEP",
+      "name": "AEP",
+      "market": "us",
+      "prev_norm": -0.029,
+      "curr_norm": 0.0085
+    },
+    {
+      "ticker": "ADSK",
+      "name": "ADSK",
+      "market": "us",
+      "prev_norm": -0.085,
+      "curr_norm": 0.007
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "XMR",
+      "name": "Monero",
+      "market": "coin",
+      "prev_norm": -0.0064,
+      "curr_norm": 0.0009
+    }
+  ]
 }
