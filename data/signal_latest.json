@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-07 15:25",
+  "updated_at": "2026-10-08 02:25",
   "signals": {
     "RKLB_us": {
       "ticker": "RKLB",
@@ -9,7 +9,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 78.28  >  종가 71.05"
+          "detail": "SAR 78.28  >  종가 71.92"
         }
       ]
     },
@@ -21,7 +21,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 1108.72  >  종가 1070.6"
+          "detail": "SAR 1108.72  >  종가 1088.0"
         }
       ]
     },
@@ -33,7 +33,19 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 126.74  >  종가 107.72"
+          "detail": "SAR 126.74  >  종가 109.51"
+        }
+      ]
+    },
+    "JOBY_us": {
+      "ticker": "JOBY",
+      "market": "us",
+      "name": "JOBY",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 16.3  ↑  %D 14.7"
         }
       ]
     },
@@ -45,7 +57,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 87.0  ↑  %D 84.5"
+          "detail": "%K 85.3  ↑  %D 83.9"
         }
       ]
     },
@@ -57,7 +69,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 28.86  >  종가 24.42"
+          "detail": "SAR 28.86  >  종가 24.66"
         }
       ]
     },
@@ -67,48 +79,21 @@
       "name": "LG씨엔에스",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -13.6 → 당일 102.7"
-        },
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 -13.6 → 당일 102.7"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 68300.0  <  종가 73600.0"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 75000.0  >  종가 68100.0"
         }
       ]
     },
-    "011070_kospi": {
-      "ticker": "011070",
+    "307950_kospi": {
+      "ticker": "307950",
       "market": "kospi",
-      "name": "LG이노텍",
+      "name": "현대오토에버",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 72.5 → 당일 208.6"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 79.5  ↑  %D 72.1"
-        }
-      ]
-    },
-    "347850_kosdaq": {
-      "ticker": "347850",
-      "market": "kosdaq",
-      "name": "디앤디파마텍",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -68.6 → 당일 11.0"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 402000.0  >  종가 368500.0"
         }
       ]
     },
@@ -120,46 +105,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 248.86  >  종가 233.05"
-        }
-      ]
-    },
-    "003670_kospi": {
-      "ticker": "003670",
-      "market": "kospi",
-      "name": "포스코퓨처엠",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 33.9 → 당일 290.7"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 173300.0  <  종가 204500.0"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.052 → 당일 norm 0.002"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 78.0 → 당일 138.1"
-        },
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.006 → 당일 norm 0.023"
+          "detail": "SAR 248.86  >  종가 235.22"
         }
       ]
     }
