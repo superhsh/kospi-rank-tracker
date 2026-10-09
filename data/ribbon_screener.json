@@ -1,55 +1,19 @@
 {
-  "updated_at": "2026-10-08 03:45",
+  "updated_at": "2026-10-09 03:51",
   "summary": {
     "kr": 0,
-    "us": 5,
-    "coin": 1
+    "us": 1,
+    "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "AMZN",
-      "name": "AMZN",
+      "ticker": "MO",
+      "name": "MO",
       "market": "us",
-      "prev_norm": -0.0385,
-      "curr_norm": 0.0176
-    },
-    {
-      "ticker": "WMT",
-      "name": "WMT",
-      "market": "us",
-      "prev_norm": -0.0151,
-      "curr_norm": 0.0101
-    },
-    {
-      "ticker": "CEG",
-      "name": "CEG",
-      "market": "us",
-      "prev_norm": -0.0206,
-      "curr_norm": 0.0514
-    },
-    {
-      "ticker": "AEP",
-      "name": "AEP",
-      "market": "us",
-      "prev_norm": -0.029,
-      "curr_norm": 0.0085
-    },
-    {
-      "ticker": "ADSK",
-      "name": "ADSK",
-      "market": "us",
-      "prev_norm": -0.085,
-      "curr_norm": 0.007
+      "prev_norm": -0.0145,
+      "curr_norm": 0.0446
     }
   ],
-  "coin": [
-    {
-      "ticker": "XMR",
-      "name": "Monero",
-      "market": "coin",
-      "prev_norm": -0.0064,
-      "curr_norm": 0.0009
-    }
-  ]
+  "coin": []
 }
