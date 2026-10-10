@@ -1,18 +1,116 @@
 {
-  "updated_at": "2026-10-09 03:51",
+  "updated_at": "2026-10-10 03:35",
   "summary": {
     "kr": 0,
-    "us": 1,
+    "us": 15,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "MO",
-      "name": "MO",
+      "ticker": "AMGN",
+      "name": "AMGN",
       "market": "us",
-      "prev_norm": -0.0145,
-      "curr_norm": 0.0446
+      "prev_norm": -0.0182,
+      "curr_norm": 0.0155
+    },
+    {
+      "ticker": "PDD",
+      "name": "PDD",
+      "market": "us",
+      "prev_norm": -0.0297,
+      "curr_norm": 0.0451
+    },
+    {
+      "ticker": "MELI",
+      "name": "MELI",
+      "market": "us",
+      "prev_norm": -0.0407,
+      "curr_norm": 0.0137
+    },
+    {
+      "ticker": "MNST",
+      "name": "MNST",
+      "market": "us",
+      "prev_norm": -0.0182,
+      "curr_norm": 0.0218
+    },
+    {
+      "ticker": "CTAS",
+      "name": "CTAS",
+      "market": "us",
+      "prev_norm": -0.0287,
+      "curr_norm": 0.0254
+    },
+    {
+      "ticker": "ORLY",
+      "name": "ORLY",
+      "market": "us",
+      "prev_norm": -0.0223,
+      "curr_norm": 0.0106
+    },
+    {
+      "ticker": "XEL",
+      "name": "XEL",
+      "market": "us",
+      "prev_norm": -0.002,
+      "curr_norm": 0.054
+    },
+    {
+      "ticker": "TRI",
+      "name": "TRI",
+      "market": "us",
+      "prev_norm": -0.0425,
+      "curr_norm": 0.0008
+    },
+    {
+      "ticker": "IDXX",
+      "name": "IDXX",
+      "market": "us",
+      "prev_norm": -0.013,
+      "curr_norm": 0.0019
+    },
+    {
+      "ticker": "TTWO",
+      "name": "TTWO",
+      "market": "us",
+      "prev_norm": -0.0332,
+      "curr_norm": 0.0232
+    },
+    {
+      "ticker": "LNT",
+      "name": "LNT",
+      "market": "us",
+      "prev_norm": -0.0296,
+      "curr_norm": 0.0139
+    },
+    {
+      "ticker": "APA",
+      "name": "APA",
+      "market": "us",
+      "prev_norm": -0.0328,
+      "curr_norm": 0.0018
+    },
+    {
+      "ticker": "AZO",
+      "name": "AZO",
+      "market": "us",
+      "prev_norm": -0.0173,
+      "curr_norm": 0.0209
+    },
+    {
+      "ticker": "BAX",
+      "name": "BAX",
+      "market": "us",
+      "prev_norm": -0.0013,
+      "curr_norm": 0.0322
+    },
+    {
+      "ticker": "BRK-B",
+      "name": "BRK-B",
+      "market": "us",
+      "prev_norm": -0.0089,
+      "curr_norm": 0.0463
     }
   ],
   "coin": []
