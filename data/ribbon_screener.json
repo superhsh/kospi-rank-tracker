@@ -1,116 +1,102 @@
 {
-  "updated_at": "2026-10-10 03:35",
+  "updated_at": "2026-10-13 04:45",
   "summary": {
     "kr": 0,
-    "us": 15,
+    "us": 13,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "AMGN",
-      "name": "AMGN",
+      "ticker": "MDLZ",
+      "name": "MDLZ",
       "market": "us",
-      "prev_norm": -0.0182,
+      "prev_norm": -0.0542,
       "curr_norm": 0.0155
     },
     {
-      "ticker": "PDD",
-      "name": "PDD",
+      "ticker": "CCEP",
+      "name": "CCEP",
       "market": "us",
-      "prev_norm": -0.0297,
-      "curr_norm": 0.0451
+      "prev_norm": -0.0052,
+      "curr_norm": 0.051
     },
     {
-      "ticker": "MELI",
-      "name": "MELI",
+      "ticker": "KDP",
+      "name": "KDP",
       "market": "us",
-      "prev_norm": -0.0407,
-      "curr_norm": 0.0137
+      "prev_norm": -0.0493,
+      "curr_norm": 0.0156
     },
     {
-      "ticker": "MNST",
-      "name": "MNST",
-      "market": "us",
-      "prev_norm": -0.0182,
-      "curr_norm": 0.0218
-    },
-    {
-      "ticker": "CTAS",
-      "name": "CTAS",
+      "ticker": "EXC",
+      "name": "EXC",
       "market": "us",
       "prev_norm": -0.0287,
-      "curr_norm": 0.0254
+      "curr_norm": 0.0181
     },
     {
-      "ticker": "ORLY",
-      "name": "ORLY",
+      "ticker": "GEHC",
+      "name": "GEHC",
       "market": "us",
-      "prev_norm": -0.0223,
-      "curr_norm": 0.0106
+      "prev_norm": -0.0556,
+      "curr_norm": 0.0197
     },
     {
-      "ticker": "XEL",
-      "name": "XEL",
+      "ticker": "AFL",
+      "name": "AFL",
       "market": "us",
-      "prev_norm": -0.002,
-      "curr_norm": 0.054
+      "prev_norm": -0.0149,
+      "curr_norm": 0.0319
     },
     {
-      "ticker": "TRI",
-      "name": "TRI",
-      "market": "us",
-      "prev_norm": -0.0425,
-      "curr_norm": 0.0008
-    },
-    {
-      "ticker": "IDXX",
-      "name": "IDXX",
-      "market": "us",
-      "prev_norm": -0.013,
-      "curr_norm": 0.0019
-    },
-    {
-      "ticker": "TTWO",
-      "name": "TTWO",
-      "market": "us",
-      "prev_norm": -0.0332,
-      "curr_norm": 0.0232
-    },
-    {
-      "ticker": "LNT",
-      "name": "LNT",
+      "ticker": "AEE",
+      "name": "AEE",
       "market": "us",
       "prev_norm": -0.0296,
-      "curr_norm": 0.0139
+      "curr_norm": 0.0237
     },
     {
-      "ticker": "APA",
-      "name": "APA",
+      "ticker": "AMT",
+      "name": "AMT",
       "market": "us",
-      "prev_norm": -0.0328,
-      "curr_norm": 0.0018
+      "prev_norm": -0.0304,
+      "curr_norm": 0.0713
     },
     {
-      "ticker": "AZO",
-      "name": "AZO",
+      "ticker": "ACGL",
+      "name": "ACGL",
       "market": "us",
-      "prev_norm": -0.0173,
-      "curr_norm": 0.0209
+      "prev_norm": -0.0308,
+      "curr_norm": 0.0158
     },
     {
-      "ticker": "BAX",
-      "name": "BAX",
+      "ticker": "ATO",
+      "name": "ATO",
       "market": "us",
-      "prev_norm": -0.0013,
-      "curr_norm": 0.0322
+      "prev_norm": -0.0148,
+      "curr_norm": 0.0404
     },
     {
-      "ticker": "BRK-B",
-      "name": "BRK-B",
+      "ticker": "BDX",
+      "name": "BDX",
       "market": "us",
-      "prev_norm": -0.0089,
-      "curr_norm": 0.0463
+      "prev_norm": -0.0526,
+      "curr_norm": 0.0172
+    },
+    {
+      "ticker": "BIIB",
+      "name": "BIIB",
+      "market": "us",
+      "prev_norm": -0.0037,
+      "curr_norm": 0.025
+    },
+    {
+      "ticker": "BLK",
+      "name": "BLK",
+      "market": "us",
+      "prev_norm": -0.0159,
+      "curr_norm": 0.0201
     }
   ],
   "coin": []
