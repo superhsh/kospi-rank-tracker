@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12 17:38",
+  "updated_at": "2026-10-13 03:20",
   "signals": {
     "HOOD_us": {
       "ticker": "HOOD",
@@ -9,7 +9,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 17.7 → 22.5  |  %D 17.5"
+          "detail": "%K 17.7 → 25.9  |  %D 18.6"
         }
       ]
     },
@@ -21,7 +21,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 159.42  >  종가 137.18"
+          "detail": "SAR 159.42  >  종가 135.31"
         }
       ]
     },
@@ -33,7 +33,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 341.76  >  종가 285.17"
+          "detail": "SAR 341.76  >  종가 288.02"
         }
       ]
     },
@@ -45,7 +45,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 1143.0  >  종가 984.35"
+          "detail": "SAR 1143.0  >  종가 995.41"
         }
       ]
     },
@@ -57,12 +57,12 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.4 → 44.6  |  %D 31.8"
+          "detail": "%K 16.4 → 40.7  |  %D 30.5"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 44.6  ↑  %D 31.8"
+          "detail": "%K 40.7  ↑  %D 30.5"
         }
       ]
     },
@@ -74,7 +74,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 93.21  >  종가 79.8"
+          "detail": "SAR 93.21  >  종가 80.26"
         }
       ]
     },
@@ -86,7 +86,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.7 → 24.7  |  %D 24.9"
+          "detail": "%K 18.7 → 24.5  |  %D 24.9"
         }
       ]
     },
@@ -98,7 +98,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 14.9  ↑  %D 14.2"
+          "detail": "%K 15.4  ↑  %D 14.3"
         }
       ]
     },
@@ -119,27 +119,63 @@
         }
       ]
     },
-    "064400_kospi": {
-      "ticker": "064400",
+    "443060_kospi": {
+      "ticker": "443060",
       "market": "kospi",
-      "name": "LG씨엔에스",
+      "name": "HD현대마린솔루션",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 75000.0  >  종가 67500.0"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 19.6  ↑  %D 19.1"
         }
       ]
     },
-    "307950_kospi": {
-      "ticker": "307950",
+    "011070_kospi": {
+      "ticker": "011070",
       "market": "kospi",
-      "name": "현대오토에버",
+      "name": "LG이노텍",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 402000.0  >  종가 360500.0"
+          "detail": "SAR 657000.0  >  종가 439500.0"
+        }
+      ]
+    },
+    "080220_kosdaq": {
+      "ticker": "080220",
+      "market": "kosdaq",
+      "name": "제주반도체",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 95500.0  >  종가 73600.0"
+        }
+      ]
+    },
+    "036540_kosdaq": {
+      "ticker": "036540",
+      "market": "kosdaq",
+      "name": "SFA반도체",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 12370.0  >  종가 10630.0"
+        }
+      ]
+    },
+    "166090_kosdaq": {
+      "ticker": "166090",
+      "market": "kosdaq",
+      "name": "하나머티리얼즈",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 66300.0  >  종가 60500.0"
         }
       ]
     },
@@ -149,9 +185,33 @@
       "name": "기가비스",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 79.5  ↑  %D 76.2"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 141000.0  >  종가 128300.0"
+        }
+      ]
+    },
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 48350.0  >  종가 36750.0"
+        }
+      ]
+    },
+    "003670_kospi": {
+      "ticker": "003670",
+      "market": "kospi",
+      "name": "포스코퓨처엠",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 206000.0  >  종가 166900.0"
         }
       ]
     }
