@@ -1,103 +1,48 @@
 {
-  "updated_at": "2026-10-13 04:45",
+  "updated_at": "2026-10-14 02:53",
   "summary": {
     "kr": 0,
-    "us": 13,
-    "coin": 0
+    "us": 4,
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "MDLZ",
-      "name": "MDLZ",
+      "ticker": "ADP",
+      "name": "ADP",
       "market": "us",
-      "prev_norm": -0.0542,
-      "curr_norm": 0.0155
+      "prev_norm": -0.0107,
+      "curr_norm": 0.0565
     },
     {
-      "ticker": "CCEP",
-      "name": "CCEP",
+      "ticker": "CSX",
+      "name": "CSX",
       "market": "us",
-      "prev_norm": -0.0052,
-      "curr_norm": 0.051
+      "prev_norm": -0.0028,
+      "curr_norm": 0.0247
     },
     {
-      "ticker": "KDP",
-      "name": "KDP",
+      "ticker": "INTU",
+      "name": "INTU",
       "market": "us",
-      "prev_norm": -0.0493,
-      "curr_norm": 0.0156
+      "prev_norm": -0.0185,
+      "curr_norm": 0.0209
     },
     {
-      "ticker": "EXC",
-      "name": "EXC",
+      "ticker": "FANG",
+      "name": "FANG",
       "market": "us",
-      "prev_norm": -0.0287,
-      "curr_norm": 0.0181
-    },
-    {
-      "ticker": "GEHC",
-      "name": "GEHC",
-      "market": "us",
-      "prev_norm": -0.0556,
-      "curr_norm": 0.0197
-    },
-    {
-      "ticker": "AFL",
-      "name": "AFL",
-      "market": "us",
-      "prev_norm": -0.0149,
-      "curr_norm": 0.0319
-    },
-    {
-      "ticker": "AEE",
-      "name": "AEE",
-      "market": "us",
-      "prev_norm": -0.0296,
-      "curr_norm": 0.0237
-    },
-    {
-      "ticker": "AMT",
-      "name": "AMT",
-      "market": "us",
-      "prev_norm": -0.0304,
-      "curr_norm": 0.0713
-    },
-    {
-      "ticker": "ACGL",
-      "name": "ACGL",
-      "market": "us",
-      "prev_norm": -0.0308,
-      "curr_norm": 0.0158
-    },
-    {
-      "ticker": "ATO",
-      "name": "ATO",
-      "market": "us",
-      "prev_norm": -0.0148,
-      "curr_norm": 0.0404
-    },
-    {
-      "ticker": "BDX",
-      "name": "BDX",
-      "market": "us",
-      "prev_norm": -0.0526,
-      "curr_norm": 0.0172
-    },
-    {
-      "ticker": "BIIB",
-      "name": "BIIB",
-      "market": "us",
-      "prev_norm": -0.0037,
-      "curr_norm": 0.025
-    },
-    {
-      "ticker": "BLK",
-      "name": "BLK",
-      "market": "us",
-      "prev_norm": -0.0159,
-      "curr_norm": 0.0201
+      "prev_norm": -0.0613,
+      "curr_norm": 0.0005
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "LEO",
+      "name": "LEO Token",
+      "market": "coin",
+      "prev_norm": -0.0061,
+      "curr_norm": 0.0272
+    }
+  ]
 }
