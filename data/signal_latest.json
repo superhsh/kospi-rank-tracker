@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14 01:34",
+  "updated_at": "2026-10-14 13:30",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -115,7 +115,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.4  ↑  %D 12.7"
+          "detail": "%K 17.9  ↑  %D 12.5"
         }
       ]
     },
@@ -127,7 +127,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.4  ↑  %D 14.4"
+          "detail": "%K 16.1  ↑  %D 13.6"
         }
       ]
     },
@@ -139,7 +139,7 @@
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 14800.0  <  종가 16750.0"
+          "detail": "SAR 14800.0  <  종가 16280.0"
         }
       ]
     },
@@ -199,7 +199,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -168.0 → 당일 13.9"
+          "detail": "전일 -168.0 → 당일 3.8"
         }
       ]
     }
