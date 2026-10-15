@@ -1,48 +1,61 @@
 {
-  "updated_at": "2026-10-14 02:53",
+  "updated_at": "2026-10-15 02:32",
   "summary": {
     "kr": 0,
-    "us": 4,
-    "coin": 1
+    "us": 7,
+    "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "ADP",
-      "name": "ADP",
+      "ticker": "GILD",
+      "name": "GILD",
       "market": "us",
-      "prev_norm": -0.0107,
-      "curr_norm": 0.0565
+      "prev_norm": -0.0475,
+      "curr_norm": 0.0019
     },
     {
-      "ticker": "CSX",
-      "name": "CSX",
+      "ticker": "ABNB",
+      "name": "ABNB",
       "market": "us",
-      "prev_norm": -0.0028,
-      "curr_norm": 0.0247
+      "prev_norm": -0.0358,
+      "curr_norm": 0.0107
     },
     {
-      "ticker": "INTU",
-      "name": "INTU",
+      "ticker": "AOS",
+      "name": "AOS",
       "market": "us",
-      "prev_norm": -0.0185,
-      "curr_norm": 0.0209
+      "prev_norm": -0.014,
+      "curr_norm": 0.0195
     },
     {
-      "ticker": "FANG",
-      "name": "FANG",
+      "ticker": "ABT",
+      "name": "ABT",
       "market": "us",
-      "prev_norm": -0.0613,
-      "curr_norm": 0.0005
+      "prev_norm": -0.0423,
+      "curr_norm": 0.0132
+    },
+    {
+      "ticker": "APD",
+      "name": "APD",
+      "market": "us",
+      "prev_norm": -0.0154,
+      "curr_norm": 0.0592
+    },
+    {
+      "ticker": "AXP",
+      "name": "AXP",
+      "market": "us",
+      "prev_norm": -0.0121,
+      "curr_norm": 0.0051
+    },
+    {
+      "ticker": "BALL",
+      "name": "BALL",
+      "market": "us",
+      "prev_norm": -0.0018,
+      "curr_norm": 0.0634
     }
   ],
-  "coin": [
-    {
-      "ticker": "LEO",
-      "name": "LEO Token",
-      "market": "coin",
-      "prev_norm": -0.0061,
-      "curr_norm": 0.0272
-    }
-  ]
+  "coin": []
 }
