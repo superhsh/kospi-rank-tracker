@@ -1,18 +1,6 @@
 {
-  "updated_at": "2026-10-15 01:11",
+  "updated_at": "2026-10-15 13:14",
   "signals": {
-    "IREN_us": {
-      "ticker": "IREN",
-      "market": "us",
-      "name": "IREN",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 10.1  ↑  %D 6.8"
-        }
-      ]
-    },
     "PLUG_us": {
       "ticker": "PLUG",
       "market": "us",
@@ -61,20 +49,15 @@
         }
       ]
     },
-    "META_us": {
-      "ticker": "META",
+    "SNDK_us": {
+      "ticker": "SNDK",
       "market": "us",
-      "name": "META",
+      "name": "SNDK",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 57.4 → 당일 107.1"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 711.68  <  종가 762.5"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 11.1  ↑  %D 10.2"
         }
       ]
     },
@@ -90,30 +73,6 @@
         }
       ]
     },
-    "NEAR_coin": {
-      "ticker": "NEAR",
-      "market": "coin",
-      "name": "NEAR Protocol",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.007 → 당일 norm 0.024"
-        }
-      ]
-    },
-    "ATOM_coin": {
-      "ticker": "ATOM",
-      "market": "coin",
-      "name": "Cosmos Hub",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 11.1  ↑  %D 10.2"
-        }
-      ]
-    },
     "003670_kospi": {
       "ticker": "003670",
       "market": "kospi",
@@ -122,7 +81,19 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 34.0  ↑  %D 31.5"
+          "detail": "%K 35.2  ↑  %D 31.9"
+        }
+      ]
+    },
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 9.6  ↑  %D 9.1"
         }
       ]
     }
