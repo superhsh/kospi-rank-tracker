@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14 13:30",
+  "updated_at": "2026-10-15 01:11",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -13,15 +13,15 @@
         }
       ]
     },
-    "AVGO_us": {
-      "ticker": "AVGO",
+    "PLUG_us": {
+      "ticker": "PLUG",
       "market": "us",
-      "name": "AVGO",
+      "name": "PLUG",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 380.84  >  종가 357.31"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 7.2  ↑  %D 6.2"
         }
       ]
     },
@@ -31,21 +31,33 @@
       "name": "NVDA",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 243.37  >  종가 228.52"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 14.4  ↑  %D 11.4"
         }
       ]
     },
-    "NBIX_us": {
-      "ticker": "NBIX",
+    "AMD_us": {
+      "ticker": "AMD",
       "market": "us",
-      "name": "NBIX",
+      "name": "AMD",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 18.4  ↑  %D 17.5"
+        }
+      ]
+    },
+    "NTAP_us": {
+      "ticker": "NTAP",
+      "market": "us",
+      "name": "NTAP",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 146.92  >  종가 135.13"
+          "detail": "SAR 240.87  >  종가 222.2"
         }
       ]
     },
@@ -66,80 +78,15 @@
         }
       ]
     },
-    "INTC_us": {
-      "ticker": "INTC",
-      "market": "us",
-      "name": "INTC",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 9.9  ↑  %D 7.9"
-        }
-      ]
-    },
-    "MSTR_us": {
-      "ticker": "MSTR",
-      "market": "us",
-      "name": "MSTR",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 26.0  ↑  %D 23.0"
-        }
-      ]
-    },
-    "FSLR_us": {
-      "ticker": "FSLR",
-      "market": "us",
-      "name": "FSLR",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -21.7 → 당일 9.8"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 168.6  <  종가 186.6"
-        }
-      ]
-    },
-    "064400_kospi": {
-      "ticker": "064400",
-      "market": "kospi",
-      "name": "LG씨엔에스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 17.9  ↑  %D 12.5"
-        }
-      ]
-    },
-    "307950_kospi": {
-      "ticker": "307950",
-      "market": "kospi",
-      "name": "현대오토에버",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 16.1  ↑  %D 13.6"
-        }
-      ]
-    },
     "417200_kosdaq": {
       "ticker": "417200",
       "market": "kosdaq",
       "name": "LS머트리얼즈",
       "signals": [
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 14800.0  <  종가 16280.0"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 17850.0  >  종가 13990.0"
         }
       ]
     },
@@ -167,39 +114,15 @@
         }
       ]
     },
-    "MCHP_us": {
-      "ticker": "MCHP",
-      "market": "us",
-      "name": "MCHP",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 14.8  ↑  %D 14.6"
-        }
-      ]
-    },
-    "WDC_us": {
-      "ticker": "WDC",
-      "market": "us",
-      "name": "Western Digital Corporation",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 17.0  ↑  %D 12.2"
-        }
-      ]
-    },
     "003670_kospi": {
       "ticker": "003670",
       "market": "kospi",
       "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -168.0 → 당일 3.8"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 34.0  ↑  %D 31.5"
         }
       ]
     }
