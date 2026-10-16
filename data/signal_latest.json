@@ -1,27 +1,56 @@
 {
-  "updated_at": "2026-10-15 13:14",
+  "updated_at": "2026-10-16 00:59",
   "signals": {
-    "PLUG_us": {
-      "ticker": "PLUG",
+    "TSLA_us": {
+      "ticker": "TSLA",
       "market": "us",
-      "name": "PLUG",
+      "name": "TSLA",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 7.2  ↑  %D 6.2"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 388.56  >  종가 362.44"
         }
       ]
     },
-    "NVDA_us": {
-      "ticker": "NVDA",
+    "MU_us": {
+      "ticker": "MU",
       "market": "us",
-      "name": "NVDA",
+      "name": "MU",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 14.4  ↑  %D 11.4"
+          "detail": "%K 15.7  ↑  %D 12.8"
+        }
+      ]
+    },
+    "BWXT_us": {
+      "ticker": "BWXT",
+      "market": "us",
+      "name": "BWXT",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 147.0  >  종가 137.2"
+        }
+      ]
+    },
+    "AVGO_us": {
+      "ticker": "AVGO",
+      "market": "us",
+      "name": "AVGO",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 13.4 → 21.1  |  %D 19.5"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 21.1  ↑  %D 19.5"
         }
       ]
     },
@@ -31,21 +60,38 @@
       "name": "AMD",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.4  ↑  %D 17.5"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.4 → 24.2  |  %D 20.2"
         }
       ]
     },
-    "NTAP_us": {
-      "ticker": "NTAP",
+    "LEU_us": {
+      "ticker": "LEU",
       "market": "us",
-      "name": "NTAP",
+      "name": "LEU",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 240.87  >  종가 222.2"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 18.3  ↑  %D 11.7"
+        }
+      ]
+    },
+    "NBIX_us": {
+      "ticker": "NBIX",
+      "market": "us",
+      "name": "NBIX",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 16.2 → 23.4  |  %D 19.5"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 23.4  ↑  %D 19.5"
         }
       ]
     },
@@ -61,39 +107,114 @@
         }
       ]
     },
-    "417200_kosdaq": {
-      "ticker": "417200",
-      "market": "kosdaq",
-      "name": "LS머트리얼즈",
+    "MSTR_us": {
+      "ticker": "MSTR",
+      "market": "us",
+      "name": "MSTR",
       "signals": [
         {
-          "type": "sar_sell",
-          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 17850.0  >  종가 13990.0"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.7 → 33.7  |  %D 26.1"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 33.7  ↑  %D 26.1"
         }
       ]
     },
-    "003670_kospi": {
-      "ticker": "003670",
+    "064400_kospi": {
+      "ticker": "064400",
       "market": "kospi",
-      "name": "포스코퓨처엠",
+      "name": "LG씨엔에스",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 35.2  ↑  %D 31.9"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.3 → 25.8  |  %D 20.7"
         }
       ]
     },
-    "090710_kosdaq": {
-      "ticker": "090710",
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 16.0 → 22.1  |  %D 18.1"
+        }
+      ]
+    },
+    "MCHP_us": {
+      "ticker": "MCHP",
+      "market": "us",
+      "name": "MCHP",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 11.2 → 29.2  |  %D 18.4"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 29.2  ↑  %D 18.4"
+        }
+      ]
+    },
+    "347850_kosdaq": {
+      "ticker": "347850",
       "market": "kosdaq",
-      "name": "휴림로봇",
+      "name": "디앤디파마텍",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 9.6  ↑  %D 9.1"
+          "detail": "%K 19.2  ↑  %D 13.9"
+        }
+      ]
+    },
+    "WDC_us": {
+      "ticker": "WDC",
+      "market": "us",
+      "name": "Western Digital Corporation",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 14.8 → 23.7  |  %D 18.5"
+        }
+      ]
+    },
+    "NXPI_us": {
+      "ticker": "NXPI",
+      "market": "us",
+      "name": "NXP Semiconductors N.V.",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 12.6 → 37.3  |  %D 21.2"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 37.3  ↑  %D 21.2"
+        }
+      ]
+    },
+    "MRVL_us": {
+      "ticker": "MRVL",
+      "market": "us",
+      "name": "Marvell Technology, Inc.",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 17.1 → 21.2  |  %D 21.4"
         }
       ]
     }
