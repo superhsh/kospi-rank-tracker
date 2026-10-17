@@ -1,81 +1,74 @@
 {
-  "updated_at": "2026-10-16 02:27",
+  "updated_at": "2026-10-17 02:19",
   "summary": {
     "kr": 0,
-    "us": 10,
+    "us": 9,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "DASH",
-      "name": "DASH",
+      "ticker": "BKNG",
+      "name": "BKNG",
       "market": "us",
-      "prev_norm": -0.0254,
-      "curr_norm": 0.0006
+      "prev_norm": -0.0047,
+      "curr_norm": 0.0396
     },
     {
-      "ticker": "ROST",
-      "name": "ROST",
+      "ticker": "SBUX",
+      "name": "SBUX",
       "market": "us",
-      "prev_norm": -0.0223,
-      "curr_norm": 0.026
+      "prev_norm": -0.0578,
+      "curr_norm": 0.0112
     },
     {
-      "ticker": "ROP",
-      "name": "ROP",
+      "ticker": "ADBE",
+      "name": "ADBE",
       "market": "us",
-      "prev_norm": -0.0279,
-      "curr_norm": 0.0532
+      "prev_norm": -0.0146,
+      "curr_norm": 0.0194
     },
     {
-      "ticker": "MMM",
-      "name": "MMM",
+      "ticker": "REGN",
+      "name": "REGN",
       "market": "us",
-      "prev_norm": -0.0256,
-      "curr_norm": 0.0062
+      "prev_norm": -0.0272,
+      "curr_norm": 0.0272
     },
     {
-      "ticker": "ALGN",
-      "name": "ALGN",
+      "ticker": "WDAY",
+      "name": "WDAY",
       "market": "us",
-      "prev_norm": -0.0608,
-      "curr_norm": 0.0046
+      "prev_norm": -0.0176,
+      "curr_norm": 0.0005
     },
     {
-      "ticker": "ALLE",
-      "name": "ALLE",
+      "ticker": "PAYX",
+      "name": "PAYX",
       "market": "us",
-      "prev_norm": -0.0203,
-      "curr_norm": 0.0177
+      "prev_norm": -0.0003,
+      "curr_norm": 0.088
     },
     {
-      "ticker": "AMCR",
-      "name": "AMCR",
+      "ticker": "ALL",
+      "name": "ALL",
       "market": "us",
-      "prev_norm": -0.0363,
-      "curr_norm": 0.0444
+      "prev_norm": -0.0032,
+      "curr_norm": 0.0882
     },
     {
-      "ticker": "AJG",
-      "name": "AJG",
+      "ticker": "AON",
+      "name": "AON",
       "market": "us",
-      "prev_norm": -0.0376,
-      "curr_norm": 0.0583
+      "prev_norm": -0.013,
+      "curr_norm": 0.0773
     },
     {
-      "ticker": "AIZ",
-      "name": "AIZ",
+      "ticker": "BBY",
+      "name": "BBY",
       "market": "us",
-      "prev_norm": -0.0345,
-      "curr_norm": 0.031
-    },
-    {
-      "ticker": "AVY",
-      "name": "AVY",
-      "market": "us",
-      "prev_norm": -0.0127,
-      "curr_norm": 0.0471
+      "prev_norm": -0.0289,
+      "curr_norm": 0.005
     }
   ],
   "coin": []
