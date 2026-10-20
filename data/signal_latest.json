@@ -1,63 +1,157 @@
 {
-  "updated_at": "2026-10-20 01:29",
+  "updated_at": "2026-10-20 13:28",
   "signals": {
-    "ASTS_us": {
-      "ticker": "ASTS",
+    "IREN_us": {
+      "ticker": "IREN",
       "market": "us",
-      "name": "ASTS",
+      "name": "IREN",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 9.4  ↑  %D 9.3"
+          "detail": "%K 16.3  ↑  %D 16.2"
         }
       ]
     },
-    "RGTI_us": {
-      "ticker": "RGTI",
+    "BE_us": {
+      "ticker": "BE",
       "market": "us",
-      "name": "RGTI",
+      "name": "BE",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 19.1  ↑  %D 18.5"
+        }
+      ]
+    },
+    "SMR_us": {
+      "ticker": "SMR",
+      "market": "us",
+      "name": "SMR",
       "signals": [
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.1 → 22.8  |  %D 13.6"
+          "detail": "%K 19.5 → 22.9  |  %D 18.9"
         }
       ]
     },
-    "FCEL_us": {
-      "ticker": "FCEL",
+    "TSLA_us": {
+      "ticker": "TSLA",
       "market": "us",
-      "name": "FCEL",
+      "name": "TSLA",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 16.3 → 30.5  |  %D 23.4"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 30.5  ↑  %D 23.4"
+        }
+      ]
+    },
+    "MU_us": {
+      "ticker": "MU",
+      "market": "us",
+      "name": "MU",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 14.3 → 25.0  |  %D 18.3"
+        }
+      ]
+    },
+    "JOBY_us": {
+      "ticker": "JOBY",
+      "market": "us",
+      "name": "JOBY",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 15.0 → 20.9  |  %D 14.9"
+        }
+      ]
+    },
+    "NVDA_us": {
+      "ticker": "NVDA",
+      "market": "us",
+      "name": "NVDA",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 9.7  ↑  %D 9.4"
+          "detail": "%K 16.9  ↑  %D 15.2"
         }
       ]
     },
-    "BWXT_us": {
-      "ticker": "BWXT",
+    "LITE_us": {
+      "ticker": "LITE",
       "market": "us",
-      "name": "BWXT",
+      "name": "LITE",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 28.1  ↑  %D 24.4"
+          "detail": "%K 12.9  ↑  %D 11.9"
         }
       ]
     },
-    "META_us": {
-      "ticker": "META",
+    "LUNR_us": {
+      "ticker": "LUNR",
       "market": "us",
-      "name": "META",
+      "name": "LUNR",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 17.2 → 23.0  |  %D 17.7"
+        }
+      ]
+    },
+    "SNDK_us": {
+      "ticker": "SNDK",
+      "market": "us",
+      "name": "SNDK",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 12.3 → 24.1  |  %D 18.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 24.1  ↑  %D 18.3"
+        }
+      ]
+    },
+    "INTC_us": {
+      "ticker": "INTC",
+      "market": "us",
+      "name": "INTC",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 16.2  ↑  %D 14.4"
+        }
+      ]
+    },
+    "FSLR_us": {
+      "ticker": "FSLR",
+      "market": "us",
+      "name": "FSLR",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 771.27  >  종가 709.33"
+          "detail": "SAR 187.85  >  종가 171.8"
         }
       ]
     },
@@ -69,7 +163,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -33.9 → 당일 10.8"
+          "detail": "전일 -33.9 → 당일 5.8"
         }
       ]
     },
@@ -81,7 +175,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 15.8  ↑  %D 15.7"
+          "detail": "%K 17.4  ↑  %D 16.2"
         }
       ]
     },
@@ -93,60 +187,36 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 16.3  ↑  %D 16.1"
+          "detail": "%K 16.7  ↑  %D 16.3"
         }
       ]
     },
-    "NEAR_coin": {
-      "ticker": "NEAR",
-      "market": "coin",
-      "name": "NEAR Protocol",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 84.6  ↑  %D 82.6"
-        }
-      ]
-    },
-    "CACI_us": {
-      "ticker": "CACI",
+    "WDC_us": {
+      "ticker": "WDC",
       "market": "us",
-      "name": "CACI",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -20.9 → 당일 14.0"
-        },
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 575.24  <  종가 614.31"
-        }
-      ]
-    },
-    "RDW_us": {
-      "ticker": "RDW",
-      "market": "us",
-      "name": "RDW",
+      "name": "Western Digital Corporation",
       "signals": [
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 19.5 → 21.8  |  %D 16.0"
+          "detail": "%K 13.4 → 20.8  |  %D 19.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 20.8  ↑  %D 19.3"
         }
       ]
     },
-    "003670_kospi": {
-      "ticker": "003670",
-      "market": "kospi",
-      "name": "포스코퓨처엠",
+    "MRVL_us": {
+      "ticker": "MRVL",
+      "market": "us",
+      "name": "Marvell Technology, Inc.",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -30.7 → 당일 15.9"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 15.8  ↑  %D 15.4"
         }
       ]
     }
