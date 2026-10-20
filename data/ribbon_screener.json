@@ -1,74 +1,25 @@
 {
-  "updated_at": "2026-10-17 02:19",
+  "updated_at": "2026-10-20 02:47",
   "summary": {
     "kr": 0,
-    "us": 9,
+    "us": 2,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "BKNG",
-      "name": "BKNG",
+      "ticker": "PEP",
+      "name": "PEP",
       "market": "us",
-      "prev_norm": -0.0047,
-      "curr_norm": 0.0396
+      "prev_norm": -0.0112,
+      "curr_norm": 0.0557
     },
     {
-      "ticker": "SBUX",
-      "name": "SBUX",
+      "ticker": "AWK",
+      "name": "AWK",
       "market": "us",
-      "prev_norm": -0.0578,
-      "curr_norm": 0.0112
-    },
-    {
-      "ticker": "ADBE",
-      "name": "ADBE",
-      "market": "us",
-      "prev_norm": -0.0146,
-      "curr_norm": 0.0194
-    },
-    {
-      "ticker": "REGN",
-      "name": "REGN",
-      "market": "us",
-      "prev_norm": -0.0272,
-      "curr_norm": 0.0272
-    },
-    {
-      "ticker": "WDAY",
-      "name": "WDAY",
-      "market": "us",
-      "prev_norm": -0.0176,
-      "curr_norm": 0.0005
-    },
-    {
-      "ticker": "PAYX",
-      "name": "PAYX",
-      "market": "us",
-      "prev_norm": -0.0003,
-      "curr_norm": 0.088
-    },
-    {
-      "ticker": "ALL",
-      "name": "ALL",
-      "market": "us",
-      "prev_norm": -0.0032,
-      "curr_norm": 0.0882
-    },
-    {
-      "ticker": "AON",
-      "name": "AON",
-      "market": "us",
-      "prev_norm": -0.013,
-      "curr_norm": 0.0773
-    },
-    {
-      "ticker": "BBY",
-      "name": "BBY",
-      "market": "us",
-      "prev_norm": -0.0289,
-      "curr_norm": 0.005
+      "prev_norm": -0.032,
+      "curr_norm": 0.0108
     }
   ],
   "coin": []
