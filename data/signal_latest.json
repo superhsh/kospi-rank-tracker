@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20 13:28",
+  "updated_at": "2026-10-21 01:13",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -155,39 +155,49 @@
         }
       ]
     },
-    "064400_kospi": {
-      "ticker": "064400",
+    "443060_kospi": {
+      "ticker": "443060",
       "market": "kospi",
-      "name": "LG씨엔에스",
+      "name": "HD현대마린솔루션",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -33.9 → 당일 5.8"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 18.4 → 22.3  |  %D 20.6"
+        },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 17.4  ↑  %D 16.2"
+          "detail": "%K 22.3  ↑  %D 20.6"
         }
       ]
     },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
+    "011070_kospi": {
+      "ticker": "011070",
+      "market": "kospi",
+      "name": "LG이노텍",
       "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 17.2 → 24.8  |  %D 17.3"
+        }
+      ]
+    },
+    "417200_kosdaq": {
+      "ticker": "417200",
+      "market": "kosdaq",
+      "name": "LS머트리얼즈",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 14.1 → 22.9  |  %D 17.0"
+        },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 16.7  ↑  %D 16.3"
+          "detail": "%K 22.9  ↑  %D 17.0"
         }
       ]
     },
