@@ -1,25 +1,18 @@
 {
-  "updated_at": "2026-10-20 02:47",
+  "updated_at": "2026-10-21 02:41",
   "summary": {
     "kr": 0,
-    "us": 2,
+    "us": 1,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "PEP",
-      "name": "PEP",
+      "ticker": "CMCSA",
+      "name": "CMCSA",
       "market": "us",
-      "prev_norm": -0.0112,
-      "curr_norm": 0.0557
-    },
-    {
-      "ticker": "AWK",
-      "name": "AWK",
-      "market": "us",
-      "prev_norm": -0.032,
-      "curr_norm": 0.0108
+      "prev_norm": -0.0472,
+      "curr_norm": 0.0303
     }
   ],
   "coin": []
