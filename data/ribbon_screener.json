@@ -1,18 +1,25 @@
 {
-  "updated_at": "2026-10-21 02:41",
+  "updated_at": "2026-10-22 02:39",
   "summary": {
     "kr": 0,
-    "us": 1,
+    "us": 2,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "CMCSA",
-      "name": "CMCSA",
+      "ticker": "VRTX",
+      "name": "VRTX",
       "market": "us",
-      "prev_norm": -0.0472,
-      "curr_norm": 0.0303
+      "prev_norm": -0.0535,
+      "curr_norm": 0.0031
+    },
+    {
+      "ticker": "NXPI",
+      "name": "NXPI",
+      "market": "us",
+      "prev_norm": -0.0239,
+      "curr_norm": 0.0174
     }
   ],
   "coin": []
