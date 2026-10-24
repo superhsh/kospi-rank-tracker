@@ -1,39 +1,18 @@
 {
-  "updated_at": "2026-10-23 02:43",
+  "updated_at": "2026-10-24 02:40",
   "summary": {
     "kr": 0,
-    "us": 4,
+    "us": 1,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "TSLA",
-      "name": "TSLA",
+      "ticker": "AXON",
+      "name": "AXON",
       "market": "us",
-      "prev_norm": -0.0094,
-      "curr_norm": 0.0007
-    },
-    {
-      "ticker": "PCAR",
-      "name": "PCAR",
-      "market": "us",
-      "prev_norm": -0.014,
-      "curr_norm": 0.0079
-    },
-    {
-      "ticker": "CPRT",
-      "name": "CPRT",
-      "market": "us",
-      "prev_norm": -0.0229,
-      "curr_norm": 0.0503
-    },
-    {
-      "ticker": "ARES",
-      "name": "ARES",
-      "market": "us",
-      "prev_norm": -0.0766,
-      "curr_norm": 0.0094
+      "prev_norm": -0.0267,
+      "curr_norm": 0.0137
     }
   ],
   "coin": []
