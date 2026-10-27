@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26 15:01",
+  "updated_at": "2026-10-27 01:47",
   "signals": {
     "IREN_us": {
       "ticker": "IREN",
@@ -9,19 +9,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.6  ↑  %D 16.2"
-        }
-      ]
-    },
-    "SMR_us": {
-      "ticker": "SMR",
-      "market": "us",
-      "name": "SMR",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.7  ↑  %D 17.7"
+          "detail": "%K 15.6  ↑  %D 15.2"
         }
       ]
     },
@@ -33,7 +21,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 14.8 → 당일 155.6"
+          "detail": "전일 14.8 → 당일 147.6"
         }
       ]
     },
@@ -45,7 +33,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 39.4  ↑  %D 37.0"
+          "detail": "%K 37.8  ↑  %D 36.5"
         }
       ]
     },
@@ -57,7 +45,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 30.8  ↑  %D 29.9"
+          "detail": "%K 32.0  ↑  %D 30.3"
         }
       ]
     },
@@ -67,26 +55,33 @@
       "name": "AVGO",
       "signals": [
         {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 17.4 → 22.2  |  %D 20.3"
-        },
-        {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 22.2  ↑  %D 20.3"
+          "detail": "%K 19.7  ↑  %D 19.5"
         }
       ]
     },
-    "LEU_us": {
-      "ticker": "LEU",
+    "NTAP_us": {
+      "ticker": "NTAP",
       "market": "us",
-      "name": "LEU",
+      "name": "NTAP",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 12.8  ↑  %D 11.4"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -28.0 → 당일 5.6"
+        }
+      ]
+    },
+    "NBIX_us": {
+      "ticker": "NBIX",
+      "market": "us",
+      "name": "NBIX",
+      "signals": [
+        {
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 54.5 → 당일 106.9"
         }
       ]
     },
@@ -98,12 +93,12 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 16.4 → 20.3  |  %D 18.4"
+          "detail": "%K 16.4 → 21.4  |  %D 18.8"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 20.3  ↑  %D 18.4"
+          "detail": "%K 21.4  ↑  %D 18.8"
         }
       ]
     },
@@ -115,12 +110,12 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 17.9 → 25.3  |  %D 20.8"
+          "detail": "%K 17.9 → 25.4  |  %D 20.8"
         },
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 25.3  ↑  %D 20.8"
+          "detail": "%K 25.4  ↑  %D 20.8"
         }
       ]
     },
@@ -132,7 +127,7 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -6.6 → 당일 9.7"
+          "detail": "전일 -6.6 → 당일 16.1"
         }
       ]
     },
@@ -144,19 +139,48 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 25.3  ↑  %D 22.0"
+          "detail": "%K 27.5  ↑  %D 22.8"
         }
       ]
     },
-    "CRWV_us": {
-      "ticker": "CRWV",
-      "market": "us",
-      "name": "CRWV",
+    "443060_kospi": {
+      "ticker": "443060",
+      "market": "kospi",
+      "name": "HD현대마린솔루션",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 15.4 → 25.1  |  %D 19.9"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 25.1  ↑  %D 19.9"
+        }
+      ]
+    },
+    "064400_kospi": {
+      "ticker": "064400",
+      "market": "kospi",
+      "name": "LG씨엔에스",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 19.8  ↑  %D 19.3"
+          "detail": "%K 89.0  ↑  %D 87.7"
+        }
+      ]
+    },
+    "036540_kosdaq": {
+      "ticker": "036540",
+      "market": "kosdaq",
+      "name": "SFA반도체",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 16.9 → 20.4  |  %D 21.5"
         }
       ]
     },
@@ -168,7 +192,7 @@
         {
           "type": "sar_buy",
           "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 8.46  <  종가 9.25"
+          "detail": "SAR 8.46  <  종가 9.14"
         }
       ]
     },
@@ -178,9 +202,26 @@
       "name": "기가비스",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 15.6  ↑  %D 12.0"
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 16.2 → 37.3  |  %D 23.1"
+        }
+      ]
+    },
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -20.7 → 당일 5.9"
+        },
+        {
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.01 → 당일 norm 0.008"
         }
       ]
     },
@@ -192,7 +233,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 29.1 → 당일 106.6"
+          "detail": "전일 29.1 → 당일 115.7"
         }
       ]
     },
@@ -202,9 +243,26 @@
       "name": "이수페타시스",
       "signals": [
         {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 11.9 → 27.0  |  %D 17.9"
+        },
+        {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 14.7  ↑  %D 14.1"
+          "detail": "%K 27.0  ↑  %D 17.9"
+        }
+      ]
+    },
+    "090710_kosdaq": {
+      "ticker": "090710",
+      "market": "kosdaq",
+      "name": "휴림로봇",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 36.9  ↑  %D 33.5"
         }
       ]
     }
