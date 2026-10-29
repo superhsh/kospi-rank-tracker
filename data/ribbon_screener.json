@@ -1,25 +1,32 @@
 {
-  "updated_at": "2026-10-28 03:17",
+  "updated_at": "2026-10-29 03:42",
   "summary": {
     "kr": 0,
-    "us": 2,
+    "us": 3,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "ADI",
-      "name": "ADI",
+      "ticker": "CDNS",
+      "name": "CDNS",
       "market": "us",
       "prev_norm": -0.0193,
-      "curr_norm": 0.0245
+      "curr_norm": 0.0014
     },
     {
-      "ticker": "MCHP",
-      "name": "MCHP",
+      "ticker": "FER",
+      "name": "FER",
       "market": "us",
-      "prev_norm": -0.0196,
-      "curr_norm": 0.0178
+      "prev_norm": -0.0111,
+      "curr_norm": 0.0859
+    },
+    {
+      "ticker": "AMP",
+      "name": "AMP",
+      "market": "us",
+      "prev_norm": -0.0089,
+      "curr_norm": 0.0122
     }
   ],
   "coin": []
