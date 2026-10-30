@@ -1,33 +1,34 @@
 {
-  "updated_at": "2026-10-29 03:42",
+  "updated_at": "2026-10-30 03:44",
   "summary": {
     "kr": 0,
-    "us": 3,
-    "coin": 0
+    "us": 2,
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "CDNS",
-      "name": "CDNS",
+      "ticker": "SNPS",
+      "name": "SNPS",
       "market": "us",
-      "prev_norm": -0.0193,
-      "curr_norm": 0.0014
+      "prev_norm": -0.0108,
+      "curr_norm": 0.0253
     },
     {
-      "ticker": "FER",
-      "name": "FER",
+      "ticker": "APO",
+      "name": "APO",
       "market": "us",
-      "prev_norm": -0.0111,
-      "curr_norm": 0.0859
-    },
-    {
-      "ticker": "AMP",
-      "name": "AMP",
-      "market": "us",
-      "prev_norm": -0.0089,
-      "curr_norm": 0.0122
+      "prev_norm": -0.0317,
+      "curr_norm": 0.0234
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "TRX",
+      "name": "TRON",
+      "market": "coin",
+      "prev_norm": -0.0662,
+      "curr_norm": 0.0688
+    }
+  ]
 }
