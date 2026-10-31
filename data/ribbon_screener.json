@@ -1,34 +1,11 @@
 {
-  "updated_at": "2026-10-30 03:44",
+  "updated_at": "2026-10-31 03:28",
   "summary": {
     "kr": 0,
-    "us": 2,
-    "coin": 1
+    "us": 0,
+    "coin": 0
   },
   "kr": [],
-  "us": [
-    {
-      "ticker": "SNPS",
-      "name": "SNPS",
-      "market": "us",
-      "prev_norm": -0.0108,
-      "curr_norm": 0.0253
-    },
-    {
-      "ticker": "APO",
-      "name": "APO",
-      "market": "us",
-      "prev_norm": -0.0317,
-      "curr_norm": 0.0234
-    }
-  ],
-  "coin": [
-    {
-      "ticker": "TRX",
-      "name": "TRON",
-      "market": "coin",
-      "prev_norm": -0.0662,
-      "curr_norm": 0.0688
-    }
-  ]
+  "us": [],
+  "coin": []
 }
