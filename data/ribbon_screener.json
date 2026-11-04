@@ -1,11 +1,19 @@
 {
-  "updated_at": "2026-11-03 04:44",
+  "updated_at": "2026-11-04 04:07",
   "summary": {
     "kr": 0,
-    "us": 0,
+    "us": 1,
     "coin": 0
   },
   "kr": [],
-  "us": [],
+  "us": [
+    {
+      "ticker": "MRNA",
+      "name": "MRNA",
+      "market": "us",
+      "prev_norm": -0.0145,
+      "curr_norm": 0.0023
+    }
+  ],
   "coin": []
 }
