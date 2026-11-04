@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03 16:00",
+  "updated_at": "2026-11-04 02:52",
   "signals": {
     "HOOD_us": {
       "ticker": "HOOD",
@@ -9,7 +9,7 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 18.5  ↑  %D 18.3"
+          "detail": "%K 18.8  ↑  %D 18.4"
         }
       ]
     },
@@ -19,14 +19,9 @@
       "name": "CRCL",
       "signals": [
         {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 11.6 → 20.8  |  %D 16.3"
-        },
-        {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 20.8  ↑  %D 16.3"
+          "detail": "%K 18.8  ↑  %D 15.7"
         }
       ]
     },
@@ -38,7 +33,7 @@
         {
           "type": "cci_100_cross",
           "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 84.7 → 당일 351.2"
+          "detail": "전일 84.7 → 당일 359.1"
         }
       ]
     },
@@ -50,7 +45,7 @@
         {
           "type": "stoch_oversold_exit",
           "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 12.6 → 22.7  |  %D 16.2"
+          "detail": "%K 12.6 → 22.6  |  %D 16.2"
         }
       ]
     },
@@ -62,67 +57,19 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 39.4  ↑  %D 33.0"
+          "detail": "%K 36.3  ↑  %D 31.9"
         }
       ]
     },
-    "BMNR_us": {
-      "ticker": "BMNR",
-      "market": "us",
-      "name": "BMNR",
-      "signals": [
-        {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 18.6 → 21.0  |  %D 22.6"
-        }
-      ]
-    },
-    "FSLR_us": {
-      "ticker": "FSLR",
-      "market": "us",
-      "name": "FSLR",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 80.4  ↑  %D 78.5"
-        }
-      ]
-    },
-    "417200_kosdaq": {
-      "ticker": "417200",
+    "347850_kosdaq": {
+      "ticker": "347850",
       "market": "kosdaq",
-      "name": "LS머트리얼즈",
+      "name": "디앤디파마텍",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 10.6  ↑  %D 9.7"
-        }
-      ]
-    },
-    "CACI_us": {
-      "ticker": "CACI",
-      "market": "us",
-      "name": "CACI",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 87.2  ↑  %D 86.1"
-        }
-      ]
-    },
-    "MCHP_us": {
-      "ticker": "MCHP",
-      "market": "us",
-      "name": "MCHP",
-      "signals": [
-        {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 43.1 → 당일 112.7"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 44200.0  >  종가 37050.0"
         }
       ]
     }
