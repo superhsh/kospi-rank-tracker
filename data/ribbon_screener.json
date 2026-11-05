@@ -1,18 +1,46 @@
 {
-  "updated_at": "2026-11-04 04:07",
+  "updated_at": "2026-11-05 04:28",
   "summary": {
     "kr": 0,
-    "us": 1,
+    "us": 5,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "MRNA",
-      "name": "MRNA",
+      "ticker": "TMUS",
+      "name": "TMUS",
       "market": "us",
-      "prev_norm": -0.0145,
-      "curr_norm": 0.0023
+      "prev_norm": -0.0289,
+      "curr_norm": 0.013
+    },
+    {
+      "ticker": "BKNG",
+      "name": "BKNG",
+      "market": "us",
+      "prev_norm": -0.0319,
+      "curr_norm": 0.0573
+    },
+    {
+      "ticker": "DASH",
+      "name": "DASH",
+      "market": "us",
+      "prev_norm": -0.0195,
+      "curr_norm": 0.0449
+    },
+    {
+      "ticker": "ROST",
+      "name": "ROST",
+      "market": "us",
+      "prev_norm": -0.0142,
+      "curr_norm": 0.0505
+    },
+    {
+      "ticker": "DXCM",
+      "name": "DXCM",
+      "market": "us",
+      "prev_norm": -0.064,
+      "curr_norm": 0.0229
     }
   ],
   "coin": []
