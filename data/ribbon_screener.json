@@ -1,47 +1,55 @@
 {
-  "updated_at": "2026-11-05 04:28",
+  "updated_at": "2026-11-06 04:26",
   "summary": {
     "kr": 0,
     "us": 5,
-    "coin": 0
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "TMUS",
-      "name": "TMUS",
+      "ticker": "MSFT",
+      "name": "MSFT",
       "market": "us",
-      "prev_norm": -0.0289,
-      "curr_norm": 0.013
+      "prev_norm": -0.0062,
+      "curr_norm": 0.0006
     },
     {
-      "ticker": "BKNG",
-      "name": "BKNG",
+      "ticker": "AMZN",
+      "name": "AMZN",
       "market": "us",
-      "prev_norm": -0.0319,
-      "curr_norm": 0.0573
+      "prev_norm": -0.008,
+      "curr_norm": 0.0182
     },
     {
-      "ticker": "DASH",
-      "name": "DASH",
+      "ticker": "APP",
+      "name": "APP",
       "market": "us",
-      "prev_norm": -0.0195,
-      "curr_norm": 0.0449
+      "prev_norm": -0.1436,
+      "curr_norm": 0.0554
     },
     {
-      "ticker": "ROST",
-      "name": "ROST",
+      "ticker": "TTWO",
+      "name": "TTWO",
       "market": "us",
-      "prev_norm": -0.0142,
-      "curr_norm": 0.0505
+      "prev_norm": -0.0466,
+      "curr_norm": 0.0175
     },
     {
-      "ticker": "DXCM",
-      "name": "DXCM",
+      "ticker": "ARE",
+      "name": "ARE",
       "market": "us",
-      "prev_norm": -0.064,
-      "curr_norm": 0.0229
+      "prev_norm": -0.0378,
+      "curr_norm": 0.027
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "USDT",
+      "name": "Tether",
+      "market": "coin",
+      "prev_norm": -0.002,
+      "curr_norm": 0.0001
+    }
+  ]
 }
