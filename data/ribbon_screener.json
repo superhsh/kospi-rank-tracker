@@ -1,27 +1,26 @@
 {
-  "updated_at": "2026-11-07 03:53",
+  "updated_at": "2026-11-10 05:25",
   "summary": {
     "kr": 0,
-    "us": 1,
-    "coin": 1
+    "us": 2,
+    "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "ALB",
-      "name": "ALB",
+      "ticker": "AAPL",
+      "name": "AAPL",
       "market": "us",
-      "prev_norm": -0.026,
-      "curr_norm": 0.0267
+      "prev_norm": -0.0062,
+      "curr_norm": 0.0157
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MSFT",
+      "market": "us",
+      "prev_norm": -0.003,
+      "curr_norm": 0.0191
     }
   ],
-  "coin": [
-    {
-      "ticker": "USDT",
-      "name": "Tether",
-      "market": "coin",
-      "prev_norm": -0.0006,
-      "curr_norm": 0.0039
-    }
-  ]
+  "coin": []
 }
