@@ -1,25 +1,18 @@
 {
-  "updated_at": "2026-11-10 05:25",
+  "updated_at": "2026-11-11 03:56",
   "summary": {
     "kr": 0,
-    "us": 2,
+    "us": 1,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "AAPL",
-      "name": "AAPL",
+      "ticker": "A",
+      "name": "A",
       "market": "us",
-      "prev_norm": -0.0062,
-      "curr_norm": 0.0157
-    },
-    {
-      "ticker": "MSFT",
-      "name": "MSFT",
-      "market": "us",
-      "prev_norm": -0.003,
-      "curr_norm": 0.0191
+      "prev_norm": -0.0073,
+      "curr_norm": 0.0046
     }
   ],
   "coin": []
