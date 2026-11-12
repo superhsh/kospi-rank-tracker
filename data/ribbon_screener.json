@@ -1,18 +1,39 @@
 {
-  "updated_at": "2026-11-11 03:56",
+  "updated_at": "2026-11-12 05:04",
   "summary": {
     "kr": 0,
-    "us": 1,
+    "us": 4,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "A",
-      "name": "A",
+      "ticker": "MPWR",
+      "name": "MPWR",
       "market": "us",
-      "prev_norm": -0.0073,
-      "curr_norm": 0.0046
+      "prev_norm": -0.0062,
+      "curr_norm": 0.0601
+    },
+    {
+      "ticker": "PCAR",
+      "name": "PCAR",
+      "market": "us",
+      "prev_norm": -0.0091,
+      "curr_norm": 0.0336
+    },
+    {
+      "ticker": "HONA",
+      "name": "HONA",
+      "market": "us",
+      "prev_norm": -0.0034,
+      "curr_norm": 0.0333
+    },
+    {
+      "ticker": "RKLB",
+      "name": "RKLB",
+      "market": "us",
+      "prev_norm": -0.0667,
+      "curr_norm": 0.0117
     }
   ],
   "coin": []
