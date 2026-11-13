@@ -1,40 +1,48 @@
 {
-  "updated_at": "2026-11-12 05:04",
+  "updated_at": "2026-11-13 04:20",
   "summary": {
     "kr": 0,
     "us": 4,
-    "coin": 0
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "MPWR",
-      "name": "MPWR",
+      "ticker": "CEG",
+      "name": "CEG",
       "market": "us",
-      "prev_norm": -0.0062,
-      "curr_norm": 0.0601
+      "prev_norm": -0.0333,
+      "curr_norm": 0.0097
     },
     {
-      "ticker": "PCAR",
-      "name": "PCAR",
+      "ticker": "ANET",
+      "name": "ANET",
       "market": "us",
-      "prev_norm": -0.0091,
-      "curr_norm": 0.0336
+      "prev_norm": -0.0497,
+      "curr_norm": 0.028
     },
     {
-      "ticker": "HONA",
-      "name": "HONA",
+      "ticker": "T",
+      "name": "T",
       "market": "us",
-      "prev_norm": -0.0034,
-      "curr_norm": 0.0333
+      "prev_norm": -0.0235,
+      "curr_norm": 0.0088
     },
     {
-      "ticker": "RKLB",
-      "name": "RKLB",
+      "ticker": "BAC",
+      "name": "BAC",
       "market": "us",
-      "prev_norm": -0.0667,
-      "curr_norm": 0.0117
+      "prev_norm": -0.0017,
+      "curr_norm": 0.0127
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "USDC",
+      "name": "USDC",
+      "market": "coin",
+      "prev_norm": -0.0006,
+      "curr_norm": 0.0014
+    }
+  ]
 }
