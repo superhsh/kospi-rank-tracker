@@ -1,39 +1,25 @@
 {
-  "updated_at": "2026-11-13 04:20",
+  "updated_at": "2026-11-14 04:16",
   "summary": {
     "kr": 0,
-    "us": 4,
+    "us": 2,
     "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "CEG",
-      "name": "CEG",
+      "ticker": "AVGO",
+      "name": "AVGO",
       "market": "us",
-      "prev_norm": -0.0333,
-      "curr_norm": 0.0097
+      "prev_norm": -0.0163,
+      "curr_norm": 0.0248
     },
     {
-      "ticker": "ANET",
-      "name": "ANET",
+      "ticker": "TSLA",
+      "name": "TSLA",
       "market": "us",
-      "prev_norm": -0.0497,
-      "curr_norm": 0.028
-    },
-    {
-      "ticker": "T",
-      "name": "T",
-      "market": "us",
-      "prev_norm": -0.0235,
-      "curr_norm": 0.0088
-    },
-    {
-      "ticker": "BAC",
-      "name": "BAC",
-      "market": "us",
-      "prev_norm": -0.0017,
-      "curr_norm": 0.0127
+      "prev_norm": -0.0059,
+      "curr_norm": 0.0139
     }
   ],
   "coin": [
@@ -41,8 +27,8 @@
       "ticker": "USDC",
       "name": "USDC",
       "market": "coin",
-      "prev_norm": -0.0006,
-      "curr_norm": 0.0014
+      "prev_norm": -0.0021,
+      "curr_norm": 0.0016
     }
   ]
 }
