@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13 16:01",
+  "updated_at": "2026-11-16 02:32",
   "signals": {
     "TSLA_us": {
       "ticker": "TSLA",
@@ -9,7 +9,7 @@
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.006 → 당일 norm 0.013"
+          "detail": "전일 norm -0.006 → 당일 norm 0.014"
         }
       ]
     },
@@ -21,7 +21,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 6.35  >  종가 5.09"
+          "detail": "SAR 6.35  >  종가 5.08"
         }
       ]
     },
@@ -33,7 +33,19 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 13.23  >  종가 9.56"
+          "detail": "SAR 13.23  >  종가 9.62"
+        }
+      ]
+    },
+    "CRCL_us": {
+      "ticker": "CRCL",
+      "market": "us",
+      "name": "CRCL",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 17.4  ↑  %D 17.1"
         }
       ]
     },
@@ -45,7 +57,19 @@
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.016 → 당일 norm 0.016"
+          "detail": "전일 norm -0.016 → 당일 norm 0.025"
+        }
+      ]
+    },
+    "MSTR_us": {
+      "ticker": "MSTR",
+      "market": "us",
+      "name": "MSTR",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 12.2  ↑  %D 11.6"
         }
       ]
     },
@@ -55,81 +79,21 @@
       "name": "HD현대마린솔루션",
       "signals": [
         {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 155900.0  <  종가 171100.0"
-        }
-      ]
-    },
-    "011070_kospi": {
-      "ticker": "011070",
-      "market": "kospi",
-      "name": "LG이노텍",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 254500.0  <  종가 287500.0"
-        }
-      ]
-    },
-    "080220_kosdaq": {
-      "ticker": "080220",
-      "market": "kosdaq",
-      "name": "제주반도체",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 47400.0  <  종가 60500.0"
-        }
-      ]
-    },
-    "036540_kosdaq": {
-      "ticker": "036540",
-      "market": "kosdaq",
-      "name": "SFA반도체",
-      "signals": [
-        {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -2.3 → 당일 34.9"
+          "detail": "전일 -3.0 → 당일 41.4"
         }
       ]
     },
-    "420770_kosdaq": {
-      "ticker": "420770",
-      "market": "kosdaq",
-      "name": "기가비스",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 59600.0  <  종가 75200.0"
-        }
-      ]
-    },
-    "007660_kospi": {
-      "ticker": "007660",
+    "064400_kospi": {
+      "ticker": "064400",
       "market": "kospi",
-      "name": "이수페타시스",
+      "name": "LG씨엔에스",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -53.3 → 당일 8.6"
-        }
-      ]
-    },
-    "090710_kosdaq": {
-      "ticker": "090710",
-      "market": "kosdaq",
-      "name": "휴림로봇",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 4215.0  <  종가 4650.0"
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 98.5 → 당일 114.3"
         }
       ]
     }
