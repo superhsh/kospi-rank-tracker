@@ -1,99 +1,63 @@
 {
-  "updated_at": "2026-11-16 02:32",
+  "updated_at": "2026-11-16 18:12",
   "signals": {
-    "TSLA_us": {
-      "ticker": "TSLA",
+    "IONQ_us": {
+      "ticker": "IONQ",
       "market": "us",
-      "name": "TSLA",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.006 → 당일 norm 0.014"
-        }
-      ]
-    },
-    "JOBY_us": {
-      "ticker": "JOBY",
-      "market": "us",
-      "name": "JOBY",
+      "name": "IONQ",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 6.35  >  종가 5.08"
+          "detail": "SAR 36.35  >  종가 26.43"
         }
       ]
     },
-    "RGTI_us": {
-      "ticker": "RGTI",
+    "HOOD_us": {
+      "ticker": "HOOD",
       "market": "us",
-      "name": "RGTI",
+      "name": "HOOD",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 13.23  >  종가 9.62"
+          "detail": "SAR 86.15  >  종가 71.77"
         }
       ]
     },
-    "CRCL_us": {
-      "ticker": "CRCL",
+    "FSLR_us": {
+      "ticker": "FSLR",
       "market": "us",
-      "name": "CRCL",
+      "name": "FSLR",
       "signals": [
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 17.4  ↑  %D 17.1"
+          "detail": "%K 7.0  ↑  %D 6.3"
         }
       ]
     },
-    "AVGO_us": {
-      "ticker": "AVGO",
-      "market": "us",
-      "name": "AVGO",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.016 → 당일 norm 0.025"
-        }
-      ]
-    },
-    "MSTR_us": {
-      "ticker": "MSTR",
-      "market": "us",
-      "name": "MSTR",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 12.2  ↑  %D 11.6"
-        }
-      ]
-    },
-    "443060_kospi": {
-      "ticker": "443060",
-      "market": "kospi",
-      "name": "HD현대마린솔루션",
+    "166090_kosdaq": {
+      "ticker": "166090",
+      "market": "kosdaq",
+      "name": "하나머티리얼즈",
       "signals": [
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -3.0 → 당일 41.4"
+          "detail": "전일 -54.3 → 당일 1.0"
         }
       ]
     },
-    "064400_kospi": {
-      "ticker": "064400",
+    "003670_kospi": {
+      "ticker": "003670",
       "market": "kospi",
-      "name": "LG씨엔에스",
+      "name": "포스코퓨처엠",
       "signals": [
         {
-          "type": "cci_100_cross",
-          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
-          "detail": "전일 98.5 → 당일 114.3"
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 153200.0  <  종가 173200.0"
         }
       ]
     }
