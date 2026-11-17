@@ -1,39 +1,68 @@
 {
-  "updated_at": "2026-11-17 04:56",
+  "updated_at": "2026-11-17 17:30",
   "signals": {
-    "IONQ_us": {
-      "ticker": "IONQ",
+    "FCEL_us": {
+      "ticker": "FCEL",
       "market": "us",
-      "name": "IONQ",
+      "name": "FCEL",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 36.35  >  종가 26.45"
+          "detail": "SAR 11.15  >  종가 8.35"
         }
       ]
     },
-    "HOOD_us": {
-      "ticker": "HOOD",
+    "NBIX_us": {
+      "ticker": "NBIX",
       "market": "us",
-      "name": "HOOD",
+      "name": "NBIX",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 86.15  >  종가 72.06"
+          "detail": "SAR 174.59  >  종가 165.54"
         }
       ]
     },
-    "ASTS_us": {
-      "ticker": "ASTS",
+    "PLTR_us": {
+      "ticker": "PLTR",
       "market": "us",
-      "name": "ASTS",
+      "name": "PLTR",
       "signals": [
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 38.2  >  종가 28.58"
+          "detail": "SAR 175.41  >  종가 155.76"
+        }
+      ]
+    },
+    "443060_kospi": {
+      "ticker": "443060",
+      "market": "kospi",
+      "name": "HD현대마린솔루션",
+      "signals": [
+        {
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -3.0 → 당일 34.1"
+        }
+      ]
+    },
+    "NEAR_coin": {
+      "ticker": "NEAR",
+      "market": "coin",
+      "name": "NEAR Protocol",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 10.2 → 20.7  |  %D 14.2"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 20.7  ↑  %D 14.2"
         }
       ]
     }
