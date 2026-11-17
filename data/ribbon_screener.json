@@ -1,34 +1,11 @@
 {
-  "updated_at": "2026-11-14 04:16",
+  "updated_at": "2026-11-17 05:52",
   "summary": {
     "kr": 0,
-    "us": 2,
-    "coin": 1
+    "us": 0,
+    "coin": 0
   },
   "kr": [],
-  "us": [
-    {
-      "ticker": "AVGO",
-      "name": "AVGO",
-      "market": "us",
-      "prev_norm": -0.0163,
-      "curr_norm": 0.0248
-    },
-    {
-      "ticker": "TSLA",
-      "name": "TSLA",
-      "market": "us",
-      "prev_norm": -0.0059,
-      "curr_norm": 0.0139
-    }
-  ],
-  "coin": [
-    {
-      "ticker": "USDC",
-      "name": "USDC",
-      "market": "coin",
-      "prev_norm": -0.0021,
-      "curr_norm": 0.0016
-    }
-  ]
+  "us": [],
+  "coin": []
 }
