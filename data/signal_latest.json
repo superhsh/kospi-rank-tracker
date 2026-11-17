@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-16 18:12",
+  "updated_at": "2026-11-17 04:56",
   "signals": {
     "IONQ_us": {
       "ticker": "IONQ",
@@ -9,7 +9,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 36.35  >  종가 26.43"
+          "detail": "SAR 36.35  >  종가 26.45"
         }
       ]
     },
@@ -21,43 +21,19 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 86.15  >  종가 71.77"
+          "detail": "SAR 86.15  >  종가 72.06"
         }
       ]
     },
-    "FSLR_us": {
-      "ticker": "FSLR",
+    "ASTS_us": {
+      "ticker": "ASTS",
       "market": "us",
-      "name": "FSLR",
+      "name": "ASTS",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 7.0  ↑  %D 6.3"
-        }
-      ]
-    },
-    "166090_kosdaq": {
-      "ticker": "166090",
-      "market": "kosdaq",
-      "name": "하나머티리얼즈",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -54.3 → 당일 1.0"
-        }
-      ]
-    },
-    "003670_kospi": {
-      "ticker": "003670",
-      "market": "kospi",
-      "name": "포스코퓨처엠",
-      "signals": [
-        {
-          "type": "sar_buy",
-          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
-          "detail": "SAR 153200.0  <  종가 173200.0"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 38.2  >  종가 28.58"
         }
       ]
     }
