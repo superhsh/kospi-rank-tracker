@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17 17:30",
+  "updated_at": "2026-11-18 04:00",
   "signals": {
     "FCEL_us": {
       "ticker": "FCEL",
@@ -9,7 +9,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 11.15  >  종가 8.35"
+          "detail": "SAR 11.15  >  종가 8.25"
         }
       ]
     },
@@ -21,7 +21,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 174.59  >  종가 165.54"
+          "detail": "SAR 174.59  >  종가 165.92"
         }
       ]
     },
@@ -33,19 +33,31 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 175.41  >  종가 155.76"
+          "detail": "SAR 175.41  >  종가 156.56"
         }
       ]
     },
-    "443060_kospi": {
-      "ticker": "443060",
-      "market": "kospi",
-      "name": "HD현대마린솔루션",
+    "080220_kosdaq": {
+      "ticker": "080220",
+      "market": "kosdaq",
+      "name": "제주반도체",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 69100.0  >  종가 50200.0"
+        }
+      ]
+    },
+    "036540_kosdaq": {
+      "ticker": "036540",
+      "market": "kosdaq",
+      "name": "SFA반도체",
       "signals": [
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -3.0 → 당일 34.1"
+          "detail": "전일 -3.1 → 당일 10.8"
         }
       ]
     },
@@ -55,14 +67,21 @@
       "name": "NEAR Protocol",
       "signals": [
         {
-          "type": "stoch_oversold_exit",
-          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
-          "detail": "%K 10.2 → 20.7  |  %D 14.2"
-        },
-        {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 20.7  ↑  %D 14.2"
+          "detail": "%K 19.7  ↑  %D 13.9"
+        }
+      ]
+    },
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 44900.0  >  종가 36200.0"
         }
       ]
     }
