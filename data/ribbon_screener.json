@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-11-18 05:19",
+  "updated_at": "2026-11-19 05:15",
   "summary": {
     "kr": 0,
-    "us": 0,
-    "coin": 1
+    "us": 1,
+    "coin": 0
   },
   "kr": [],
-  "us": [],
-  "coin": [
+  "us": [
     {
-      "ticker": "DAI",
-      "name": "Dai",
-      "market": "coin",
-      "prev_norm": -0.0022,
-      "curr_norm": 0.0001
+      "ticker": "DXCM",
+      "name": "DXCM",
+      "market": "us",
+      "prev_norm": -0.0063,
+      "curr_norm": 0.0078
     }
-  ]
+  ],
+  "coin": []
 }
