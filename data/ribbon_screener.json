@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19 05:15",
+  "updated_at": "2026-11-20 05:01",
   "summary": {
     "kr": 0,
     "us": 1,
@@ -8,11 +8,11 @@
   "kr": [],
   "us": [
     {
-      "ticker": "DXCM",
-      "name": "DXCM",
+      "ticker": "AKAM",
+      "name": "AKAM",
       "market": "us",
-      "prev_norm": -0.0063,
-      "curr_norm": 0.0078
+      "prev_norm": -0.0346,
+      "curr_norm": 0.0098
     }
   ],
   "coin": []
