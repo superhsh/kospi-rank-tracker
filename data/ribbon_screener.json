@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20 05:01",
+  "updated_at": "2026-11-21 04:57",
   "summary": {
     "kr": 0,
     "us": 1,
@@ -8,11 +8,11 @@
   "kr": [],
   "us": [
     {
-      "ticker": "AKAM",
-      "name": "AKAM",
+      "ticker": "PDD",
+      "name": "PDD",
       "market": "us",
-      "prev_norm": -0.0346,
-      "curr_norm": 0.0098
+      "prev_norm": -0.0139,
+      "curr_norm": 0.028
     }
   ],
   "coin": []
