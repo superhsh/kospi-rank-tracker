@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-11-20 16:52",
+  "updated_at": "2026-11-23 03:27",
   "signals": {
+    "TSLA_us": {
+      "ticker": "TSLA",
+      "market": "us",
+      "name": "TSLA",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 404.4  >  종가 345.82"
+        }
+      ]
+    },
     "JOBY_us": {
       "ticker": "JOBY",
       "market": "us",
@@ -9,7 +21,55 @@
         {
           "type": "stoch_golden_cross",
           "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 1.4  ↑  %D 0.9"
+          "detail": "%K 0.9  ↑  %D 0.7"
+        }
+      ]
+    },
+    "FCEL_us": {
+      "ticker": "FCEL",
+      "market": "us",
+      "name": "FCEL",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 3.2  ↑  %D 3.2"
+        }
+      ]
+    },
+    "OKLO_us": {
+      "ticker": "OKLO",
+      "market": "us",
+      "name": "OKLO",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 27.73  >  종가 19.85"
+        }
+      ]
+    },
+    "AVGO_us": {
+      "ticker": "AVGO",
+      "market": "us",
+      "name": "AVGO",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 369.82  >  종가 304.41"
+        }
+      ]
+    },
+    "ALAB_us": {
+      "ticker": "ALAB",
+      "market": "us",
+      "name": "ALAB",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 240.05  >  종가 180.35"
         }
       ]
     },
@@ -21,19 +81,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 594.0  >  종가 436.42"
-        }
-      ]
-    },
-    "LEU_us": {
-      "ticker": "LEU",
-      "market": "us",
-      "name": "LEU",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 4.8  ↑  %D 4.7"
+          "detail": "SAR 594.0  >  종가 424.39"
         }
       ]
     },
@@ -45,7 +93,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 245.73  >  종가 183.98"
+          "detail": "SAR 245.73  >  종가 187.22"
         }
       ]
     },
@@ -57,31 +105,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 62.03  >  종가 40.2"
-        }
-      ]
-    },
-    "MSTR_us": {
-      "ticker": "MSTR",
-      "market": "us",
-      "name": "MSTR",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 1.5  ↑  %D 1.3"
-        }
-      ]
-    },
-    "443060_kospi": {
-      "ticker": "443060",
-      "market": "kospi",
-      "name": "HD현대마린솔루션",
-      "signals": [
-        {
-          "type": "ribbon_buy",
-          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.036 → 당일 norm 0.006"
+          "detail": "SAR 62.03  >  종가 39.51"
         }
       ]
     },
@@ -91,38 +115,9 @@
       "name": "LG이노텍",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 42.2  ↑  %D 38.1"
-        }
-      ]
-    },
-    "307950_kospi": {
-      "ticker": "307950",
-      "market": "kospi",
-      "name": "현대오토에버",
-      "signals": [
-        {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -7.8 → 당일 13.6"
-        },
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 58.4  ↑  %D 48.8"
-        }
-      ]
-    },
-    "417200_kosdaq": {
-      "ticker": "417200",
-      "market": "kosdaq",
-      "name": "LS머트리얼즈",
-      "signals": [
-        {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 10710.0  >  종가 9390.0"
+          "detail": "SAR 303000.0  >  종가 253000.0"
         }
       ]
     },
@@ -134,12 +129,17 @@
         {
           "type": "cci_zero_cross",
           "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -39.5 → 당일 29.9"
+          "detail": "전일 -39.5 → 당일 37.0"
+        },
+        {
+          "type": "sar_buy",
+          "label": "🟢 파라볼릭 SAR 매수 신호 (하락→상승 전환)",
+          "detail": "SAR 49.8  <  종가 49.96"
         },
         {
           "type": "ribbon_buy",
           "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
-          "detail": "전일 norm -0.017 → 당일 norm 0.005"
+          "detail": "전일 norm -0.017 → 당일 norm 0.002"
         }
       ]
     },
@@ -151,19 +151,7 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 8.72  >  종가 5.84"
-        }
-      ]
-    },
-    "420770_kosdaq": {
-      "ticker": "420770",
-      "market": "kosdaq",
-      "name": "기가비스",
-      "signals": [
-        {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 48.8  ↑  %D 48.2"
+          "detail": "SAR 8.72  >  종가 5.65"
         }
       ]
     },
@@ -175,7 +163,19 @@
         {
           "type": "sar_sell",
           "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
-          "detail": "SAR 274.21  >  종가 243.18"
+          "detail": "SAR 274.21  >  종가 235.15"
+        }
+      ]
+    },
+    "007660_kospi": {
+      "ticker": "007660",
+      "market": "kospi",
+      "name": "이수페타시스",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 37.4  ↑  %D 36.3"
         }
       ]
     },
@@ -185,9 +185,24 @@
       "name": "휴림로봇",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 41.5  ↑  %D 29.9"
+          "type": "cci_zero_cross",
+          "label": "📈 CCI 기준선(0) 상향돌파",
+          "detail": "전일 -97.5 → 당일 136.8"
+        },
+        {
+          "type": "cci_100_cross",
+          "label": "🚀 CCI +100선 상향돌파 (과매수 진입)",
+          "detail": "전일 -97.5 → 당일 136.8"
+        },
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 4950.0  >  종가 5720.0"
+        },
+        {
+          "type": "ribbon_buy",
+          "label": "🟢 Ribbon 매수 신호 (하락→상승 전환)",
+          "detail": "전일 norm -0.084 → 당일 norm 0.029"
         }
       ]
     }
