@@ -1,18 +1,25 @@
 {
-  "updated_at": "2026-11-21 04:57",
+  "updated_at": "2026-11-24 07:44",
   "summary": {
     "kr": 0,
-    "us": 1,
+    "us": 2,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "PDD",
-      "name": "PDD",
+      "ticker": "PCAR",
+      "name": "PCAR",
       "market": "us",
-      "prev_norm": -0.0139,
-      "curr_norm": 0.028
+      "prev_norm": -0.0061,
+      "curr_norm": 0.0021
+    },
+    {
+      "ticker": "BIIB",
+      "name": "BIIB",
+      "market": "us",
+      "prev_norm": -0.001,
+      "curr_norm": 0.0076
     }
   ],
   "coin": []
