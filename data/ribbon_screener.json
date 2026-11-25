@@ -1,25 +1,32 @@
 {
-  "updated_at": "2026-11-24 07:44",
+  "updated_at": "2026-11-25 06:16",
   "summary": {
     "kr": 0,
-    "us": 2,
+    "us": 3,
     "coin": 0
   },
   "kr": [],
   "us": [
     {
-      "ticker": "PCAR",
-      "name": "PCAR",
+      "ticker": "PANW",
+      "name": "PANW",
       "market": "us",
-      "prev_norm": -0.0061,
-      "curr_norm": 0.0021
+      "prev_norm": -0.0277,
+      "curr_norm": 0.0073
     },
     {
-      "ticker": "BIIB",
-      "name": "BIIB",
+      "ticker": "VRTX",
+      "name": "VRTX",
       "market": "us",
-      "prev_norm": -0.001,
-      "curr_norm": 0.0076
+      "prev_norm": -0.0191,
+      "curr_norm": 0.0237
+    },
+    {
+      "ticker": "DXCM",
+      "name": "DXCM",
+      "market": "us",
+      "prev_norm": -0.0067,
+      "curr_norm": 0.0253
     }
   ],
   "coin": []
