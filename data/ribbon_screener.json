@@ -1,33 +1,41 @@
 {
-  "updated_at": "2026-11-25 06:16",
+  "updated_at": "2026-11-26 06:08",
   "summary": {
     "kr": 0,
     "us": 3,
-    "coin": 0
+    "coin": 1
   },
   "kr": [],
   "us": [
     {
-      "ticker": "PANW",
-      "name": "PANW",
+      "ticker": "HON",
+      "name": "HON",
       "market": "us",
-      "prev_norm": -0.0277,
-      "curr_norm": 0.0073
+      "prev_norm": -0.0074,
+      "curr_norm": 0.0067
     },
     {
-      "ticker": "VRTX",
-      "name": "VRTX",
+      "ticker": "ARE",
+      "name": "ARE",
       "market": "us",
-      "prev_norm": -0.0191,
-      "curr_norm": 0.0237
+      "prev_norm": -0.009,
+      "curr_norm": 0.008
     },
     {
-      "ticker": "DXCM",
-      "name": "DXCM",
+      "ticker": "AVY",
+      "name": "AVY",
       "market": "us",
-      "prev_norm": -0.0067,
-      "curr_norm": 0.0253
+      "prev_norm": -0.012,
+      "curr_norm": 0.0114
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "DAI",
+      "name": "Dai",
+      "market": "coin",
+      "prev_norm": -0.0048,
+      "curr_norm": 0.0001
+    }
+  ]
 }
