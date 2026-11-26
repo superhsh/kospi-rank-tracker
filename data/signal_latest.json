@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26 04:40",
+  "updated_at": "2026-11-26 18:16",
   "signals": {
     "PLUG_us": {
       "ticker": "PLUG",
@@ -162,6 +162,71 @@
         }
       ]
     },
+    "443060_kospi": {
+      "ticker": "443060",
+      "market": "kospi",
+      "name": "HD현대마린솔루션",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 68.2  ↑  %D 65.3"
+        }
+      ]
+    },
+    "064400_kospi": {
+      "ticker": "064400",
+      "market": "kospi",
+      "name": "LG씨엔에스",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 11.6 → 21.7  |  %D 15.3"
+        },
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 21.7  ↑  %D 15.3"
+        }
+      ]
+    },
+    "011070_kospi": {
+      "ticker": "011070",
+      "market": "kospi",
+      "name": "LG이노텍",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 44.1  ↑  %D 36.0"
+        }
+      ]
+    },
+    "307950_kospi": {
+      "ticker": "307950",
+      "market": "kospi",
+      "name": "현대오토에버",
+      "signals": [
+        {
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 64.4  ↑  %D 54.6"
+        }
+      ]
+    },
+    "166090_kosdaq": {
+      "ticker": "166090",
+      "market": "kosdaq",
+      "name": "하나머티리얼즈",
+      "signals": [
+        {
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 49800.0  >  종가 38950.0"
+        }
+      ]
+    },
     "ATOM_coin": {
       "ticker": "ATOM",
       "market": "coin",
@@ -216,9 +281,21 @@
       "name": "기가비스",
       "signals": [
         {
-          "type": "stoch_golden_cross",
-          "label": "🟡 Slow Stoch %K/%D 골든크로스",
-          "detail": "%K 35.7  ↑  %D 30.5"
+          "type": "sar_sell",
+          "label": "🔴 파라볼릭 SAR 매도 신호 (상승→하락 전환)",
+          "detail": "SAR 84000.0  >  종가 68200.0"
+        }
+      ]
+    },
+    "347850_kosdaq": {
+      "ticker": "347850",
+      "market": "kosdaq",
+      "name": "디앤디파마텍",
+      "signals": [
+        {
+          "type": "stoch_oversold_exit",
+          "label": "🔵 Slow Stoch %K 침체선(20) 상향돌파",
+          "detail": "%K 15.1 → 26.5  |  %D 19.2"
         }
       ]
     },
@@ -234,15 +311,15 @@
         }
       ]
     },
-    "003670_kospi": {
-      "ticker": "003670",
+    "007660_kospi": {
+      "ticker": "007660",
       "market": "kospi",
-      "name": "포스코퓨처엠",
+      "name": "이수페타시스",
       "signals": [
         {
-          "type": "cci_zero_cross",
-          "label": "📈 CCI 기준선(0) 상향돌파",
-          "detail": "전일 -18.7 → 당일 20.6"
+          "type": "stoch_golden_cross",
+          "label": "🟡 Slow Stoch %K/%D 골든크로스",
+          "detail": "%K 18.6  ↑  %D 18.4"
         }
       ]
     }
