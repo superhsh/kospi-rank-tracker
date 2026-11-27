@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-11-26 06:08",
+  "updated_at": "2026-11-27 05:59",
   "summary": {
     "kr": 0,
     "us": 3,
-    "coin": 1
+    "coin": 0
   },
   "kr": [],
   "us": [
@@ -25,17 +25,9 @@
       "ticker": "AVY",
       "name": "AVY",
       "market": "us",
-      "prev_norm": -0.012,
+      "prev_norm": -0.0119,
       "curr_norm": 0.0114
     }
   ],
-  "coin": [
-    {
-      "ticker": "DAI",
-      "name": "Dai",
-      "market": "coin",
-      "prev_norm": -0.0048,
-      "curr_norm": 0.0001
-    }
-  ]
+  "coin": []
 }
