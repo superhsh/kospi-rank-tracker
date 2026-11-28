@@ -1,33 +1,76 @@
 {
-  "updated_at": "2026-11-27 05:59",
+  "updated_at": "2026-11-28 05:40",
   "summary": {
     "kr": 0,
-    "us": 3,
-    "coin": 0
+    "us": 7,
+    "coin": 2
   },
   "kr": [],
   "us": [
     {
-      "ticker": "HON",
-      "name": "HON",
+      "ticker": "AMGN",
+      "name": "AMGN",
       "market": "us",
-      "prev_norm": -0.0074,
-      "curr_norm": 0.0067
+      "prev_norm": -0.0238,
+      "curr_norm": 0.0126
     },
     {
-      "ticker": "ARE",
-      "name": "ARE",
+      "ticker": "LIN",
+      "name": "LIN",
       "market": "us",
-      "prev_norm": -0.009,
-      "curr_norm": 0.008
+      "prev_norm": -0.0368,
+      "curr_norm": 0.0053
     },
     {
-      "ticker": "AVY",
-      "name": "AVY",
+      "ticker": "CTAS",
+      "name": "CTAS",
       "market": "us",
-      "prev_norm": -0.0119,
-      "curr_norm": 0.0114
+      "prev_norm": -0.0183,
+      "curr_norm": 0.0009
+    },
+    {
+      "ticker": "PAYX",
+      "name": "PAYX",
+      "market": "us",
+      "prev_norm": -0.0092,
+      "curr_norm": 0.0149
+    },
+    {
+      "ticker": "A",
+      "name": "A",
+      "market": "us",
+      "prev_norm": -0.0006,
+      "curr_norm": 0.0162
+    },
+    {
+      "ticker": "AMP",
+      "name": "AMP",
+      "market": "us",
+      "prev_norm": -0.0132,
+      "curr_norm": 0.0025
+    },
+    {
+      "ticker": "BBY",
+      "name": "BBY",
+      "market": "us",
+      "prev_norm": -0.0154,
+      "curr_norm": 0.0082
     }
   ],
-  "coin": []
+  "coin": [
+    {
+      "ticker": "USDT",
+      "name": "Tether",
+      "market": "coin",
+      "prev_norm": -0.0035,
+      "curr_norm": 0.004
+    },
+    {
+      "ticker": "DAI",
+      "name": "Dai",
+      "market": "coin",
+      "prev_norm": -0.0064,
+      "curr_norm": 0.0005
+    }
+  ]
 }
